@@ -1,19 +1,11 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+import { Text, View } from 'react-native';
+import {style} from './style/style.js';
 
 export default function App() {
   return (
-    <View style={styles.container}>
-      <Text>Breathanalyzer</Text>
+    <View style={style.container}>
+      <Text style={style.title}>Breathanalyzer</Text>
       <StatusBar style="auto" />
     </View>
   );
