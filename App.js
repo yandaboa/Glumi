@@ -1,12 +1,17 @@
-import { StatusBar } from 'expo-status-bar';
 import { Text, View } from 'react-native';
-import {style} from './style/style.js';
+import { style } from './style/style.js';
+import LinearGradient from 'react-native-linear-gradient';
 
 export default function App() {
   return (
-    <View style={style.container}>
-      <Text style={style.title}>Breathanalyzer</Text>
-      <StatusBar style="auto" />
+
+    <View style={styles.container}>
+      <LinearGradient
+        colors={['red', 'yellow', 'green']}
+        style={styles.background}
+      >
+        <Text>Vertical Gradient</Text>
+      </LinearGradient>
     </View>
   );
 }
