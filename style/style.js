@@ -8,10 +8,11 @@ const style = StyleSheet.create({
     },
 
     background: {
+        flex: 1,
         alignItems: 'center',
         justifyContent: 'center',
-        height: 1080,
-        width: 100,
+        height: '100%',
+        width: '100%',
     },
 
     title: {
