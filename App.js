@@ -11,9 +11,20 @@ export default function App() {
         end={{ x: 1, y: 1 }}
         style={style.background}
       >
-        <Text>RENA OUR SAVIOR</Text>
+        <Text style={style.title}>{Greeting()}</Text>
       </LinearGradient>
     </View>
   );
+}
+
+function Greeting() {
+  let greeting = "Good Morning";
+  let time = Date();
+  if (time.getHours() > 18) {
+    greeting = "Good Afternoon";
+  } else if (time.getHours() > 12) {
+    greeting = "Good Evening";
+  }
+  return greeting;
 }
 

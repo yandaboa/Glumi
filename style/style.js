@@ -16,7 +16,10 @@ const style = StyleSheet.create({
     },
 
     title: {
-        color: '#C8DCFF'
+        color: '#FFFFF',
+        position: "absolute",
+        top: 0,
+        left: 0,
     },
 });
 
