@@ -54,7 +54,7 @@ const style = StyleSheet.create({
     },
 
     text: {
-        color: 'blue',
+        color: '#CCCCFF',
         fontSize: 18,
     }
 });

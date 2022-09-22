@@ -16,6 +16,9 @@ export default function App() {
     'Arboria-BookItalic': require('./assets/fonts/Arboria-BookItalic.otf'),
   });
 
+  if (!fontsLoaded)
+    return null;
+
   return (
     <View style={style.container}>
       <LinearGradient
@@ -25,7 +28,7 @@ export default function App() {
         style={style.background}
       >
         <Text style={[fontStyle.boldItalic, style.title]}>{Greeting()}</Text>
-        <Text style={[fontStyle.book, style.text]}>The quick Hello World this is a weird message to type but the egg or an egg jumped off the wall</Text>
+        <Text style={[fontStyle.book, style.text]}>The quick Hello World this is a weird message to type but the egg or an egg jumped off the wall; however, the font actually might be fixed</Text>
       </LinearGradient>
     </View>
   );
