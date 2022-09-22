@@ -1,6 +1,34 @@
 import { StyleSheet } from 'react-native';
 
+const fontStyle = StyleSheet.create({
+    black:{
+        fontFamily: "Arboria-Black"
+    },
+    bold:{
+        fontFamily: "Arboria-Bold"
+    },
+    medium:{
+        fontFamily: "Arboria-Medium"
+    },
+    book:{
+        fontFamily: "Arboria-Book"
+    },
+    blackItalic:{
+        fontFamily: "Arboria-BlackItalic"
+    },
+    boldItalic:{
+        fontFamily: "Arboria-BoldItalic"
+    },
+    mediumItalic:{
+        fontFamily: "Arboria-MediumItalic"
+    },
+    bookItalic:{
+        fontFamily: "Arboria-BookItalic"
+    },
+});
+
 const style = StyleSheet.create({
+
     container: {
         flex: 1,
         alignItems: 'center',
@@ -13,14 +41,22 @@ const style = StyleSheet.create({
         justifyContent: 'center',
         height: '100%',
         width: '100%',
+        padding: 50,
+        paddingTop: 100,
     },
 
     title: {
-        color: '#FFFFF',
+        color: '#FFFFFF',
         position: "absolute",
-        top: 0,
-        left: 0,
+        fontSize: 60,
+        top: 100,
+        left: 50,
     },
+
+    text: {
+        color: 'blue',
+        fontSize: 18,
+    }
 });
 
-export { style }
+export { style, fontStyle }
