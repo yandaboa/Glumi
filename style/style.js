@@ -1,62 +1,62 @@
 import { StyleSheet } from 'react-native';
 
 const fontStyle = StyleSheet.create({
-    black:{
+    black: {
         fontFamily: "Arboria-Black"
     },
-    bold:{
+    bold: {
         fontFamily: "Arboria-Bold"
     },
-    medium:{
+    medium: {
         fontFamily: "Arboria-Medium"
     },
-    book:{
+    book: {
         fontFamily: "Arboria-Book"
     },
-    blackItalic:{
+    blackItalic: {
         fontFamily: "Arboria-BlackItalic"
     },
-    boldItalic:{
+    boldItalic: {
         fontFamily: "Arboria-BoldItalic"
     },
-    mediumItalic:{
+    mediumItalic: {
         fontFamily: "Arboria-MediumItalic"
     },
-    bookItalic:{
+    bookItalic: {
         fontFamily: "Arboria-BookItalic"
     },
 });
 
 const style = StyleSheet.create({
 
-    container: {
-        flex: 1,
-        alignItems: 'center',
-        justifyContent: 'center',
-    },
-
     background: {
         flex: 1,
         alignItems: 'center',
         justifyContent: 'center',
-        height: '100%',
-        width: '100%',
-        padding: 50,
-        paddingTop: 100,
+        overflow: "scroll",
+    },
+
+    container: {
+        flex: 1,
     },
 
     title: {
         color: '#FFFFFF',
-        position: "absolute",
         fontSize: 60,
-        top: 100,
-        left: 50,
+        top: 0,
+        left: 0,
+    },
+
+    content: {
+        flex: 1,
+        justifyContent: "center",
+        alignItems: "center",
     },
 
     text: {
         color: '#CCCCFF',
         fontSize: 18,
-    }
+    },
 });
 
 export { style, fontStyle }

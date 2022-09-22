@@ -1,10 +1,10 @@
-import { Text, View } from 'react-native';
+import { Text, View, SafeAreaView } from 'react-native';
 import { style, fontStyle } from './style/style.js';
 import { LinearGradient } from 'expo-linear-gradient';
 import { useFonts } from 'expo-font';
 
 export default function App() {
-  const [fontsLoaded] = useFonts({
+  const [fontsLoad] = useFonts({
     'Arboria-Black': require('./assets/fonts/Arboria-Black.otf'),
     'Arboria-Bold': require('./assets/fonts/Arboria-Bold.otf'),
     'Arboria-Medium': require('./assets/fonts/Arboria-Medium.otf'),
@@ -16,31 +16,35 @@ export default function App() {
     'Arboria-BookItalic': require('./assets/fonts/Arboria-BookItalic.otf'),
   });
 
-  if (!fontsLoaded)
+  if (!fontsLoad)
     return null;
 
   return (
-    <View style={style.container}>
-      <LinearGradient
-        colors={['#66CC99', '#3399FF', '#CCCCFF']}
-        start={{ x: 0, y: 0 }}
-        end={{ x: 1, y: 1 }}
-        style={style.background}
-      >
-        <Text style={[fontStyle.boldItalic, style.title]}>{Greeting()}</Text>
-        <Text style={[fontStyle.book, style.text]}>The quick Hello World this is a weird message to type but the egg or an egg jumped off the wall; however, the font actually might be fixed</Text>
-      </LinearGradient>
-    </View>
+    <LinearGradient
+      colors={['#66CC99', '#3399FF', '#CCCCFF']}
+      start={{ x: 0, y: 0 }}
+      end={{ x: 1, y: 1 }}
+      style={style.background}
+    >
+      <SafeAreaView style={style.container}>
+        <Text numberOfLines={2} style={[fontStyle.boldItalic, style.title]}>{Greeting()}</Text>
+      </SafeAreaView>
+      <View style={style.content}>
+          <Text style={[fontStyle.book, style.text]}>
+              The egg jumped over the wall
+          </Text>
+        </View>
+    </LinearGradient>
   );
 }
 
 function Greeting() {
-  let greeting = "Good\nMorning";
+  let greeting = "Good Morning";
   let time = new Date();
   if (time.getHours() > 18) {
-    greeting = "Good\nAfternoon";
+    greeting = "Good Afternoon";
   } else if (time.getHours() > 12) {
-    greeting = "Good\nEvening";
+    greeting = "Good Evening";
   }
   return greeting;
 }
