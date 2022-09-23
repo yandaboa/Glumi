@@ -26,14 +26,34 @@ export default function App() {
       end={{ x: 1, y: 1 }}
       style={style.background}
     >
+      <View style={style.content}>
+        <Text style={[fontStyle.book, style.text, { backgroundColor: "cyan" }]}>
+            sidebar icon
+        </Text>
+      </View>
       <SafeAreaView style={style.container}>
         <Text numberOfLines={2} style={[fontStyle.boldItalic, style.title]}>{Greeting()}</Text>
       </SafeAreaView>
+      <View style={style.mainGraph}>
+        <Text style={[fontStyle.book, style.text, { backgroundColor: "yellow" }]}>
+          This is the square Acetone Graph Place Holder
+        </Text>
+      </View>
       <View style={style.content}>
-          <Text style={[fontStyle.book, style.text]}>
-              The egg jumped over the wall
-          </Text>
-        </View>
+        <Text style={[fontStyle.book, style.text, { backgroundColor: "green" }]}>
+          This is a summary of the data on the Acetone Graph place holder
+        </Text>
+      </View>
+      <View style={style.content}>
+        <Text style={[fontStyle.book, style.text, { backgroundColor: "blue" }]}>
+          Input data div place holder
+        </Text>
+      </View>
+      <View style={style.content}>
+        <Text style={[fontStyle.book, style.text, { backgroundColor: "red" }]}>
+          Potential Blood Pressure div
+        </Text>
+      </View>
     </LinearGradient>
   );
 }

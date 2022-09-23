@@ -33,7 +33,7 @@ const style = StyleSheet.create({
         flex: 1,
         alignItems: 'center',
         justifyContent: 'center',
-        overflow: "scroll",
+        flexWrap: 'wrap'
     },
 
     container: {
@@ -48,7 +48,7 @@ const style = StyleSheet.create({
     },
 
     content: {
-        flex: 1,
+        flex: 3,
         justifyContent: "center",
         alignItems: "center",
     },
