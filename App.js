@@ -40,7 +40,7 @@ function homePage() {
             {sidebar()}
           </View>
           <SafeAreaView style={homescreen.container}>
-            <Text numberOfLines={3} style={general.title}>
+            <Text style={general.title}>
               {greeting()}
             </Text>
           </SafeAreaView>
