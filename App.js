@@ -41,7 +41,7 @@ function homePage() {
           </View>
           <SafeAreaView style={homescreen.container}>
             <Text numberOfLines={3} style={general.title}>
-              {Greeting()}
+              {greeting()}
             </Text>
           </SafeAreaView>
           <SafeAreaView style={homescreen.mainInfograph}>
@@ -82,11 +82,13 @@ function acetoneGraph() {
 
 function acetoneGraphAnalysis() {
   let analysis = `
-  <Text style={general.text}>
   This is a summary of the data on the Acetone Graph place holder
-  </Text>
   `
-  return (analysis);
+  return (
+    <Text style={general.text}>
+      {analysis}
+    </Text>
+  );
 }
 
 function inputData() {
@@ -107,7 +109,7 @@ function bloodPressureGraph() {
 
 
 
-function Greeting() {
+function greeting() {
   let greeting = "Good\nMorning";
   let time = new Date();
   if (time.getHours() > 18) {
