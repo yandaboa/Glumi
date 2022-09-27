@@ -1,31 +1,5 @@
 import { StyleSheet } from 'react-native';
-
-const fontStyle = StyleSheet.create({
-    black: {
-        fontFamily: "Arboria-Black"
-    },
-    bold: {
-        fontFamily: "Arboria-Bold"
-    },
-    medium: {
-        fontFamily: "Arboria-Medium"
-    },
-    book: {
-        fontFamily: "Arboria-Book"
-    },
-    blackItalic: {
-        fontFamily: "Arboria-BlackItalic"
-    },
-    boldItalic: {
-        fontFamily: "Arboria-BoldItalic"
-    },
-    mediumItalic: {
-        fontFamily: "Arboria-MediumItalic"
-    },
-    bookItalic: {
-        fontFamily: "Arboria-BookItalic"
-    },
-});
+var {vw, vh, vmin, vmax} = require('react-native-viewport-units');
 
 const general = StyleSheet.create({
 
@@ -72,13 +46,15 @@ const homescreen = StyleSheet.create({
     sideBar: {
         backgroundColor: "purple",
         position: "absolute",
+        right: 0,
+        top: 0,
     },
 
     mainInfograph: {
         flex: 3,
         aspectRatio: "1 / 1",
         flexWrap: "wrap",
-        backgroundColor: "orange",
+        backgroundColor: "#FFA500",
         margin: 10,
     },
 
@@ -90,13 +66,13 @@ const homescreen = StyleSheet.create({
     },
 
     inforgraphAnalysis: {
-        backgroundColor: "green",
+        backgroundColor: "#00FF00",
         flex: 2,
     },
 
     inputData: {
         flex: 1,
-        backgroundColor: "blue",
+        backgroundColor: "#0000FF",
     },
 
     bloodPressure: {
