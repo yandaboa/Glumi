@@ -16,11 +16,17 @@ export default function App() {
     'Arboria-BookItalic': require('./assets/fonts/Arboria-BookItalic.otf'),
   });
 
-  console.log("app is loading");
+  console.log("app is loading or loaded depending on how you put it");
 
   if (!fontsLoad)
     return null;
 
+  return (
+    homePage()
+  );
+}
+
+function homePage() {
   return (
     <LinearGradient
       colors={['#66CC99', '#3399FF', '#CCCCFF']}
@@ -31,44 +37,75 @@ export default function App() {
       <SafeAreaView>
         <ScrollView style={general.container}>
           <View style={homescreen.sideBar}>
-            <Text style={general.text}>
-              sidebar icon
-            </Text>
+            {sidebar()}
           </View>
           <SafeAreaView style={homescreen.container}>
             <Text numberOfLines={3} style={general.title}>
-              {/* {Greeting()} */}
-              Good Evening
-
+              {Greeting()}
             </Text>
           </SafeAreaView>
           <SafeAreaView style={homescreen.mainInfograph}>
-            <Text style={general.text}>
-              This is the square Acetone Graph Place Holder
-            </Text>
+            {acetoneGraph()}
           </SafeAreaView>
           <SafeAreaView style={homescreen.subContent}>
             <SafeAreaView style={homescreen.inforgraphAnalysis}>
-              <Text style={general.text}>
-                This is a summary of the data on the Acetone Graph place holder
-              </Text>
+              {acetoneGraphAnalysis()}
             </SafeAreaView>
             <SafeAreaView style={homescreen.inputData}>
-              <Text style={general.text}>
-                Input data div place holder
-              </Text>
+              {inputData()}
             </SafeAreaView>
           </SafeAreaView>
           <View style={homescreen.bloodPressure}>
-            <Text style={general.text}>
-              Potential Blood Pressure div
-            </Text>
+            {bloodPressureGraph()}
           </View>
         </ScrollView>
       </SafeAreaView>
     </LinearGradient>
   );
 }
+
+function sidebar() {
+  return (
+    <Text style={general.text}>
+      sidebar icon
+    </Text>
+  );
+}
+
+function acetoneGraph() {
+  return (
+    <Text style={general.text}>
+      This is the square Acetone Graph Place Holder
+    </Text>
+  );
+}
+
+function acetoneGraphAnalysis() {
+  let analysis = `
+  <Text style={general.text}>
+  This is a summary of the data on the Acetone Graph place holder
+  </Text>
+  `
+  return (analysis);
+}
+
+function inputData() {
+  return (
+    <Text style={general.text}>
+      Input data div place holder
+    </Text>
+  );
+}
+
+function bloodPressureGraph() {
+  return (
+    <Text style={general.text}>
+      Potential Blood Pressure div
+    </Text>
+  );
+}
+
+
 
 function Greeting() {
   let greeting = "Good\nMorning";
