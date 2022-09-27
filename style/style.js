@@ -27,24 +27,31 @@ const fontStyle = StyleSheet.create({
     },
 });
 
-const style = StyleSheet.create({
+const general = StyleSheet.create({
 
     background: {
         flex: 1,
         alignItems: 'center',
         justifyContent: 'center',
-        flexWrap: 'wrap'
+        flexWrap: 'wrap',
+        height: "100%",
+        width: "100%",
     },
 
     container: {
         flex: 1,
+        flexWrap: "wrap",
+        flexDirection: "row",
+        width: "100%",
+        height: "100%",
+        margin: 10,
     },
 
     title: {
         color: '#FFFFFF',
-        fontSize: 60,
-        top: 0,
-        left: 0,
+        fontSize: 64,
+        position: "relative",
+        fontFamily: "Arboria-BoldItalic",
     },
 
     content: {
@@ -54,9 +61,47 @@ const style = StyleSheet.create({
     },
 
     text: {
-        color: '#CCCCFF',
+        color: '#FFFFFF',
         fontSize: 18,
+        fontFamily: "Arboria-Book",
     },
+
+});
+const homescreen = StyleSheet.create({
+
+    sideBar: {
+        backgroundColor: "purple",
+        position: "absolute",
+    },
+
+    mainInfograph: {
+        flex: 3,
+        aspectRatio: "1 / 1",
+        flexWrap: "wrap",
+        backgroundColor: "orange",
+        margin: 10,
+    },
+
+    subContent: {
+        flex: 1,
+        flexDirection: "row",
+        width: "100%",
+        margin: 10,
+    },
+
+    inforgraphAnalysis: {
+        backgroundColor: "green",
+        flex: 2,
+    },
+
+    inputData: {
+        flex: 1,
+        backgroundColor: "blue",
+    },
+
+    bloodPressure: {
+
+    }
 });
 
-export { style, fontStyle }
+export { general, homescreen }
