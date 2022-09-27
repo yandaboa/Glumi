@@ -2,6 +2,7 @@ import { Text, View, SafeAreaView, ScrollView } from 'react-native';
 import { general, homescreen } from './style/style.js';
 import { LinearGradient } from 'expo-linear-gradient';
 import { useFonts } from 'expo-font';
+import BloodSugarGraph from './components/BloodSugarGraph';
 
 export default function App() {
   const [fontsLoad] = useFonts({
