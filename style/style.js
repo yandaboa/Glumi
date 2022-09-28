@@ -13,12 +13,10 @@ const general = StyleSheet.create({
     },
 
     container: {
-        flex: 1,
         flexWrap: "wrap",
         flexDirection: "row",
         width: "100%",
         height: "100%",
-        margin: 10,
     },
 
     title: {
@@ -29,7 +27,6 @@ const general = StyleSheet.create({
     },
 
     content: {
-        flex: 3,
         justifyContent: "center",
         alignItems: "center",
     },
@@ -44,34 +41,30 @@ const general = StyleSheet.create({
 const homescreen = StyleSheet.create({
 
     sideBar: {
-        backgroundColor: "purple",
+        backgroundColor: "#A020F0",
         position: "absolute",
         right: 0,
         top: 0,
+        margin: 10,
     },
 
     mainInfograph: {
-        flex: 3,
-        aspectRatio: "1 / 1",
         flexWrap: "wrap",
         backgroundColor: "#FFA500",
-        margin: 10,
+        width: "50%",
+        aspectRatio: "1 / 1",
     },
 
     subContent: {
-        flex: 1,
         flexDirection: "row",
         width: "100%",
-        margin: 10,
     },
 
     inforgraphAnalysis: {
         backgroundColor: "#00FF00",
-        flex: 2,
     },
 
     inputData: {
-        flex: 1,
         backgroundColor: "#0000FF",
     },
 
