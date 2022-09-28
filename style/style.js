@@ -1,5 +1,5 @@
 import { StyleSheet } from 'react-native';
-var {vw, vh, vmin, vmax} = require('react-native-viewport-units');
+// var {vw, vh, vmin, vmax} = require('react-native-viewport-units');
 
 const general = StyleSheet.create({
 
@@ -80,4 +80,8 @@ const homescreen = StyleSheet.create({
     }
 });
 
-export { general, homescreen }
+const sugarGraph = StyleSheet.create({
+
+});
+
+export { general, homescreen, sugarGraph}
