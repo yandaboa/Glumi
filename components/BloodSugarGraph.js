@@ -1,5 +1,5 @@
 import { Text, SafeAreaView } from 'react-native';
-import { general, sugarGraph } from './../style/style';
+import { general, bloodSugarGraph } from './../style/style';
 
 export default function BloodSugarGraph() {
   const sugarData = [95, 99, 112, 100, 130, 140];

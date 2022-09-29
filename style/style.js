@@ -1,22 +1,19 @@
 import { StyleSheet } from 'react-native';
-// var {vw, vh, vmin, vmax} = require('react-native-viewport-units');
+import { vw, vh } from 'react-native-expo-viewport-units';
 
 const general = StyleSheet.create({
 
     background: {
         flex: 1,
-        alignItems: 'center',
-        justifyContent: 'center',
         flexWrap: 'wrap',
+        width: "100",
         height: "100%",
-        width: "100%",
     },
 
     container: {
+        flex: 1,
         flexWrap: "wrap",
         flexDirection: "row",
-        width: "100%",
-        height: "100%",
     },
 
     title: {
@@ -27,8 +24,7 @@ const general = StyleSheet.create({
     },
 
     content: {
-        justifyContent: "center",
-        alignItems: "center",
+        flex: 1,
     },
 
     text: {
@@ -50,9 +46,9 @@ const homescreen = StyleSheet.create({
 
     mainInfograph: {
         flexWrap: "wrap",
-        backgroundColor: "#FFA500",
-        width: "50%",
-        aspectRatio: "1 / 1",
+        backgroundColor: "#FFFFFF",
+        width: vw(80),
+        height: vw(80),
     },
 
     subContent: {
@@ -60,7 +56,9 @@ const homescreen = StyleSheet.create({
         width: "100%",
     },
 
-    inforgraphAnalysis: {
+    infographAnalysis: {
+        flexWrap: "wrap",
+        width: "50%",
         backgroundColor: "#00FF00",
     },
 
@@ -73,8 +71,26 @@ const homescreen = StyleSheet.create({
     }
 });
 
-const sugarGraph = StyleSheet.create({
+const bloodSugarGraph = StyleSheet.create({
+    high: {
+        color: "#E24D50",
+        fontFamily: "Arboria-Medium",
+    },
 
+    midHigh: {
+        color: "#FFA26F",
+        fontFamily: "Arboria-Medium",
+    },
+
+    normal: {
+        color: "#38B346",
+        fontFamily: "Arboria-Medium",
+    },
+
+    low: {
+        color: "#3295EF",
+        fontFamily: "Arboria-Medium",
+    }
 });
 
-export { general, homescreen, sugarGraph}
+export { general, homescreen, bloodSugarGraph }

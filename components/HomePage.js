@@ -8,6 +8,8 @@ import BloodSugarAnalysis from './BloodSugarAnalysis.js';
 import LogEvent from './LogEvent.js';
 import BloodPressureGraph from './BloodPressureGraph.js';
 
+
+
 export default function HomePage() {
   return (
     <LinearGradient
@@ -17,31 +19,29 @@ export default function HomePage() {
       style={general.background}
     >
       <SafeAreaView>
-        <ScrollView style={general.container}>
+        <View style={general.container}>
           <View style={homescreen.sideBar}>
             <Sidebar />
           </View>
-          <SafeAreaView style={homescreen.container}>
-            <Text style={general.title}>
-              {Greeting()}
-            </Text>
-          </SafeAreaView>
-          <SafeAreaView style={homescreen.mainInfograph}>
+          <Text style={general.title}>
+            {Greeting()}
+          </Text>
+          <View style={homescreen.mainInfograph}>
             <BloodSugarGraph />
-          </SafeAreaView>
-          <SafeAreaView style={homescreen.subContent}>
-            <SafeAreaView style={homescreen.inforgraphAnalysis}>
+          </View>
+          <View style={homescreen.subContent}>
+            <View style={homescreen.infographAnalysis}>
               <BloodSugarAnalysis />
-            </SafeAreaView>
-            <SafeAreaView style={homescreen.inputData}>
+            </View>
+            <View style={homescreen.inputData}>
               <LogEvent />
-            </SafeAreaView>
-          </SafeAreaView>
+            </View>
+          </View>
           <View style={homescreen.bloodPressure}>
             <BloodPressureGraph />
 
           </View>
-        </ScrollView>
+        </View>
       </SafeAreaView>
     </LinearGradient>
   );
@@ -51,9 +51,9 @@ function Greeting() {
   let greeting = "Good\nMorning";
   let time = new Date();
   if (time.getHours() > 18) {
-    greeting = "Good\nAfternoon";
-  } else if (time.getHours() > 12) {
     greeting = "Good\nEvening";
+  } else if (time.getHours() > 12) {
+    greeting = "Good\nAfternoon";
   }
   return greeting;
 }
