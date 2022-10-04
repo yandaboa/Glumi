@@ -56,9 +56,16 @@ const homescreen = StyleSheet.create({
 
     mainInfograph: {
         flexWrap: "wrap",
-        backgroundColor: "#FFFF00",
         width: vw(100),
         aspectRatio: "1 / 1",
+    },
+
+    mainInfographContent: {
+        flex: 1,
+        backgroundColor: "rgba(255, 255, 255, 0.6)",
+        margin: 20,
+        borderRadius: 15,
+        padding:20,
     },
 
     subContent: {
@@ -69,12 +76,12 @@ const homescreen = StyleSheet.create({
     infographAnalysis: {
         flex: 1.5,
         flexWrap: "wrap",
-        backgroundColor: "rgba(255, 255, 255, 0.7)",
+        backgroundColor: "rgba(255, 255, 255, 0.6)",
         aspectRatio: '1 / 1',
         margin: 20,
         marginRight: 10,
         marginTop: 0,
-        borderRadius: 10,
+        borderRadius: 15,
         padding: 20,
         flexDirection: "row",
     },
@@ -87,12 +94,12 @@ const homescreen = StyleSheet.create({
 
     inputData: {
         flex: 1,
-        backgroundColor: "#0000FF",
+        backgroundColor: "rgba(255, 255, 255, 0.8)",
         flexWrap: "wrap",
         margin: 20,
         marginLeft: 10,
         marginTop: 0,
-        borderRadius: 5,
+        borderRadius: 15,
         padding: 10,
     },
 

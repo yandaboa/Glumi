@@ -27,7 +27,9 @@ export default function HomePage() {
             {Greeting()}
           </Text>
           <View style={homescreen.mainInfograph}>
-            <BloodSugarGraph />
+            <View style={homescreen.mainInfographContent}>
+              <BloodSugarGraph />
+            </View>
           </View>
           <View style={homescreen.subContent}>
             <View style={homescreen.infographAnalysis}>
