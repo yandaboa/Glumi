@@ -39,7 +39,6 @@ export default function HomePage() {
           </View>
           <View style={homescreen.bloodPressure}>
             <BloodPressureGraph />
-
           </View>
         </View>
       </SafeAreaView>

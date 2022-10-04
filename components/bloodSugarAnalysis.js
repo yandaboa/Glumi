@@ -1,6 +1,6 @@
 import { Text } from 'react-native';
 import { Switch } from 'react-native-web';
-import { general, bloodSugarGraph } from '../style/style.js';
+import { general, bloodSugarGraph, homescreen } from '../style/style.js';
 
 export default function BloodSugarAnalysis() {
   let standardBloodSugarMinimum = 100;
@@ -37,6 +37,7 @@ export default function BloodSugarAnalysis() {
 
   return (
     <>
+      <Text style={[general.subtitle, homescreen.infographAnalysisTitle]}>Acetone{"\n"}Analysis</Text>
       <Text style={general.text}>
         <Text>Your blood sugar level is currently </Text>
         <Text style={bloodSugarAnalysisClass}>{bloodSugarAnalysis}</Text>
