@@ -6,8 +6,20 @@ const general = StyleSheet.create({
     background: {
         flex: 1,
         flexWrap: 'wrap',
-        height: vh(100),
-        aspectRatio: "19.5 / 9",
+        width: vw(100),
+        justifyContent: "center",
+        alignItems: "center",
+    },
+
+    backgroundGradient: {
+        width: vw(100),
+        aspectRatio: "9 / 19.5",
+        position: "fixed",
+        top: 0,
+        left: 0,
+        zIndex: -1,
+        elevation: -1,
+
     },
 
     container: {
@@ -44,7 +56,7 @@ const general = StyleSheet.create({
 const home = StyleSheet.create({
 
     sidebar: {
-        position: "absolute",
+        position: "fixed",
         right: 0,
         top: 0,
         margin: 20,
@@ -53,7 +65,7 @@ const home = StyleSheet.create({
         alignItems: "center",
     },
 
-    sidebarIcon:{
+    sidebarIcon: {
         height: 50,
         width: 50,
         stroke: "red",
@@ -70,7 +82,7 @@ const home = StyleSheet.create({
         backgroundColor: "rgba(255, 255, 255, 0.6)",
         margin: 20,
         borderRadius: 15,
-        padding:20,
+        padding: 20,
     },
 
     subContent: {
@@ -109,8 +121,18 @@ const home = StyleSheet.create({
     },
 
     bloodPressure: {
+        width: vw(100),
+        flexWrap: "wrap",
+    },
 
-    }
+    bloodPressureContent: {
+        margin: 20,
+        marginTop: 0,
+        padding: 20,
+        backgroundColor: "rgba(255, 255, 255, 0.8)",
+        borderRadius: 15,
+        height: vw(40), //!subject to change
+    },
 });
 
 const bloodSugarGraph = StyleSheet.create({
