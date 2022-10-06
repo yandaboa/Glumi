@@ -1,7 +1,6 @@
-import { Text, View, SafeAreaView, ScrollView } from 'react-native';
-import { general, homescreen } from './../style/style.js';
+import { Text, View, SafeAreaView } from 'react-native';
+import { general, home } from './../style/style.js';
 import { LinearGradient } from 'expo-linear-gradient';
-import { useFonts } from 'expo-font';
 import BloodSugarGraph from './BloodSugarGraph.js';
 import Sidebar from './Sidebar.js';
 import BloodSugarAnalysis from './BloodSugarAnalysis.js';
@@ -20,26 +19,26 @@ export default function HomePage() {
     >
       <SafeAreaView>
         <View style={general.container}>
-          <View style={homescreen.sideBar}>
+          <View style={home.sidebar}>
             <Sidebar />
           </View>
           <Text style={general.title}>
             {Greeting()}
           </Text>
-          <View style={homescreen.mainInfograph}>
-            <View style={homescreen.mainInfographContent}>
+          <View style={home.mainInfograph}>
+            <View style={home.mainInfographContent}>
               <BloodSugarGraph />
             </View>
           </View>
-          <View style={homescreen.subContent}>
-            <View style={homescreen.infographAnalysis}>
+          <View style={home.subContent}>
+            <View style={home.infographAnalysis}>
               <BloodSugarAnalysis />
             </View>
-            <View style={homescreen.inputData}>
+            <View style={home.inputData}>
               <LogEvent />
             </View>
           </View>
-          <View style={homescreen.bloodPressure}>
+          <View style={home.bloodPressure}>
             <BloodPressureGraph />
           </View>
         </View>

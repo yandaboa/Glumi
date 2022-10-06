@@ -41,17 +41,22 @@ const general = StyleSheet.create({
     },
 
 });
-const homescreen = StyleSheet.create({
+const home = StyleSheet.create({
 
-    sideBar: {
-        backgroundColor: "#A020F0",
+    sidebar: {
         position: "absolute",
         right: 0,
         top: 0,
         margin: 20,
-        flexWrap: "wrap",
         aspectRatio: '1 / 1',
-        height: 88,
+        justifyContent: "center",
+        alignItems: "center",
+    },
+
+    sidebarIcon:{
+        height: 50,
+        width: 50,
+        stroke: "red",
     },
 
     mainInfograph: {
@@ -130,4 +135,4 @@ const bloodSugarGraph = StyleSheet.create({
     }
 });
 
-export { general, homescreen, bloodSugarGraph }
+export { general, home, bloodSugarGraph }

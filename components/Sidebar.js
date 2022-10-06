@@ -1,11 +1,19 @@
-import { Text, View, SafeAreaView, ScrollView } from 'react-native';
-import { general, homescreen } from '../style/style.js';
+import React, { Component } from 'react';
+import { Image } from 'react-native';
+import { home } from '../style/style.js';
 
+export default class Sidebar extends Component{
+  // sideClicked(){
+  //   alert('button clicked')
+  // }
 
-export default function Sidebar() {
+  render(){
     return (
-      <Text style={general.text}>
-        sidebar icon
-      </Text>
+      <Image
+        // onclick={this.sideClicked}
+        style={home.sidebarIcon}
+        source={require('../assets/sidebar.svg')}
+      />
     );
   }
+}
