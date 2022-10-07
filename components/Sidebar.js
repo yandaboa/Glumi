@@ -1,19 +1,13 @@
-import React, { Component } from 'react';
 import { Image } from 'react-native';
 import { home } from '../style/style.js';
 
-export default class Sidebar extends Component{
-  // sideClicked(){
-  //   alert('button clicked')
-  // }
+export default function Sidebar() {
 
-  render(){
-    return (
-      <Image
-        // onclick={this.sideClicked}
-        style={home.sidebarIcon}
-        source={require('../assets/sidebar.svg')}
-      />
-    );
-  }
+  return (
+    <Image
+      style={home.sidebarIcon}
+      source={require('../assets/sidebar.svg')}
+    />
+
+  );
 }

@@ -1,4 +1,4 @@
-import { Text, View, SafeAreaView } from 'react-native';
+import { Text, View, SafeAreaView, ScrollView } from 'react-native';
 import { general, home } from './../style/style.js';
 import { LinearGradient } from 'expo-linear-gradient';
 import BloodSugarGraph from './BloodSugarGraph.js';
@@ -24,7 +24,8 @@ export default function HomePage() {
             <View style={home.sidebar}>
               <Sidebar />
             </View>
-            <Text style={general.title}>
+            <Text style={general.title}
+            >
               {Greeting()}
             </Text>
             <View style={home.mainInfograph}>

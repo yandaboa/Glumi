@@ -1,5 +1,5 @@
 import { StyleSheet } from 'react-native';
-import { vw, vh } from 'react-native-expo-viewport-units';
+import { vw, vh, vmin } from 'react-native-expo-viewport-units';
 
 const general = StyleSheet.create({
 
@@ -30,7 +30,7 @@ const general = StyleSheet.create({
 
     title: {
         color: '#FFFFFF',
-        fontSize: 64,
+        fontSize: vmin(18),
         position: "relative",
         fontFamily: "Arboria-BoldItalic",
         margin: 30,
@@ -39,7 +39,7 @@ const general = StyleSheet.create({
     subtitle: {
         color: "#000000",
         fontFamily: "Arboria-Bold",
-        fontSize: 24,
+        fontSize: vmin(6),
     },
 
     content: {
@@ -48,7 +48,7 @@ const general = StyleSheet.create({
 
     text: {
         color: '#000000',
-        fontSize: 18,
+        fontSize: vmin(4),
         fontFamily: "Arboria-Book",
     },
 
@@ -68,7 +68,6 @@ const home = StyleSheet.create({
     sidebarIcon: {
         height: 50,
         width: 50,
-        stroke: "red",
     },
 
     mainInfograph: {
