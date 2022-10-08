@@ -46,7 +46,7 @@ export default function BloodSugarGraph() {
         stroke: "#f00"
       }
     }}
-    bezier
+    bezier  
     style={{
       marginVertical: 5,
       borderRadius: 15
