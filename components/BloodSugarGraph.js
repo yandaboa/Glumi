@@ -31,12 +31,12 @@ export default function BloodSugarGraph() {
     yAxisSuffix="ppm"
     yAxisInterval={1} // optional, defaults to 1
     chartConfig={{
-      backgroundColor: "#fff",
-      backgroundGradientFrom: "#fff",
-      backgroundGradientTo: "#fff",
+      backgroundColor: "transparent",
+      backgroundGradientFrom: "transparent",
+      backgroundGradientTo: "transparent",
       decimalPlaces: 2, // optional, defaults to 2dp
-      color: (opacity = 1) => `rgba(0, 0, 0, 0.5)`,
-      labelColor: (opacity = 1) => `rgba(0, 0, 0, 0.5)`,
+      color: (opacity = 1) => `rgba(0, 0, 0, 0.8)`,
+      labelColor: (opacity = 1) => `rgba(0, 0, 0, 0.8)`,
       style: {
         borderRadius: 15
       },

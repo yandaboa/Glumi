@@ -81,7 +81,8 @@ const home = StyleSheet.create({
         backgroundColor: "rgba(255, 255, 255, 0.6)",
         margin: 20,
         borderRadius: 15,
-        padding: 20,
+        justifyContent: "center",
+        alignItems: "center",
     },
 
     subContent: {
