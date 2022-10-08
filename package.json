@@ -17,6 +17,7 @@
     "react": "17.0.2",
     "react-dom": "17.0.2",
     "react-native": "0.68.2",
+    "react-native-chart-kit": "^6.12.0",
     "react-native-expo-viewport-units": "^0.0.8",
     "react-native-linear-gradient": "^2.6.2",
     "react-native-viewport-units": "^0.0.5",
