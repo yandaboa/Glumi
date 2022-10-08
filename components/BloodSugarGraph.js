@@ -11,7 +11,7 @@ export default function BloodSugarGraph() {
   return (
     <LineChart
     data={{
-      labels: ["January", "February", "March", "April", "May", "June"],
+      labels: ["Jan", "Feb", "Mar", "Apr", "May", "Jun"],
       datasets: [
         {
           data: [
@@ -25,31 +25,31 @@ export default function BloodSugarGraph() {
         }
       ]
     }}
-    width={Dimensions.get("window").width} // from react-native
+    width={Dimensions.get("window").width * .8} // from react-native
     height={220}
-    yAxisLabel="$"
-    yAxisSuffix="k"
+    yAxisLabel=""
+    yAxisSuffix="ppm"
     yAxisInterval={1} // optional, defaults to 1
     chartConfig={{
-      backgroundColor: "#e26a00",
-      backgroundGradientFrom: "#fb8c00",
-      backgroundGradientTo: "#ffa726",
+      backgroundColor: "#fff",
+      backgroundGradientFrom: "#fff",
+      backgroundGradientTo: "#fff",
       decimalPlaces: 2, // optional, defaults to 2dp
-      color: (opacity = 1) => `rgba(255, 255, 255, ${0.5})`,
-      labelColor: (opacity = 1) => `rgba(255, 255, 255, ${0.5})`,
+      color: (opacity = 1) => `rgba(0, 0, 0, 0.5)`,
+      labelColor: (opacity = 1) => `rgba(0, 0, 0, 0.5)`,
       style: {
-        borderRadius: 16
+        borderRadius: 15
       },
       propsForDots: {
         r: "6",
-        strokeWidth: "2",
-        stroke: "#ffa726"
+        strokeWidth: "3",
+        stroke: "#f00"
       }
     }}
     bezier
     style={{
-      marginVertical: 8,
-      borderRadius: 16
+      marginVertical: 5,
+      borderRadius: 15
     }}
   />);
 }
