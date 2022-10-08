@@ -1,13 +1,25 @@
 import { StyleSheet } from 'react-native';
-import { vw, vh } from 'react-native-expo-viewport-units';
+import { vw, vh, vmin } from 'react-native-expo-viewport-units';
 
 const general = StyleSheet.create({
 
     background: {
         flex: 1,
         flexWrap: 'wrap',
-        height: vh(100),
-        aspectRatio: "19.5 / 9",
+        width: vw(100),
+        justifyContent: "center",
+        alignItems: "center",
+    },
+
+    backgroundGradient: {
+        width: vw(100),
+        aspectRatio: "9 / 19.5",
+        position: "fixed",
+        top: 0,
+        left: 0,
+        zIndex: -1,
+        elevation: -1,
+
     },
 
     container: {
@@ -18,7 +30,7 @@ const general = StyleSheet.create({
 
     title: {
         color: '#FFFFFF',
-        fontSize: 64,
+        fontSize: vmin(18),
         position: "relative",
         fontFamily: "Arboria-BoldItalic",
         margin: 30,
@@ -27,7 +39,7 @@ const general = StyleSheet.create({
     subtitle: {
         color: "#000000",
         fontFamily: "Arboria-Bold",
-        fontSize: 24,
+        fontSize: vmin(6),
     },
 
     content: {
@@ -36,22 +48,26 @@ const general = StyleSheet.create({
 
     text: {
         color: '#000000',
-        fontSize: 18,
+        fontSize: vmin(4),
         fontFamily: "Arboria-Book",
     },
 
 });
-const homescreen = StyleSheet.create({
+const home = StyleSheet.create({
 
-    sideBar: {
-        backgroundColor: "#A020F0",
-        position: "absolute",
+    sidebar: {
+        position: "fixed",
         right: 0,
         top: 0,
         margin: 20,
-        flexWrap: "wrap",
         aspectRatio: '1 / 1',
-        height: 88,
+        justifyContent: "center",
+        alignItems: "center",
+    },
+
+    sidebarIcon: {
+        height: 50,
+        width: 50,
     },
 
     mainInfograph: {
@@ -65,7 +81,7 @@ const homescreen = StyleSheet.create({
         backgroundColor: "rgba(255, 255, 255, 0.6)",
         margin: 20,
         borderRadius: 15,
-        padding:20,
+        padding: 20,
     },
 
     subContent: {
@@ -104,8 +120,18 @@ const homescreen = StyleSheet.create({
     },
 
     bloodPressure: {
+        width: vw(100),
+        flexWrap: "wrap",
+    },
 
-    }
+    bloodPressureContent: {
+        margin: 20,
+        marginTop: 0,
+        padding: 20,
+        backgroundColor: "rgba(255, 255, 255, 0.8)",
+        borderRadius: 15,
+        height: vw(40), //!subject to change
+    },
 });
 
 const bloodSugarGraph = StyleSheet.create({
@@ -130,4 +156,4 @@ const bloodSugarGraph = StyleSheet.create({
     }
 });
 
-export { general, homescreen, bloodSugarGraph }
+export { general, home, bloodSugarGraph }

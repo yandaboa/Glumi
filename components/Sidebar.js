@@ -1,11 +1,13 @@
-import { Text, View, SafeAreaView, ScrollView } from 'react-native';
-import { general, homescreen } from '../style/style.js';
-
+import { Image } from 'react-native';
+import { home } from '../style/style.js';
 
 export default function Sidebar() {
-    return (
-      <Text style={general.text}>
-        sidebar icon
-      </Text>
-    );
-  }
+
+  return (
+    <Image
+      style={home.sidebarIcon}
+      source={require('../assets/sidebar.svg')}
+    />
+
+  );
+}
