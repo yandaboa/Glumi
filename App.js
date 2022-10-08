@@ -3,7 +3,7 @@ import { LinearGradient } from 'expo-linear-gradient';
 import { useFonts } from 'expo-font';
 import HomePage from './components/HomePage.js';
 
-export default function App() {
+export default () => {
   const [fontsLoad] = useFonts({
     'Arboria-Black': require('./assets/fonts/Arboria-Black.otf'),
     'Arboria-Bold': require('./assets/fonts/Arboria-Bold.otf'),
@@ -22,6 +22,6 @@ export default function App() {
     return null;
 
   return (
-    HomePage()
+    <HomePage/>
   );
 }
