@@ -11,7 +11,7 @@ export default function BloodSugarGraph() {
   return (
     <LineChart
     data={{
-      labels: ["Jan", "Feb", "Mar", "Apr", "May", "Jun"],
+      labels: ["mon", "tue", "wed", "thu", "fri", "sat", "sun"],
       datasets: [
         {
           data: [
@@ -46,7 +46,6 @@ export default function BloodSugarGraph() {
         stroke: "#f00"
       }
     }}
-    bezier  
     style={{
       marginVertical: 5,
       borderRadius: 15
