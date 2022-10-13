@@ -2,6 +2,7 @@ import { Text, View, SafeAreaView, ScrollView } from 'react-native';
 import { LinearGradient } from 'expo-linear-gradient';
 import { useFonts } from 'expo-font';
 import HomePage from './components/HomePage.js';
+import Login  from './components/Login.js';
 
 export default () => {
   const [fontsLoad] = useFonts({
@@ -22,6 +23,7 @@ export default () => {
     return null;
 
   return (
-    <HomePage/>
+    // <HomePage/>
+    <Login/>
   );
 }

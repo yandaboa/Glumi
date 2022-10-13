@@ -30,7 +30,7 @@ const general = StyleSheet.create({
 
     title: {
         color: '#FFFFFF',
-        fontSize: vmin(18),
+        fontSize: vw(18),
         position: "relative",
         fontFamily: "Arboria-BoldItalic",
         margin: 30,
@@ -39,7 +39,7 @@ const general = StyleSheet.create({
     subtitle: {
         color: "#000000",
         fontFamily: "Arboria-Bold",
-        fontSize: vmin(6),
+        fontSize: vw(6),
     },
 
     content: {
@@ -48,11 +48,53 @@ const general = StyleSheet.create({
 
     text: {
         color: '#000000',
-        fontSize: vmin(4),
+        fontSize: vw(4),
         fontFamily: "Arboria-Book",
     },
 
 });
+
+const login = StyleSheet.create({
+    container: {
+        justifyContent: "center",
+        alignItems: "center",
+        flex: 1,
+    },
+
+    background: {
+        backgroundColor: "#ffffff",
+        height: "100%",
+        width: "100%",
+        position: "absolute",
+        top: 0,
+        left: 0,
+        justifyContent: "center",
+        alignItems: "center",
+    },
+
+    input: {
+        backgroundColor: "#3399FF",
+        height: vw(12),
+        width: vw(80),
+        margin: vw(2),
+        borderRadius: vh(10),
+        fontFamily: "Arboria-Book",
+        letterSpacing: vw(1),
+        fontSize: vw(5),
+        textAlign: "left",
+        paddingLeft: vw(5),
+    },
+
+    submit: {
+        backgroundColor: "#66CC99",
+        color: "#FFFFFF",
+        position: "absolute",
+        height: vw(10),
+        width: vw(20),
+    }
+
+});
+
 const home = StyleSheet.create({
 
     sidebar: {
@@ -157,4 +199,4 @@ const bloodSugarGraph = StyleSheet.create({
     }
 });
 
-export { general, home, bloodSugarGraph }
+export { general, login, home, bloodSugarGraph }
