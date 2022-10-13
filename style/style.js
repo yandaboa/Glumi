@@ -157,4 +157,11 @@ const bloodSugarGraph = StyleSheet.create({
     }
 });
 
-export { general, home, bloodSugarGraph }
+const menu = StyleSheet.create({
+        list: {
+            display: 'none',
+        }
+    }
+)
+
+export { general, home, bloodSugarGraph, menu }
