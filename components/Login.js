@@ -1,4 +1,4 @@
-import { View, TextInput, Button, Alert } from 'react-native';
+import { View, TextInput, Button, Alert, Text } from 'react-native';
 import { login } from './../style/style.js';
 
 export default function Login() {
@@ -19,11 +19,16 @@ export default function Login() {
                         placeholder="password"
                         placeholderTextColor={"rgba(255,255,255,.8)"}
                     ></TextInput>
-                    <Button
-                        title="login"
-                        style={login.submit}
-                        onPress={() => Alert.alert('pressed')}
-                    />
+                    <View style={login.submit}>
+                        <Text onPress={() => Alert.alert('login')} style={login.submitText}>
+                            sign in
+                        </Text>
+                    </View>
+                    <View style={login.create}>
+                        <Text style={login.createText} numberOfLines={1}>
+                            need an account? <Text onPress={() => Alert.alert('create')} style={login.createButton} >create</Text>
+                        </Text>
+                    </View>
                 </View>
             </View>
         </>

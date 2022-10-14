@@ -77,7 +77,7 @@ const login = StyleSheet.create({
         height: vw(12),
         width: vw(80),
         margin: vw(2),
-        borderRadius: vh(10),
+        borderRadius: vh(12),
         fontFamily: "Arboria-Book",
         letterSpacing: vw(1),
         fontSize: vw(5),
@@ -86,12 +86,42 @@ const login = StyleSheet.create({
     },
 
     submit: {
-        backgroundColor: "#66CC99",
-        color: "#FFFFFF",
-        position: "absolute",
         height: vw(10),
-        width: vw(20),
-    }
+        width: vw(50),
+        backgroundColor: "#66CC99",
+        borderRadius: vh(12),
+        justifyContent: "center",
+        alignItems: "center",
+        letterSpacing: vw(.75),
+    },
+
+    submitText: {
+        color: "#FFFFFF",
+        fontFamily: "Arboria-Book",
+        fontSize: vw(4.5),
+    },
+
+    create: {
+        height: vw(12),
+        width: vw(80),
+        justifyContent: "center",
+        alignItems: "center",
+    },
+
+    createText: {
+        color: "#000000",
+        fontSize: vw(4),
+        fontFamily: "Arboria-Book",
+        textAlign: "center",
+    },
+
+    createButton: {
+        color: "#E24D50",
+        fontSize: vw(4),
+        fontFamily: "Arboria-Book",
+        textAlign: "center",
+        textDecorationLine: "underline",
+    },
 
 });
 
@@ -200,10 +230,10 @@ const bloodSugarGraph = StyleSheet.create({
 });
 
 const menu = StyleSheet.create({
-        list: {
-            display: 'none',
-        }
+    list: {
+        display: 'none',
     }
+}
 )
 
 export { general, login, home, bloodSugarGraph, menu }
