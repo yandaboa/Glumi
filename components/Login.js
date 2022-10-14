@@ -15,6 +15,7 @@ export default function Login() {
                         placeholderTextColor={"rgba(255,255,255,.8)"}
                     ></TextInput>
                     <TextInput
+                        secureTextEntry={true}
                         style={login.input}
                         placeholder="password"
                         placeholderTextColor={"rgba(255,255,255,.8)"}
