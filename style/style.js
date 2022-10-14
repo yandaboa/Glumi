@@ -68,12 +68,41 @@ const login = StyleSheet.create({
         position: "absolute",
         top: 0,
         left: 0,
-        justifyContent: "center",
+    },
+
+    graphics: {
+        flex: 1,
         alignItems: "center",
     },
 
+    content: {
+        flex: 1,
+        justifyContent: 'top',
+        alignItems: "center",
+    },
+
+    ring: {
+        height: vw(56),
+        width: vw(56),
+        padding: vw(5),
+        borderRadius: "50%",
+        justifyContent: "center",
+        alignItems: "center",
+        marginBottom: vw(5),
+        marginTop: "auto",
+        borderWidth: vw(2.5),
+        borderColor: "#3399FF",
+    },
+
+    sprout: {
+        height: vw(35),
+        width: vw(35),
+        margin: 0,
+        padding: 0,
+    },
+
     input: {
-        backgroundColor: "#3399FF",
+        backgroundColor: "#A6E5FF",
         height: vw(12),
         width: vw(80),
         margin: vw(2),
@@ -88,11 +117,12 @@ const login = StyleSheet.create({
     submit: {
         height: vw(10),
         width: vw(50),
-        backgroundColor: "#66CC99",
+        backgroundColor: "#38B346",
         borderRadius: vh(12),
         justifyContent: "center",
         alignItems: "center",
         letterSpacing: vw(.75),
+        margin: vw(2),
     },
 
     submitText: {
@@ -224,7 +254,7 @@ const bloodSugarGraph = StyleSheet.create({
     },
 
     low: {
-        color: "#3295EF",
+        color: "#3399FF",
         fontFamily: "Arboria-Medium",
     }
 });
