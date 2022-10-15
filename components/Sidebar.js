@@ -9,7 +9,7 @@ export default function Sidebar() {
         source={require('../assets/sidebar.svg')}
       />
       <View style={home.menu}>
-        <Text>{"Here is the menu"}</Text>
+        {/* <Text>{"Here is the menu"}</Text> */}
       </View>
     </SafeAreaView>
     

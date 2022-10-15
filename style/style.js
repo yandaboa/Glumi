@@ -81,24 +81,13 @@ const login = StyleSheet.create({
         alignItems: "center",
     },
 
-    ring: {
-        height: vw(56),
-        width: vw(56),
-        padding: vw(5),
-        borderRadius: "50%",
-        justifyContent: "center",
-        alignItems: "center",
-        marginBottom: vw(5),
-        marginTop: "auto",
-        borderWidth: vw(2.5),
-        borderColor: "#3399FF",
-    },
-
     sprout: {
-        height: vw(35),
-        width: vw(35),
+        height: vw(60),
+        width: vw(60),
         margin: 0,
         padding: 0,
+        marginTop: "auto",
+        marginBottom: vw(2),
     },
 
     input: {

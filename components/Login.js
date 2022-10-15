@@ -7,12 +7,10 @@ export default function Login() {
             <View style={login.container}>
                 <View style={login.background}>
                     <View style={login.graphics}>
-                        <View style={login.ring}>
                             <Image
                                 style={login.sprout}
                                 source={require('../assets/sprout.svg')}
                             />
-                        </View>
                     </View>
                     <View style={login.content}>
                         <TextInput
