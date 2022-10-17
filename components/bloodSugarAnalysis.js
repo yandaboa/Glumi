@@ -37,8 +37,8 @@ export default function BloodSugarAnalysis() {
 
   return (
     <>
-      <Text style={[general.subtitle, home.infographAnalysisTitle]}>Acetone{"\n"}Analysis</Text>
-      <Text style={general.text}>
+      <Text style={[home.subtitle, home.infographAnalysisTitle]}>Acetone{"\n"}Analysis</Text>
+      <Text style={home.text}>
         <Text>Your blood sugar level is currently </Text>
         <Text style={bloodSugarAnalysisClass}>{bloodSugarAnalysis}</Text>
         <Text>. This weeks levels are </Text>

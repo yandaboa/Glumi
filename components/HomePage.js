@@ -1,6 +1,6 @@
 import { Text, View, SafeAreaView, Animated } from 'react-native';
 import { useEffect, useRef } from 'react';
-import { general, home } from './../style/style.js';
+import { home } from './../style/style.js';
 import { LinearGradient } from 'expo-linear-gradient';
 import BloodSugarGraph from './BloodSugarGraph.js';
 import Sidebar from './Sidebar.js';
@@ -22,60 +22,70 @@ export default () => {
   }, []);
 
   return (
-    <View style={general.background}>
-      <LinearGradient
-        colors={['#66CC99', '#3399FF', '#CCCCFF']}
-        start={{ x: 0, y: 0 }}
-        end={{ x: 1, y: 1 }}
-        style={general.backgroundGradient}
-      ></LinearGradient>
-      <SafeAreaView>
-        <View style={general.container}>
-          <View style={home.sidebar}>
-            <Sidebar />
-          </View>
-          <Animated.Text
-            style={
-              [general.title, {
-                color: shift.interpolate({
-                  inputRange: [0, 100],
-                  outputRange: ['#000', '#fff'],
-                }),
-              }]}
-          >
-            {Greeting()}
-          </Animated.Text>
-          <View style={home.mainInfograph}>
-            <View style={home.mainInfographContent}>
-              <BloodSugarGraph />
-            </View>
-          </View>
-          <View style={home.subContent}>
-            <View style={home.infographAnalysis}>
-              <BloodSugarAnalysis />
-            </View>
-            <View style={home.inputData}>
-              <LogEvent />
-            </View>
-          </View>
-          <View style={home.bloodPressure}>
-            <View style={home.bloodPressureContent}>
-              <BloodPressureGraph />
-            </View>
+    <SafeAreaView>
+      <View style={home.container}>
+        <View style={home.background}>
+        </View>
+        <Animated.Text
+          style={
+            [home.title, {
+              color: shift.interpolate({
+                inputRange: [0, 100],
+                outputRange: ['#000', '#fff'],
+              }),
+            }]}
+        >
+          {Greeting()}
+        </Animated.Text>
+        <Animated.Text
+          style={
+            [home.subtitle, {
+              color: shift.interpolate({
+                inputRange: [0, 100],
+                outputRange: ['#000', '#fff'],
+              }),
+            }]}
+        >
+          {getDate()}
+        </Animated.Text>
+        {/* <View style={home.mainInfograph}>
+          <View style={home.mainInfographContent}>
+            <BloodSugarGraph />
           </View>
         </View>
-      </SafeAreaView>
-    </View>
+        <View style={home.subContent}>
+          <View style={home.infographAnalysis}>
+            <BloodSugarAnalysis />
+          </View>
+          <View style={home.inputData}>
+            <LogEvent />
+          </View>
+        </View>
+        <View style={home.bloodPressure}>
+          <View style={home.bloodPressureContent}>
+            <BloodPressureGraph />
+          </View>
+        </View> */}
+        <Sidebar />
+      </View>
+    </SafeAreaView>
   );
 }
 
 function Greeting() {
-  let greeting = "Good\nMorning";
+  let greeting = "Good Morning";
   let time = new Date();
   if (time.getHours() > 18) {
-    greeting = "Good\nEvening";
+    greeting = "Good Evening";
   } else if (time.getHours() > 12) {
-    greeting = "Good\nAfternoon";
+    greeting = "Good Afternoon";
   }
   return greeting;
+}
+
+function getDate() {
+  let date = new Date();
+  let month = date.toLocaleString('default', { month: 'long' });
+  let day = date.getDate();
+  return `${month}, ${day}`;
 }

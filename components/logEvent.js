@@ -1,9 +1,9 @@
 import { Text, View, SafeAreaView, ScrollView } from 'react-native';
-import { general, home } from '../style/style.js';
+import { home } from '../style/style.js';
 
 export default function LogEvent() {
   return (
-    <Text style={general.text} >
+    <Text style={home.text} >
       Input data div place holder
     </Text>
   );

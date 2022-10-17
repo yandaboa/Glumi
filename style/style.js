@@ -1,59 +1,6 @@
 import { StyleSheet } from 'react-native';
 import { vw, vh, vmin } from 'react-native-expo-viewport-units';
 
-const general = StyleSheet.create({
-
-    background: {
-        flex: 1,
-        flexWrap: 'wrap',
-        width: vw(100),
-        justifyContent: "center",
-        alignItems: "center",
-    },
-
-    backgroundGradient: {
-        width: vw(100),
-        aspectRatio: "9 / 19.5",
-        position: "fixed",
-        top: 0,
-        left: 0,
-        zIndex: -1,
-        elevation: -1,
-
-    },
-
-    container: {
-        flex: 1,
-        flexWrap: "wrap",
-        flexDirection: "row",
-    },
-
-    title: {
-        color: '#FFFFFF',
-        fontSize: vw(18),
-        position: "relative",
-        fontFamily: "Arboria-BoldItalic",
-        margin: 30,
-    },
-
-    subtitle: {
-        color: "#000000",
-        fontFamily: "Arboria-Bold",
-        fontSize: vw(6),
-    },
-
-    content: {
-        flex: 1,
-    },
-
-    text: {
-        color: '#000000',
-        fontSize: vw(4),
-        fontFamily: "Arboria-Book",
-    },
-
-});
-
 const login = StyleSheet.create({
     container: {
         justifyContent: "center",
@@ -200,14 +147,14 @@ const createAccount = StyleSheet.create({
         flex: 1,
     },
 
-    heading:{
+    heading: {
         fontFamily: "Arboria-BoldItalic",
         fontSize: vw(12),
         margin: vw(4),
         color: "#66cc99",
     },
 
-    title:{
+    title: {
         fontFamily: "Arboria-Medium",
         fontSize: vw(6),
         marginLeft: vw(10),
@@ -292,19 +239,49 @@ const createAccount = StyleSheet.create({
 
 const home = StyleSheet.create({
 
-    sidebar: {
-        position: "fixed",
-        right: 0,
-        top: 0,
-        margin: 20,
-        aspectRatio: '1 / 1',
-        justifyContent: "center",
-        alignItems: "center",
+    container: {
+        flex: 1,
+        flexWrap: "wrap",
     },
 
-    sidebarIcon: {
-        height: 50,
-        width: 50,
+    background: {
+        width: vw(100),
+        height: vh(100),
+        position: "fixed",
+        top: 0,
+        left: 0,
+        elevation: -1,
+        backgroundColor: "#232324",
+    },
+
+
+    title: {
+        marginTop: vw(2),
+        color: '#FFFFFF',
+        position: "relative",
+        fontSize: vw(8),
+        fontFamily: "Arboria-BoldItalic",
+        marginLeft: vw(8),
+        marginRight: "auto",
+    },
+
+    subtitle: {
+        color: '#FFFFFF',
+        position: "relative",
+        fontFamily: "Arboria-Medium",
+        fontSize: vw(6),
+        marginLeft: vw(8),
+        marginRight: "auto",
+    },
+
+    content: {
+        flex: 1,
+    },
+
+    text: {
+        color: '#000000',
+        fontSize: vw(4),
+        fontFamily: "Arboria-Book",
     },
 
     mainInfograph: {
@@ -370,6 +347,24 @@ const home = StyleSheet.create({
         borderRadius: 15,
         height: vw(40), //!subject to change
     },
+
+    sidebar: {
+        position: "fixed",
+        bottom: 0,
+        left: 0,
+        backgroundColor: "#3295EF",
+        width: vw(100),
+        justifyContent: "center",
+        alignItems: "center",
+        borderRadius: vw(2),
+        flexDirection: "row",
+    },
+
+    sidebarIcon: {
+        width: vw(10),
+        aspectRatio: " 1 / 1",
+        margin: vw(5),
+    },
 });
 
 const bloodSugarGraph = StyleSheet.create({
@@ -401,4 +396,4 @@ const menu = StyleSheet.create({
 }
 )
 
-export { general, login, logout, createAccount, home, bloodSugarGraph, menu }
+export { login, logout, createAccount, home, bloodSugarGraph, menu }

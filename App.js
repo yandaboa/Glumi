@@ -23,9 +23,9 @@ export default () => {
     return null;
 
   return (
-    //<HomePage />
+    <HomePage />
     //<Login/>
     //<Logout/>
-    <CreateAccount />
+    //<CreateAccount />
   );
 }

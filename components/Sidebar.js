@@ -3,16 +3,23 @@ import { home, menu } from '../style/style.js';
 
 export default function Sidebar() {
   return (
-    <SafeAreaView>
+    <View style={home.sidebar}>
       <Image
         style={home.sidebarIcon}
-        source={require('../assets/sidebar.svg')}
+        source={require('../assets/home.svg')}
       />
-      <View style={home.menu}>
-        {/* <Text>{"Here is the menu"}</Text> */}
-      </View>
-    </SafeAreaView>
-    
-    
+      <Image
+        style={home.sidebarIcon}
+        source={require('../assets/input.svg')}
+      />
+      <Image
+        style={home.sidebarIcon}
+        source={require('../assets/data.svg')}
+      />
+      <Image
+        style={home.sidebarIcon}
+        source={require('../assets/setting.svg')}
+      />
+    </View>
   );
 }
