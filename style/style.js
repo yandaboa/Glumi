@@ -87,7 +87,7 @@ const login = StyleSheet.create({
         margin: 0,
         padding: 0,
         marginTop: "auto",
-        marginBottom: vw(2),
+        marginBottom: vw(5),
     },
 
     input: {
@@ -142,6 +142,152 @@ const login = StyleSheet.create({
         textDecorationLine: "underline",
     },
 
+});
+
+const logout = StyleSheet.create({
+    container: {
+        backgroundColor: "#FFFFFF",
+        height: vh(100),
+        width: vw(100),
+        justifyContent: "center",
+        alignItems: "center",
+    },
+
+    background: {
+        justifyContent: "center",
+        alignItems: "center",
+    },
+
+    sprout: {
+        height: vw(75),
+        aspectRatio: "1 / 1",
+    },
+
+    content: {
+        justifyContent: "center",
+        alignItems: "center",
+    },
+
+    text: {
+        fontFamily: "Arboria-Bold",
+        fontSize: vw(8),
+        paddingLeft: vw(10),
+        paddingRight: vw(10),
+    },
+
+    loginText: {
+        fontFamily: "Arboria-Book",
+        fontSize: vw(5),
+        padding: vw(4),
+    },
+
+    login: {
+        color: "#ffffff",
+        backgroundColor: "#66cc99",
+        padding: vw(2),
+        paddingLeft: vw(3),
+        paddingRight: vw(3),
+        borderRadius: vw(1),
+        marginLeft: vw(2),
+    },
+});
+
+const createAccount = StyleSheet.create({
+    container: {
+        backgroundColor: "#ffffff",
+        justifyContent: "center",
+        alignItems: "center",
+        flex: 1,
+    },
+
+    heading:{
+        fontFamily: "Arboria-BoldItalic",
+        fontSize: vw(12),
+        margin: vw(4),
+        color: "#66cc99",
+    },
+
+    title:{
+        fontFamily: "Arboria-Medium",
+        fontSize: vw(6),
+        marginLeft: vw(10),
+        marginRight: "auto",
+    },
+
+    name: {
+        width: vw(80),
+        alignItems: "center",
+        flexDirection: "row",
+        margin: vw(2),
+    },
+
+    inputName: {
+        width: vw(38),
+        backgroundColor: "#A6E5FF",
+        height: vw(12),
+        borderRadius: vh(12),
+        fontFamily: "Arboria-Book",
+        letterSpacing: vw(1),
+        fontSize: vw(5),
+        textAlign: "left",
+        paddingLeft: vw(5),
+    },
+
+    last: {
+        marginLeft: "auto",
+    },
+
+    input: {
+        backgroundColor: "#A6E5FF",
+        width: vw(80),
+        height: vw(12),
+        margin: vw(2),
+        borderRadius: vh(12),
+        fontFamily: "Arboria-Book",
+        letterSpacing: vw(1),
+        fontSize: vw(5),
+        textAlign: "left",
+        paddingLeft: vw(5),
+    },
+
+    submit: {
+        height: vw(10),
+        width: vw(50),
+        backgroundColor: "#38B346",
+        borderRadius: vh(12),
+        justifyContent: "center",
+        alignItems: "center",
+        letterSpacing: vw(.75),
+        margin: vw(2),
+    },
+
+    submitText: {
+        color: "#FFFFFF",
+        fontFamily: "Arboria-Book",
+        fontSize: vw(4.5),
+    },
+
+    login: {
+        height: vw(12),
+        width: vw(80),
+        justifyContent: "center",
+        alignItems: "center",
+    },
+
+    loginText: {
+        color: "#000000",
+        fontSize: vw(4),
+        fontFamily: "Arboria-Book",
+        textAlign: "center",
+    },
+
+    loginButton: {
+        color: "#E24D50",
+        fontSize: vw(4),
+        fontFamily: "Arboria-Book",
+        textAlign: "center",
+        textDecorationLine: "underline",
+    },
 });
 
 const home = StyleSheet.create({
@@ -255,4 +401,4 @@ const menu = StyleSheet.create({
 }
 )
 
-export { general, login, home, bloodSugarGraph, menu }
+export { general, login, logout, createAccount, home, bloodSugarGraph, menu }

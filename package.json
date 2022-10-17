@@ -20,6 +20,7 @@
     "react-native-chart-kit": "^6.12.0",
     "react-native-expo-viewport-units": "^0.0.8",
     "react-native-linear-gradient": "^2.6.2",
+    "react-native-svg": "12.3.0",
     "react-native-viewport-units": "^0.0.5",
     "react-native-web": "0.17.7"
   },

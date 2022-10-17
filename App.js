@@ -1,8 +1,8 @@
-import { Text, View, SafeAreaView, ScrollView } from 'react-native';
-import { LinearGradient } from 'expo-linear-gradient';
 import { useFonts } from 'expo-font';
 import HomePage from './components/HomePage.js';
 import Login from './components/Login.js';
+import Logout from './components/Logout.js';
+import CreateAccount from './components/CreateAccount.js';
 
 export default () => {
   const [fontsLoad] = useFonts({
@@ -24,6 +24,8 @@ export default () => {
 
   return (
     //<HomePage />
-    <Login/>
+    //<Login/>
+    //<Logout/>
+    <CreateAccount />
   );
 }
