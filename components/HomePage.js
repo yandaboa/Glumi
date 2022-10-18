@@ -1,4 +1,4 @@
-import { Text, View, SafeAreaView, Animated } from 'react-native';
+import { Text, View, SafeAreaView, Animated, Image, ScrollView, Dimensions } from 'react-native';
 import { useEffect, useRef } from 'react';
 import { home } from './../style/style.js';
 import { LinearGradient } from 'expo-linear-gradient';
@@ -25,8 +25,46 @@ export default () => {
     <SafeAreaView>
       <View style={home.container}>
         <View style={home.background}>
+          <Image
+            style={home.backgroundImage}
+            source={require('../assets/tree.svg')}
+          />
         </View>
-        <Animated.Text
+        <Text style={home.title}>
+          {Greeting()}
+        </Text>
+        <Text style={home.subtitle}>
+          {getDate()}
+        </Text>
+        <View style={home.content}>
+          <View style={home.summary}>
+            <Text style={home.heading}>Summary</Text>
+            <BloodSugarGraph />
+          </View>
+          <View style={home.slider}>
+            <Text style={home.heading}>Discover More!</Text>
+            <ScrollView
+              horizontal={true}
+              contentContainerStyle={ Dimensions.get("window").width}
+              showsHorizontalScrollIndicator={false}
+              scrollEventThrottle={200}
+              decelerationRate="fast"
+              pagingEnabled
+              style={home.sliderContainer}
+            >
+              <View style={home.sliderElement}>
+                <BloodSugarAnalysis />
+              </View>
+              <View style={home.sliderElement}>
+                <BloodSugarAnalysis />
+              </View>
+              <View style={home.sliderElement}>
+                <BloodSugarAnalysis />
+              </View>
+            </ScrollView>
+          </View>
+        </View>
+        {/* <Animated.Text
           style={
             [home.title, {
               color: shift.interpolate({
@@ -36,8 +74,8 @@ export default () => {
             }]}
         >
           {Greeting()}
-        </Animated.Text>
-        <Animated.Text
+        </Animated.Text> */}
+        {/* <Animated.Text
           style={
             [home.subtitle, {
               color: shift.interpolate({
@@ -47,7 +85,7 @@ export default () => {
             }]}
         >
           {getDate()}
-        </Animated.Text>
+        </Animated.Text> */}
         {/* <View style={home.mainInfograph}>
           <View style={home.mainInfographContent}>
             <BloodSugarGraph />
@@ -68,7 +106,7 @@ export default () => {
         </View> */}
         <Sidebar />
       </View>
-    </SafeAreaView>
+    </SafeAreaView >
   );
 }
 
@@ -85,7 +123,8 @@ function Greeting() {
 
 function getDate() {
   let date = new Date();
+  let year = date.getFullYear();
   let month = date.toLocaleString('default', { month: 'long' });
   let day = date.getDate();
-  return `${month}, ${day}`;
+  return `${year} ${month} ${day}`;
 }

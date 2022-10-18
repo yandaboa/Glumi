@@ -116,14 +116,14 @@ const logout = StyleSheet.create({
     },
 
     text: {
-        fontFamily: "Arboria-Bold",
+        fontFamily: "Comfortaa-Bold",
         fontSize: vw(8),
         paddingLeft: vw(10),
         paddingRight: vw(10),
     },
 
     loginText: {
-        fontFamily: "Arboria-Book",
+        fontFamily: "Comfortaa-Regular",
         fontSize: vw(5),
         padding: vw(4),
     },
@@ -148,14 +148,15 @@ const createAccount = StyleSheet.create({
     },
 
     heading: {
-        fontFamily: "Arboria-BoldItalic",
+        fontFamily: "Comfortaa-Bold",
         fontSize: vw(12),
         margin: vw(4),
+        fontWeight: "bold",
         color: "#66cc99",
     },
 
     title: {
-        fontFamily: "Arboria-Medium",
+        fontFamily: "Comfortaa-Medium",
         fontSize: vw(6),
         marginLeft: vw(10),
         marginRight: "auto",
@@ -173,7 +174,7 @@ const createAccount = StyleSheet.create({
         backgroundColor: "#A6E5FF",
         height: vw(12),
         borderRadius: vh(12),
-        fontFamily: "Arboria-Book",
+        fontFamily: "Comfortaa-Regular",
         letterSpacing: vw(1),
         fontSize: vw(5),
         textAlign: "left",
@@ -190,7 +191,7 @@ const createAccount = StyleSheet.create({
         height: vw(12),
         margin: vw(2),
         borderRadius: vh(12),
-        fontFamily: "Arboria-Book",
+        fontFamily: "Comfortaa-Regular",
         letterSpacing: vw(1),
         fontSize: vw(5),
         textAlign: "left",
@@ -210,7 +211,8 @@ const createAccount = StyleSheet.create({
 
     submitText: {
         color: "#FFFFFF",
-        fontFamily: "Arboria-Book",
+        fontFamily: "Comfortaa-Regular",
+
         fontSize: vw(4.5),
     },
 
@@ -224,14 +226,14 @@ const createAccount = StyleSheet.create({
     loginText: {
         color: "#000000",
         fontSize: vw(4),
-        fontFamily: "Arboria-Book",
+        fontFamily: "Comfortaa-Regular",
         textAlign: "center",
     },
 
     loginButton: {
         color: "#E24D50",
         fontSize: vw(4),
-        fontFamily: "Arboria-Book",
+        fontFamily: "Comfortaa-Regular",
         textAlign: "center",
         textDecorationLine: "underline",
     },
@@ -240,8 +242,8 @@ const createAccount = StyleSheet.create({
 const home = StyleSheet.create({
 
     container: {
-        flex: 1,
-        flexWrap: "wrap",
+        height: vh(100),
+        width: vw(100),
     },
 
     background: {
@@ -251,13 +253,21 @@ const home = StyleSheet.create({
         top: 0,
         left: 0,
         elevation: -1,
-        backgroundColor: "#232324",
     },
 
+    backgroundImage: {
+        height: vh(100),
+        width: vw(100),
+        elevation: 2,
+        position: "fixed",
+        bottom: 0,
+        left: 0,
+    },
 
     title: {
         marginTop: vw(2),
-        color: '#FFFFFF',
+        // color: '#FFFFFF',
+        color: '#000000',
         position: "relative",
         fontSize: vw(8),
         fontFamily: "Arboria-BoldItalic",
@@ -266,16 +276,20 @@ const home = StyleSheet.create({
     },
 
     subtitle: {
-        color: '#FFFFFF',
+        // color: '#FFFFFF',
+        color: '#000000',
         position: "relative",
-        fontFamily: "Arboria-Medium",
-        fontSize: vw(6),
+        fontFamily: "Arboria-Book",
+        fontSize: vw(7),
         marginLeft: vw(8),
         marginRight: "auto",
     },
 
-    content: {
-        flex: 1,
+    heading: {
+        color: '#000000',
+        fontFamily: "Arboria-Medium",
+        marginBottom: vw(1),
+        fontSize: vw(5),
     },
 
     text: {
@@ -284,86 +298,120 @@ const home = StyleSheet.create({
         fontFamily: "Arboria-Book",
     },
 
-    mainInfograph: {
-        flexWrap: "wrap",
-        width: vw(100),
-        aspectRatio: "1 / 1",
+    content: {
+        flex: 1,
     },
 
-    mainInfographContent: {
-        flex: 1,
-        backgroundColor: "rgba(255, 255, 255, 0.6)",
-        margin: 20,
-        borderRadius: 15,
+    summary: {
+        flex: 2,
         justifyContent: "center",
-        alignItems: "center",
+        padding: vw(8),
+        paddingBottom: vw(10),
     },
 
-    subContent: {
-        flexDirection: "row",
-        width: "100%",
-    },
-
-    infographAnalysis: {
-        flex: 1.5,
-        flexWrap: "wrap",
-        backgroundColor: "rgba(255, 255, 255, 0.6)",
-        aspectRatio: '1 / 1',
-        margin: 20,
-        marginRight: 10,
-        marginTop: 0,
-        borderRadius: 15,
-        padding: 20,
-        flexDirection: "row",
-    },
-
-    infographAnalysisTitle: {
-        margin: 10,
-        marginLeft: 0,
-        marginTop: 0,
-    },
-
-    inputData: {
+    slider: {
         flex: 1,
-        backgroundColor: "rgba(255, 255, 255, 0.8)",
-        flexWrap: "wrap",
-        margin: 20,
-        marginLeft: 10,
-        marginTop: 0,
-        borderRadius: 15,
-        padding: 10,
+        padding: vw(8),
     },
 
-    bloodPressure: {
-        width: vw(100),
-        flexWrap: "wrap",
+    sliderContainer: {
+        flex: 1,
+        flexDirection: "row",
     },
 
-    bloodPressureContent: {
-        margin: 20,
-        marginTop: 0,
-        padding: 20,
-        backgroundColor: "rgba(255, 255, 255, 0.8)",
-        borderRadius: 15,
-        height: vw(40), //!subject to change
+    sliderElement:{
+        width: vw(70),
+        height: vw(30),
+        flexWrap: "wrap",
+        margin: vw(3),
+        backgroundColor: "#ffffffbb",
+        padding: vw(2),
+        borderRadius: vw(2),
+        marginLeft: 0,
     },
+
+    // mainInfograph: {
+    //     flexWrap: "wrap",
+    //     width: vw(100),
+    //     aspectRatio: "1 / 1",
+    // },
+
+    // mainInfographContent: {
+    //     flex: 1,
+    //     backgroundColor: "rgba(255, 255, 255, 0.6)",
+    //     margin: 20,
+    //     borderRadius: 15,
+    //     justifyContent: "center",
+    //     alignItems: "center",
+    // },
+
+    // subContent: {
+    //     flexDirection: "row",
+    //     width: "100%",
+    // },
+
+    // infographAnalysis: {
+    //     flex: 1.5,
+    //     flexWrap: "wrap",
+    //     backgroundColor: "rgba(255, 255, 255, 0.6)",
+    //     aspectRatio: '1 / 1',
+    //     margin: 20,
+    //     marginRight: 10,
+    //     marginTop: 0,
+    //     borderRadius: 15,
+    //     padding: 20,
+    //     flexDirection: "row",
+    // },
+
+    // infographAnalysisTitle: {
+    //     margin: 10,
+    //     marginLeft: 0,
+    //     marginTop: 0,
+    // },
+
+    // inputData: {
+    //     flex: 1,
+    //     backgroundColor: "rgba(255, 255, 255, 0.8)",
+    //     flexWrap: "wrap",
+    //     margin: 20,
+    //     marginLeft: 10,
+    //     marginTop: 0,
+    //     borderRadius: 15,
+    //     padding: 10,
+    // },
+
+    // bloodPressure: {
+    //     width: vw(100),
+    //     flexWrap: "wrap",
+    // },
+
+    // bloodPressureContent: {
+    //     margin: 20,
+    //     marginTop: 0,
+    //     padding: 20,
+    //     backgroundColor: "rgba(255, 255, 255, 0.8)",
+    //     borderRadius: 15,
+    //     height: vw(40), //!subject to change
+    // },
 
     sidebar: {
         position: "fixed",
         bottom: 0,
         left: 0,
-        backgroundColor: "#3295EF",
+        backgroundColor: "#3295EFab",
         width: vw(100),
         justifyContent: "center",
         alignItems: "center",
-        borderRadius: vw(2),
+        borderRadius: vw(2.5),
         flexDirection: "row",
     },
 
     sidebarIcon: {
         width: vw(10),
         aspectRatio: " 1 / 1",
-        margin: vw(5),
+        margin: vw(6),
+        marginTop: vw(4),
+        marginBottom: vw(4),
     },
 });
 

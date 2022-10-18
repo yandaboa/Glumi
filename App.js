@@ -15,6 +15,12 @@ export default () => {
     'Arboria-BoldItalic': require('./assets/fonts/Arboria-BoldItalic.otf'),
     'Arboria-MediumItalic': require('./assets/fonts/Arboria-MediumItalic.otf'),
     'Arboria-BookItalic': require('./assets/fonts/Arboria-BookItalic.otf'),
+
+    'Comfortaa-Bold': require('./assets/fonts/Comfortaa-Bold.ttf'),
+    'Comfortaa-SemiBold': require('./assets/fonts/Comfortaa-SemiBold.ttf'),
+    'Comfortaa-Medium': require('./assets/fonts/Comfortaa-Medium.ttf'),
+    'Comfortaa-Regular': require('./assets/fonts/Comfortaa-Regular.ttf'),
+    'Comfortaa-Light': require('./assets/fonts/Comfortaa-Light.ttf'),
   });
 
   console.log("app is loading or loaded depending on how you put it");

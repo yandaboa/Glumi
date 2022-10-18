@@ -37,7 +37,7 @@ export default () => {
             </View>
             <View style={createAccount.login}>
                 <Text style={createAccount.loginText} numberOfLines={1}>
-                    already have an account? <Text onPress={() => Alert.alert('login')} style={createAccount.loginButton} >login</Text>
+                    have an account? <Text onPress={() => Alert.alert('login')} style={createAccount.loginButton} >login</Text>
                 </Text>
             </View>
         </View>
