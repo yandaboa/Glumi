@@ -116,15 +116,16 @@ const logout = StyleSheet.create({
     },
 
     text: {
-        fontFamily: "Comfortaa-Bold",
-        fontSize: vw(8),
+        fontFamily: "BalooTamma2-Bold",
+        fontSize: vw(7),
         paddingLeft: vw(10),
         paddingRight: vw(10),
+        textAlign: "center",
     },
 
     loginText: {
         fontFamily: "Comfortaa-Regular",
-        fontSize: vw(5),
+        fontSize: vw(4),
         padding: vw(4),
     },
 
@@ -148,7 +149,7 @@ const createAccount = StyleSheet.create({
     },
 
     heading: {
-        fontFamily: "Comfortaa-Bold",
+        fontFamily: "BalooTamma2-Bold",
         fontSize: vw(12),
         margin: vw(4),
         fontWeight: "bold",
@@ -156,7 +157,7 @@ const createAccount = StyleSheet.create({
     },
 
     title: {
-        fontFamily: "Comfortaa-Medium",
+        fontFamily: "BalooTamma2-Medium",
         fontSize: vw(6),
         marginLeft: vw(10),
         marginRight: "auto",
@@ -176,7 +177,7 @@ const createAccount = StyleSheet.create({
         borderRadius: vh(12),
         fontFamily: "Comfortaa-Regular",
         letterSpacing: vw(1),
-        fontSize: vw(5),
+        fontSize: vw(4),
         textAlign: "left",
         paddingLeft: vw(5),
     },
@@ -193,7 +194,7 @@ const createAccount = StyleSheet.create({
         borderRadius: vh(12),
         fontFamily: "Comfortaa-Regular",
         letterSpacing: vw(1),
-        fontSize: vw(5),
+        fontSize: vw(4),
         textAlign: "left",
         paddingLeft: vw(5),
     },
@@ -212,8 +213,7 @@ const createAccount = StyleSheet.create({
     submitText: {
         color: "#FFFFFF",
         fontFamily: "Comfortaa-Regular",
-
-        fontSize: vw(4.5),
+        fontSize: vw(4),
     },
 
     login: {
@@ -266,20 +266,18 @@ const home = StyleSheet.create({
 
     title: {
         marginTop: vw(2),
-        // color: '#FFFFFF',
         color: '#000000',
         position: "relative",
-        fontSize: vw(6),
-        fontFamily: "Comfortaa-Bold",
+        fontSize: vw(8),
+        fontFamily: "BalooTamma2-Bold",
         marginLeft: vw(8),
         marginRight: "auto",
     },
 
     subtitle: {
-        // color: '#FFFFFF',
         color: '#000000',
         position: "relative",
-        fontFamily: "Comfortaa-Regular",
+        fontFamily: "Comfortaa-Bold",
         fontSize: vw(5),
         marginLeft: vw(8),
         marginRight: "auto",
@@ -287,8 +285,7 @@ const home = StyleSheet.create({
 
     heading: {
         color: '#000000',
-        fontFamily: "Comfortaa-Medium",
-        marginBottom: vw(1),
+        fontFamily: "BalooTamma2-Bold",
         fontSize: vw(5),
     },
 
@@ -305,29 +302,37 @@ const home = StyleSheet.create({
     summary: {
         flex: 2,
         justifyContent: "center",
-        padding: vw(8),
         paddingBottom: vw(10),
+        padding: vw(8),
     },
 
     slider: {
         flex: 1,
-        padding: vw(8),
+    },
+
+    sliderHeading:{
+        marginLeft: vw(8),
     },
 
     sliderContainer: {
         flex: 1,
         flexDirection: "row",
+        width: vw(100),
     },
 
     sliderElement:{
-        width: vw(70),
+        width: vw(75),
         height: vw(30),
         flexWrap: "wrap",
-        margin: vw(3),
+        margin: vw(6),
         backgroundColor: "#ffffffbb",
         padding: vw(2),
         borderRadius: vw(2),
-        marginLeft: 0,
+        marginTop: 0,
+    },
+
+    sliderElementLast:{
+        marginRight: vw(17),
     },
 
     sidebar: {

@@ -32,9 +32,14 @@ export default () => {
             source={require('../assets/tree.svg')}
           />
         </View>
-        <Text style={home.title}>
+        <Animated.Text style={[home.title, {
+          color: shift.interpolate({
+            inputRange: [0, 100],
+            outputRange: ['#fff', '#000'],
+          }),
+        }]}>
           {Greeting()}
-        </Text>
+        </Animated.Text>
         <Text style={home.subtitle}>
           {getDate()}
         </Text>
@@ -44,7 +49,7 @@ export default () => {
             <BloodSugarGraph />
           </View>
           <View style={home.slider}>
-            <Text style={home.heading}>Discover More!</Text>
+            <Text style={[home.heading, home.sliderHeading]}>Discover More!</Text>
             <ScrollView
               horizontal={true}
               contentContainerStyle={Dimensions.get("window").width}
@@ -60,52 +65,12 @@ export default () => {
               <View style={home.sliderElement}>
                 <BloodSugarAnalysis />
               </View>
-              <View style={home.sliderElement}>
+              <View style={[home.sliderElement, home.sliderElementLast]}>
                 <BloodSugarAnalysis />
               </View>
             </ScrollView>
           </View>
         </View>
-        {/* <Animated.Text
-          style={
-            [home.title, {
-              color: shift.interpolate({
-                inputRange: [0, 100],
-                outputRange: ['#000', '#fff'],
-              }),
-            }]}
-        >
-          {Greeting()}
-        </Animated.Text> */}
-        {/* <Animated.Text
-          style={
-            [home.subtitle, {
-              color: shift.interpolate({
-                inputRange: [0, 100],
-                outputRange: ['#000', '#fff'],
-              }),
-            }]}
-        >
-          {getDate()}
-        </Animated.Text> */}
-        {/* <View style={home.mainInfograph}>
-          <View style={home.mainInfographContent}>
-            <BloodSugarGraph />
-          </View>
-        </View>
-        <View style={home.subContent}>
-          <View style={home.infographAnalysis}>
-            <BloodSugarAnalysis />
-          </View>
-          <View style={home.inputData}>
-            <LogEvent />
-          </View>
-        </View>
-        <View style={home.bloodPressure}>
-          <View style={home.bloodPressureContent}>
-            <BloodPressureGraph />
-          </View>
-        </View> */}
         <Sidebar />
       </View>
     </SafeAreaView >
