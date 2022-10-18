@@ -116,15 +116,16 @@ const logout = StyleSheet.create({
     },
 
     text: {
-        fontFamily: "Comfortaa-Bold",
-        fontSize: vw(8),
+        fontFamily: "BalooTamma2-Bold",
+        fontSize: vw(7),
         paddingLeft: vw(10),
         paddingRight: vw(10),
+        textAlign: "center",
     },
 
     loginText: {
         fontFamily: "Comfortaa-Regular",
-        fontSize: vw(5),
+        fontSize: vw(4),
         padding: vw(4),
     },
 
@@ -148,7 +149,7 @@ const createAccount = StyleSheet.create({
     },
 
     heading: {
-        fontFamily: "Comfortaa-Bold",
+        fontFamily: "BalooTamma2-Bold",
         fontSize: vw(12),
         margin: vw(4),
         fontWeight: "bold",
@@ -156,7 +157,7 @@ const createAccount = StyleSheet.create({
     },
 
     title: {
-        fontFamily: "Comfortaa-Medium",
+        fontFamily: "BalooTamma2-Medium",
         fontSize: vw(6),
         marginLeft: vw(10),
         marginRight: "auto",
@@ -176,7 +177,7 @@ const createAccount = StyleSheet.create({
         borderRadius: vh(12),
         fontFamily: "Comfortaa-Regular",
         letterSpacing: vw(1),
-        fontSize: vw(5),
+        fontSize: vw(4),
         textAlign: "left",
         paddingLeft: vw(5),
     },
@@ -193,7 +194,7 @@ const createAccount = StyleSheet.create({
         borderRadius: vh(12),
         fontFamily: "Comfortaa-Regular",
         letterSpacing: vw(1),
-        fontSize: vw(5),
+        fontSize: vw(4),
         textAlign: "left",
         paddingLeft: vw(5),
     },
@@ -212,8 +213,7 @@ const createAccount = StyleSheet.create({
     submitText: {
         color: "#FFFFFF",
         fontFamily: "Comfortaa-Regular",
-
-        fontSize: vw(4.5),
+        fontSize: vw(4),
     },
 
     login: {
@@ -269,8 +269,8 @@ const home = StyleSheet.create({
         // color: '#FFFFFF',
         color: '#000000',
         position: "relative",
-        fontSize: vw(6),
-        fontFamily: "Comfortaa-Bold",
+        fontSize: vw(8),
+        fontFamily: "BalooTamma2-Bold",
         marginLeft: vw(8),
         marginRight: "auto",
     },
@@ -287,8 +287,7 @@ const home = StyleSheet.create({
 
     heading: {
         color: '#000000',
-        fontFamily: "Comfortaa-Medium",
-        marginBottom: vw(1),
+        fontFamily: "BalooTamma2-Bold",
         fontSize: vw(5),
     },
 

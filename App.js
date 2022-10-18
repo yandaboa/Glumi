@@ -21,6 +21,12 @@ export default () => {
     'Comfortaa-Medium': require('./assets/fonts/Comfortaa-Medium.ttf'),
     'Comfortaa-Regular': require('./assets/fonts/Comfortaa-Regular.ttf'),
     'Comfortaa-Light': require('./assets/fonts/Comfortaa-Light.ttf'),
+
+    'BalooTamma2-ExtraBold': require('./assets/fonts/BalooTamma2-ExtraBold.ttf'),
+    'BalooTamma2-Bold': require('./assets/fonts/BalooTamma2-Bold.ttf'),
+    'BalooTamma2-SemiBold': require('./assets/fonts/BalooTamma2-SemiBold.ttf'),
+    'BalooTamma2-Medium': require('./assets/fonts/BalooTamma2-Medium.ttf'),
+    'BalooTamma2-Regular': require('./assets/fonts/BalooTamma2-Regular.ttf'),
   });
 
   console.log("app is loading or loaded depending on how you put it");
@@ -31,7 +37,7 @@ export default () => {
   return (
     <HomePage />
     //<Login/>
-    //<Logout/>
+    //<Logout />
     //<CreateAccount />
-  );
+  )
 }
