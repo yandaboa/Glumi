@@ -327,6 +327,7 @@ const home = StyleSheet.create({
         padding: vw(2),
         borderRadius: vw(2),
         marginLeft: 0,
+        marginTop: 0,
     },
 
     sidebar: {
