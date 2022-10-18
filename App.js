@@ -6,16 +6,6 @@ import CreateAccount from './components/CreateAccount.js';
 
 export default () => {
   const [fontsLoad] = useFonts({
-    'Arboria-Black': require('./assets/fonts/Arboria-Black.otf'),
-    'Arboria-Bold': require('./assets/fonts/Arboria-Bold.otf'),
-    'Arboria-Medium': require('./assets/fonts/Arboria-Medium.otf'),
-    'Arboria-Book': require('./assets/fonts/Arboria-Book.otf'),
-
-    'Arboria-BlackItalic': require('./assets/fonts/Arboria-BlackItalic.otf'),
-    'Arboria-BoldItalic': require('./assets/fonts/Arboria-BoldItalic.otf'),
-    'Arboria-MediumItalic': require('./assets/fonts/Arboria-MediumItalic.otf'),
-    'Arboria-BookItalic': require('./assets/fonts/Arboria-BookItalic.otf'),
-
     'Comfortaa-Bold': require('./assets/fonts/Comfortaa-Bold.ttf'),
     'Comfortaa-SemiBold': require('./assets/fonts/Comfortaa-SemiBold.ttf'),
     'Comfortaa-Medium': require('./assets/fonts/Comfortaa-Medium.ttf'),

@@ -266,7 +266,6 @@ const home = StyleSheet.create({
 
     title: {
         marginTop: vw(2),
-        // color: '#FFFFFF',
         color: '#000000',
         position: "relative",
         fontSize: vw(8),
@@ -276,7 +275,6 @@ const home = StyleSheet.create({
     },
 
     subtitle: {
-        // color: '#FFFFFF',
         color: '#000000',
         position: "relative",
         fontFamily: "Comfortaa-Bold",
