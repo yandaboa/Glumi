@@ -43,7 +43,7 @@ const login = StyleSheet.create({
         width: vw(80),
         margin: vw(2),
         borderRadius: vh(12),
-        fontFamily: "Arboria-Book",
+        fontFamily: "Comfortaa-Regular",
         letterSpacing: vw(1),
         fontSize: vw(5),
         textAlign: "left",
@@ -63,7 +63,7 @@ const login = StyleSheet.create({
 
     submitText: {
         color: "#FFFFFF",
-        fontFamily: "Arboria-Book",
+        fontFamily: "Comfortaa-Regular",
         fontSize: vw(4.5),
     },
 
@@ -77,14 +77,14 @@ const login = StyleSheet.create({
     createText: {
         color: "#000000",
         fontSize: vw(4),
-        fontFamily: "Arboria-Book",
+        fontFamily: "Comfortaa-Regular",
         textAlign: "center",
     },
 
     createButton: {
         color: "#E24D50",
         fontSize: vw(4),
-        fontFamily: "Arboria-Book",
+        fontFamily: "Comfortaa-Regular",
         textAlign: "center",
         textDecorationLine: "underline",
     },
@@ -269,8 +269,8 @@ const home = StyleSheet.create({
         // color: '#FFFFFF',
         color: '#000000',
         position: "relative",
-        fontSize: vw(8),
-        fontFamily: "Arboria-BoldItalic",
+        fontSize: vw(6),
+        fontFamily: "Comfortaa-Bold",
         marginLeft: vw(8),
         marginRight: "auto",
     },
@@ -279,23 +279,23 @@ const home = StyleSheet.create({
         // color: '#FFFFFF',
         color: '#000000',
         position: "relative",
-        fontFamily: "Arboria-Book",
-        fontSize: vw(7),
+        fontFamily: "Comfortaa-Regular",
+        fontSize: vw(5),
         marginLeft: vw(8),
         marginRight: "auto",
     },
 
     heading: {
         color: '#000000',
-        fontFamily: "Arboria-Medium",
+        fontFamily: "Comfortaa-Medium",
         marginBottom: vw(1),
         fontSize: vw(5),
     },
 
     text: {
         color: '#000000',
-        fontSize: vw(4),
-        fontFamily: "Arboria-Book",
+        fontSize: vw(3.5),
+        fontFamily: "Comfortaa-Regular",
     },
 
     content: {
@@ -330,70 +330,6 @@ const home = StyleSheet.create({
         marginLeft: 0,
     },
 
-    // mainInfograph: {
-    //     flexWrap: "wrap",
-    //     width: vw(100),
-    //     aspectRatio: "1 / 1",
-    // },
-
-    // mainInfographContent: {
-    //     flex: 1,
-    //     backgroundColor: "rgba(255, 255, 255, 0.6)",
-    //     margin: 20,
-    //     borderRadius: 15,
-    //     justifyContent: "center",
-    //     alignItems: "center",
-    // },
-
-    // subContent: {
-    //     flexDirection: "row",
-    //     width: "100%",
-    // },
-
-    // infographAnalysis: {
-    //     flex: 1.5,
-    //     flexWrap: "wrap",
-    //     backgroundColor: "rgba(255, 255, 255, 0.6)",
-    //     aspectRatio: '1 / 1',
-    //     margin: 20,
-    //     marginRight: 10,
-    //     marginTop: 0,
-    //     borderRadius: 15,
-    //     padding: 20,
-    //     flexDirection: "row",
-    // },
-
-    // infographAnalysisTitle: {
-    //     margin: 10,
-    //     marginLeft: 0,
-    //     marginTop: 0,
-    // },
-
-    // inputData: {
-    //     flex: 1,
-    //     backgroundColor: "rgba(255, 255, 255, 0.8)",
-    //     flexWrap: "wrap",
-    //     margin: 20,
-    //     marginLeft: 10,
-    //     marginTop: 0,
-    //     borderRadius: 15,
-    //     padding: 10,
-    // },
-
-    // bloodPressure: {
-    //     width: vw(100),
-    //     flexWrap: "wrap",
-    // },
-
-    // bloodPressureContent: {
-    //     margin: 20,
-    //     marginTop: 0,
-    //     padding: 20,
-    //     backgroundColor: "rgba(255, 255, 255, 0.8)",
-    //     borderRadius: 15,
-    //     height: vw(40), //!subject to change
-    // },
-
     sidebar: {
         position: "fixed",
         bottom: 0,
@@ -418,22 +354,22 @@ const home = StyleSheet.create({
 const bloodSugarGraph = StyleSheet.create({
     high: {
         color: "#E24D50",
-        fontFamily: "Arboria-Medium",
+        fontFamily: "Comfortaa-Medium",
     },
 
     midHigh: {
         color: "#FFA26F",
-        fontFamily: "Arboria-Medium",
+        fontFamily: "Comfortaa-Medium",
     },
 
     normal: {
         color: "#38B346",
-        fontFamily: "Arboria-Medium",
+        fontFamily: "Comfortaa-Medium",
     },
 
     low: {
         color: "#3399FF",
-        fontFamily: "Arboria-Medium",
+        fontFamily: "Comfortaa-Medium",
     }
 });
 

@@ -24,7 +24,7 @@ export default function BloodSugarGraph() {
         ]
       }}
       width={Dimensions.get("window").width * .75} // from react-native
-      height={220}
+      height={Dimensions.get("window").width * .5}
       // yAxisLabel="$"
       // yAxisSuffix="k"
       yAxisInterval={1} // optional, defaults to 1

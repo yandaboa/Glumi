@@ -45,7 +45,7 @@ export default () => {
             <Text style={home.heading}>Discover More!</Text>
             <ScrollView
               horizontal={true}
-              contentContainerStyle={ Dimensions.get("window").width}
+              contentContainerStyle={Dimensions.get("window").width}
               showsHorizontalScrollIndicator={false}
               scrollEventThrottle={200}
               decelerationRate="fast"
