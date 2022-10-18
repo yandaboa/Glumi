@@ -42,7 +42,7 @@ export default () => {
             <BloodSugarGraph />
           </View>
           <View style={home.slider}>
-            <Text style={home.heading}>Discover More!</Text>
+            <Text style={[home.heading, home.sliderHeading]}>Discover More!</Text>
             <ScrollView
               horizontal={true}
               contentContainerStyle={Dimensions.get("window").width}
@@ -58,7 +58,7 @@ export default () => {
               <View style={home.sliderElement}>
                 <BloodSugarAnalysis />
               </View>
-              <View style={home.sliderElement}>
+              <View style={[home.sliderElement, home.sliderElementLast]}>
                 <BloodSugarAnalysis />
               </View>
             </ScrollView>

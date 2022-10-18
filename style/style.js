@@ -279,7 +279,7 @@ const home = StyleSheet.create({
         // color: '#FFFFFF',
         color: '#000000',
         position: "relative",
-        fontFamily: "Comfortaa-Regular",
+        fontFamily: "Comfortaa-Bold",
         fontSize: vw(5),
         marginLeft: vw(8),
         marginRight: "auto",
@@ -304,30 +304,37 @@ const home = StyleSheet.create({
     summary: {
         flex: 2,
         justifyContent: "center",
-        padding: vw(8),
         paddingBottom: vw(10),
+        padding: vw(8),
     },
 
     slider: {
         flex: 1,
-        padding: vw(8),
+    },
+
+    sliderHeading:{
+        marginLeft: vw(8),
     },
 
     sliderContainer: {
         flex: 1,
         flexDirection: "row",
+        width: vw(100),
     },
 
     sliderElement:{
-        width: vw(70),
+        width: vw(75),
         height: vw(30),
         flexWrap: "wrap",
-        margin: vw(3),
+        margin: vw(6),
         backgroundColor: "#ffffffbb",
         padding: vw(2),
         borderRadius: vw(2),
-        marginLeft: 0,
         marginTop: 0,
+    },
+
+    sliderElementLast:{
+        marginRight: vw(17),
     },
 
     sidebar: {
