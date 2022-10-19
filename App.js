@@ -33,9 +33,22 @@ export default () => {
 
   if (!fontsLoad)
     return null;
-  
-    return (
-    <NavigationContainer>
+
+  return (
+    // <NavigationContainer>
+    //   <Stack.Navigator>
+    //     <Stack.Screen name="Login" component={Login} />
+    //     <Stack.Screen name="HomePage" component={HomePage} />
+    //   </Stack.Navigator>
+    // </NavigationContainer>
+    //<Login/>
+    //<Logout />
+    <CreateAccount />
+  )
+}
+
+function homeScreen() {
+  <NavigationContainer>
     <Tab.Navigator
       initialRouteName="  "
       screenOptions={{position: 'absolute', height: 130, headerShown: false, tabBarStyle: {
@@ -85,10 +98,5 @@ export default () => {
           
         }} />
     </Tab.Navigator>
-    </NavigationContainer>
-
-    //<Login/>
-    //<Logout />
-    //<CreateAccount />
-  )
+  </NavigationContainer>
 }
