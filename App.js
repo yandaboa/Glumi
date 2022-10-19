@@ -7,8 +7,10 @@ import CreateAccount from './components/CreateAccount.js';
 import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { Image } from 'react-native';
-import { home } from './style/style.js';
+import { home, navBar } from './style/style.js';
 import PastData from './components/PastData';
+import LogEvent from './components/LogEvent.js';
+import Settings from './components/Settings.js';
 
 const Tab = createBottomTabNavigator();
 
@@ -36,10 +38,9 @@ export default () => {
     <NavigationContainer>
     <Tab.Navigator
       initialRouteName="  "
-      screenOptions={{position: 'absolute', height: 90,
-        tabBarActiveTintColor: '#e91e63', headerShown: false,
-      }}> 
-      <Tab.Group screenOptions={{ presentation: 'modal' }}> 
+      screenOptions={{position: 'absolute', height: 130, headerShown: false, tabBarStyle: {
+      backgroundColor: "#3295EFab"
+      }}}> 
         <Tab.Screen name="  " component={HomePage} 
         options={{
           tabBarIcon: ({ focused }) => {
@@ -61,7 +62,28 @@ export default () => {
           }
           
         }} />
-      </Tab.Group>
+        <Tab.Screen name="   " component={LogEvent} 
+        options={{
+          tabBarIcon: ({ focused }) => {
+            if(!focused){
+              return <Image source={require('./assets/input.svg')} style={home.sidebarIcon} />;
+            } else {
+              return <Image source={require('./assets/inputFocused.svg')} style={home.sidebarIcon} />
+            }
+          }
+          
+        }} />
+        <Tab.Screen name="    " component={Settings} 
+        options={{
+          tabBarIcon: ({ focused }) => {
+            if(!focused){
+              return <Image source={require('./assets/setting.svg')} style={home.sidebarIcon} />;
+            } else {
+              return <Image source={require('./assets/settingFocused.svg')} style={home.sidebarIcon} />
+            }
+          }
+          
+        }} />
     </Tab.Navigator>
     </NavigationContainer>
 

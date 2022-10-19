@@ -3,7 +3,6 @@ import { useEffect, useRef } from 'react';
 import { home } from './../style/style.js';
 import { LinearGradient } from 'expo-linear-gradient';
 import BloodSugarGraph from './BloodSugarGraph.js';
-import Sidebar from './Sidebar.js';
 import BloodSugarAnalysis from './BloodSugarAnalysis.js';
 import LogEvent from './LogEvent.js';
 import BloodPressureGraph from './BloodPressureGraph.js';
@@ -12,7 +11,7 @@ import BloodPressureGraph from './BloodPressureGraph.js';
 
 export default () => {
 
-  /*
+  
   const shift = useRef(new Animated.Value(0)).current;
   useEffect(() => {
     Animated.timing(shift, {
@@ -21,7 +20,7 @@ export default () => {
       useNativeDriver: true,
     }).start();
   }, []);
-  */
+  
 
   return (
     <SafeAreaView>
@@ -71,7 +70,6 @@ export default () => {
             </ScrollView>
           </View>
         </View>
-        <Sidebar />
       </View>
     </SafeAreaView >
   );

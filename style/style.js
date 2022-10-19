@@ -378,11 +378,4 @@ const bloodSugarGraph = StyleSheet.create({
     }
 });
 
-const menu = StyleSheet.create({
-    list: {
-        display: 'none',
-    }
-}
-)
-
-export { login, logout, createAccount, home, bloodSugarGraph, menu }
+export { login, logout, createAccount, home, bloodSugarGraph }
