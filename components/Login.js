@@ -14,7 +14,7 @@ export default () => {
                 <View style={login.content}>
                     <TextInput
                         style={login.input}
-                        placeholder="username"
+                        placeholder="email"
                         placeholderTextColor={"rgba(0,0,0,.3)"}
                     ></TextInput>
                     <TextInput
@@ -23,6 +23,12 @@ export default () => {
                         placeholder="password"
                         placeholderTextColor={"rgba(0,0,0,.3)"}
                     ></TextInput>
+                    <View style={login.submit}>
+                        <Text onPress={() => Alert.alert('login')} style={login.submitText}>
+                            sign in
+                        </Text>
+                    </View>
+
                     <View style={login.submit}>
                         <Text onPress={() => Alert.alert('login')} style={login.submitText}>
                             sign in

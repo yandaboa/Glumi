@@ -12,7 +12,6 @@ import BloodPressureGraph from './BloodPressureGraph.js';
 
 export default () => {
 
-  /*
   const shift = useRef(new Animated.Value(0)).current;
   useEffect(() => {
     Animated.timing(shift, {
@@ -21,7 +20,6 @@ export default () => {
       useNativeDriver: true,
     }).start();
   }, []);
-  */
 
   return (
     <SafeAreaView>
@@ -71,7 +69,6 @@ export default () => {
             </ScrollView>
           </View>
         </View>
-        <Sidebar />
       </View>
     </SafeAreaView >
   );
