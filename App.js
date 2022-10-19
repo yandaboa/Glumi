@@ -43,12 +43,8 @@ export default () => {
     // </NavigationContainer>
     //<Login/>
     //<Logout />
-    <CreateAccount />
-  )
-}
-
-function homeScreen() {
-  <NavigationContainer>
+    //<CreateAccount />
+    <NavigationContainer>
     <Tab.Navigator
       initialRouteName="  "
       screenOptions={{position: 'absolute', height: 130, headerShown: false, tabBarStyle: {
@@ -99,4 +95,5 @@ function homeScreen() {
         }} />
     </Tab.Navigator>
   </NavigationContainer>
+  )
 }
