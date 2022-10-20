@@ -340,7 +340,7 @@ const home = StyleSheet.create({
     },
 
     sidebarIcon: {
-        width: vw(15),
+        width: vw(12),
         aspectRatio: " 1 / 1",
         margin: 100,
     },
@@ -398,8 +398,6 @@ const pastData = StyleSheet.create({
     },
 
     content: {
-        justifyContent: "center",
-        alignItems: "center",
         flexDirection: "column",
         backgroundColor: "#6c9",
         borderRadius: vw(4),
@@ -460,6 +458,70 @@ const pastData = StyleSheet.create({
     },
 });
 
+const logEvent = StyleSheet.create({
+
+});
+
+const setting = StyleSheet.create({
+    container: {
+        flex: 1,
+        justifyContent: "center",
+        alignItems: "center",
+        flexDirection: "column",
+    },
+
+    header: {
+        flex: 1,
+        padding: vw(8),
+        width: vw(100),
+        justifyContent: "center",
+        backgroundColor: "#6c9",
+        borderRadius: vw(4),
+        borderTopLeftRadius: 0,
+        borderTopRightRadius: 0,
+
+    },
+
+    title: {
+        fontFamily: "BalooTamma2-Bold",
+        fontSize: vw(8),
+        textAlign: "left",
+        color: "#fff"
+    },
+
+    content: {
+        flex: 10,
+    },
+
+    subtitle: {
+        paddingTop: vw(4),
+        fontFamily: "Comfortaa-Bold",
+        fontSize: vw(6),
+        marginLeft: vw(8),
+        marginRight: "auto",
+    },
+
+    section: {
+        width: vw(100),
+    },
+
+    selection: {
+        width: vw(80),
+        justifyContent: "center",
+        backgroundColor: "grey",
+        margin: vw(4),
+        marginLeft: vw(8),
+        padding: vw(2),
+        borderRadius: vw(2),
+        height: vw(12),
+    },
+
+    selectionText: {
+
+    },
+
+});
+
 export {
     login,
     logout,
@@ -467,4 +529,6 @@ export {
     home,
     bloodSugarGraph,
     pastData,
+    logEvent,
+    setting,
 }
