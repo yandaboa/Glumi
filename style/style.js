@@ -332,20 +332,17 @@ const home = StyleSheet.create({
     },
 
     sidebar: {
-        position: "fixed",
-        bottom: 0,
-        left: 0,
-        backgroundColor: "#3295EFab",
-        width: vw(100),
-        justifyContent: "center",
-        alignItems: "center",
-        borderRadius: vw(2.5),
-        flexDirection: "row",
+        backgroundColor: "#3399FF",
+        borderRadius: vw(2),
+        position: "absolute",
+        height: vw(18),
+        border: "none",
     },
 
     sidebarIcon: {
         width: vw(15),
         aspectRatio: " 1 / 1",
+        margin: 100,
     },
 });
 
@@ -372,7 +369,95 @@ const bloodSugarGraph = StyleSheet.create({
 });
 
 const pastData = StyleSheet.create({
+    background: {
+        position: "absolute",
+    },
 
+    profile: {
+        height: vw(20),
+        justifyContent: "center",
+        alignItems: "center",
+        flexDirection: "row",
+        margin: vw(6),
+    },
+
+    profilePicture: {
+        height: vw(20),
+        aspectRatio: "1 / 1",
+        borderRadius: "50%",
+    },
+
+    name: {
+        fontFamily: "BalooTamma2-SemiBold",
+        fontSize: vw(8),
+        marginLeft: vw(6),
+    },
+
+    container: {
+        flex: 1,
+    },
+
+    content: {
+        justifyContent: "center",
+        alignItems: "center",
+        flexDirection: "column",
+        backgroundColor: "#6c9",
+        borderRadius: vw(4),
+        borderBottomLeftRadius: 0,
+        borderBottomRightRadius: 0,
+        padding: vw(4),
+    },
+
+    main: {
+        aspectRatio: "1 / 1",
+        width: vw(80),
+        backgroundColor: "blue",
+        margin: vw(2),
+        borderRadius: vw(4),
+        justifyContent: "center",
+        alignItems: "center",
+    },
+
+    wrapper: {
+        height: vw(50),
+        width: vw(80),
+        flexDirection: "row",
+        marginTop: vw(2),
+    },
+
+    content1: {
+        flex: 1,
+        backgroundColor: "cyan",
+        margin: vw(2),
+        borderRadius: vw(4),
+        justifyContent: "center",
+        alignItems: "center",
+    },
+
+    content2: {
+        flex: 2,
+        backgroundColor: "green",
+        margin: vw(2),
+        borderRadius: vw(4),
+        justifyContent: "center",
+        alignItems: "center",
+    },
+
+    content3: {
+        flex: 3,
+        backgroundColor: "yellow",
+        margin: vw(2),
+        borderRadius: vw(4),
+        justifyContent: "center",
+        alignItems: "center",
+    },
+
+    spacer: {
+        widht: vw(100),
+        height: vw(20),
+        backgroundColor: "yellow",
+
+    },
 });
 
 export {

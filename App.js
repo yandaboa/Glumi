@@ -34,6 +34,8 @@ export default () => {
   if (!fontsLoad)
     return null;
 
+  const sidebarStyle = home.sidebar;
+
   return (
     // <NavigationContainer>
     //   <Stack.Navigator>
@@ -41,59 +43,38 @@ export default () => {
     //     <Stack.Screen name="HomePage" component={HomePage} />
     //   </Stack.Navigator>
     // </NavigationContainer>
-    //<Login/>c
+    //<Login/>
     //<Logout />
     //<CreateAccount />
     <NavigationContainer>
-    <Tab.Navigator
-      initialRouteName="  "
-      screenOptions={{position: 'absolute', height: 130, headerShown: false, tabBarStyle: {
-      backgroundColor: "#3295EFab"
-      }}}> 
-        <Tab.Screen name="  " component={HomePage} 
-        options={{
-          tabBarIcon: ({ focused }) => {
-            if(!focused){
-              return <Image source={require('./assets/home.svg')} style={home.sidebarIcon} />;
-            } else {
-              return <Image source={require('./assets/homeFocused.svg')} style={home.sidebarIcon} />
+      <Tab.Navigator
+        initialRouteName="  "
+        screenOptions={{ headerShown: false, tabBarStyle: sidebarStyle }}>
+        <Tab.Screen name="  " component={HomePage}
+          options={{
+            tabBarIcon: ({ focused }) => {
+              return <Image source={require(`./assets/home${(focused) ? 'Focused' : ''}.svg`)} style={home.sidebarIcon} />
             }
-          }
-        }} />
-        <Tab.Screen name=" " component={PastData} 
-        options={{
-          tabBarIcon: ({ focused }) => {
-            if(!focused){
-              return <Image source={require('./assets/data.svg')} style={home.sidebarIcon} />;
-            } else {
-              return <Image source={require('./assets/dataFocused.svg')} style={home.sidebarIcon} />
+          }} />
+        <Tab.Screen name=" " component={PastData}
+          options={{
+            tabBarIcon: ({ focused }) => {
+              return <Image source={require(`./assets/data${(focused) ? 'Focused' : ''}.svg`)} style={home.sidebarIcon} />
             }
-          }
-          
-        }} />
-        <Tab.Screen name="   " component={LogEvent} 
-        options={{
-          tabBarIcon: ({ focused }) => {
-            if(!focused){
-              return <Image source={require('./assets/input.svg')} style={home.sidebarIcon} />;
-            } else {
-              return <Image source={require('./assets/inputFocused.svg')} style={home.sidebarIcon} />
+          }} />
+        <Tab.Screen name="   " component={LogEvent}
+          options={{
+            tabBarIcon: ({ focused }) => {
+              return <Image source={require(`./assets/input${(focused) ? 'Focused' : ''}.svg`)} style={home.sidebarIcon} />
             }
-          }
-          
-        }} />
-        <Tab.Screen name="    " component={Settings} 
-        options={{
-          tabBarIcon: ({ focused }) => {
-            if(!focused){
-              return <Image source={require('./assets/setting.svg')} style={home.sidebarIcon} />;
-            } else {
-              return <Image source={require('./assets/settingFocused.svg')} style={home.sidebarIcon} />
+          }} />
+        <Tab.Screen name="    " component={Settings}
+          options={{
+            tabBarIcon: ({ focused }) => {
+              return <Image source={require(`./assets/setting${(focused) ? 'Focused' : ''}.svg`)} style={home.sidebarIcon} />
             }
-          }
-          
-        }} />
-    </Tab.Navigator>
-  </NavigationContainer>
+          }} />
+      </Tab.Navigator>
+    </NavigationContainer>
   )
 }

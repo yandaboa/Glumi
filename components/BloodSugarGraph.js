@@ -6,7 +6,6 @@ export default function BloodSugarGraph() {
   const sugarData = [95, 99, 112];
   let yHideRatio = 0.8;
   let defaultMax = 250;
-
   let opacity = 0.5;
   let bkColor = "#0093E1dd"
   return (
