@@ -41,7 +41,7 @@ export default () => {
     //     <Stack.Screen name="HomePage" component={HomePage} />
     //   </Stack.Navigator>
     // </NavigationContainer>
-    //<Login/>
+    //<Login/>c
     //<Logout />
     //<CreateAccount />
     <NavigationContainer>

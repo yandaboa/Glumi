@@ -310,7 +310,7 @@ const home = StyleSheet.create({
         flex: 1,
     },
 
-    sliderHeading:{
+    sliderHeading: {
         marginLeft: vw(8),
     },
 
@@ -320,7 +320,7 @@ const home = StyleSheet.create({
         width: vw(100),
     },
 
-    sliderElement:{
+    sliderElement: {
         width: vw(75),
         height: vw(30),
         flexWrap: "wrap",
@@ -329,10 +329,6 @@ const home = StyleSheet.create({
         padding: vw(2),
         borderRadius: vw(2),
         marginTop: 0,
-    },
-
-    sliderElementLast:{
-        marginRight: vw(17),
     },
 
     sidebar: {
@@ -348,11 +344,8 @@ const home = StyleSheet.create({
     },
 
     sidebarIcon: {
-        width: vw(10),
+        width: vw(15),
         aspectRatio: " 1 / 1",
-        margin: vw(6),
-        marginTop: vw(4),
-        marginBottom: vw(4),
     },
 });
 
@@ -378,4 +371,15 @@ const bloodSugarGraph = StyleSheet.create({
     }
 });
 
-export { login, logout, createAccount, home, bloodSugarGraph }
+const pastData = StyleSheet.create({
+
+});
+
+export {
+    login,
+    logout,
+    createAccount,
+    home,
+    bloodSugarGraph,
+    pastData,
+}

@@ -1,10 +1,11 @@
 import { Text, View, SafeAreaView, ScrollView } from 'react-native';
-import { home } from '../style/style.js';
+import { pastData } from '../style/style.js';
 
-export default function LogEvent() {
+export default () => {
   return (
-    <Text style={home.text} >
-        Display past data here.
-    </Text>
+    <View>
+      <View style={pastData.background}></View>
+      <View style={pastData.container}></View>
+    </View>
   );
 }

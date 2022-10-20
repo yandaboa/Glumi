@@ -62,14 +62,14 @@ export default () => {
               <View style={home.sliderElement}>
                 <BloodSugarAnalysis />
               </View>
-              <View style={[home.sliderElement, home.sliderElementLast]}>
+              <View style={home.sliderElement}>
                 <BloodSugarAnalysis />
               </View>
             </ScrollView>
           </View>
         </View>
       </View>
-    </SafeAreaView >
+    </SafeAreaView>
   );
 }
 
