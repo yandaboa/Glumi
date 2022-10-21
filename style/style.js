@@ -301,7 +301,7 @@ const home = StyleSheet.create({
     },
 
     summary: {
-        flex: 2,
+        flex: 1.75,
         justifyContent: "center",
         paddingBottom: vw(10),
         paddingLeft: vw(8),
@@ -331,7 +331,7 @@ const home = StyleSheet.create({
         borderRadius: vw(2),
         marginTop: 0,
         shadowColor: "#000000",
-        shadowOffset: {width: vw(1), height: vw(1)},
+        shadowOffset: { width: vw(1), height: vw(1) },
         shadowOpacity: .2,
         shadowRadius: vw(2),
     },
@@ -352,9 +352,9 @@ const home = StyleSheet.create({
 });
 
 const bloodSugarGraph = StyleSheet.create({
-    graph:{
+    graph: {
         shadowColor: "#000000",
-        shadowOffset: {width: vw(1), height: vw(1)},
+        shadowOffset: { width: vw(1), height: vw(1) },
         shadowOpacity: .9,
         shadowRadius: vw(4),
         marginVertical: 8,
@@ -419,6 +419,7 @@ const pastData = StyleSheet.create({
         borderBottomLeftRadius: 0,
         borderBottomRightRadius: 0,
         padding: vw(4),
+        alignItems: "center",
     },
 
     main: {
@@ -445,6 +446,10 @@ const pastData = StyleSheet.create({
         borderRadius: vw(4),
         justifyContent: "center",
         alignItems: "center",
+        shadowColor: "#000000",
+        shadowOffset: { width: vw(1), height: vw(1) },
+        shadowOpacity: .2,
+        shadowRadius: vw(2),
     },
 
     content2: {
@@ -454,27 +459,79 @@ const pastData = StyleSheet.create({
         borderRadius: vw(4),
         justifyContent: "center",
         alignItems: "center",
+        shadowColor: "#000000",
+        shadowOffset: { width: vw(1), height: vw(1) },
+        shadowOpacity: .2,
+        shadowRadius: vw(2),
     },
 
     content3: {
         flex: 3,
-        backgroundColor: "yellow",
         margin: vw(2),
         borderRadius: vw(4),
         justifyContent: "center",
         alignItems: "center",
+        shadowColor: "#000000",
+        shadowOffset: { width: vw(1), height: vw(1) },
+        shadowOpacity: .2,
+        shadowRadius: vw(2),
     },
 
     spacer: {
         widht: vw(100),
         height: vw(20),
-        backgroundColor: "yellow",
-
     },
 });
 
 const logEvent = StyleSheet.create({
+    contianer: {
+        flex: 1,
+    },
 
+    header: {
+        flex: 1,
+        height: vw(20),
+        paddingLeft: vw(8),
+        margin: vw(4),
+        justifyContent: "center",
+    },
+
+    title: {
+        fontSize: vw(8),
+        fontFamily: "BalooTamma2-Bold",
+    },
+
+    content: {
+        justifyContent: "center",
+        alignItems: "center",
+        flex: 5,
+    },
+
+    data1: {
+        width: vw(80),
+        aspectRatio: "1 / 1",
+        backgroundColor: "#ffffff",
+        margin: vw(4),
+        borderRadius: vw(4),
+        shadowColor: "#000000",
+        shadowOffset: { width: vw(1), height: vw(1) },
+        shadowOpacity: .2,
+        shadowRadius: vw(2),
+    },
+
+    data1Element: {
+        width: vw(70),
+        height: vw(10),
+        margin: vw(4),
+        marginLeft: "auto",
+        marginRight: "auto",
+        backgroundColor: "grey",
+        borderRadius: vw(2),
+    },
+
+    data2: {
+
+    },
 });
 
 const setting = StyleSheet.create({
@@ -529,6 +586,10 @@ const setting = StyleSheet.create({
         padding: vw(2),
         borderRadius: vw(2),
         height: vw(12),
+        shadowColor: "#000000",
+        shadowOffset: { width: vw(1), height: vw(1) },
+        shadowOpacity: .2,
+        shadowRadius: vw(2),
     },
 
     selectiontext: {

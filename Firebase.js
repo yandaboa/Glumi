@@ -16,4 +16,6 @@ let app = initializeApp(firebaseConfig)
 
 const authen = getAuth(app);
 
+// const database = getFirestore(app);
+
 export { authen }
