@@ -253,6 +253,7 @@ const home = StyleSheet.create({
         top: 0,
         left: 0,
         elevation: -1,
+        backgroundColor: "#99CCFF"
     },
 
     backgroundImage: {
@@ -266,7 +267,7 @@ const home = StyleSheet.create({
 
     title: {
         marginTop: vw(2),
-        color: '#000000',
+        color: '#fff',
         position: "relative",
         fontSize: vw(8),
         fontFamily: "BalooTamma2-Bold",
@@ -275,7 +276,7 @@ const home = StyleSheet.create({
     },
 
     subtitle: {
-        color: '#000000',
+        color: '#fff',
         position: "relative",
         fontFamily: "Comfortaa-Bold",
         fontSize: vw(5),
@@ -284,7 +285,7 @@ const home = StyleSheet.create({
     },
 
     heading: {
-        color: '#000000',
+        color: '#fff',
         fontFamily: "BalooTamma2-Bold",
         fontSize: vw(5),
     },
@@ -303,7 +304,7 @@ const home = StyleSheet.create({
         flex: 2,
         justifyContent: "center",
         paddingBottom: vw(10),
-        padding: vw(8),
+        paddingLeft: vw(8),
     },
 
     slider: {
@@ -329,6 +330,10 @@ const home = StyleSheet.create({
         padding: vw(2),
         borderRadius: vw(2),
         marginTop: 0,
+        shadowColor: "#000000",
+        shadowOffset: {width: vw(1), height: vw(1)},
+        shadowOpacity: .2,
+        shadowRadius: vw(2),
     },
 
     sidebar: {
@@ -347,6 +352,16 @@ const home = StyleSheet.create({
 });
 
 const bloodSugarGraph = StyleSheet.create({
+    graph:{
+        shadowColor: "#000000",
+        shadowOffset: {width: vw(1), height: vw(1)},
+        shadowOpacity: .9,
+        shadowRadius: vw(4),
+        marginVertical: 8,
+        borderRadius: 10,
+        width: vw(80),
+    },
+
     high: {
         color: "#E24D50",
         fontFamily: "Comfortaa-Medium",
@@ -472,14 +487,14 @@ const setting = StyleSheet.create({
 
     header: {
         flex: 1,
-        padding: vw(8),
+        padding: vw(4),
         width: vw(100),
         justifyContent: "center",
         backgroundColor: "#6c9",
         borderRadius: vw(4),
         borderTopLeftRadius: 0,
         borderTopRightRadius: 0,
-
+        marginBottom: vw(10),
     },
 
     title: {
@@ -509,17 +524,17 @@ const setting = StyleSheet.create({
         width: vw(80),
         justifyContent: "center",
         backgroundColor: "grey",
-        margin: vw(4),
+        margin: vw(2),
         marginLeft: vw(8),
         padding: vw(2),
         borderRadius: vw(2),
         height: vw(12),
     },
 
-    selectionText: {
-
+    selectiontext: {
+        fontFamily: "Comfortaa-Regular",
+        fontSize: vw(4),
     },
-
 });
 
 export {

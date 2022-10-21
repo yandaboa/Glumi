@@ -19,6 +19,7 @@ export default () => {
       useNativeDriver: true,
     }).start();
   }, []);
+  
 
   return (
     <SafeAreaView>
@@ -32,7 +33,7 @@ export default () => {
         <Animated.Text style={[home.title, {
           color: shift.interpolate({
             inputRange: [0, 100],
-            outputRange: ['#fff', '#000'],
+            outputRange: ['#000', '#fff'],
           }),
         }]}>
           {Greeting()}
