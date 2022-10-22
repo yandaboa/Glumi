@@ -352,14 +352,16 @@ const home = StyleSheet.create({
 });
 
 const bloodSugarGraph = StyleSheet.create({
-    graph: {
+    container: {
         shadowColor: "#000000",
         shadowOffset: { width: vw(1), height: vw(1) },
-        shadowOpacity: .9,
-        shadowRadius: vw(4),
-        marginVertical: 8,
-        borderRadius: 10,
-        width: vw(80),
+        shadowOpacity: .4,
+        shadowRadius: vw(6),
+        justifyContent: "center",
+        alignSelf: "center",
+        backgroundColor: "rgba(255, 255, 255, .9)",
+        borderRadius: vw(4),
+        marginRight: "auto",
     },
 
     high: {

@@ -1,69 +1,61 @@
-import { Dimensions } from 'react-native';
-import { general, bloodSugarGraph } from './../style/style';
-import { LineChart, BarChart, PieChart, ProgressChart, ContributionGraph, StackedBarChart } from "react-native-chart-kit";
+import { Dimensions, View } from 'react-native';
+import { bloodSugarGraph } from '../style/style';
+import Svg, { Path } from 'react-native-svg';
+import { parseISO } from 'date-fns'
+import * as d3 from 'd3';
+import { Data } from './Data.js';
 
-export default function BloodSugarGraph() {
+export default () => {
   const sugarData = [95, 99, 112];
   let yHideRatio = 0.8;
   let defaultMax = 250;
-  let opacity = 0.85;
+
   const vw = Dimensions.get("window").width;
 
-  const data = {
-    labels: ["sun", "mon", "tue"],
-    datasets: [
-      {
-        data: [
-          Math.random() * 100,
-          Math.random() * 100,
-          Math.random() * 100
-        ]
-      }
-    ],
-  };
-
-  const chartConfig = {
-    backgroundColor: `rgba(255, 255, 255, ${opacity}})`,
-    backgroundGradientFrom: `rgba(255, 255, 255, ${opacity})`,
-    backgroundGradientTo: `rgba(255, 255, 255, ${opacity})`,
-    decimalPlaces: 2,
-    color: (opacity = .9) => `rgba(0, 0, 0, ${opacity})`,
-    labelColor: (opacity = .9) => `rgba(0, 0, 0, ${opacity})`,
-    style: {
-      borderRadius: 12,
-    },
-    propsForLabel: {
-      fontSize: vw * .02,
-    },
-    withInnerLines: false,
-    withHorizontalLabels: false,
-    withVerticalLabels: false,
-    withHorizontalLines: false,
-    withVerticalLines: false,
-    withOuterLines: false
+  for (let i = 0; i < Data.length; i++) {
+    Data[i][0] = parseISO(Data[i][0]);
   }
 
+  const width = vw * .75;
+  const height = width;
+  const margin = {
+    top: vw * .1,
+    bottom: vw * .1,
+    left: vw * .1,
+    right: vw * .1,
+  }
+
+  const xAxis = d3.scaleLinear()
+    .domain([new Date(Data[0][0]), new Date(Data[Data.length - 1][0])])
+    .range([margin.left, width - margin.right]);
+
+  const yAxis = d3.scaleLinear()
+    .domain(d3.extent(Data.map((i) => i[1])))
+    .range([height - margin.bottom, margin.top]);
+
+  const line = d3.line()
+    .x(i => xAxis(i[0]))
+    .y(i => yAxis(i[1]))
+  let graph = line(Data);
+
+  console.log(graph);
+
   return (
-    <LineChart
-      style={
-        {
-          shadowColor: "#000",
-          shadowOffset: { width: vw * .01, height: vw * .01 },
-          shadowOpacity: .5,
-          shadowRadius: vw * .1,
-          marginVertical: 8,
-          borderRadius: 10,
-          width: vw * .8,
-        }
-      }
-      withOuterLines
-      data={data}
-      width={vw * .8} // from react-native
-      height={vw * .8}
-      yAxisInterval={1} // optional, defaults to 1
-      chartConfig={chartConfig}
-      yLabelsOffset={vw * .05}
-      xLabelsOffset={vw * .02}
-    />
+    <View style={bloodSugarGraph.container}>
+      <Svg
+        width={width}
+        height={height}
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <Path
+          fill="none"
+          stroke="#66cc99"
+          strokeWidth={5}
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          d={graph}
+        />
+      </Svg>
+    </View>
   );
 }

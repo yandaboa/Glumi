@@ -15,6 +15,7 @@ import Settings from './components/Settings.js';
 const Tab = createBottomTabNavigator();
 
 export default () => {
+
   const [fontsLoad] = useFonts({
     'Comfortaa-Bold': require('./assets/fonts/Comfortaa-Bold.ttf'),
     'Comfortaa-SemiBold': require('./assets/fonts/Comfortaa-SemiBold.ttf'),
@@ -53,9 +54,13 @@ export default () => {
         <Tab.Screen name="  " component={HomePage}
           options={{
             tabBarIcon: ({ focused }) => {
+              if (focused) {
+                return <Image source={require(`./assets/homeFocused.svg`)} style={home.sidebarIcon} />
+              } else {
+                return <Image source={require(`./assets/home.svg`)} style={home.sidebarIcon} />
+              }
               // return <Image source={require(`./assets/home${(focused) ? 'Focused' : ''}.svg`)} style={home.sidebarIcon} />
-              return <Image source={require(`./assets/homeFocused.svg`)} style={home.sidebarIcon} />
-           
+
             }
           }} />
         <Tab.Screen name=" " component={PastData}
@@ -63,7 +68,7 @@ export default () => {
             tabBarIcon: ({ focused }) => {
               // return <Image source={require(`./assets/data${(focused) ? 'Focused' : ''}.svg`)} style={home.sidebarIcon} />
               return <Image source={require(`./assets/dataFocused.svg`)} style={home.sidebarIcon} />
-            
+
             }
           }} />
         <Tab.Screen name="   " component={LogEvent}

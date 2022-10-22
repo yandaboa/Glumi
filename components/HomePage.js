@@ -7,8 +7,6 @@ import BloodSugarAnalysis from './BloodSugarAnalysis.js';
 import LogEvent from './LogEvent.js';
 import BloodPressureGraph from './BloodPressureGraph.js';
 
-
-
 export default () => {
 
   const shift = useRef(new Animated.Value(0)).current;
@@ -20,7 +18,6 @@ export default () => {
     }).start();
   }, []);
   
-
   return (
     <SafeAreaView>
       <View style={home.container}>
