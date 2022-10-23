@@ -541,19 +541,47 @@ const pastData = StyleSheet.create({
 });
 
 const logEvent = StyleSheet.create({
-    contianer: {
+    background: {
+        elevation: -1,
+        position: 'absolute',
+        height: vh(100),
+        width: vw(100),
+    },
+
+    backgroundElement1: {
+        borderBottomRightRadius: "100%",
+        backgroundColor: "#ff9933",
+        height: vw(100),
+        aspectRatio: "1 / 1",
+        position: "absolute",
+        top: 0,
+        left: 0,
+    },
+
+    backgroundElement2: {
+        borderTopLeftRadius: "100%",
+        backgroundColor: "#66cc99",
+        height: vw(90),
+        aspectRatio: "1 / 1",
+        position: "absolute",
+        bottom: 0,
+        right: 0,
+    },
+
+    container: {
         flex: 1,
     },
 
     header: {
         flex: 1,
-        height: vw(20),
-        paddingLeft: vw(8),
-        margin: vw(4),
+        height: vw(10),
+        padding: vw(8),
         justifyContent: "center",
+        paddingBottom: 0,
     },
 
     title: {
+        color: "#fff",
         fontSize: vw(8),
         fontFamily: "BalooTamma2-Bold",
     },
@@ -576,19 +604,88 @@ const logEvent = StyleSheet.create({
         shadowRadius: vw(2),
     },
 
+    leader: {
+        backgroundColor: "none",
+        margin: 0,
+        flexDirection: "row",
+        justifyContent: "space-evenly",
+        alignItems: "center",
+    },
+
+    leaderText: {
+        flex: 1,
+        fontFamily: "BalooTamma2-SemiBold",
+        textAlign: "center",
+        fontSize: vw(4.5),
+    },
+
+    first: {
+        marginTop: 0,
+    },
+
     data1Element: {
         width: vw(70),
         height: vw(10),
-        margin: vw(4),
+        margin: vw(2.5),
         marginLeft: "auto",
         marginRight: "auto",
-        backgroundColor: "grey",
+        backgroundColor: "#efefef",
         borderRadius: vw(2),
+        flexDirection: "row",
+        justifyContent: "center",
+        alignItems: "center",
+    },
+
+    add: {
+        width: vw(70),
+        height: vw(10),
+        margin: vw(2.5),
+        marginLeft: "auto",
+        marginRight: "auto",
+        borderRadius: vw(2),
+        backgroundColor: "#38B346",
+        justifyContent: "center",
+        alignItems: "center",
+    },
+
+    addIcon: {
+        height: vw(8),
+        width: vw(8),
+    },
+
+    filler: {
+        width: vw(70),
+        height: vw(10),
+        margin: vw(2.5),
+        marginLeft: "auto",
+        marginRight: "auto",
+    },
+
+    dataText: {
+        flex: 1,
+        fontFamily: "Comfortaa-Regular",
+        fontSize: vw(4),
+        textAlign: "center",
+    },
+
+    iconContainer: {
+        flex: 1,
+        justifyContent: "center",
+        alignItems: "center",
+    },
+
+    icon: {
+        height: vw(8),
+        width: vw(8),
     },
 
     data2: {
 
     },
+
+    spacer: {
+        height: vw(18),
+    }
 });
 
 const setting = StyleSheet.create({
@@ -614,6 +711,7 @@ const setting = StyleSheet.create({
     title: {
         fontFamily: "BalooTamma2-Bold",
         fontSize: vw(8),
+        marginLeft: vw(8),
         textAlign: "left",
         color: "#fff"
     },

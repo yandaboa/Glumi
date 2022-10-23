@@ -9,14 +9,14 @@ import BloodPressureGraph from './BloodPressureGraph.js';
 
 export default () => {
 
-  const shift = useRef(new Animated.Value(0)).current;
-  useEffect(() => {
-    Animated.timing(shift, {
-      toValue: 100,
-      duration: 1000,
-      useNativeDriver: true,
-    }).start();
-  }, []);
+  // const shift = useRef(new Animated.Value(0)).current;
+  // useEffect(() => {
+  //   Animated.timing(shift, {
+  //     toValue: 100,
+  //     duration: 1000,
+  //     useNativeDriver: true,
+  //   }).start();
+  // }, []);
 
   // <Animated.Text style={[home.title, {
   //   color: shift.interpolate({

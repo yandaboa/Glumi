@@ -1,4 +1,4 @@
-import { Text, View, Image, ScrollView } from 'react-native';
+import { Text, View, Image, ScrollView, Dimensions } from 'react-native';
 import { pastData } from '../style/style.js';
 import BloodSugarAnalysis from './BloodSugarAnalysis.js';
 import BloodSugarGraph from './BloodSugarGraph.js';

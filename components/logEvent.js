@@ -1,9 +1,13 @@
-import { Text, View, ScrollView, Dimensions } from 'react-native';
+import { Text, View, ScrollView, Dimensions, Image, SafeAreaView } from 'react-native';
 import { logEvent } from '../style/style.js';
 
 export default () => {
   return (
     <View style={logEvent.container}>
+      <View style={logEvent.background}>
+        <View style={logEvent.backgroundElement1} />
+        <View style={logEvent.backgroundElement2} />
+      </View>
       <View style={logEvent.header}>
         <Text style={logEvent.title}>Your Current Data</Text>
       </View>
@@ -16,15 +20,90 @@ export default () => {
           decelerationRate="fast"
           pagingEnabled
         >
-          <View style={logEvent.data1Element}></View>
-          <View style={logEvent.data1Element}></View>
-          <View style={logEvent.data1Element}></View>
-          <View style={logEvent.data1Element}></View>
-          <View style={logEvent.data1Element}></View>
-          <View style={logEvent.data1Element}></View>
-          <View style={logEvent.data1Element}></View>
-          <View style={logEvent.data1Element}></View>
-          {/*this is going to be a vectrical slider, top is most recent and the bottom is the oldest */}
+          <View style={[logEvent.data1Element, logEvent.leader]}>
+            <Text style={logEvent.leaderText}>date</Text>
+            <Text style={logEvent.leaderText}>data</Text>
+            <Text style={logEvent.leaderText}>edit</Text>
+          </View>
+          <View style={[logEvent.data1Element, logEvent.first]}>
+            <Text style={logEvent.dataText}>jan 1</Text>
+            <Text style={logEvent.dataText}>100ppm</Text>
+            <View style={logEvent.iconContainer}>
+              <Image style={logEvent.icon}
+                source={require('../assets/edit.svg')}
+              />
+            </View>
+          </View>
+          <View style={logEvent.data1Element}>
+            <Text style={logEvent.dataText}>jan 2</Text>
+            <Text style={logEvent.dataText}>100ppm</Text>
+            <View style={logEvent.iconContainer}>
+              <Image style={logEvent.icon}
+                source={require('../assets/edit.svg')}
+              />
+            </View>
+          </View>
+          <View style={logEvent.data1Element}>
+            <Text style={logEvent.dataText}>jan 3</Text>
+            <Text style={logEvent.dataText}>100ppm</Text>
+            <View style={logEvent.iconContainer}>
+              <Image style={logEvent.icon}
+                source={require('../assets/edit.svg')}
+              />
+            </View>
+          </View>
+          <View style={logEvent.data1Element}>
+            <Text style={logEvent.dataText}>jan 4</Text>
+            <Text style={logEvent.dataText}>100ppm</Text>
+            <View style={logEvent.iconContainer}>
+              <Image style={logEvent.icon}
+                source={require('../assets/edit.svg')}
+              />
+            </View>
+          </View>
+          <View style={logEvent.data1Element}>
+            <Text style={logEvent.dataText}>jan 5</Text>
+            <Text style={logEvent.dataText}>100ppm</Text>
+            <View style={logEvent.iconContainer}>
+              <Image style={logEvent.icon}
+                source={require('../assets/edit.svg')}
+              />
+            </View>
+          </View>
+          <View style={logEvent.data1Element}>
+            <Text style={logEvent.dataText}>jan 6</Text>
+            <Text style={logEvent.dataText}>100ppm</Text>
+            <View style={logEvent.iconContainer}>
+              <Image style={logEvent.icon}
+                source={require('../assets/edit.svg')}
+              />
+            </View>
+          </View>
+          <View style={logEvent.data1Element}>
+            <Text style={logEvent.dataText}>jan 7</Text>
+            <Text style={logEvent.dataText}>100ppm</Text>
+            <View style={logEvent.iconContainer}>
+              <Image style={logEvent.icon}
+                source={require('../assets/edit.svg')}
+              />
+            </View>
+          </View>
+          <View style={logEvent.data1Element}>
+            <Text style={logEvent.dataText}>jan 8</Text>
+            <Text style={logEvent.dataText}>100ppm</Text>
+            <View style={logEvent.iconContainer}>
+              <Image style={logEvent.icon}
+                source={require('../assets/edit.svg')}
+              />
+            </View>
+          </View>
+          <View style={logEvent.add}>
+            <Image
+              style={logEvent.addIcon}
+              source={require('../assets/add.svg')}
+            />
+          </View>
+          <View style={logEvent.filler} />
         </ScrollView>
         <ScrollView style={logEvent.data1}
           vertical={true}
@@ -34,23 +113,92 @@ export default () => {
           decelerationRate="fast"
           pagingEnabled
         >
-          <View style={logEvent.data1Element}>
-            <View style={logEvent.date}>
-              <Text style={logEvent.dateText}></Text>
-            </View>
-            <View style={logEvent.data}>
-              <Text style={logEvent.dataText}></Text>
+          <View style={[logEvent.data1Element, logEvent.leader]}>
+            <Text style={logEvent.leaderText}>date</Text>
+            <Text style={logEvent.leaderText}>data</Text>
+            <Text style={logEvent.leaderText}>edit</Text>
+          </View>
+          <View style={[logEvent.data1Element, logEvent.first]}>
+            <Text style={logEvent.dataText}>jan 1</Text>
+            <Text style={logEvent.dataText}>100ppm</Text>
+            <View style={logEvent.iconContainer}>
+              <Image style={logEvent.icon}
+                source={require('../assets/edit.svg')}
+              />
             </View>
           </View>
-          <View style={logEvent.data1Element}></View>
-          <View style={logEvent.data1Element}></View>
-          <View style={logEvent.data1Element}></View>
-          <View style={logEvent.data1Element}></View>
-          <View style={logEvent.data1Element}></View>
-          <View style={logEvent.data1Element}></View>
-          <View style={logEvent.data1Element}></View>
-          {/*this is going to be a vectrical slider, top is most recent and the bottom is the oldest */}
+          <View style={logEvent.data1Element}>
+            <Text style={logEvent.dataText}>jan 2</Text>
+            <Text style={logEvent.dataText}>100ppm</Text>
+            <View style={logEvent.iconContainer}>
+              <Image style={logEvent.icon}
+                source={require('../assets/edit.svg')}
+              />
+            </View>
+          </View>
+          <View style={logEvent.data1Element}>
+            <Text style={logEvent.dataText}>jan 3</Text>
+            <Text style={logEvent.dataText}>100ppm</Text>
+            <View style={logEvent.iconContainer}>
+              <Image style={logEvent.icon}
+                source={require('../assets/edit.svg')}
+              />
+            </View>
+          </View>
+          <View style={logEvent.data1Element}>
+            <Text style={logEvent.dataText}>jan 4</Text>
+            <Text style={logEvent.dataText}>100ppm</Text>
+            <View style={logEvent.iconContainer}>
+              <Image style={logEvent.icon}
+                source={require('../assets/edit.svg')}
+              />
+            </View>
+          </View>
+          <View style={logEvent.data1Element}>
+            <Text style={logEvent.dataText}>jan 5</Text>
+            <Text style={logEvent.dataText}>100ppm</Text>
+            <View style={logEvent.iconContainer}>
+              <Image style={logEvent.icon}
+                source={require('../assets/edit.svg')}
+              />
+            </View>
+          </View>
+          <View style={logEvent.data1Element}>
+            <Text style={logEvent.dataText}>jan 6</Text>
+            <Text style={logEvent.dataText}>100ppm</Text>
+            <View style={logEvent.iconContainer}>
+              <Image style={logEvent.icon}
+                source={require('../assets/edit.svg')}
+              />
+            </View>
+          </View>
+          <View style={logEvent.data1Element}>
+            <Text style={logEvent.dataText}>jan 7</Text>
+            <Text style={logEvent.dataText}>100ppm</Text>
+            <View style={logEvent.iconContainer}>
+              <Image style={logEvent.icon}
+                source={require('../assets/edit.svg')}
+              />
+            </View>
+          </View>
+          <View style={logEvent.data1Element}>
+            <Text style={logEvent.dataText}>jan 8</Text>
+            <Text style={logEvent.dataText}>100ppm</Text>
+            <View style={logEvent.iconContainer}>
+              <Image style={logEvent.icon}
+                source={require('../assets/edit.svg')}
+              />
+            </View>
+          </View>
+          <View style={logEvent.add}>
+            <Image
+              style={logEvent.addIcon}
+              source={require('../assets/add.svg')}
+            />
+          </View>
+          <View style={logEvent.filler} />
         </ScrollView>
+        <View style={logEvent.spacer} />
       </View>
     </View>
   );

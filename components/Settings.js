@@ -1,4 +1,4 @@
-import { Text, View, Image, ScrollView } from 'react-native';
+import { Text, View } from 'react-native';
 import { setting } from '../style/style.js';
 
 export default () => {
