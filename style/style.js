@@ -737,23 +737,33 @@ const setting = StyleSheet.create({
 
     selection: {
         width: vw(80),
-        justifyContent: "center",
-        backgroundColor: "grey",
+        backgroundColor: "#fff",
         margin: vw(2),
         marginLeft: vw(8),
         padding: vw(2),
+        paddingLeft: vw(6),
+        paddingRight: vw(6),
         borderRadius: vw(2),
         height: vw(12),
         shadowColor: "#000000",
         shadowOffset: { width: vw(1), height: vw(1) },
         shadowOpacity: .2,
         shadowRadius: vw(2),
+        flexDirection: "row",
+        justifyContent: "center",
+        alignItems: "center",
     },
 
-    selectiontext: {
+    selectionText: {
+        flex: 1,
         fontFamily: "Comfortaa-Regular",
         fontSize: vw(4),
     },
+
+    switch:{
+       height: vw(5),
+    }, 
+
 });
 
 export {
