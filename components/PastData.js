@@ -17,7 +17,7 @@ export default () => {
         </View>
         <View style={pastData.content}>
           <View style={pastData.main}>
-            <Text>hello world</Text>
+            <BloodSugarGraph />
           </View>
           <View style={pastData.wrapper}>
             <View style={pastData.content1}>

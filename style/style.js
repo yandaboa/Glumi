@@ -337,10 +337,11 @@ const home = StyleSheet.create({
         shadowOffset: { width: vw(1), height: vw(1) },
         shadowOpacity: .2,
         shadowRadius: vw(2),
+        justifyContent: "center",
     },
 
     sidebar: {
-        backgroundColor: "#3399FF",
+        backgroundColor: "#eee",
         borderRadius: vw(2),
         position: "absolute",
         height: vw(18),
@@ -356,7 +357,8 @@ const home = StyleSheet.create({
     spacer: {
         width: vw(100),
         height: vw(18),
-    }
+    },
+
 });
 
 const bloodSugarGraph = StyleSheet.create({
@@ -480,7 +482,7 @@ const pastData = StyleSheet.create({
     main: {
         aspectRatio: "1 / 1",
         width: vw(80),
-        backgroundColor: "blue",
+        backgroundColor: "#fff",
         margin: vw(2),
         borderRadius: vw(4),
         justifyContent: "center",
@@ -496,7 +498,7 @@ const pastData = StyleSheet.create({
 
     content1: {
         flex: 1,
-        backgroundColor: "cyan",
+        backgroundColor: "#fff",
         margin: vw(2),
         borderRadius: vw(4),
         justifyContent: "center",
@@ -509,7 +511,7 @@ const pastData = StyleSheet.create({
 
     content2: {
         flex: 2,
-        backgroundColor: "green",
+        backgroundColor: "#fff",
         margin: vw(2),
         borderRadius: vw(4),
         justifyContent: "center",

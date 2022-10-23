@@ -3,12 +3,14 @@ import { bloodSugarGraph } from '../style/style';
 import Svg, { Path } from 'react-native-svg';
 import { parseISO } from 'date-fns'
 import * as d3 from 'd3';
-import { Data } from './Data.js';
+import { RawData } from './Data.js';
 
 export default () => {
   const sugarData = [95, 99, 112];
   let yHideRatio = 0.8;
   let defaultMax = 250;
+
+  let Data = RawData;
 
   const vw = Dimensions.get("window").width;
 
