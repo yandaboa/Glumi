@@ -30,7 +30,7 @@ export default () => {
     'BalooTamma2-Regular': require('./assets/fonts/BalooTamma2-Regular.ttf'),
   });
 
-  console.log("app is loading or loaded depending on how you put it");
+  console.log("loaded/loading");
 
   if (!fontsLoad)
     return null;

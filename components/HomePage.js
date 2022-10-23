@@ -17,7 +17,16 @@ export default () => {
       useNativeDriver: true,
     }).start();
   }, []);
-  
+
+  // <Animated.Text style={[home.title, {
+  //   color: shift.interpolate({
+  //     inputRange: [0, 100],
+  //     outputRange: ['#000', '#fff'],
+  //   }),
+  // }]}>
+  //   {Greeting()}
+  // </Animated.Text>
+
   return (
     <SafeAreaView>
       <View style={home.container}>
@@ -27,14 +36,9 @@ export default () => {
             source={require('../assets/tree.svg')}
           />
         </View>
-        <Animated.Text style={[home.title, {
-          color: shift.interpolate({
-            inputRange: [0, 100],
-            outputRange: ['#000', '#fff'],
-          }),
-        }]}>
+        <Text style={home.title}>
           {Greeting()}
-        </Animated.Text>
+        </Text>
         <Text style={home.subtitle}>
           {getDate()}
         </Text>
@@ -66,8 +70,9 @@ export default () => {
             </ScrollView>
           </View>
         </View>
-      </View>
-    </SafeAreaView>
+        <View style={home.spacer} />
+      </View >
+    </SafeAreaView >
   );
 }
 

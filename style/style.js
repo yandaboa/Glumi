@@ -267,7 +267,8 @@ const home = StyleSheet.create({
 
     title: {
         marginTop: vw(2),
-        color: '#fff',
+        // color: '#FFCC66',
+        color: '#FFCC33',
         position: "relative",
         fontSize: vw(8),
         fontFamily: "BalooTamma2-Bold",
@@ -278,8 +279,8 @@ const home = StyleSheet.create({
     subtitle: {
         color: '#fff',
         position: "relative",
-        fontFamily: "Comfortaa-Bold",
-        fontSize: vw(5),
+        fontFamily: "BalooTamma2-SemiBold",
+        fontSize: vw(5.5),
         marginLeft: vw(8),
         marginRight: "auto",
     },
@@ -287,7 +288,7 @@ const home = StyleSheet.create({
     heading: {
         color: '#fff',
         fontFamily: "BalooTamma2-Bold",
-        fontSize: vw(5),
+        fontSize: vw(6),
     },
 
     text: {
@@ -305,10 +306,12 @@ const home = StyleSheet.create({
         justifyContent: "center",
         paddingBottom: vw(10),
         paddingLeft: vw(8),
+        paddingTop: vw(14),
     },
 
     slider: {
         flex: 1,
+        paddingTop: vw(12),
     },
 
     sliderHeading: {
@@ -349,6 +352,11 @@ const home = StyleSheet.create({
         aspectRatio: " 1 / 1",
         margin: 100,
     },
+
+    spacer: {
+        width: vw(100),
+        height: vw(18),
+    }
 });
 
 const bloodSugarGraph = StyleSheet.create({
@@ -360,8 +368,53 @@ const bloodSugarGraph = StyleSheet.create({
         justifyContent: "center",
         alignSelf: "center",
         backgroundColor: "rgba(255, 255, 255, .9)",
-        borderRadius: vw(4),
         marginRight: "auto",
+        borderRadius: vw(4),
+    },
+
+    content: {
+        justifyContent: "center",
+        alignSelf: "center",
+        flexDirection: "row",
+    },
+
+    xLabelContainer: {
+        justifyContent: "center",
+        alignItems: "center",
+        paddingBottom: vw(2),
+    },
+
+    xLabel: {
+        fontSize: vw(5),
+        fontFamily: "BalooTamma2-Bold",
+        color: "#000",
+    },
+
+    unitContainer: {
+        width: "auto",
+        justifyContent: "center",
+        alignItems: "center",
+    },
+
+    unit: {
+        fontSize: vw(4),
+        fontFamily: "BalooTamma2-Bold",
+        color: "#222",
+        marginTop: vw(1),
+        transform: 'rotate(270deg)',
+    },
+
+    labelContainer: {
+        justifyContent: "space-evenly",
+        width: "auto",
+    },
+
+    yLabel: {
+        fontSize: vw(3.5),
+        fontFamily: "BalooTamma2-Regular",
+        color: "#555",
+        opacity: .8,
+        marginLeft: vw(2),
     },
 
     high: {

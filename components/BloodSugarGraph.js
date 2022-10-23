@@ -1,4 +1,4 @@
-import { Dimensions, View } from 'react-native';
+import { Dimensions, View, Text } from 'react-native';
 import { bloodSugarGraph } from '../style/style';
 import Svg, { Path } from 'react-native-svg';
 import { parseISO } from 'date-fns'
@@ -16,12 +16,12 @@ export default () => {
     Data[i][0] = parseISO(Data[i][0]);
   }
 
-  const width = vw * .75;
+  const width = vw * .7;
   const height = width;
   const margin = {
     top: vw * .1,
     bottom: vw * .1,
-    left: vw * .1,
+    left: vw * .06,
     right: vw * .1,
   }
 
@@ -37,25 +37,39 @@ export default () => {
     .x(i => xAxis(i[0]))
     .y(i => yAxis(i[1]))
   let graph = line(Data);
+  let html = [];
 
-  console.log(graph);
+  yAxis.ticks().reverse().forEach((i) => {
+    html.push(<Text key={i} style={bloodSugarGraph.yLabel}>{i}</Text>)
+  });
 
   return (
     <View style={bloodSugarGraph.container}>
-      <Svg
-        width={width}
-        height={height}
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <Path
-          fill="none"
-          stroke="#66cc99"
-          strokeWidth={5}
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          d={graph}
-        />
-      </Svg>
+      <View style={bloodSugarGraph.content}>
+        <View style={bloodSugarGraph.unitContainer}>
+          <Text style={bloodSugarGraph.unit}>ppm</Text>
+        </View>
+        <View style={bloodSugarGraph.labelContainer}>
+          {html}
+        </View>
+        <Svg
+          width={width}
+          height={height}
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <Path
+            fill="none"
+            stroke="#66cc99"
+            strokeWidth={vw * .015}
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            d={graph}
+          />
+        </Svg>
+      </View>
+      <View style={bloodSugarGraph.xLabelContainer}>
+        <Text style={bloodSugarGraph.xLabel}>Acetone Levels</Text>
+      </View>
     </View>
   );
 }

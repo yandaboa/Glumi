@@ -1,7 +1,7 @@
 import { Text, View, ScrollView, Dimensions } from 'react-native';
 import { logEvent } from '../style/style.js';
 
-export default function LogEvent() {
+export default () => {
   return (
     <View style={logEvent.container}>
       <View style={logEvent.header}>
