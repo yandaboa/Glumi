@@ -62,7 +62,7 @@ export default () => {
                 <BloodSugarAnalysis />
               </View>
               <View style={home.sliderElement}>
-                <BloodSugarAnalysis />
+                <Text>Yo this kiddo was special, how amazing. Srry, but lorem ispum .... time</Text>
               </View>
               <View style={home.sliderElement}>
                 <BloodSugarAnalysis />

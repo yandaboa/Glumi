@@ -267,8 +267,7 @@ const home = StyleSheet.create({
 
     title: {
         marginTop: vw(2),
-        // color: '#FFCC66',
-        color: '#FFCC33',
+        color: "#ff9933",
         position: "relative",
         fontSize: vw(8),
         fontFamily: "BalooTamma2-Bold",
@@ -338,6 +337,10 @@ const home = StyleSheet.create({
         shadowOpacity: .2,
         shadowRadius: vw(2),
         justifyContent: "center",
+    },
+
+    special:{
+        backgroundColor: "#ff9933ee",
     },
 
     sidebar: {

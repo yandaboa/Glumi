@@ -61,6 +61,7 @@ export default () => {
             fill="none"
             // stroke="#ff7e40"
             stroke="#ff9933"
+            // stroke="#66cc99"
             strokeWidth={vw * .015}
             strokeLinecap="round"
             strokeLinejoin="round"
