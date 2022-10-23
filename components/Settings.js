@@ -38,7 +38,7 @@ export default () => {
             <Switch style={[setting.switchNotifications, setting.switch]}
               trackColor={{ false: "#ddd", true: "#38b346" }}
               thumbColor={isNofEnabled ? "#ddd" : "#38b346"}
-              activeThumbColor={"#ddd"}
+              activeThumbColor={"#eee"}
               onValueChange={toggleNofSwitch}
               value={isNofEnabled}
             />
