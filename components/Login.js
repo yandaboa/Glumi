@@ -28,7 +28,14 @@ export default () => {
             const user = userCredentials.user;
             console.log("Logged in with " + user.email);
         })
-        .catch(error => alert(error.message))
+        .catch(error => alert(error.message));
+        onAuthStateChanged(authen, user => {
+            if(user){
+                navigation.navigate("HomePage");
+            } else {
+                console.log("Didn't work");
+            }
+        })
     }
 
     return (

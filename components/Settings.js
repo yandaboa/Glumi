@@ -35,10 +35,6 @@ export default () => {
       <View style={setting.content}>
         <Text style={setting.subtitle}>Account</Text>
         <View style={setting.section}>
-          <TouchableOpacity style={setting.selection}
-            onPress={handleLogout}>
-            <Text style={setting.selectionText}>sign out</Text>
-          </TouchableOpacity>
           <View style={setting.selection}>
             <Text style={setting.selectionText}>profile</Text>
           </View>
@@ -58,9 +54,9 @@ export default () => {
               value={isNofEnabled}
             />
           </View>
-          <View style={[setting.selection, setting.signout]}>
+          <TouchableOpacity style={[setting.selection, setting.signout]} onPress={handleLogout}>
             <Text style={[setting.selectionText, setting.signoutText]}>sign out</Text>
-          </View>
+          </TouchableOpacity>
         </View>
         <Text style={setting.subtitle}>Aesthetics</Text>
         <View style={setting.section}>

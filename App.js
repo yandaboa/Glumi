@@ -31,7 +31,7 @@ export default () => {
 
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName='CreateAccount'>
+      <Stack.Navigator initialRouteName='Login'>
         <Stack.Screen options={{ headerShown: false }} name="Login" component={Login} />
         <Stack.Screen options={{ headerShown: false }} name="CreateAccount" component={CreateAccount} />
         <Stack.Screen options={{ headerShown: false }} name="HomePage" component={HomePage} />
