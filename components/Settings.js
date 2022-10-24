@@ -25,7 +25,7 @@ export default () => {
     signOut(authen).then(() => {
       navigation.replace("Login")
     })
-    .catch(error => console.log(error.message))
+      .catch(error => console.log(error.message))
   }
   return (
     <View style={setting.container}>
@@ -36,13 +36,12 @@ export default () => {
         <Text style={setting.subtitle}>Account</Text>
         <View style={setting.section}>
           <TouchableOpacity style={setting.selection}
-          onPress={handleLogout}>
+            onPress={handleLogout}>
             <Text style={setting.selectionText}>sign out</Text>
           </TouchableOpacity>
           <View style={setting.selection}>
             <Text style={setting.selectionText}>profile</Text>
           </View>
-          {/* delete this if it is not used, this is for entering age weight etc */}
           <View style={setting.selection}>
             <Text style={setting.selectionText}>password</Text>
           </View>
@@ -58,6 +57,9 @@ export default () => {
               onValueChange={toggleNofSwitch}
               value={isNofEnabled}
             />
+          </View>
+          <View style={[setting.selection, setting.signout]}>
+            <Text style={[setting.selectionText, setting.signoutText]}>sign out</Text>
           </View>
         </View>
         <Text style={setting.subtitle}>Aesthetics</Text>

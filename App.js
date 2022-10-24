@@ -1,16 +1,11 @@
 import { useFonts } from 'expo-font';
 import HomePage from './components/HomePage.js';
 import Login from './components/Login.js';
-import Logout from './components/Logout.js';
 import CreateAccount from './components/CreateAccount.js';
 
 import { NavigationContainer } from '@react-navigation/native';
-import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import { Image } from 'react-native';
-import { home, navBar } from './style/style.js';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
-const Tab = createBottomTabNavigator();
 const Stack = createNativeStackNavigator();
 
 export default () => {
@@ -34,59 +29,13 @@ export default () => {
   if (!fontsLoad)
     return null;
 
-  const sidebarStyle = home.sidebar;
-
   return (
     <NavigationContainer>
       <Stack.Navigator initialRouteName='CreateAccount'>
-        <Stack.Screen options={{headerShown: false}} name="CreateAccount" component={CreateAccount} />
-        <Stack.Screen options={{headerShown: false}} name="Login" component={Login} />
-        <Stack.Screen options={{headerShown: false}} name="HomePage" component={HomePage} />
+        <Stack.Screen options={{ headerShown: false }} name="Login" component={Login} />
+        <Stack.Screen options={{ headerShown: false }} name="CreateAccount" component={CreateAccount} />
+        <Stack.Screen options={{ headerShown: false }} name="HomePage" component={HomePage} />
       </Stack.Navigator>
-      
     </NavigationContainer>
-    // <Login/>
-    // <Logout />
-    // <NavigationContainer>
-    //   <Tab.Navigator
-    //     initialRouteName="  "
-    //     screenOptions={{ headerShown: false, tabBarStyle: sidebarStyle }}>
-    //     <Tab.Screen name="  " component={HomePage}
-    //       options={{
-    //         tabBarIcon: ({ focused }) => {
-    //           return iconFocus(focused, 'home');
-    //         }
-    //       }} />
-    //     <Tab.Screen name=" " component={PastData}
-    //       options={{
-    //         tabBarIcon: ({ focused }) => {
-    //           return iconFocus(focused, 'data');
-    //         }
-    //       }} />
-    //     <Tab.Screen name="   " component={LogEvent}
-    //       options={{
-    //         tabBarIcon: ({ focused }) => {
-    //           return iconFocus(focused, 'input');
-    //         }
-    //       }} />
-    //     <Tab.Screen name="    " component={Settings}
-    //       options={{
-    //         tabBarIcon: ({ focused }) => {
-    //           return iconFocus(focused, 'setting');
-    //         }
-    //       }} />
-    //   </Tab.Navigator>
-    // </NavigationContainer>
   )
-
-  function iconFocus(focused, name) {
-    let focus = '.svg';
-    if (focused) {
-      focus = `Focused.svg`
-    }
-    return <Image
-      source={require(`./assets/${name}${focus}`)}
-      style={home.sidebarIcon}
-    />
-  }
 }

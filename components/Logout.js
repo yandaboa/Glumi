@@ -7,7 +7,7 @@ export default () => {
             <View style={logout.background}>
                 <Image
                     style={logout.sprout}
-                    source={require('../assets/sproutNoRing.svg')}
+                    source={require('../assets/SVG/sproutNoRing.svg')}
                 />
             </View>
             <View style={logout.content}>

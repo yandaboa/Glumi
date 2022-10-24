@@ -47,7 +47,11 @@ export default () => {
     <View style={bloodSugarGraph.container}>
       <View style={bloodSugarGraph.content}>
         <View style={bloodSugarGraph.unitContainer}>
-          <Text style={bloodSugarGraph.unit}>ppm</Text>
+          <Text style={[bloodSugarGraph.unit,
+           {
+            transform: [{ rotate: '270deg' }]
+          }]}>
+          ppm</Text>
         </View>
         <View style={bloodSugarGraph.labelContainer}>
           {html}

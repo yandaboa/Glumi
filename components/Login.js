@@ -37,7 +37,7 @@ export default () => {
                 <View style={login.graphics}>
                     <Image
                         style={login.sprout}
-                        source={require('../assets/sprout.svg')}
+                        source={require('../assets/SVG/sprout.svg')}
                     />
                 </View>
                 <View style={login.content}>

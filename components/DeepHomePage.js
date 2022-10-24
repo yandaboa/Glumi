@@ -1,15 +1,22 @@
-import { Text, View, SafeAreaView, Animated, Image, ScrollView, Dimensions } from 'react-native';
+import {
+  Text,
+  View,
+  SafeAreaView,
+  Animated,
+  ImageBackground,
+  ScrollView,
+  Dimensions,
+  Image,
+} from 'react-native';
 import { useEffect, useRef } from 'react';
 import { home } from './../style/style.js';
-import { LinearGradient } from 'expo-linear-gradient';
 import BloodSugarGraph from './BloodSugarGraph.js';
 import BloodSugarAnalysis from './BloodSugarAnalysis.js';
-import LogEvent from './LogEvent.js';
 import BloodPressureGraph from './BloodPressureGraph.js';
+import LogEvent from './LogEvent.js';
 import { authen } from '../Firebase.js';
-import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
-const Tab = createBottomTabNavigator();
+import TreeSVG from '../assets/TreeSVG.js';
 
 export default () => {
 
@@ -32,72 +39,54 @@ export default () => {
   // </Animated.Text>
 
   const sidebarStyle = home.sidebar;
+  return (<TreeSVG />)
 
   return (
-  <>
-
-    <SafeAreaView>
-      <View style={home.container}>
-        <View style={home.background}>
-          <Image
-            style={home.backgroundImage}
-            source={require('../assets/tree.svg')}
-          />
+    <View style={home.container}>
+      <TreeSVG />
+      <Text style={home.title}>
+        {Greeting()}
+      </Text>
+      <Text style={home.subtitle}>
+        {getDate()}
+      </Text>
+      <View style={home.content}>
+        <View style={home.summary}>
+          <Text style={home.heading}>Summary</Text>
+          <BloodSugarGraph />
         </View>
-        <Text style={home.title}>
-          {Greeting()}
-        </Text>
-        <Text style={home.subtitle}>
-          {getDate()}
-        </Text>
-        <View style={home.content}>
-          <View style={home.summary}>
-            <Text style={home.heading}>Summary</Text>
-            <BloodSugarGraph />
-          </View>
-          <View style={home.slider}>
-            <Text style={[home.heading, home.sliderHeading]}>Discover More!</Text>
-            <ScrollView
-              horizontal={true}
-              contentContainerStyle={Dimensions.get("window").width}
-              showsHorizontalScrollIndicator={false}
-              scrollEventThrottle={200}
-              decelerationRate="fast"
-              pagingEnabled
-              style={home.sliderContainer}
-            >
-              <View style={home.sliderElement}>
-                <BloodSugarAnalysis />
-              </View>
-              <View style={home.sliderElement}>
-                <Text>Yo this kiddo was special, how amazing. Srry, but lorem ispum .... time</Text>
-              </View>
-              <View style={home.sliderElement}>
-                <BloodSugarAnalysis />
-              </View>
-            </ScrollView>
-          </View>
+        <View style={home.slider}>
+          <Text style={[home.heading, home.sliderHeading]}>Discover More!</Text>
+          <ScrollView
+            horizontal={true}
+            contentContainerStyle={Dimensions.get("window").width}
+            showsHorizontalScrollIndicator={false}
+            scrollEventThrottle={200}
+            decelerationRate="fast"
+            pagingEnabled
+            style={home.sliderContainer}
+          >
+            <View style={home.sliderElement}>
+              <BloodSugarAnalysis />
+            </View>
+            <View style={home.sliderElement}>
+              <Text>Yo this kiddo was special, how amazing. Srry, but lorem ispum .... time</Text>
+            </View>
+            <View style={home.sliderElement}>
+              <BloodSugarAnalysis />
+            </View>
+          </ScrollView>
         </View>
-        <View style={home.spacer} />
-      </View >
-    </SafeAreaView >
-    </>
+      </View>
+      <View style={home.spacer} />
+    </View>
   );
-
-  function iconFocus(focused, name) {
-    let focus = '.svg';
-    if (focused) {
-      focus = `Focused.svg`
-    }
-    return <Image
-      source={require(`.././assets/${name}${focus}`)}
-      style={home.sidebarIcon}
-    />
-  }
 }
 
 function Greeting() {
-  let greeting = "Good Morning " + authen.currentUser.email;
+  let greeting = "Good Morning";
+
+  // let greeting = "Good Morning " + authen.currentUser.email;
   let time = new Date();
   if (time.getHours() > 18) {
     greeting = "Good Evening";

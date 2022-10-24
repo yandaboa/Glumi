@@ -1,3 +1,4 @@
+import { autoType } from 'd3';
 import { StyleSheet } from 'react-native';
 import { vw, vh, vmin } from 'react-native-expo-viewport-units';
 
@@ -107,6 +108,7 @@ const logout = StyleSheet.create({
 
     sprout: {
         height: vw(75),
+        width: vw(75),
         aspectRatio: "1 / 1",
     },
 
@@ -244,25 +246,15 @@ const home = StyleSheet.create({
     container: {
         height: vh(100),
         width: vw(100),
+        // backgroundColor: "#99CCFF"
     },
 
     background: {
-        width: vw(100),
-        height: vh(100),
-        position: "fixed",
-        top: 0,
-        left: 0,
-        elevation: -1,
-        backgroundColor: "#99CCFF"
-    },
-
-    backgroundImage: {
-        height: vh(100),
-        width: vw(100),
-        elevation: 2,
-        position: "fixed",
-        bottom: 0,
-        left: 0,
+        // position: "absolute",
+        // height: vh(100),
+        // width: vw(1000),
+        // top: 0,
+        // left: 0,
     },
 
     title: {
@@ -324,6 +316,12 @@ const home = StyleSheet.create({
         width: vw(100),
     },
 
+    test: {
+        flex: 1,
+        height: vw(100),
+        width: vw(100),
+    },
+
     sliderElement: {
         width: vw(75),
         height: vw(30),
@@ -338,23 +336,28 @@ const home = StyleSheet.create({
         shadowOpacity: .2,
         shadowRadius: vw(2),
         justifyContent: "center",
+        flexWrap: "wrap",
     },
 
-    special:{
+    special: {
         backgroundColor: "#ff9933ee",
     },
 
     sidebar: {
-        backgroundColor: "#eee",
-        borderRadius: vw(2),
+        backgroundColor: "#fff",
         position: "absolute",
         height: vw(18),
         border: "none",
+        shadowColor: "#000000",
+        shadowOffset: { width: 0, height: vw(-2) },
+        shadowOpacity: .05,
+        shadowRadius: vw(2),
+        paddingBottom: vw(4),
     },
 
     sidebarIcon: {
         width: vw(12),
-        aspectRatio: " 1 / 1",
+        height: vw(12),
         margin: 100,
     },
 
@@ -407,7 +410,6 @@ const bloodSugarGraph = StyleSheet.create({
         fontFamily: "BalooTamma2-Bold",
         color: "#222",
         marginTop: vw(1),
-        transform: 'rotate(270deg)',
     },
 
     labelContainer: {
@@ -446,20 +448,29 @@ const bloodSugarGraph = StyleSheet.create({
 
 const pastData = StyleSheet.create({
     background: {
-        position: "absolute",
+        position: "fixed",
+        backgroundColor: "#eee",
+        height: vh(100),
+        width: vw(100),
+    },
+
+    top: {
+        justifyContent: "center",
+        alignItems: "center",
     },
 
     profile: {
-        height: vw(20),
+        height: vw(40),
         justifyContent: "center",
         alignItems: "center",
         flexDirection: "row",
         margin: vw(6),
     },
 
+
     profilePicture: {
         height: vw(20),
-        aspectRatio: "1 / 1",
+        width: vw(20),
         borderRadius: "50%",
     },
 
@@ -475,7 +486,6 @@ const pastData = StyleSheet.create({
 
     content: {
         flexDirection: "column",
-        backgroundColor: "#6c9",
         borderRadius: vw(4),
         borderBottomLeftRadius: 0,
         borderBottomRightRadius: 0,
@@ -484,9 +494,9 @@ const pastData = StyleSheet.create({
     },
 
     main: {
-        aspectRatio: "1 / 1",
-        width: vw(80),
         backgroundColor: "#fff",
+        width: vw(80),
+        height: vw(80),
         margin: vw(2),
         borderRadius: vw(4),
         justifyContent: "center",
@@ -546,17 +556,17 @@ const pastData = StyleSheet.create({
 
 const logEvent = StyleSheet.create({
     background: {
-        elevation: -1,
         position: 'absolute',
         height: vh(100),
         width: vw(100),
+        backgroundColor: "#eee",
     },
 
     backgroundElement1: {
         borderBottomRightRadius: "100%",
         backgroundColor: "#ff9933",
         height: vw(100),
-        aspectRatio: "1 / 1",
+        width: vw(100),
         position: "absolute",
         top: 0,
         left: 0,
@@ -566,7 +576,7 @@ const logEvent = StyleSheet.create({
         borderTopLeftRadius: "100%",
         backgroundColor: "#66cc99",
         height: vw(90),
-        aspectRatio: "1 / 1",
+        width: vw(90),
         position: "absolute",
         bottom: 0,
         right: 0,
@@ -598,7 +608,7 @@ const logEvent = StyleSheet.create({
 
     data1: {
         width: vw(80),
-        aspectRatio: "1 / 1",
+        height: vw(80),
         backgroundColor: "#ffffff",
         margin: vw(4),
         borderRadius: vw(4),
@@ -698,6 +708,7 @@ const setting = StyleSheet.create({
         justifyContent: "center",
         alignItems: "center",
         flexDirection: "column",
+        backgroundColor: "#eee",
     },
 
     header: {
@@ -753,6 +764,7 @@ const setting = StyleSheet.create({
         flexDirection: "row",
         justifyContent: "center",
         alignItems: "center",
+        flexWrap: "wrap",
     },
 
     selectionText: {
@@ -761,10 +773,19 @@ const setting = StyleSheet.create({
         fontSize: vw(4),
     },
 
-    switch:{
-       height: vw(5),
-    }, 
+    switch: {
+        height: vw(5),
+    },
 
+    signout: {
+        backgroundColor: "#ff9933"
+    },
+
+    signoutText: {
+        color: "#fff",
+        textAlign: "center",
+        fontFamily: "Comfortaa-Bold",
+    },
 });
 
 export {

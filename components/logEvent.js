@@ -1,5 +1,6 @@
 import { Text, View, ScrollView, Dimensions, Image, SafeAreaView } from 'react-native';
 import { logEvent } from '../style/style.js';
+import AddSVG from '../assets/AddSVG.js'
 
 export default () => {
   return (
@@ -30,7 +31,7 @@ export default () => {
             <Text style={logEvent.dataText}>100ppm</Text>
             <View style={logEvent.iconContainer}>
               <Image style={logEvent.icon}
-                source={require('../assets/edit.svg')}
+                source={require('../assets/SVG/edit.svg')}
               />
             </View>
           </View>
@@ -39,7 +40,7 @@ export default () => {
             <Text style={logEvent.dataText}>100ppm</Text>
             <View style={logEvent.iconContainer}>
               <Image style={logEvent.icon}
-                source={require('../assets/edit.svg')}
+                source={require('../assets/SVG/edit.svg')}
               />
             </View>
           </View>
@@ -48,7 +49,7 @@ export default () => {
             <Text style={logEvent.dataText}>100ppm</Text>
             <View style={logEvent.iconContainer}>
               <Image style={logEvent.icon}
-                source={require('../assets/edit.svg')}
+                source={require('../assets/SVG/edit.svg')}
               />
             </View>
           </View>
@@ -57,7 +58,7 @@ export default () => {
             <Text style={logEvent.dataText}>100ppm</Text>
             <View style={logEvent.iconContainer}>
               <Image style={logEvent.icon}
-                source={require('../assets/edit.svg')}
+                source={require('../assets/SVG/edit.svg')}
               />
             </View>
           </View>
@@ -66,7 +67,7 @@ export default () => {
             <Text style={logEvent.dataText}>100ppm</Text>
             <View style={logEvent.iconContainer}>
               <Image style={logEvent.icon}
-                source={require('../assets/edit.svg')}
+                source={require('../assets/SVG/edit.svg')}
               />
             </View>
           </View>
@@ -75,7 +76,7 @@ export default () => {
             <Text style={logEvent.dataText}>100ppm</Text>
             <View style={logEvent.iconContainer}>
               <Image style={logEvent.icon}
-                source={require('../assets/edit.svg')}
+                source={require('../assets/SVG/edit.svg')}
               />
             </View>
           </View>
@@ -84,7 +85,7 @@ export default () => {
             <Text style={logEvent.dataText}>100ppm</Text>
             <View style={logEvent.iconContainer}>
               <Image style={logEvent.icon}
-                source={require('../assets/edit.svg')}
+                source={require('../assets/SVG/edit.svg')}
               />
             </View>
           </View>
@@ -93,15 +94,12 @@ export default () => {
             <Text style={logEvent.dataText}>100ppm</Text>
             <View style={logEvent.iconContainer}>
               <Image style={logEvent.icon}
-                source={require('../assets/edit.svg')}
+                source={require('../assets/SVG/edit.svg')}
               />
             </View>
           </View>
           <View style={logEvent.add}>
-            <Image
-              style={logEvent.addIcon}
-              source={require('../assets/add.svg')}
-            />
+            <AddSVG style={logEvent.icon} />
           </View>
           <View style={logEvent.filler} />
         </ScrollView>
@@ -123,7 +121,7 @@ export default () => {
             <Text style={logEvent.dataText}>100ppm</Text>
             <View style={logEvent.iconContainer}>
               <Image style={logEvent.icon}
-                source={require('../assets/edit.svg')}
+                source={require('../assets/SVG/edit.svg')}
               />
             </View>
           </View>
@@ -132,7 +130,7 @@ export default () => {
             <Text style={logEvent.dataText}>100ppm</Text>
             <View style={logEvent.iconContainer}>
               <Image style={logEvent.icon}
-                source={require('../assets/edit.svg')}
+                source={require('../assets/SVG/edit.svg')}
               />
             </View>
           </View>
@@ -141,7 +139,7 @@ export default () => {
             <Text style={logEvent.dataText}>100ppm</Text>
             <View style={logEvent.iconContainer}>
               <Image style={logEvent.icon}
-                source={require('../assets/edit.svg')}
+                source={require('../assets/SVG/edit.svg')}
               />
             </View>
           </View>
@@ -150,7 +148,7 @@ export default () => {
             <Text style={logEvent.dataText}>100ppm</Text>
             <View style={logEvent.iconContainer}>
               <Image style={logEvent.icon}
-                source={require('../assets/edit.svg')}
+                source={require('../assets/SVG/edit.svg')}
               />
             </View>
           </View>
@@ -159,7 +157,7 @@ export default () => {
             <Text style={logEvent.dataText}>100ppm</Text>
             <View style={logEvent.iconContainer}>
               <Image style={logEvent.icon}
-                source={require('../assets/edit.svg')}
+                source={require('../assets/SVG/edit.svg')}
               />
             </View>
           </View>
@@ -168,7 +166,7 @@ export default () => {
             <Text style={logEvent.dataText}>100ppm</Text>
             <View style={logEvent.iconContainer}>
               <Image style={logEvent.icon}
-                source={require('../assets/edit.svg')}
+                source={require('../assets/SVG/edit.svg')}
               />
             </View>
           </View>
@@ -177,7 +175,7 @@ export default () => {
             <Text style={logEvent.dataText}>100ppm</Text>
             <View style={logEvent.iconContainer}>
               <Image style={logEvent.icon}
-                source={require('../assets/edit.svg')}
+                source={require('../assets/SVG/edit.svg')}
               />
             </View>
           </View>
@@ -186,15 +184,12 @@ export default () => {
             <Text style={logEvent.dataText}>100ppm</Text>
             <View style={logEvent.iconContainer}>
               <Image style={logEvent.icon}
-                source={require('../assets/edit.svg')}
+                source={require('../assets/SVG/edit.svg')}
               />
             </View>
           </View>
           <View style={logEvent.add}>
-            <Image
-              style={logEvent.addIcon}
-              source={require('../assets/add.svg')}
-            />
+            <AddSVG style={logEvent.icon} />
           </View>
           <View style={logEvent.filler} />
         </ScrollView>
