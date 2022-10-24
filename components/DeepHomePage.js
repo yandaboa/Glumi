@@ -38,12 +38,12 @@ export default () => {
   //   {Greeting()}
   // </Animated.Text>
 
-  const sidebarStyle = home.sidebar;
-  return (<TreeSVG />)
-
   return (
     <View style={home.container}>
-      <TreeSVG />
+      <View style={home.backgroundContainer}>
+        <TreeSVG />
+
+      </View>
       <Text style={home.title}>
         {Greeting()}
       </Text>
@@ -85,8 +85,6 @@ export default () => {
 
 function Greeting() {
   let greeting = "Good Morning";
-
-  // let greeting = "Good Morning " + authen.currentUser.email;
   let time = new Date();
   if (time.getHours() > 18) {
     greeting = "Good Evening";

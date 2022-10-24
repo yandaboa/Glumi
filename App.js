@@ -9,7 +9,6 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 const Stack = createNativeStackNavigator();
 
 export default () => {
-
   const [fontsLoad] = useFonts({
     'Comfortaa-Bold': require('./assets/fonts/Comfortaa-Bold.ttf'),
     'Comfortaa-SemiBold': require('./assets/fonts/Comfortaa-SemiBold.ttf'),

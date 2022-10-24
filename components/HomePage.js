@@ -6,6 +6,11 @@ import DeepHomePage from './DeepHomePage';
 import PastData from './PastData';
 import LogEvent from './LogEvent';
 import Settings from './Settings';
+import HomeSVG from '../assets/HomeSVG.js';
+import DataSVG from '../assets/DataSVG.js';
+import InputSVG from '../assets/InputSVG.js';
+import SettingSVG from '../assets/SettingSVG.js';
+
 // import Tree from '../assets/Tree.js';
 
 const Tab = createBottomTabNavigator();
@@ -20,25 +25,35 @@ const HomePage = () => {
       <Tab.Screen name="  " component={DeepHomePage}
         options={{
           tabBarIcon: ({ focused }) => {
-            return iconFocus(focused, 'home');
+            return (
+              <HomeSVG
+                state={focused.toString()}
+              />
+            )
           }
         }} />
       <Tab.Screen name=" " component={PastData}
         options={{
           tabBarIcon: ({ focused }) => {
-            return iconFocus(focused, 'data');
+            return (<DataSVG
+              state={focused.toString()}
+            />)
           }
         }} />
       <Tab.Screen name="   " component={LogEvent}
         options={{
           tabBarIcon: ({ focused }) => {
-            return iconFocus(focused, 'input');
+            return (<InputSVG
+              state={focused.toString()}
+            />)
           }
         }} />
       <Tab.Screen name="    " component={Settings}
         options={{
           tabBarIcon: ({ focused }) => {
-            return iconFocus(focused, 'setting');
+            return (<SettingSVG
+              state={focused.toString()}
+            />)
           }
         }} />
     </Tab.Navigator>

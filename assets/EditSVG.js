@@ -8,6 +8,7 @@ import { StyleSheet } from "react-native";
 
 const EditSVG = (props) => {
     const style = StyleSheet.create({
+        
         cls1: {
             fill: "#777",
         },
