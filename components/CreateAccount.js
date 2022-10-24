@@ -9,6 +9,8 @@ import { useNavigation } from '@react-navigation/native';
 
 const CreateAccount = () => {
     // const [signedIn, setSignedIn] = useState(false); dont think we need this, firebase has func
+    const navigation = useNavigation();
+
     const [first, setFirst] = useState('');
     const [last, setLast] = useState('');
     const [email, setEmail] = useState('');
@@ -19,13 +21,12 @@ const CreateAccount = () => {
             .then((e) => {
                 // const user = e.user;
                 // e.user.displayName = first + " " + last; doesn't really work, doesn't write to firebase
+                navigation.navigate("Login");
                 console.log("Registered with " + e.email);
             }).catch((e) => {
                 console.log(e);
             })
     }
-
-    const navigation = useNavigation();
 
     const handleLogin = () => {
         signInWithEmailAndPassword(authen, email, password)
