@@ -5,6 +5,7 @@ import { TouchableOpacity } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import { setting } from '../style/style.js';
 import { authen } from "../Firebase.js";
+import { pairDevice, unPair } from "../Firebase.js";
 
 export default () => {
   const navigation = useNavigation()
@@ -20,6 +21,15 @@ export default () => {
   const toggleDarkSwitch = () => {
     setIsDarkEnabled(previousState => !previousState)
   };
+
+  const startPairing = () => {
+    console.log(authen.currentUser.uid);
+    pairDevice(authen.currentUser.uid);
+  }
+
+  const stopPairing = () => {
+    unPair();
+  }
 
   const handleLogout = () => {
     signOut(authen).then(() => {
@@ -44,6 +54,10 @@ export default () => {
           <View style={setting.selection}>
             <Text style={setting.selectionText}>email</Text>
           </View>
+          <TouchableOpacity style={[setting.selection, setting.signout]}
+          onPressIn={startPairing}>{/*onPressOut={stopPairing}*/}
+            <Text style={[setting.selectionText, setting.signoutText]}>Pair Device</Text>
+          </TouchableOpacity>
           <View style={setting.selection}>
             <Text style={setting.selectionText}>notifications</Text>
             <Switch style={[setting.switchNotifications, setting.switch]}
@@ -61,7 +75,7 @@ export default () => {
         <Text style={setting.subtitle}>Aesthetics</Text>
         <View style={setting.section}>
           <View style={setting.selection}>
-            <Text style={setting.selectionText}>light mode</Text>
+            <Text style={setting.selectionText}>dark mode</Text>
             <Switch style={[setting.switchTheme, setting.switch]}
               trackColor={{ false: "#ddd", true: "#333" }}
               thumbColor={isDarkEnabled ? "#ddd" : "#333"}

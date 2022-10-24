@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { View, TextInput, Alert, Text } from 'react-native';
 import { createAccount } from './../style/style.js';
-import { authen } from '../Firebase.js';
+import { authen, createUserData } from '../Firebase.js';
 import { createUserWithEmailAndPassword, signInWithEmailAndPassword } from 'firebase/auth';
 import { KeyboardAvoidingView } from 'react-native';
 import Login from './Login.js';
@@ -16,11 +16,14 @@ const CreateAccount = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
 
+    // const reference = firebase.app().database().ref('/uers/123');
+
     const register = () => {
         createUserWithEmailAndPassword(authen, email, password)
             .then((e) => {
                 // const user = e.user;
                 // e.user.displayName = first + " " + last; doesn't really work, doesn't write to firebase
+                createUserData(e.user.uid, first + " " + last, email);
                 navigation.navigate("Login");
                 console.log("Registered with " + e.email);
             }).catch((e) => {

@@ -1,5 +1,6 @@
 import { initializeApp } from 'firebase/app';
 import { getAuth } from "firebase/auth";
+import { getDatabase, ref, set, update } from "firebase/database";
 
 const firebaseConfig = {
     apiKey: "AIzaSyCWk2EKd0342I82gVHHpDNQYCzdGTjo5Ew",
@@ -9,13 +10,36 @@ const firebaseConfig = {
     storageBucket: "breathanalyzer-db8fb.appspot.com",
     messagingSenderId: "444177996622",
     appId: "1:444177996622:web:3e2ea687b31085fb2adc1f",
-    measurementId: "G-YNESQV4MPD"
+    measurementId: "G-YNESQV4MPD",
+    databaseURL: "https://breathanalyzer-db8fb-default-rtdb.firebaseio.com/"
 };
 
-let app = initializeApp(firebaseConfig)
+const app = initializeApp(firebaseConfig)
 
 const authen = getAuth(app);
 
-// const database = getFirestore(app);
+// const reference = 
+const database = getDatabase(app);
 
-export { authen }
+function createUserData(userId, name, email){
+    set(ref(database, 'users/' + userId), {
+        name: name,
+        email: email
+    })
+}
+
+function pairDevice(userID){
+    set(ref(database, 'currPairingUID/'), userID);
+}
+
+function unPair(userID){
+    update(ref(database, "/"), {
+        currPairingUID: null
+    })
+}
+
+function updateSettings(a, b, c){
+    console.log(b);
+}
+
+export { authen, database, createUserData, pairDevice, unPair}
