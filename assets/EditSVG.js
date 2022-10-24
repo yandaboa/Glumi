@@ -3,12 +3,18 @@ import Svg, {
     Defs,
     Path,
 } from "react-native-svg";
-import { StyleSheet } from "react-native";
+import { StyleSheet, Dimensions } from "react-native";
 
 
 const EditSVG = (props) => {
+    const vw = Dimensions.get("window").width;
+
     const style = StyleSheet.create({
-        
+        icon: {
+            height: vw * .08,
+            width: vw * .08,
+        },
+
         cls1: {
             fill: "#777",
         },
@@ -21,6 +27,7 @@ const EditSVG = (props) => {
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 600 600"
             accessibilityRole="image"
+            style={style.icon}
             {...props}
         >
 

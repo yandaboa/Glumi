@@ -28,16 +28,7 @@ const login = StyleSheet.create({
         justifyContent: 'top',
         alignItems: "center",
     },
-
-    sprout: {
-        height: vw(60),
-        width: vw(60),
-        margin: 0,
-        padding: 0,
-        marginTop: "auto",
-        marginBottom: vw(5),
-    },
-
+    
     input: {
         backgroundColor: "#A6E5FF",
         height: vw(12),

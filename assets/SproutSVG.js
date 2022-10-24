@@ -1,21 +1,41 @@
 import * as React from "react";
-import Svg, {
-    Defs,
-    Path,
-} from "react-native-svg";
-import { StyleSheet } from "react-native";
+import Svg, { G, Path } from "react-native-svg";
+import { StyleSheet, Dimensions } from "react-native";
 
 
 const SettingSVG = (props) => {
+    const vw = Dimensions.get("window").width;
+
     const style = StyleSheet.create({
+        icon: {
+            height: vw * .2,
+            width: vw * .2,
+            borderRadius: "50%",
+        },
+
+        login: {
+            height: vw * .6,
+            width: vw * .6,
+            margin: 0,
+            padding: 0,
+            marginTop: "auto",
+            marginBottom: vw * .05,
+        },
+
         cls1: {
             fill: "#8bc166",
         },
+
         cls2: {
             fill: "#4d8fcc",
 
         }
     });
+
+    if (props.state == "login") {
+        style.icon = style.login;
+    }
+
     return (
         <Svg
             id="Layer_1"
@@ -23,6 +43,7 @@ const SettingSVG = (props) => {
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 600 600"
             accessibilityRole="image"
+            style={style.icon}
             {...props}
         >
             <G>

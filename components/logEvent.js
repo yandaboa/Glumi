@@ -1,7 +1,7 @@
 import { Text, View, ScrollView, Dimensions, Image, SafeAreaView } from 'react-native';
 import { logEvent } from '../style/style.js';
 import AddSVG from '../assets/AddSVG.js'
-
+import EditSVG from '../assets/EditSVG.js'
 export default () => {
   return (
     <View style={logEvent.container}>
@@ -30,72 +30,56 @@ export default () => {
             <Text style={logEvent.dataText}>jan 1</Text>
             <Text style={logEvent.dataText}>100ppm</Text>
             <View style={logEvent.iconContainer}>
-              <Image style={logEvent.icon}
-                source={require('../assets/SVG/edit.svg')}
-              />
+              <EditSVG />
             </View>
           </View>
           <View style={logEvent.data1Element}>
             <Text style={logEvent.dataText}>jan 2</Text>
             <Text style={logEvent.dataText}>100ppm</Text>
             <View style={logEvent.iconContainer}>
-              <Image style={logEvent.icon}
-                source={require('../assets/SVG/edit.svg')}
-              />
+              <EditSVG />
             </View>
           </View>
           <View style={logEvent.data1Element}>
             <Text style={logEvent.dataText}>jan 3</Text>
             <Text style={logEvent.dataText}>100ppm</Text>
             <View style={logEvent.iconContainer}>
-              <Image style={logEvent.icon}
-                source={require('../assets/SVG/edit.svg')}
-              />
+              <EditSVG />
             </View>
           </View>
           <View style={logEvent.data1Element}>
             <Text style={logEvent.dataText}>jan 4</Text>
             <Text style={logEvent.dataText}>100ppm</Text>
             <View style={logEvent.iconContainer}>
-              <Image style={logEvent.icon}
-                source={require('../assets/SVG/edit.svg')}
-              />
+              <EditSVG />
             </View>
           </View>
           <View style={logEvent.data1Element}>
             <Text style={logEvent.dataText}>jan 5</Text>
             <Text style={logEvent.dataText}>100ppm</Text>
             <View style={logEvent.iconContainer}>
-              <Image style={logEvent.icon}
-                source={require('../assets/SVG/edit.svg')}
-              />
+              <EditSVG />
             </View>
           </View>
           <View style={logEvent.data1Element}>
             <Text style={logEvent.dataText}>jan 6</Text>
             <Text style={logEvent.dataText}>100ppm</Text>
             <View style={logEvent.iconContainer}>
-              <Image style={logEvent.icon}
-                source={require('../assets/SVG/edit.svg')}
-              />
+              <EditSVG />
             </View>
           </View>
           <View style={logEvent.data1Element}>
             <Text style={logEvent.dataText}>jan 7</Text>
             <Text style={logEvent.dataText}>100ppm</Text>
             <View style={logEvent.iconContainer}>
-              <Image style={logEvent.icon}
-                source={require('../assets/SVG/edit.svg')}
-              />
+              <EditSVG />
             </View>
           </View>
           <View style={logEvent.data1Element}>
             <Text style={logEvent.dataText}>jan 8</Text>
             <Text style={logEvent.dataText}>100ppm</Text>
             <View style={logEvent.iconContainer}>
-              <Image style={logEvent.icon}
-                source={require('../assets/SVG/edit.svg')}
-              />
+              <EditSVG />
             </View>
           </View>
           <View style={logEvent.add}>
@@ -120,72 +104,56 @@ export default () => {
             <Text style={logEvent.dataText}>jan 1</Text>
             <Text style={logEvent.dataText}>100ppm</Text>
             <View style={logEvent.iconContainer}>
-              <Image style={logEvent.icon}
-                source={require('../assets/SVG/edit.svg')}
-              />
+              <EditSVG />
             </View>
           </View>
           <View style={logEvent.data1Element}>
             <Text style={logEvent.dataText}>jan 2</Text>
             <Text style={logEvent.dataText}>100ppm</Text>
             <View style={logEvent.iconContainer}>
-              <Image style={logEvent.icon}
-                source={require('../assets/SVG/edit.svg')}
-              />
+              <EditSVG />
             </View>
           </View>
           <View style={logEvent.data1Element}>
             <Text style={logEvent.dataText}>jan 3</Text>
             <Text style={logEvent.dataText}>100ppm</Text>
             <View style={logEvent.iconContainer}>
-              <Image style={logEvent.icon}
-                source={require('../assets/SVG/edit.svg')}
-              />
+              <EditSVG />
             </View>
           </View>
           <View style={logEvent.data1Element}>
             <Text style={logEvent.dataText}>jan 4</Text>
             <Text style={logEvent.dataText}>100ppm</Text>
             <View style={logEvent.iconContainer}>
-              <Image style={logEvent.icon}
-                source={require('../assets/SVG/edit.svg')}
-              />
+              <EditSVG />
             </View>
           </View>
           <View style={logEvent.data1Element}>
             <Text style={logEvent.dataText}>jan 5</Text>
             <Text style={logEvent.dataText}>100ppm</Text>
             <View style={logEvent.iconContainer}>
-              <Image style={logEvent.icon}
-                source={require('../assets/SVG/edit.svg')}
-              />
+              <EditSVG />
             </View>
           </View>
           <View style={logEvent.data1Element}>
             <Text style={logEvent.dataText}>jan 6</Text>
             <Text style={logEvent.dataText}>100ppm</Text>
             <View style={logEvent.iconContainer}>
-              <Image style={logEvent.icon}
-                source={require('../assets/SVG/edit.svg')}
-              />
+              <EditSVG />
             </View>
           </View>
           <View style={logEvent.data1Element}>
             <Text style={logEvent.dataText}>jan 7</Text>
             <Text style={logEvent.dataText}>100ppm</Text>
             <View style={logEvent.iconContainer}>
-              <Image style={logEvent.icon}
-                source={require('../assets/SVG/edit.svg')}
-              />
+              <EditSVG />
             </View>
           </View>
           <View style={logEvent.data1Element}>
             <Text style={logEvent.dataText}>jan 8</Text>
             <Text style={logEvent.dataText}>100ppm</Text>
             <View style={logEvent.iconContainer}>
-              <Image style={logEvent.icon}
-                source={require('../assets/SVG/edit.svg')}
-              />
+              <EditSVG />
             </View>
           </View>
           <View style={logEvent.add}>
