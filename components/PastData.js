@@ -2,6 +2,7 @@ import { Text, View, Image, ScrollView, Dimensions } from 'react-native';
 import { pastData } from '../style/style.js';
 import BloodSugarAnalysis from './BloodSugarAnalysis.js';
 import BloodSugarGraph from './BloodSugarGraph.js';
+import SproutSVG from '../assets/SproutSVG.js';
 
 export default () => {
   return (
@@ -11,10 +12,7 @@ export default () => {
       <View style={pastData.container}>
         <View style={pastData.top}>
           <View style={pastData.profile}>
-            <Image
-              style={pastData.profilePicture}
-              source={require('../assets/SVG/sprout.svg')}
-            />
+            <SproutSVG />
             <Text style={pastData.name}>Bob Smith</Text>
           </View>
           <View style={pastData.main}>

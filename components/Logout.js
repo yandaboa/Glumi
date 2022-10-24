@@ -1,14 +1,12 @@
 import { View, Alert, Text, Image } from 'react-native';
-import { logout } from './../style/style.js';
+import { logout } from '../style/style.js';
+import SproutNoRingSVG from '../assets/SproutNoRing.js'
 
 export default () => {
     return (
         <View style={logout.container}>
             <View style={logout.background}>
-                <Image
-                    style={logout.sprout}
-                    source={require('../assets/SVG/sproutNoRing.svg')}
-                />
+                <SproutNoRingSVG />
             </View>
             <View style={logout.content}>
                 <Text style={logout.text}>you have successfully logged out</Text>

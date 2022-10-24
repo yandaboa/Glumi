@@ -1,13 +1,18 @@
 import * as React from "react";
-import Svg, {
-    Defs,
-    Path,
-} from "react-native-svg";
-import { StyleSheet } from "react-native";
+import Svg, { Path } from "react-native-svg";
+import { home } from './../style/style.js';
+import { StyleSheet, Dimensions } from "react-native";
 
 
 const DataSVG = (props) => {
+    const vw = Dimensions.get("window").width;
+
     const style = StyleSheet.create({
+        icon: {
+            width: vw * .12,
+            height: vw * .12,
+        },
+
         cls1: {
             fill: "#aaa",
         },
@@ -18,6 +23,10 @@ const DataSVG = (props) => {
             fill: "#ffa26f",
         },
     });
+    
+    if (props.state == "true") {
+        style.cls1 = focus.cls1;
+    }
 
     return (
         <Svg
@@ -26,6 +35,7 @@ const DataSVG = (props) => {
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 600 600"
             accessibilityRole="image"
+            style={style.icon}
             {...props}
         >
             <Path

@@ -28,16 +28,7 @@ const login = StyleSheet.create({
         justifyContent: 'top',
         alignItems: "center",
     },
-
-    sprout: {
-        height: vw(60),
-        width: vw(60),
-        margin: 0,
-        padding: 0,
-        marginTop: "auto",
-        marginBottom: vw(5),
-    },
-
+    
     input: {
         backgroundColor: "#A6E5FF",
         height: vw(12),
@@ -246,15 +237,13 @@ const home = StyleSheet.create({
     container: {
         height: vh(100),
         width: vw(100),
-        // backgroundColor: "#99CCFF"
+        backgroundColor: "#99CCFF"
     },
 
-    background: {
-        // position: "absolute",
-        // height: vh(100),
-        // width: vw(1000),
-        // top: 0,
-        // left: 0,
+    backgroundContainer: {
+        height: vh(100),
+        width: vw(100),
+        position: "absolute",
     },
 
     title: {
@@ -352,7 +341,7 @@ const home = StyleSheet.create({
         shadowOffset: { width: 0, height: vw(-2) },
         shadowOpacity: .05,
         shadowRadius: vw(2),
-        paddingBottom: vw(4),
+        paddingTop: vw(1),
     },
 
     sidebarIcon: {

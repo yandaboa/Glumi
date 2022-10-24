@@ -1,4 +1,3 @@
-import { NavigationContainer } from '@react-navigation/native';
 import { View, TextInput, Alert, Text, Image } from 'react-native';
 import { KeyboardAvoidingView } from 'react-native-web';
 import { useNavigation } from '@react-navigation/native';
@@ -6,6 +5,7 @@ import { login } from './../style/style.js';
 import { onAuthStateChanged, signInWithEmailAndPassword } from 'firebase/auth';
 import { authen } from '../Firebase.js';
 import { useEffect, useState } from 'react';
+import SproutSVG from '../assets/SproutSVG.js';
 
 export default () => {
     const navigation = useNavigation();
@@ -15,7 +15,7 @@ export default () => {
 
     useEffect(() => {
         const unsubscribe = onAuthStateChanged(authen, user => {
-            if(user) {
+            if (user) {
                 navigation.navigate("HomePage");
             }
         })
@@ -24,13 +24,13 @@ export default () => {
 
     const handleLogin = () => {
         signInWithEmailAndPassword(authen, email, password)
-        .then (userCredentials => {
-            const user = userCredentials.user;
-            console.log("Logged in with " + user.email);
-        })
-        .catch(error => alert(error.message));
+            .then(userCredentials => {
+                const user = userCredentials.user;
+                console.log("Logged in with " + user.email);
+            })
+            .catch(error => alert(error.message));
         onAuthStateChanged(authen, user => {
-            if(user){
+            if (user) {
                 navigation.navigate("HomePage");
             } else {
                 console.log("Didn't work");
@@ -42,6 +42,7 @@ export default () => {
         <KeyboardAvoidingView style={login.container}>
             <View style={login.background}>
                 <View style={login.graphics}>
+                    <SproutSVG state="login" />
                     <Image
                         style={login.sprout}
                         source={require('../assets/SVG/sprout.svg')}
@@ -69,7 +70,7 @@ export default () => {
 
                     <View style={login.create}>
                         <Text style={login.createText} numberOfLines={1}>
-                            need an account? <Text onPress={() => {navigation.navigate("CreateAccount")}} style={login.createButton} >create</Text>
+                            need an account? <Text onPress={() => { navigation.navigate("CreateAccount") }} style={login.createButton} >create</Text>
                         </Text>
                     </View>
                 </View>

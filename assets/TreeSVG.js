@@ -65,6 +65,11 @@ const TreeSVG = (props) => {
         cls15: {
             fill: "#517920",
         },
+
+        background: {
+            height: vh,
+            width: vw,
+        }
     });
 
     return (
