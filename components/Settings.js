@@ -1,8 +1,13 @@
+import { signOut } from "firebase/auth";
 import React, { useState } from "react";
 import { Text, View, Switch } from 'react-native';
+import { TouchableOpacity } from "react-native";
+import { useNavigation } from "@react-navigation/native";
 import { setting } from '../style/style.js';
+import { authen } from "../Firebase.js";
 
 export default () => {
+  const navigation = useNavigation()
   const [isNofEnabled, setIsNofEnabled] = useState(false);
   const toggleNofSwitch = () => {
     setIsNofEnabled(previousState => !previousState)
@@ -15,6 +20,13 @@ export default () => {
   const toggleDarkSwitch = () => {
     setIsDarkEnabled(previousState => !previousState)
   };
+
+  const handleLogout = () => {
+    signOut(authen).then(() => {
+      navigation.replace("Login")
+    })
+    .catch(error => console.log(error.message))
+  }
   return (
     <View style={setting.container}>
       <View style={setting.header}>
@@ -23,6 +35,10 @@ export default () => {
       <View style={setting.content}>
         <Text style={setting.subtitle}>Account</Text>
         <View style={setting.section}>
+          <TouchableOpacity style={setting.selection}
+          onPress={handleLogout}>
+            <Text style={setting.selectionText}>sign out</Text>
+          </TouchableOpacity>
           <View style={setting.selection}>
             <Text style={setting.selectionText}>profile</Text>
           </View>

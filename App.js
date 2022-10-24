@@ -8,11 +8,10 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { Image } from 'react-native';
 import { home, navBar } from './style/style.js';
-import PastData from './components/PastData';
-import LogEvent from './components/LogEvent.js';
-import Settings from './components/Settings.js';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
 const Tab = createBottomTabNavigator();
+const Stack = createNativeStackNavigator();
 
 export default () => {
 
@@ -38,45 +37,46 @@ export default () => {
   const sidebarStyle = home.sidebar;
 
   return (
-    // <NavigationContainer>
-    //   <Stack.Navigator>
-    //     <Stack.Screen name="Login" component={Login} />
-    //     <Stack.Screen name="HomePage" component={HomePage} />
-    //   </Stack.Navigator>
-    // </NavigationContainer>
-    //<Login/>
-    //<Logout />
-    //<CreateAccount />
     <NavigationContainer>
-      <Tab.Navigator
-        initialRouteName="  "
-        screenOptions={{ headerShown: false, tabBarStyle: sidebarStyle }}>
-        <Tab.Screen name="  " component={HomePage}
-          options={{
-            tabBarIcon: ({ focused }) => {
-              return iconFocus(focused, 'home');
-            }
-          }} />
-        <Tab.Screen name=" " component={PastData}
-          options={{
-            tabBarIcon: ({ focused }) => {
-              return iconFocus(focused, 'data');
-            }
-          }} />
-        <Tab.Screen name="   " component={LogEvent}
-          options={{
-            tabBarIcon: ({ focused }) => {
-              return iconFocus(focused, 'input');
-            }
-          }} />
-        <Tab.Screen name="    " component={Settings}
-          options={{
-            tabBarIcon: ({ focused }) => {
-              return iconFocus(focused, 'setting');
-            }
-          }} />
-      </Tab.Navigator>
+      <Stack.Navigator initialRouteName='CreateAccount'>
+        <Stack.Screen options={{headerShown: false}} name="CreateAccount" component={CreateAccount} />
+        <Stack.Screen options={{headerShown: false}} name="Login" component={Login} />
+        <Stack.Screen options={{headerShown: false}} name="HomePage" component={HomePage} />
+      </Stack.Navigator>
+      
     </NavigationContainer>
+    // <Login/>
+    // <Logout />
+    // <NavigationContainer>
+    //   <Tab.Navigator
+    //     initialRouteName="  "
+    //     screenOptions={{ headerShown: false, tabBarStyle: sidebarStyle }}>
+    //     <Tab.Screen name="  " component={HomePage}
+    //       options={{
+    //         tabBarIcon: ({ focused }) => {
+    //           return iconFocus(focused, 'home');
+    //         }
+    //       }} />
+    //     <Tab.Screen name=" " component={PastData}
+    //       options={{
+    //         tabBarIcon: ({ focused }) => {
+    //           return iconFocus(focused, 'data');
+    //         }
+    //       }} />
+    //     <Tab.Screen name="   " component={LogEvent}
+    //       options={{
+    //         tabBarIcon: ({ focused }) => {
+    //           return iconFocus(focused, 'input');
+    //         }
+    //       }} />
+    //     <Tab.Screen name="    " component={Settings}
+    //       options={{
+    //         tabBarIcon: ({ focused }) => {
+    //           return iconFocus(focused, 'setting');
+    //         }
+    //       }} />
+    //   </Tab.Navigator>
+    // </NavigationContainer>
   )
 
   function iconFocus(focused, name) {

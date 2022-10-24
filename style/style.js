@@ -273,6 +273,7 @@ const home = StyleSheet.create({
         fontFamily: "BalooTamma2-Bold",
         marginLeft: vw(8),
         marginRight: "auto",
+        flexWrap: 'wrap',
     },
 
     subtitle: {

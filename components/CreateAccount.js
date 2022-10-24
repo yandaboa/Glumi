@@ -2,10 +2,13 @@ import React, { useState } from 'react';
 import { View, TextInput, Alert, Text } from 'react-native';
 import { createAccount } from './../style/style.js';
 import { authen } from '../Firebase.js';
-import { createUserWithEmailAndPassword } from 'firebase/auth';
+import { createUserWithEmailAndPassword, signInWithEmailAndPassword } from 'firebase/auth';
+import { KeyboardAvoidingView } from 'react-native';
+import Login from './Login.js';
+import { useNavigation } from '@react-navigation/native';
 
-export default () => {
-    const [signedIn, setSignedIn] = useState(false);
+const CreateAccount = () => {
+    // const [signedIn, setSignedIn] = useState(false); dont think we need this, firebase has func
     const [first, setFirst] = useState('');
     const [last, setLast] = useState('');
     const [email, setEmail] = useState('');
@@ -14,14 +17,28 @@ export default () => {
     const register = () => {
         createUserWithEmailAndPassword(authen, email, password)
             .then((e) => {
-                console.log(e);
+                // const user = e.user;
+                // e.user.displayName = first + " " + last; doesn't really work, doesn't write to firebase
+                console.log("Registered with " + e.email);
             }).catch((e) => {
                 console.log(e);
             })
     }
 
+    const navigation = useNavigation();
+
+    const handleLogin = () => {
+        signInWithEmailAndPassword(authen, email, password)
+        .then((e) => {
+            // const user = e.user;
+            console.log("Logged in with" + e.email);
+        }).catch((e) => {
+            console.log(e);
+        })
+    }
+
     return (
-        <View style={createAccount.container}>
+        <KeyboardAvoidingView style={createAccount.container}>
             <Text style={createAccount.heading}>Welcome!</Text>
             <Text style={createAccount.title}>Name</Text>
             <View style={createAccount.name}>
@@ -63,9 +80,11 @@ export default () => {
             </View>
             <View style={createAccount.login}>
                 <Text style={createAccount.loginText} numberOfLines={1}>
-                    have an account? <Text onPress={() => Alert.alert('login')} style={createAccount.loginButton} >login</Text>
+                    have an account? <Text onPress={() => {navigation.navigate("Login")}} style={createAccount.loginButton} >login</Text>
                 </Text>
             </View>
-        </View>
+        </KeyboardAvoidingView>
     );
 }
+
+export default CreateAccount;
