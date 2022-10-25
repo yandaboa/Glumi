@@ -35,7 +35,7 @@ const DarkTree = (props) => {
         },
   
         cls8: {
-          fill: "#3e610e",
+          fill: "#192f44",
         },
   
         cls9: {
@@ -47,11 +47,11 @@ const DarkTree = (props) => {
         },
   
         cls11: {
-          fill: "#456a14",
+          fill: "#192f44",
         },
   
         cls12: {
-          fill: "#517920",
+          fill: "#192f44",
         },
 
         background: {
