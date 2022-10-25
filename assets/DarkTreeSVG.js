@@ -1,6 +1,5 @@
 import Svg, { G, Path } from "react-native-svg";
 import { StyleSheet, Dimensions } from "react-native";
-import { home } from './../style/style.js';
 const DarkTree = (props) => {
     const vw = Dimensions.get("window").width;
     const vh = Dimensions.get("window").height;
@@ -71,7 +70,6 @@ return(
         accessibilityRole="image"
         {...props}
     >
-        <Defs></Defs>
         <G id="Layer_1-2" data-name="Layer 1-2">
             <G>
                 <Path

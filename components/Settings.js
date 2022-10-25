@@ -1,6 +1,6 @@
 import { signOut } from "firebase/auth";
 import React, { useState } from "react";
-import { Text, View, Switch } from 'react-native';
+import { Text, View, Switch, SafeAreaView } from 'react-native';
 import { TouchableOpacity } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import { setting } from '../style/style.js';
@@ -40,7 +40,9 @@ export default () => {
   return (
     <View style={setting.container}>
       <View style={setting.header}>
-        <Text style={setting.title}>Settings</Text>
+        <SafeAreaView>
+          <Text style={setting.title}>Settings</Text>
+        </SafeAreaView>
       </View>
       <View style={setting.content}>
         <Text style={setting.subtitle}>Account</Text>

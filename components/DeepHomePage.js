@@ -8,7 +8,7 @@ import {
   Dimensions,
   Image,
 } from 'react-native';
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { home } from './../style/style.js';
 import BloodSugarGraph from './BloodSugarGraph.js';
 import BloodSugarAnalysis from './BloodSugarAnalysis.js';
@@ -17,6 +17,8 @@ import LogEvent from './LogEvent.js';
 import { authen } from '../Firebase.js';
 
 import TreeSVG from '../assets/TreeSVG.js';
+import DarkTreeSVG from '../assets/DarkTreeSVG.js';
+
 
 export default () => {
 
@@ -38,47 +40,75 @@ export default () => {
   //   {Greeting()}
   // </Animated.Text>
 
+  const [sliderElementActive, setSliderElementActive] = useState(0);
+
+  const sliderElements = [
+    <BloodSugarAnalysis />,
+    <BloodSugarAnalysis />,
+    <BloodSugarAnalysis />,
+  ]
+
+  onchange = (nativeEvent) => {
+    if (nativeEvent) {
+      const slide = Math.ceil(nativeEvent.contentOffset.x / nativeEvent.layoutMeasurement.width);
+      if (slide != sliderElementActive) {
+        setSliderElementActive(slide)
+      }
+    }
+  }
+
   return (
     <View style={home.container}>
       <View style={home.backgroundContainer}>
         <TreeSVG />
+      </View>
+      <SafeAreaView style={home.wrapper}>
+        <Text style={home.title}>
+          {Greeting()}
+        </Text>
+        <Text style={home.subtitle}>
+          {getDate()}
+        </Text>
+        <View style={home.content}>
+          <View style={home.summary}>
+            <Text style={home.heading}>Summary</Text>
+            {/* <BloodSugarGraph /> */}
+          </View>
+          <View style={home.slider}>
+            <Text style={[home.heading, home.sliderHeading]}>Discover More!</Text>
+            <ScrollView
+              onScroll={({ nativeEvent }) => onchange(nativeEvent)}
+              horizontal
+              showsHorizontalScrollIndicator={false}
+              pagingEnabled
+              style={home.sliderContainer}
+            >
+              {
+                sliderElements.map((i, index) =>
+                  <View style={home.sliderElement} key={i}>
+                    <View style={home.sliderContent}>
+                      {i}
 
-      </View>
-      <Text style={home.title}>
-        {Greeting()}
-      </Text>
-      <Text style={home.subtitle}>
-        {getDate()}
-      </Text>
-      <View style={home.content}>
-        <View style={home.summary}>
-          <Text style={home.heading}>Summary</Text>
-          <BloodSugarGraph />
+                    </View>
+                  </View>
+
+                )
+              }
+            </ScrollView>
+            <View style={home.dotContainer}>
+              {
+                sliderElements.map((i, index) =>
+                  <View
+                    key={i}
+                    style={sliderElementActive == index ? home.dotActive : home.dot}
+                  />
+                )
+              }
+            </View>
+          </View>
         </View>
-        <View style={home.slider}>
-          <Text style={[home.heading, home.sliderHeading]}>Discover More!</Text>
-          <ScrollView
-            horizontal={true}
-            contentContainerStyle={Dimensions.get("window").width}
-            showsHorizontalScrollIndicator={false}
-            scrollEventThrottle={200}
-            decelerationRate="fast"
-            pagingEnabled
-            style={home.sliderContainer}
-          >
-            <View style={home.sliderElement}>
-              <BloodSugarAnalysis />
-            </View>
-            <View style={home.sliderElement}>
-              <Text>Yo this kiddo was special, how amazing. Srry, but lorem ispum .... time</Text>
-            </View>
-            <View style={home.sliderElement}>
-              <BloodSugarAnalysis />
-            </View>
-          </ScrollView>
-        </View>
-      </View>
-      <View style={home.spacer} />
+        <View style={home.spacer} />
+      </SafeAreaView>
     </View>
   );
 }

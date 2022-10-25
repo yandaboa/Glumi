@@ -28,7 +28,7 @@ const login = StyleSheet.create({
         justifyContent: 'top',
         alignItems: "center",
     },
-    
+
     input: {
         backgroundColor: "#A6E5FF",
         height: vw(12),
@@ -237,7 +237,14 @@ const home = StyleSheet.create({
     container: {
         height: vh(100),
         width: vw(100),
-        backgroundColor: "#99CCFF"
+        backgroundColor: "#99CCFF",
+        position: "absolute",
+    },
+
+    wrapper: {
+        height: vh(100),
+        width: vw(100),
+        position: "absolute",
     },
 
     backgroundContainer: {
@@ -292,7 +299,6 @@ const home = StyleSheet.create({
 
     slider: {
         flex: 1,
-        paddingTop: vw(12),
     },
 
     sliderHeading: {
@@ -300,42 +306,38 @@ const home = StyleSheet.create({
     },
 
     sliderContainer: {
-        flex: 1,
         flexDirection: "row",
         width: vw(100),
     },
 
-    test: {
+    sliderElement: {
         flex: 1,
-        height: vw(100),
         width: vw(100),
+        padding: vw(4),
+        paddingTop: 0,
+        justifyContent: "center",
+        alignItems: "center",
     },
 
-    sliderElement: {
-        width: vw(75),
-        height: vw(30),
-        flexWrap: "wrap",
-        margin: vw(6),
+    sliderContent: {
+        width: vw(84),
+        flex: 1,
+        padding: vw(4),
+        margin: vw(2),
         backgroundColor: "#ffffffbb",
-        padding: vw(2),
-        borderRadius: vw(2),
-        marginTop: 0,
         shadowColor: "#000000",
         shadowOffset: { width: vw(1), height: vw(1) },
         shadowOpacity: .2,
         shadowRadius: vw(2),
-        justifyContent: "center",
+        borderRadius: vw(2),
         flexWrap: "wrap",
-    },
-
-    special: {
-        backgroundColor: "#ff9933ee",
+        flexDirection: "row",
     },
 
     sidebar: {
         backgroundColor: "#fff",
         position: "absolute",
-        height: vw(18),
+        height: vw(24),
         border: "none",
         shadowColor: "#000000",
         shadowOffset: { width: 0, height: vw(-2) },
@@ -352,9 +354,34 @@ const home = StyleSheet.create({
 
     spacer: {
         width: vw(100),
-        height: vw(18),
+        height: vw(24),
     },
 
+    dotContainer: {
+        width: vw(100),
+        height: "auto",
+        justifyContent: "center",
+        alignItems: "center",
+        flexDirection: "row",
+        flex: .25,
+        backgroundColor: "none",
+    },
+
+    dot: {
+        width: vw(2),
+        height: vw(2),
+        borderRadius: "50%",
+        backgroundColor: "#eee",
+        margin: vw(2),
+    },
+
+    dotActive: {
+        width: vw(2),
+        height: vw(2),
+        borderRadius: "50%",
+        backgroundColor: "#ff9933",
+        margin: vw(2),
+    },
 });
 
 const bloodSugarGraph = StyleSheet.create({
@@ -701,11 +728,10 @@ const setting = StyleSheet.create({
     },
 
     header: {
-        flex: 1,
-        padding: vw(4),
         width: vw(100),
         justifyContent: "center",
         backgroundColor: "#6c9",
+        paddingBottom: vw(8),
         borderRadius: vw(4),
         borderTopLeftRadius: 0,
         borderTopRightRadius: 0,
@@ -717,7 +743,8 @@ const setting = StyleSheet.create({
         fontSize: vw(8),
         marginLeft: vw(8),
         textAlign: "left",
-        color: "#fff"
+        color: "#fff",
+        paddingBottom: vw(4),
     },
 
     content: {

@@ -1,5 +1,4 @@
-import { View, TextInput, Alert, Text, Image } from 'react-native';
-import { KeyboardAvoidingView } from 'react-native-web';
+import { View, TextInput, Text, } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import { login } from './../style/style.js';
 import { onAuthStateChanged, signInWithEmailAndPassword } from 'firebase/auth';
@@ -39,14 +38,10 @@ export default () => {
     }
 
     return (
-        <KeyboardAvoidingView style={login.container}>
+        <View style={login.container}>
             <View style={login.background}>
                 <View style={login.graphics}>
                     <SproutSVG state="login" />
-                    <Image
-                        style={login.sprout}
-                        source={require('../assets/SVG/sprout.svg')}
-                    />
                 </View>
                 <View style={login.content}>
                     <TextInput
@@ -67,7 +62,6 @@ export default () => {
                             sign in
                         </Text>
                     </View>
-
                     <View style={login.create}>
                         <Text style={login.createText} numberOfLines={1}>
                             need an account? <Text onPress={() => { navigation.navigate("CreateAccount") }} style={login.createButton} >create</Text>
@@ -75,6 +69,6 @@ export default () => {
                     </View>
                 </View>
             </View>
-        </KeyboardAvoidingView>
+        </View>
     );
 }
