@@ -4,27 +4,39 @@ import { Text, View, Switch, SafeAreaView } from 'react-native';
 import { TouchableOpacity } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import { setting } from '../style/style.js';
-import { authen } from "../Firebase.js";
+import { authen, updateSettings } from "../Firebase.js";
 import { pairDevice, unPair } from "../Firebase.js";
 
 export default () => {
   const navigation = useNavigation()
   const [isNofEnabled, setIsNofEnabled] = useState(false);
-  const toggleNofSwitch = () => {
-    setIsNofEnabled(previousState => !previousState)
-  };
   const [isAnimationsEnabled, setIsAnimationsEnabled] = useState(false);
+  const [isDarkEnabled, setIsDarkEnabled] = useState(false);
+
+  const UID = authen.currentUser.uid;
+
+  function toggleNofSwitch(value){
+    setIsNofEnabled(value);
+    updateSets();
+  };
   const toggleAnimationsSwitch = () => {
     setIsAnimationsEnabled(previousState => !previousState)
+    updateSets();
   };
-  const [isDarkEnabled, setIsDarkEnabled] = useState(false);
+
   const toggleDarkSwitch = () => {
     setIsDarkEnabled(previousState => !previousState)
+    updateSets();
+
   };
 
   const startPairing = () => {
-    console.log(authen.currentUser.uid);
-    pairDevice(authen.currentUser.uid);
+    console.log(UID);
+    pairDevice(UID);
+  }
+
+  function updateSets(){
+    updateSettings(UID, isNofEnabled, isAnimationsEnabled, isDarkEnabled);
   }
 
   const stopPairing = () => {
@@ -56,8 +68,8 @@ export default () => {
           <View style={setting.selection}>
             <Text style={setting.selectionText}>email</Text>
           </View>
-          <TouchableOpacity style={[setting.selection, setting.signout]}
-          onPressIn={startPairing}>{/*onPressOut={stopPairing}*/}
+          <TouchableOpacity style={[setting.selection, setting.pairDevice]}
+          onPressIn={startPairing} onPressOut={stopPairing}>
             <Text style={[setting.selectionText, setting.signoutText]}>Pair Device</Text>
           </TouchableOpacity>
           <View style={setting.selection}>

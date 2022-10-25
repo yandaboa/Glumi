@@ -797,6 +797,10 @@ const setting = StyleSheet.create({
         backgroundColor: "#ff9933"
     },
 
+    pairDevice: {
+        backgroundColor: "#89CFF0"
+    },
+
     signoutText: {
         color: "#fff",
         textAlign: "center",

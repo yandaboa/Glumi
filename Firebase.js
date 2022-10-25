@@ -38,8 +38,13 @@ function unPair(userID){
     })
 }
 
-function updateSettings(a, b, c){
-    console.log(b);
+function updateSettings(userID, isNof, isAnimation, isDarkMode){
+    console.log(userID);
+    set(ref(database, 'users/' + userID + '/settings'), {
+        isNof: isNof,
+        isAnimation: isAnimation,
+        isDarkMode: isDarkMode
+    })
 }
 
-export { authen, database, createUserData, pairDevice, unPair}
+export { authen, database, createUserData, pairDevice, unPair, updateSettings}
