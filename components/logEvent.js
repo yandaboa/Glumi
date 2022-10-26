@@ -2,10 +2,9 @@ import { Text, View, ScrollView, Dimensions, Image, SafeAreaView } from 'react-n
 import { logEvent } from '../style/style.js';
 import AddSVG from '../assets/AddSVG.js';
 import EditSVG from '../assets/EditSVG.js';
-import {Data} from './Data.js';
+import { Data, Data2, Data3, Data4 } from './Data.js';
 export default () => {
-
-  console.log(Data);
+  console.log(new Date(Data[6].date).toLocaleString('en-US', { month: "short" }) + " " + new Date(Data[6].date).getDay());
 
   return (
     <View style={logEvent.container}>
@@ -30,62 +29,19 @@ export default () => {
             <Text style={logEvent.leaderText}>data</Text>
             <Text style={logEvent.leaderText}>edit</Text>
           </View>
-          <View style={[logEvent.data1Element, logEvent.first]}>
-            <Text style={logEvent.dataText}>jan 1</Text>
-            <Text style={logEvent.dataText}>100ppm</Text>
-            <View style={logEvent.iconContainer}>
-              <EditSVG />
-            </View>
-          </View>
-          <View style={logEvent.data1Element}>
-            <Text style={logEvent.dataText}>jan 2</Text>
-            <Text style={logEvent.dataText}>100ppm</Text>
-            <View style={logEvent.iconContainer}>
-              <EditSVG />
-            </View>
-          </View>
-          <View style={logEvent.data1Element}>
-            <Text style={logEvent.dataText}>jan 3</Text>
-            <Text style={logEvent.dataText}>100ppm</Text>
-            <View style={logEvent.iconContainer}>
-              <EditSVG />
-            </View>
-          </View>
-          <View style={logEvent.data1Element}>
-            <Text style={logEvent.dataText}>jan 4</Text>
-            <Text style={logEvent.dataText}>100ppm</Text>
-            <View style={logEvent.iconContainer}>
-              <EditSVG />
-            </View>
-          </View>
-          <View style={logEvent.data1Element}>
-            <Text style={logEvent.dataText}>jan 5</Text>
-            <Text style={logEvent.dataText}>100ppm</Text>
-            <View style={logEvent.iconContainer}>
-              <EditSVG />
-            </View>
-          </View>
-          <View style={logEvent.data1Element}>
-            <Text style={logEvent.dataText}>jan 6</Text>
-            <Text style={logEvent.dataText}>100ppm</Text>
-            <View style={logEvent.iconContainer}>
-              <EditSVG />
-            </View>
-          </View>
-          <View style={logEvent.data1Element}>
-            <Text style={logEvent.dataText}>jan 7</Text>
-            <Text style={logEvent.dataText}>100ppm</Text>
-            <View style={logEvent.iconContainer}>
-              <EditSVG />
-            </View>
-          </View>
-          <View style={logEvent.data1Element}>
-            <Text style={logEvent.dataText}>jan 8</Text>
-            <Text style={logEvent.dataText}>100ppm</Text>
-            <View style={logEvent.iconContainer}>
-              <EditSVG />
-            </View>
-          </View>
+          {
+            Data.map((i, index) =>
+              <View style={[logEvent.data1Element, logEvent.first]} key={"data" + index}>
+                <Text style={logEvent.dataText}>
+                  {new Date(i.date).toLocaleString('en-US', { month: "short" }) + " " + new Date(i.date).getDay()}
+                </Text>
+                <Text style={logEvent.dataText}>{i.value}</Text>
+                <View style={logEvent.iconContainer}>
+                  <EditSVG />
+                </View>
+              </View>
+            )
+          }
           <View style={logEvent.add}>
             <AddSVG style={logEvent.icon} />
           </View>
@@ -104,62 +60,19 @@ export default () => {
             <Text style={logEvent.leaderText}>data</Text>
             <Text style={logEvent.leaderText}>edit</Text>
           </View>
-          <View style={[logEvent.data1Element, logEvent.first]}>
-            <Text style={logEvent.dataText}>jan 1</Text>
-            <Text style={logEvent.dataText}>100ppm</Text>
-            <View style={logEvent.iconContainer}>
-              <EditSVG />
-            </View>
-          </View>
-          <View style={logEvent.data1Element}>
-            <Text style={logEvent.dataText}>jan 2</Text>
-            <Text style={logEvent.dataText}>100ppm</Text>
-            <View style={logEvent.iconContainer}>
-              <EditSVG />
-            </View>
-          </View>
-          <View style={logEvent.data1Element}>
-            <Text style={logEvent.dataText}>jan 3</Text>
-            <Text style={logEvent.dataText}>100ppm</Text>
-            <View style={logEvent.iconContainer}>
-              <EditSVG />
-            </View>
-          </View>
-          <View style={logEvent.data1Element}>
-            <Text style={logEvent.dataText}>jan 4</Text>
-            <Text style={logEvent.dataText}>100ppm</Text>
-            <View style={logEvent.iconContainer}>
-              <EditSVG />
-            </View>
-          </View>
-          <View style={logEvent.data1Element}>
-            <Text style={logEvent.dataText}>jan 5</Text>
-            <Text style={logEvent.dataText}>100ppm</Text>
-            <View style={logEvent.iconContainer}>
-              <EditSVG />
-            </View>
-          </View>
-          <View style={logEvent.data1Element}>
-            <Text style={logEvent.dataText}>jan 6</Text>
-            <Text style={logEvent.dataText}>100ppm</Text>
-            <View style={logEvent.iconContainer}>
-              <EditSVG />
-            </View>
-          </View>
-          <View style={logEvent.data1Element}>
-            <Text style={logEvent.dataText}>jan 7</Text>
-            <Text style={logEvent.dataText}>100ppm</Text>
-            <View style={logEvent.iconContainer}>
-              <EditSVG />
-            </View>
-          </View>
-          <View style={logEvent.data1Element}>
-            <Text style={logEvent.dataText}>jan 8</Text>
-            <Text style={logEvent.dataText}>100ppm</Text>
-            <View style={logEvent.iconContainer}>
-              <EditSVG />
-            </View>
-          </View>
+          {
+            Data2.map((i, index) =>
+              <View style={[logEvent.data1Element, logEvent.first]} key={"data" + index}>
+                <Text style={logEvent.dataText}>
+                  {new Date(i.date).toLocaleString('en-US', { month: "short" }) + " " + new Date(i.date).getDay()}
+                </Text>
+                <Text style={logEvent.dataText}>{i.value}</Text>
+                <View style={logEvent.iconContainer}>
+                  <EditSVG />
+                </View>
+              </View>
+            )
+          }
           <View style={logEvent.add}>
             <AddSVG style={logEvent.icon} />
           </View>
