@@ -1,5 +1,5 @@
-import { useState } from 'react';
-import { Text, View, ScrollView, Dimensions } from 'react-native';
+import { useState, useRef } from 'react';
+import { Text, View, ScrollView, Dimensions, Animated } from 'react-native';
 import { pastData } from '../style/style.js';
 import BloodSugarAnalysis from './BloodSugarAnalysis.js';
 import BloodSugarGraph from './BloodSugarGraph.js';
@@ -8,6 +8,17 @@ import { Data2, Data3, Data4 } from './Data.js';
 
 export default () => {
   const vw = Dimensions.get("window").width;
+
+  const scrollOffsetY = useRef(new Animated.Value(0)).current;
+  const maxHeaderHeight = vw * .5;
+  const minHeaderHeight = vw * .15;
+  const scrollDistance = maxHeaderHeight - minHeaderHeight;
+
+  const animatedHeaderHeight = scrollOffsetY.interpolate({
+    inputRange: [0, scrollDistance],
+    outputRange: [maxHeaderHeight, minHeaderHeight],
+    extrapolate: "clamp",
+  })
 
   const mainElements = [
     { title: "day", graph: <BloodSugarGraph width={vw * .6} data={Data2} title={"Today"} /> },
@@ -27,14 +38,22 @@ export default () => {
   }
 
   return (
-    <ScrollView style={pastData.container}>
-      <View style={pastData.top}>
-        <View style={pastData.profile}>
-          <SproutSVG />
-          <Text style={pastData.name}>Bob Smith</Text>
-        </View>
-      </View>
-      <ScrollView style={pastData.content}>
+    <View style={pastData.container}>
+      <Animated.View
+        style={[pastData.profile,
+        { height: animatedHeaderHeight }
+        ]}>
+        <SproutSVG />
+        <Text style={pastData.name}>Bob Smith</Text>
+      </Animated.View>
+      <ScrollView
+        style={pastData.content}
+        scrollEventThrottle={16}
+        onScroll={Animated.event(
+          [{ nativeEvent: { contentOffset: { y: scrollOffsetY } } }],
+          { useNativeDriver: false }
+        )}
+      >
         <View style={pastData.labelContainer}>
           {
             mainElements.map((i, index) =>
@@ -85,6 +104,6 @@ export default () => {
         </View>
         <View style={pastData.spacer} />
       </ScrollView>
-    </ScrollView>
+    </View>
   );
 }

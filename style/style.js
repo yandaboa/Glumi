@@ -420,11 +420,6 @@ const bloodSugarGraph = StyleSheet.create({
 });
 
 const pastData = StyleSheet.create({
-    top: {
-        justifyContent: "center",
-        alignItems: "center",
-    },
-
     profile: {
         height: vw(40),
         justifyContent: "center",
@@ -581,7 +576,7 @@ const pastData = StyleSheet.create({
 
     spacer: {
         widht: vw(100),
-        height: vw(30),
+        height: vw(40),
     },
 });
 
