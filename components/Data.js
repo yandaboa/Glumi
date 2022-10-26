@@ -6,7 +6,7 @@
 //   { date: '2022-02-05T05:00:00.000Z', value: 200.8 },
 //   { date: '2022-02-06T05:00:00.000Z', value: 150.47 },
 //   { date: '2022-02-07T05:00:00.000Z', value: 100.47 },
-// ];
+// ]; 26th, 2
 
 export const Data = [
   { date: '2022-02-02T05:00:00.000Z', value: Math.floor(Math.random() * 1000) },

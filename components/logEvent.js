@@ -6,6 +6,12 @@ import { Data, Data2, Data3, Data4 } from './Data.js';
 export default () => {
   console.log(new Date(Data[6].date).toLocaleString('en-US', { month: "short" }) + " " + new Date(Data[6].date).getDay());
 
+  const getFormatedDate = (d) => {
+    console.log(d);
+  }
+
+  
+
   return (
     <View style={logEvent.container}>
       <View style={logEvent.background}>
@@ -31,9 +37,9 @@ export default () => {
           </View>
           {
             Data.map((i, index) =>
-              <View style={[logEvent.data1Element, logEvent.first]} key={"data" + index}>
+             <View style={[logEvent.data1Element, logEvent.first]} key={"data" + index}>
                 <Text style={logEvent.dataText}>
-                  {new Date(i.date).toLocaleString('en-US', { month: "short" }) + " " + new Date(i.date).getDay()}
+                  {new Date(i.date).toLocaleString('en-US', { month: "short" }) + " " + new Date(i.date).getDate()}
                 </Text>
                 <Text style={logEvent.dataText}>{i.value}</Text>
                 <View style={logEvent.iconContainer}>
@@ -64,7 +70,7 @@ export default () => {
             Data2.map((i, index) =>
               <View style={[logEvent.data1Element, logEvent.first]} key={"data" + index}>
                 <Text style={logEvent.dataText}>
-                  {new Date(i.date).toLocaleString('en-US', { month: "short" }) + " " + new Date(i.date).getDay()}
+                  {new Date(i.date).toLocaleString('en-US', { month: "short" }) + " " + new Date(i.date).getDate()}
                 </Text>
                 <Text style={logEvent.dataText}>{i.value}</Text>
                 <View style={logEvent.iconContainer}>
