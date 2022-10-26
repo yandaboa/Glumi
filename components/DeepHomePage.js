@@ -12,6 +12,9 @@ import BloodSugarGraph from './BloodSugarGraph.js';
 import BloodSugarAnalysis from './BloodSugarAnalysis.js';
 import BloodPressureGraph from './BloodPressureGraph.js';
 import LogEvent from './LogEvent.js';
+
+import { Data } from './Data.js';
+
 import { authen } from '../Firebase.js';
 
 import TreeSVG from '../assets/TreeSVG.js';
@@ -73,7 +76,7 @@ export default () => {
           <View style={home.summary}>
             <Text style={home.heading}>Summary</Text>
             <View style={home.graphContainer}>
-              <BloodSugarGraph width={vw * .65} />
+              <BloodSugarGraph width={vw * .65} data={Data} title={"Acetone Levels"} />
             </View>
           </View>
           <View style={home.slider}>

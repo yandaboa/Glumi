@@ -292,7 +292,7 @@ const home = StyleSheet.create({
     graphContainer: {
         width: vw(80),
         height: vw(80),
-        backgroundColor: "rgba(255, 255, 255, .8)",
+        backgroundColor: "rgba(255, 255, 255, .9)",
         justifyContent: "center",
         alignItems: "center",
         borderRadius: vw(4),
@@ -336,7 +336,7 @@ const home = StyleSheet.create({
         width: vw(80),
         flex: 1,
         padding: vw(4),
-        backgroundColor: "rgba(255, 255, 255, .8)",
+        backgroundColor: "rgba(255, 255, 255, .9)",
         shadowColor: "#000000",
         shadowOffset: { width: vw(1), height: vw(1) },
         shadowOpacity: .2,

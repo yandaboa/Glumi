@@ -92,7 +92,7 @@ export default (props) => {
     let graph = line(scaledData);
 
     let html = [];
-    yScale.ticks().reverse().forEach((i) => {
+    yScale.ticks(9).reverse().forEach((i) => {
       html.push(<Text key={i} style={style.yLabel}>{i}</Text>)
     });
     return [graph, html];
@@ -109,7 +109,7 @@ export default (props) => {
             ppm</Text>
         </View>
         <View style={style.labelContainer}>
-          {makeLine(Data)[1]}
+          {makeLine(props.data)[1]}
         </View>
         <Svg
           width={width}
@@ -122,12 +122,12 @@ export default (props) => {
             strokeWidth={vw * .015}
             strokeLinecap="round"
             strokeLinejoin="round"
-            d={makeLine(Data)[0]}
+            d={makeLine(props.data)[0]}
           />
         </Svg>
       </View>
       <View style={style.xLabelContainer}>
-        <Text style={style.xLabel}>Acetone Levels</Text>
+        <Text style={style.xLabel}>{props.title}</Text>
       </View>
     </View>
 

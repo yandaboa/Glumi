@@ -4,14 +4,15 @@ import { pastData } from '../style/style.js';
 import BloodSugarAnalysis from './BloodSugarAnalysis.js';
 import BloodSugarGraph from './BloodSugarGraph.js';
 import SproutSVG from '../assets/SproutSVG.js';
+import { Data2, Data3, Data4 } from './Data.js';
 
 export default () => {
   const vw = Dimensions.get("window").width;
 
   const mainElements = [
-    { title: "day", graph: <BloodSugarGraph width={vw * .6} /> },
-    { title: "week", graph: <BloodSugarGraph width={vw * .6} /> },
-    { title: "month", graph: <BloodSugarGraph width={vw * .6} /> },
+    { title: "day", graph: <BloodSugarGraph width={vw * .6} data={Data2} title={"Today"} /> },
+    { title: "week", graph: <BloodSugarGraph width={vw * .6} data={Data3} title="Past Week" /> },
+    { title: "month", graph: <BloodSugarGraph width={vw * .6} data={Data4} title="Past Month" /> },
   ];
 
   const [mainActive, setMainActive] = useState(0);

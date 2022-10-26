@@ -1,8 +1,12 @@
 import { Text, View, ScrollView, Dimensions, Image, SafeAreaView } from 'react-native';
 import { logEvent } from '../style/style.js';
-import AddSVG from '../assets/AddSVG.js'
-import EditSVG from '../assets/EditSVG.js'
+import AddSVG from '../assets/AddSVG.js';
+import EditSVG from '../assets/EditSVG.js';
+import {Data} from './Data.js';
 export default () => {
+
+  console.log(Data);
+
   return (
     <View style={logEvent.container}>
       <View style={logEvent.background}>

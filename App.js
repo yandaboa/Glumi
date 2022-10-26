@@ -2,7 +2,6 @@ import { useFonts } from 'expo-font';
 import HomePage from './components/HomePage.js';
 import Login from './components/Login.js';
 import CreateAccount from './components/CreateAccount.js';
-
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
