@@ -12,10 +12,6 @@ export default () => {
 
   const vw = Dimensions.get("window").width;
 
-  for (let i = 0; i < Data.length; i++) {
-    Data[i][0] = parseISO(Data[i][0]);
-  }
-
   const width = vw * .65;
   const height = width;
   const margin = {
@@ -25,36 +21,44 @@ export default () => {
     right: vw * .1,
   }
 
-  const xAxis = d3.scaleLinear()
-    .domain([new Date(Data[0][0]), new Date(Data[Data.length - 1][0])])
-    .range([margin.left, width - margin.right]);
+  const makeLine = (givenData) => {
 
-  const yAxis = d3.scaleLinear()
-    .domain(d3.extent(Data.map((i) => i[1])))
-    .range([height - margin.bottom, margin.top]);
+    const xScale = d3.scaleTime()
+      .domain([new Date(givenData[0].date), new Date(givenData[givenData.length - 1].date)])
+      .range([margin.left, width - margin.right]);
 
-  const line = d3.line()
-    .x(i => xAxis(i[0]))
-    .y(i => yAxis(i[1]))
-  let graph = line(Data);
-  let html = [];
+    const yScale = d3.scaleLinear()
+      .domain(d3.extent(givenData.map((i) => i.value)))
+      .range([height - margin.bottom, margin.top]);
 
-  yAxis.ticks().reverse().forEach((i) => {
-    html.push(<Text key={i} style={bloodSugarGraph.yLabel}>{i}</Text>)
-  });
+    let scaledData = [];
+    givenData.forEach((i) => {
+      scaledData.push([xScale(new Date(i.date)), yScale(i.value)])
+    });
+
+    let line = d3.line()
+
+    let graph = line(scaledData);
+
+    let html = [];
+    yScale.ticks().reverse().forEach((i) => {
+      html.push(<Text key={i} style={bloodSugarGraph.yLabel}>{i}</Text>)
+    });
+    return [graph, html];
+  }
 
   return (
     <View style={bloodSugarGraph.container}>
       <View style={bloodSugarGraph.content}>
         <View style={bloodSugarGraph.unitContainer}>
           <Text style={[bloodSugarGraph.unit,
-           {
+          {
             transform: [{ rotate: '270deg' }]
           }]}>
-          ppm</Text>
+            ppm</Text>
         </View>
         <View style={bloodSugarGraph.labelContainer}>
-          {html}
+          {makeLine(Data)[1]}
         </View>
         <Svg
           width={width}
@@ -63,13 +67,11 @@ export default () => {
         >
           <Path
             fill="none"
-            // stroke="#ff7e40"
             stroke="#ff9933"
-            // stroke="#66cc99"
             strokeWidth={vw * .015}
             strokeLinecap="round"
             strokeLinejoin="round"
-            d={graph}
+            d={makeLine(Data)[0]}
           />
         </Svg>
       </View>
@@ -77,5 +79,6 @@ export default () => {
         <Text style={bloodSugarGraph.xLabel}>Acetone Levels</Text>
       </View>
     </View>
+
   );
 }

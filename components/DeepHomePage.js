@@ -72,7 +72,9 @@ export default () => {
         <View style={home.content}>
           <View style={home.summary}>
             <Text style={home.heading}>Summary</Text>
-            {/* <BloodSugarGraph /> */}
+            <View style={home.graphContainer}>
+              <BloodSugarGraph />
+            </View>
           </View>
           <View style={home.slider}>
             <Text style={[home.heading, home.sliderHeading]}>Discover More!</Text>
@@ -85,10 +87,9 @@ export default () => {
             >
               {
                 sliderElements.map((i, index) =>
-                  <View style={home.sliderElement} key={i}>
+                  <View style={home.sliderElement} key={index}>
                     <View style={home.sliderContent}>
                       {i}
-
                     </View>
                   </View>
 
@@ -99,7 +100,7 @@ export default () => {
               {
                 sliderElements.map((i, index) =>
                   <View
-                    key={i}
+                    key={"dot" + index}
                     style={sliderElementActive == index ? home.dotActive : home.dot}
                   />
                 )
