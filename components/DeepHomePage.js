@@ -3,10 +3,8 @@ import {
   View,
   SafeAreaView,
   Animated,
-  ImageBackground,
   ScrollView,
-  Dimensions,
-  Image,
+  Dimensions
 } from 'react-native';
 import { useEffect, useRef, useState } from 'react';
 import { home } from './../style/style.js';
@@ -21,6 +19,8 @@ import DarkTreeSVG from '../assets/DarkTreeSVG.js';
 
 
 export default () => {
+
+  const vw = Dimensions.get("window").width;
 
   // const shift = useRef(new Animated.Value(0)).current;
   // useEffect(() => {
@@ -73,7 +73,7 @@ export default () => {
           <View style={home.summary}>
             <Text style={home.heading}>Summary</Text>
             <View style={home.graphContainer}>
-              <BloodSugarGraph />
+              <BloodSugarGraph width={vw * .65} />
             </View>
           </View>
           <View style={home.slider}>
@@ -83,6 +83,7 @@ export default () => {
               horizontal
               showsHorizontalScrollIndicator={false}
               pagingEnabled
+              scrollEventThrottle={200}
               style={home.sliderContainer}
             >
               {
@@ -92,7 +93,6 @@ export default () => {
                       {i}
                     </View>
                   </View>
-
                 )
               }
             </ScrollView>

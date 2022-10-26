@@ -1,10 +1,30 @@
-import { Text, View, ScrollView } from 'react-native';
+import { useState } from 'react';
+import { Text, View, ScrollView, Dimensions } from 'react-native';
 import { pastData } from '../style/style.js';
 import BloodSugarAnalysis from './BloodSugarAnalysis.js';
 import BloodSugarGraph from './BloodSugarGraph.js';
 import SproutSVG from '../assets/SproutSVG.js';
 
 export default () => {
+  const vw = Dimensions.get("window").width;
+
+  const mainElements = [
+    { title: "day", graph: <BloodSugarGraph width={vw * .6} /> },
+    { title: "week", graph: <BloodSugarGraph width={vw * .6} /> },
+    { title: "month", graph: <BloodSugarGraph width={vw * .6} /> },
+  ];
+
+  const [mainActive, setMainActive] = useState(0);
+
+  onchange = (nativeEvent) => {
+    if (nativeEvent) {
+      const slide = Math.ceil(nativeEvent.contentOffset.x / nativeEvent.layoutMeasurement.width);
+      if (slide != mainActive) {
+        setMainActive(slide)
+      }
+    }
+  }
+
   return (
     <ScrollView style={pastData.container}>
       <View style={pastData.top}>
@@ -14,10 +34,37 @@ export default () => {
         </View>
       </View>
       <ScrollView style={pastData.content}>
+        <View style={pastData.labelContainer}>
+          {
+            mainElements.map((i, index) =>
+              <View
+                style={[mainActive == index ? pastData.labelActive : pastData.label, pastData.labelStyle]}
+                key={"label" + index}
+              >
+                <Text style={pastData.labelText}>
+                  {i.title}
+                </Text>
+              </View>
+            )
+          }
+        </View>
         <View style={pastData.mainContainer}>
-          <View style={pastData.main}>
-            <BloodSugarGraph />
-          </View>
+          <ScrollView
+            style={pastData.main}
+            onScroll={({ nativeEvent }) => onchange(nativeEvent)}
+            horizontal
+            showsHorizontalScrollIndicator={false}
+            scrollEventThrottle={500}
+            pagingEnabled
+          >
+            {
+              mainElements.map((i, index) =>
+                <View style={pastData.mainContent} key={index}>
+                  {i.graph}
+                </View>
+              )
+            }
+          </ScrollView>
         </View>
         <View style={pastData.wrapper}>
           <View style={pastData.content1}>

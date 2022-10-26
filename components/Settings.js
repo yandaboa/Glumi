@@ -15,7 +15,7 @@ export default () => {
 
   const UID = authen.currentUser.uid;
 
-  function toggleNofSwitch(value){
+  function toggleNofSwitch(value) {
     setIsNofEnabled(value);
     updateSets();
   };
@@ -35,7 +35,7 @@ export default () => {
     pairDevice(UID);
   }
 
-  function updateSets(){
+  function updateSets() {
     updateSettings(UID, isNofEnabled, isAnimationsEnabled, isDarkEnabled);
   }
 
@@ -49,6 +49,7 @@ export default () => {
     })
       .catch(error => console.log(error.message))
   }
+
   return (
     <View style={setting.container}>
       <View style={setting.header}>
@@ -68,10 +69,6 @@ export default () => {
           <View style={setting.selection}>
             <Text style={setting.selectionText}>email</Text>
           </View>
-          <TouchableOpacity style={[setting.selection, setting.pairDevice]}
-          onPressIn={startPairing} onPressOut={stopPairing}>
-            <Text style={[setting.selectionText, setting.signoutText]}>Pair Device</Text>
-          </TouchableOpacity>
           <View style={setting.selection}>
             <Text style={setting.selectionText}>notifications</Text>
             <Switch style={[setting.switchNotifications, setting.switch]}
@@ -82,6 +79,10 @@ export default () => {
               value={isNofEnabled}
             />
           </View>
+          <TouchableOpacity style={[setting.selection, setting.pairDevice]}
+            onPressIn={startPairing} onPressOut={stopPairing}>
+            <Text style={[setting.selectionText, setting.signoutText]}>Pair Device</Text>
+          </TouchableOpacity>
           <TouchableOpacity style={[setting.selection, setting.signout]} onPress={handleLogout}>
             <Text style={[setting.selectionText, setting.signoutText]}>sign out</Text>
           </TouchableOpacity>

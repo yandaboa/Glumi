@@ -1,18 +1,13 @@
-import { Dimensions, View, Text } from 'react-native';
+import { Dimensions, View, Text, StyleSheet } from 'react-native';
 import { bloodSugarGraph } from '../style/style';
 import Svg, { Path } from 'react-native-svg';
-import { parseISO } from 'date-fns'
 import * as d3 from 'd3';
 import { Data } from './Data.js';
 
-export default () => {
-  const sugarData = [95, 99, 112];
-  let yHideRatio = 0.8;
-  let defaultMax = 250;
-
+export default (props) => {
   const vw = Dimensions.get("window").width;
 
-  const width = vw * .65;
+  const width = props.width;
   const height = width;
   const margin = {
     top: vw * .1,
@@ -20,6 +15,62 @@ export default () => {
     left: vw * .06,
     right: vw * .1,
   }
+
+  const style = StyleSheet.create({
+    container: {
+      justifyContent: "center",
+      alignSelf: "center",
+      marginRight: "auto",
+    },
+
+    content: {
+      justifyContent: "center",
+      alignSelf: "center",
+      flexDirection: "row",
+    },
+
+    xLabelContainer: {
+      justifyContent: "center",
+      alignItems: "center",
+      paddingBottom: width * .02,
+    },
+
+    xLabel: {
+      fontSize: width * .07,
+      width: width,
+      marginLeft: "auto",
+      fontFamily: "BalooTamma2-Bold",
+      color: "#000",
+      textAlign: "center",
+    },
+
+    unitContainer: {
+      width: "auto",
+      justifyContent: "center",
+      alignItems: "center",
+    },
+
+    unit: {
+      fontSize: width * .055,
+      fontFamily: "BalooTamma2-Bold",
+      color: "#111",
+      marginTop: width * .01,
+    },
+
+    labelContainer: {
+      justifyContent: "space-evenly",
+      width: "auto",
+    },
+
+    yLabel: {
+      fontSize: width * .05,
+      fontFamily: "BalooTamma2-Regular",
+      color: "#555",
+      opacity: .9,
+      marginLeft: width * .01,
+    },
+
+  });
 
   const makeLine = (givenData) => {
 
@@ -42,22 +93,22 @@ export default () => {
 
     let html = [];
     yScale.ticks().reverse().forEach((i) => {
-      html.push(<Text key={i} style={bloodSugarGraph.yLabel}>{i}</Text>)
+      html.push(<Text key={i} style={style.yLabel}>{i}</Text>)
     });
     return [graph, html];
   }
 
   return (
-    <View style={bloodSugarGraph.container}>
-      <View style={bloodSugarGraph.content}>
-        <View style={bloodSugarGraph.unitContainer}>
-          <Text style={[bloodSugarGraph.unit,
+    <View style={style.container}>
+      <View style={style.content}>
+        <View style={style.unitContainer}>
+          <Text style={[style.unit,
           {
             transform: [{ rotate: '270deg' }]
           }]}>
             ppm</Text>
         </View>
-        <View style={bloodSugarGraph.labelContainer}>
+        <View style={style.labelContainer}>
           {makeLine(Data)[1]}
         </View>
         <Svg
@@ -75,8 +126,8 @@ export default () => {
           />
         </Svg>
       </View>
-      <View style={bloodSugarGraph.xLabelContainer}>
-        <Text style={bloodSugarGraph.xLabel}>Acetone Levels</Text>
+      <View style={style.xLabelContainer}>
+        <Text style={style.xLabel}>Acetone Levels</Text>
       </View>
     </View>
 

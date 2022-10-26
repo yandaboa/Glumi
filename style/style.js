@@ -397,55 +397,6 @@ const home = StyleSheet.create({
 });
 
 const bloodSugarGraph = StyleSheet.create({
-    container: {
-        justifyContent: "center",
-        alignSelf: "center",
-        marginRight: "auto",
-    },
-
-    content: {
-        justifyContent: "center",
-        alignSelf: "center",
-        flexDirection: "row",
-    },
-
-    xLabelContainer: {
-        justifyContent: "center",
-        alignItems: "center",
-        paddingBottom: vw(2),
-    },
-
-    xLabel: {
-        fontSize: vw(5),
-        fontFamily: "BalooTamma2-Bold",
-        color: "#000",
-    },
-
-    unitContainer: {
-        width: "auto",
-        justifyContent: "center",
-        alignItems: "center",
-    },
-
-    unit: {
-        fontSize: vw(4),
-        fontFamily: "BalooTamma2-Bold",
-        color: "#222",
-        marginTop: vw(1),
-    },
-
-    labelContainer: {
-        justifyContent: "space-evenly",
-        width: "auto",
-    },
-
-    yLabel: {
-        fontSize: vw(3.5),
-        fontFamily: "BalooTamma2-Regular",
-        color: "#555",
-        opacity: .8,
-        marginLeft: vw(2),
-    },
 
     high: {
         color: "#E24D50",
@@ -507,20 +458,80 @@ const pastData = StyleSheet.create({
         padding: vw(4),
         paddingLeft: vw(10),
         paddingRight: vw(10),
-        backgroundColor: "#66cc99",
+        backgroundColor: "#517920",
+        paddingTop: vw(8),
     },
 
-    main: {
+    mainContainer: {
         backgroundColor: "#fff",
         width: vw(76),
-        height: vw(76),
         borderRadius: vw(4),
-        justifyContent: "center",
-        alignItems: "center",
         shadowColor: "#000000",
         shadowOffset: { width: vw(1), height: vw(1) },
         shadowOpacity: .2,
         shadowRadius: vw(2),
+        paddingBottom: vw(2),
+        marginLeft: "auto",
+        marginRight: "auto",
+    },
+
+    main: {
+        flex: 1,
+    },
+
+    mainContent: {
+        height: "auto",
+        width: vw(72),
+        justifyContent: "center",
+        alignItems: "center",
+        padding: vw(2),
+        margin: vw(1),
+    },
+
+    divisor: {
+        backgroundColor: "#eee",
+        height: vw(1),
+        width: vw(60),
+        borderRadius: vw(.5),
+        marginLeft: "auto",
+        marginRight: "auto",
+    },
+
+    labelContainer: {
+        flexDirection: "row",
+        height: vw(8),
+        width: vw(76),
+        marginLeft: "auto",
+        marginRight: "auto",
+        marginTop: vw(4),
+        justifyContent: "space-evenly",
+        alignItems: "center",
+        backgroundColor: "#ddd",
+        borderRadius: vw(4),
+        margin: vw(4)
+    },
+
+    label: {
+        backgroundColor: "transparent",
+    },
+
+    labelActive: {
+        backgroundColor: "#fff",
+    },
+
+    labelStyle: {
+        width: vw(22),
+        height: vw(6),
+        borderRadius: vw(3),
+        justifyContent: "center",
+        alignItems: "center",
+        margin: vw(2),
+    },
+
+    labelText: {
+        color: "#000",
+        fontSize: vw(4),
+        fontFamily: "BalooTamma2-Medium"
     },
 
     wrapper: {
@@ -802,7 +813,7 @@ const setting = StyleSheet.create({
     },
 
     pairDevice: {
-        backgroundColor: "#89CFF0"
+        backgroundColor: "#38B346"
     },
 
     signoutText: {
