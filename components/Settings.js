@@ -58,27 +58,32 @@ export default () => {
         </SafeAreaView>
       </View>
       <View style={setting.content}>
-        <Text style={setting.subtitle}>Account</Text>
         <View style={setting.section}>
           <View style={setting.selection}>
             <Text style={setting.selectionText}>profile</Text>
           </View>
           <View style={setting.selection}>
+            <Text style={setting.selectionText}>edit profile</Text>
+          </View>
+          <View style={setting.selection}>
             <Text style={setting.selectionText}>password</Text>
           </View>
           <View style={setting.selection}>
-            <Text style={setting.selectionText}>email</Text>
+            <Text style={setting.selectionText}>about us</Text>
           </View>
-          <View style={setting.selection}>
-            <Text style={setting.selectionText}>notifications</Text>
-            <Switch style={[setting.switchNotifications, setting.switch]}
-              trackColor={{ false: "#ddd", true: "#38b346" }}
-              thumbColor={isNofEnabled ? "#ddd" : "#38b346"}
-              activeThumbColor={"#eee"}
-              onValueChange={toggleNofSwitch}
-              value={isNofEnabled}
-            />
+          <View style={setting.section}>
+            <View style={setting.selection}>
+              <Text style={setting.selectionText}>dark mode</Text>
+              <Switch style={[setting.switchTheme, setting.switch]}
+                trackColor={{ false: "#ddd", true: "#333" }}
+                thumbColor={isDarkEnabled ? "#ddd" : "#333"}
+                activeThumbColor={"#ddd"}
+                onValueChange={toggleDarkSwitch}
+                value={isDarkEnabled}
+              />
+            </View>
           </View>
+          <View style={setting.spacer} />
           <TouchableOpacity style={[setting.selection, setting.pairDevice]}
             onPressIn={startPairing} onPressOut={stopPairing}>
             <Text style={[setting.selectionText, setting.signoutText]}>Pair Device</Text>
@@ -86,29 +91,6 @@ export default () => {
           <TouchableOpacity style={[setting.selection, setting.signout]} onPress={handleLogout}>
             <Text style={[setting.selectionText, setting.signoutText]}>sign out</Text>
           </TouchableOpacity>
-        </View>
-        <Text style={setting.subtitle}>Aesthetics</Text>
-        <View style={setting.section}>
-          <View style={setting.selection}>
-            <Text style={setting.selectionText}>dark mode</Text>
-            <Switch style={[setting.switchTheme, setting.switch]}
-              trackColor={{ false: "#ddd", true: "#333" }}
-              thumbColor={isDarkEnabled ? "#ddd" : "#333"}
-              activeThumbColor={"#ddd"}
-              onValueChange={toggleDarkSwitch}
-              value={isDarkEnabled}
-            />
-          </View>
-          <View style={setting.selection}>
-            <Text style={setting.selectionText}>animations</Text>
-            <Switch style={[setting.switchAnimations, setting.switch]}
-              trackColor={{ false: "#ddd", true: "#38b346" }}
-              thumbColor={isAnimationsEnabled ? "#ddd" : "#38b346"}
-              activeThumbColor={"#ddd"}
-              onValueChange={toggleAnimationsSwitch}
-              value={isAnimationsEnabled}
-            />
-          </View>
         </View>
       </View>
     </View>

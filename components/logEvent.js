@@ -5,15 +5,11 @@ import EditSVG from '../assets/EditSVG.js';
 import { Data, Data2, Data3, Data4 } from './Data.js';
 
 export default () => {
-  console.log(new Date(Data[6].date).toLocaleString('en-US', { month: "short" }) + " " + new Date(Data[6].date).getDay());
-
-  console.log(Data);
   const formatData = (d) => {
     let formatedData = [];
     const sortData = d.sort(
       (x, y) => Number(new Date(x.date)) - Number(new Date(y.date)),
     );
-    console.log(sortData.length);
     let a = [];
     let temp = sortData[0];
     for (let i = 0; i < sortData.length; i++) {
@@ -44,16 +40,19 @@ export default () => {
   }
   // let x = new Date(i.date).toLocaleString('en-US', { month: "short" }) + " " + new Date(i.date).getDate()
 
-  const dataSet = (d, index) => {
+  const dataSet = (d, index, title) => {
+    let key = title + index;
     let date = new Date(d[0].date);
     return (
-      <>
+      <View
+        key={key}
+      >
         <Text
           style={logEvent.dateLabel}
-          key={Math.random()}
-        >{date.toLocaleString("en-US", { month: "short" }) + " " + date.getDate()}</Text>
+          key={"label" + index}
+        >{date.toLocaleString("en-US", { month: "short" }) + " " + date.getDate()}
+        </Text>
         <ScrollView
-          key={Math.random()}
           style={logEvent.data}
           vertical={true}
           showsHorizontalScrollIndicator={false}
@@ -68,7 +67,10 @@ export default () => {
           </View>
           {
             d.map((i, index) =>
-              <View style={[logEvent.dataElement, logEvent.first]} key={Math.random()}>
+              <View style={
+                [logEvent.dataElement, logEvent.first]}
+                key={"d" + index}
+              >
                 <Text style={logEvent.dataText}>
                   {padDate(new Date(i.date).getHours()) + ":" + padDate(new Date(i.date).getMinutes())}
                 </Text>
@@ -84,7 +86,8 @@ export default () => {
           </View>
           <View style={logEvent.filler} />
         </ScrollView>
-      </>
+      </View>
+
     );
   }
 
@@ -108,7 +111,7 @@ export default () => {
         >
           {
             formatData(Data).map((i, index) =>
-              dataSet(i, index)
+              dataSet(i, index, "acetone")
             )
           }
         </ScrollView>
@@ -124,7 +127,7 @@ export default () => {
         >
           {
             formatData(Data2).map((i, index) =>
-              dataSet(i, index)
+              dataSet(i, index, "gluco")
             )
           }
         </ScrollView>
@@ -140,7 +143,7 @@ export default () => {
         >
           {
             formatData(Data3).map((i, index) =>
-              dataSet(i, index)
+              dataSet(i, index, "sugar")
             )
           }
         </ScrollView>

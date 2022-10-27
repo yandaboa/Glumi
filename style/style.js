@@ -772,6 +772,7 @@ const setting = StyleSheet.create({
         fontSize: vw(6),
         marginLeft: vw(8),
         marginRight: "auto",
+        marginBottom: vw(8),
     },
 
     section: {
@@ -820,6 +821,11 @@ const setting = StyleSheet.create({
         color: "#fff",
         textAlign: "center",
         fontFamily: "Comfortaa-Bold",
+    },
+
+    spacer: {
+        width: vw(100),
+        height: vw(10)
     },
 });
 
