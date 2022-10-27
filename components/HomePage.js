@@ -40,14 +40,14 @@ const HomePage = () => {
             />)
           }
         }} />
-      <Tab.Screen name="   " component={LogEvent}
+      {/* <Tab.Screen name="   " component={LogEvent}
         options={{
           tabBarIcon: ({ focused }) => {
             return (<InputSVG
               state={focused.toString()}
             />)
           }
-        }} />
+        }} /> */}
       <Tab.Screen name="    " component={Settings}
         options={{
           tabBarIcon: ({ focused }) => {
