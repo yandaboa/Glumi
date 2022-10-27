@@ -101,11 +101,11 @@ export default () => {
           decelerationRate="fast"
           pagingEnabled
         >
-          {
+          {/* {
             formatData(Data).map((i, index) =>
               <Text></Text>
             )
-          }
+          } */}
         </ScrollView>
         <View style={logEvent.heading}>
           <Text style={logEvent.headingText}>Glucometer Data</Text>
