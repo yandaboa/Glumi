@@ -677,6 +677,14 @@ const logEvent = StyleSheet.create({
         alignItems: "center",
     },
 
+    dateLabel: {
+        fontFamily: "BalooTamma2-Medium",
+        fontSize: vw(5),
+        marginRight: vw(10),
+        marginLeft: "auto",
+        color: "#fff",
+    },
+
     add: {
         width: vw(70),
         height: vw(10),
@@ -722,7 +730,7 @@ const logEvent = StyleSheet.create({
 
     spacer: {
         height: vw(40),
-    }
+    },
 });
 
 const setting = StyleSheet.create({
