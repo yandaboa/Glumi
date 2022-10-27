@@ -677,6 +677,14 @@ const logEvent = StyleSheet.create({
         alignItems: "center",
     },
 
+    dateLabel: {
+        fontFamily: "BalooTamma2-Medium",
+        fontSize: vw(5),
+        marginRight: vw(10),
+        marginLeft: "auto",
+        color: "#fff",
+    },
+
     add: {
         width: vw(70),
         height: vw(10),
@@ -722,7 +730,7 @@ const logEvent = StyleSheet.create({
 
     spacer: {
         height: vw(40),
-    }
+    },
 });
 
 const setting = StyleSheet.create({
@@ -764,6 +772,7 @@ const setting = StyleSheet.create({
         fontSize: vw(6),
         marginLeft: vw(8),
         marginRight: "auto",
+        marginBottom: vw(8),
     },
 
     section: {
@@ -812,6 +821,11 @@ const setting = StyleSheet.create({
         color: "#fff",
         textAlign: "center",
         fontFamily: "Comfortaa-Bold",
+    },
+
+    spacer: {
+        width: vw(100),
+        height: vw(10)
     },
 });
 

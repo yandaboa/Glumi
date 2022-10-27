@@ -3,60 +3,93 @@ import { logEvent } from '../style/style.js';
 import AddSVG from '../assets/AddSVG.js';
 import EditSVG from '../assets/EditSVG.js';
 import { Data, Data2, Data3, Data4 } from './Data.js';
+
 export default () => {
-  console.log(new Date(Data[6].date).toLocaleString('en-US', { month: "short" }) + " " + new Date(Data[6].date).getDay());
-
-
-  console.log(Data);
-  let formatedData = [];
   const formatData = (d) => {
+    let formatedData = [];
     const sortData = d.sort(
-      (x, y) => Number(x.date) - Number(y.date),
+      (x, y) => Number(new Date(x.date)) - Number(new Date(y.date)),
     );
-    console.log(sortData);
+    let a = [];
+    let temp = sortData[0];
+    for (let i = 0; i < sortData.length; i++) {
+      let iDate = new Date(sortData[i].date);
+      let tempDate = new Date(temp.date);
+      if (
+        iDate.getFullYear() == tempDate.getFullYear()
+        && iDate.getMonth() == tempDate.getMonth()
+        && iDate.getDate() == tempDate.getDate()
+      ) {
+        a.push(sortData[i]);
+      } else {
+        formatedData.push(a);
+        temp = sortData[i];
+        a = [sortData[i]];
+      }
+    }
+    formatedData.push(a);
+    return formatedData
   }
-  formatData(Data);
+
+  const padDate = (d) => {
+    if (d < 10) {
+      return "0" + d;
+    } else {
+      return d;
+    }
+  }
   // let x = new Date(i.date).toLocaleString('en-US', { month: "short" }) + " " + new Date(i.date).getDate()
 
-  const dataSet = (d) => {
+  const dataSet = (d, index, title) => {
+    let key = title + index;
+    let date = new Date(d[0].date);
     return (
-      <ScrollView style={logEvent.data}
-        vertical={true}
-        contentContainerStyle={Dimensions.get("window").width}
-        showsHorizontalScrollIndicator={false}
-        scrollEventThrottle={200}
-        decelerationRate="fast"
-        pagingEnabled
+      <View
+        key={key}
       >
-        <View style={[logEvent.dataElement, logEvent.leader]}>
-          <Text style={logEvent.leaderText}>time</Text>
-          <Text style={logEvent.leaderText}>data</Text>
-          <Text style={logEvent.leaderText}>edit</Text>
-        </View>
-        {
-          d.map((i, index) =>
-            <View style={[logEvent.dataElement, logEvent.first]} key={"data" + index}>
-              <Text style={logEvent.dataText}>
-                {new Date(i.date).getHours().padStart(2, '0') + ":" + new Date(i.date).padStart(2, '0').getMinutes()}
-              </Text>
-              <Text style={logEvent.dataText}>{i.value}</Text>
-              <View style={logEvent.iconContainer}>
-                <EditSVG />
+        <Text
+          style={logEvent.dateLabel}
+          key={"label" + index}
+        >{date.toLocaleString("en-US", { month: "short" }) + " " + date.getDate()}
+        </Text>
+        <ScrollView
+          style={logEvent.data}
+          vertical={true}
+          showsHorizontalScrollIndicator={false}
+          scrollEventThrottle={200}
+          decelerationRate="fast"
+          pagingEnabled
+        >
+          <View style={[logEvent.dataElement, logEvent.leader]}>
+            <Text style={logEvent.leaderText}>time</Text>
+            <Text style={logEvent.leaderText}>data</Text>
+            <Text style={logEvent.leaderText}>edit</Text>
+          </View>
+          {
+            d.map((i, index) =>
+              <View style={
+                [logEvent.dataElement, logEvent.first]}
+                key={"d" + index}
+              >
+                <Text style={logEvent.dataText}>
+                  {padDate(new Date(i.date).getHours()) + ":" + padDate(new Date(i.date).getMinutes())}
+                </Text>
+                <Text style={logEvent.dataText}>{i.value}</Text>
+                <View style={logEvent.iconContainer}>
+                  <EditSVG />
+                </View>
               </View>
-            </View>
-          )
-        }
-        <View style={logEvent.add}>
-          <AddSVG style={logEvent.icon} />
-        </View>
-        <View style={logEvent.filler} />
-      </ScrollView>
+            )
+          }
+          <View style={logEvent.add}>
+            <AddSVG style={logEvent.icon} />
+          </View>
+          <View style={logEvent.filler} />
+        </ScrollView>
+      </View>
+
     );
   }
-
-
-  // <View style={logEvent.backgroundElement1} />
-  //     <View style={logEvent.backgroundElement2} />
 
   return (
     <View style={logEvent.container}>
@@ -69,20 +102,51 @@ export default () => {
         <View style={logEvent.heading}>
           <Text style={logEvent.headingText}>Breathanalyzer Data</Text>
         </View>
-        <View style={logEvent.dataTitle}>
-          <Text style={logEvent.headerText}></Text>
-          <Text style={logEvent.searchSelection}></Text>
-        </View>
-        {dataSet(Data)}
+        <ScrollView
+          horizontal
+          showsHorizontalScrollIndicator={false}
+          scrollEventThrottle={200}
+          decelerationRate="fast"
+          pagingEnabled
+        >
+          {
+            formatData(Data).map((i, index) =>
+              dataSet(i, index, "acetone")
+            )
+          }
+        </ScrollView>
         <View style={logEvent.heading}>
           <Text style={logEvent.headingText}>Glucometer Data</Text>
         </View>
-        {dataSet(Data2)}
+        <ScrollView
+          horizontal
+          showsHorizontalScrollIndicator={false}
+          scrollEventThrottle={200}
+          decelerationRate="fast"
+          pagingEnabled
+        >
+          {
+            formatData(Data2).map((i, index) =>
+              dataSet(i, index, "gluco")
+            )
+          }
+        </ScrollView>
         <View style={logEvent.heading}>
           <Text style={logEvent.headingText}>Sugar Intaked</Text>
-          <Text>{ }</Text>
         </View>
-        {dataSet(Data3)}
+        <ScrollView
+          horizontal
+          showsHorizontalScrollIndicator={false}
+          scrollEventThrottle={200}
+          decelerationRate="fast"
+          pagingEnabled
+        >
+          {
+            formatData(Data3).map((i, index) =>
+              dataSet(i, index, "sugar")
+            )
+          }
+        </ScrollView>
         <View style={logEvent.spacer} />
       </ScrollView>
     </View>
