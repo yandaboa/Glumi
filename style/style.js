@@ -581,16 +581,9 @@ const pastData = StyleSheet.create({
 });
 
 const logEvent = StyleSheet.create({
-    background: {
-        position: 'absolute',
-        height: vh(100),
-        width: vw(100),
-        backgroundColor: "#eee",
-    },
-
     backgroundElement1: {
         borderBottomRightRadius: "100%",
-        backgroundColor: "#ff9933",
+        backgroundColor: "#587c24",
         height: vw(100),
         width: vw(100),
         position: "absolute",
@@ -600,9 +593,9 @@ const logEvent = StyleSheet.create({
 
     backgroundElement2: {
         borderTopLeftRadius: "100%",
-        backgroundColor: "#66cc99",
-        height: vw(90),
-        width: vw(90),
+        backgroundColor: "#709c34",
+        height: vw(70),
+        width: vw(70),
         position: "absolute",
         bottom: 0,
         right: 0,
@@ -610,14 +603,16 @@ const logEvent = StyleSheet.create({
 
     container: {
         flex: 1,
+        flexDirection: "column",
+        backgroundColor: "#303c14",
     },
 
     header: {
-        flex: 1,
-        height: vw(10),
-        padding: vw(8),
+        height: vw(30),
         justifyContent: "center",
         paddingBottom: 0,
+        padding: vw(4),
+        paddingLeft: vw(6),
     },
 
     title: {
@@ -626,13 +621,18 @@ const logEvent = StyleSheet.create({
         fontFamily: "BalooTamma2-Bold",
     },
 
-    content: {
-        justifyContent: "center",
-        alignItems: "center",
-        flex: 5,
+    heading: {
+        marginLeft: vw(10),
+        marginRight: "auto",
     },
 
-    data1: {
+    headingText: {
+        fontSize: vw(6),
+        fontFamily: "BalooTamma2-Bold",
+        color: "#fff"
+    },
+
+    data: {
         width: vw(80),
         height: vw(80),
         backgroundColor: "#ffffff",
@@ -642,6 +642,7 @@ const logEvent = StyleSheet.create({
         shadowOffset: { width: vw(1), height: vw(1) },
         shadowOpacity: .2,
         shadowRadius: vw(2),
+        marginLeft: vw(10),
     },
 
     leader: {
@@ -663,7 +664,7 @@ const logEvent = StyleSheet.create({
         marginTop: 0,
     },
 
-    data1Element: {
+    dataElement: {
         width: vw(70),
         height: vw(10),
         margin: vw(2.5),
@@ -719,12 +720,8 @@ const logEvent = StyleSheet.create({
         width: vw(8),
     },
 
-    data2: {
-
-    },
-
     spacer: {
-        height: vw(18),
+        height: vw(40),
     }
 });
 
