@@ -1,12 +1,20 @@
-import { useState, useRef } from 'react';
+import React, { useState, useRef, useFocusEffect} from 'react';
 import { Text, View, ScrollView, Dimensions, Animated } from 'react-native';
 import { pastData } from '../style/style.js';
 import BloodSugarAnalysis from './BloodSugarAnalysis.js';
 import BloodSugarGraph from './BloodSugarGraph.js';
 import SproutSVG from '../assets/SproutSVG.js';
-import { Data2, Data3, Data4 } from './Data.js';
+import { Data2, Data3, Data4, updateData } from './Data.js';
+
 
 export default () => {
+  // useFocusEffect(
+  //   React.useCallback(() => {
+  //     const unsubscribe = () => {updateData()};
+  //     return () => unsubscribe();
+  //   })
+  //   );
+
   const vw = Dimensions.get("window").width;
 
   const scrollOffsetY = useRef(new Animated.Value(0)).current;

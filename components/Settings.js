@@ -6,6 +6,9 @@ import { useNavigation } from "@react-navigation/native";
 import { setting } from '../style/style.js';
 import { authen, updateSettings } from "../Firebase.js";
 import { pairDevice, unPair } from "../Firebase.js";
+import Profile from "./SettingsComponents/Profile.js";
+import { showProfile } from "./SettingsComponents/Profile.js";
+import EditProfile, { showEditProfile } from "./SettingsComponents/EditProfile.js";
 
 export default () => {
   const navigation = useNavigation()
@@ -14,6 +17,19 @@ export default () => {
   const [isDarkEnabled, setIsDarkEnabled] = useState(false);
 
   const UID = authen.currentUser.uid;
+
+  const [showProfileModal, setProfileModal] = useState(false);
+
+  const toggleProfileModal= () => {
+    setProfileModal(!showProfileModal);
+    showProfile(showProfileModal);
+  }
+  const [showEditProfileModal, setEditProfileModal] = useState(false);
+
+  const toggleEditProfileModal= () => {
+    setEditProfileModal(!showEditProfileModal);
+    showEditProfile(showEditProfileModal);
+  }
 
   function toggleNofSwitch(value) {
     setIsNofEnabled(value);
@@ -59,12 +75,14 @@ export default () => {
       </View>
       <View style={setting.content}>
         <View style={setting.section}>
-          <View style={setting.selection}>
+          <TouchableOpacity style={setting.selection} onPress={toggleProfileModal}>
             <Text style={setting.selectionText}>profile</Text>
-          </View>
-          <View style={setting.selection}>
+            <Profile></Profile>
+          </TouchableOpacity>
+          <TouchableOpacity style={setting.selection} onPress={toggleEditProfileModal}>
             <Text style={setting.selectionText}>edit profile</Text>
-          </View>
+            <EditProfile></EditProfile>
+          </TouchableOpacity>
           <View style={setting.selection}>
             <Text style={setting.selectionText}>password</Text>
           </View>
