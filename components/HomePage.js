@@ -1,7 +1,8 @@
 import React from 'react'
-import { Text, View, Image } from 'react-native';
+import { Easing } from 'react-native';
 import { home } from './../style/style.js';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import { CardStyleInterpolators } from '@react-navigation/stack';
 import DeepHomePage from './DeepHomePage';
 import PastData from './PastData';
 import LogEvent from './LogEvent';
@@ -18,10 +19,28 @@ const Tab = createBottomTabNavigator();
 const HomePage = () => {
   const sidebarStyle = home.sidebar;
 
+  const config = {
+    animation: "slide",
+    config: {
+      duration: 200,
+      easing: Easing.linear,
+    }
+  }
+
   return (
     <Tab.Navigator
       initialRouteName="  "
-      screenOptions={{ headerShown: false, tabBarStyle: sidebarStyle }}>
+      screenOptions={{
+        headerShown: false,
+        tabBarStyle: sidebarStyle,
+        gesture: true,
+        gestureDirecion: "horizontal",
+        transitionSpec: {
+          open: config,
+          close: config,
+        },
+        cardStyleInterpolator: CardStyleInterpolators.forHorizontalIOS,
+      }}>
       <Tab.Screen name="  " component={DeepHomePage}
         options={{
           tabBarIcon: ({ focused }) => {
