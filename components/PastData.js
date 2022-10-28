@@ -4,8 +4,7 @@ import { pastData } from '../style/style.js';
 import BloodSugarAnalysis from './BloodSugarAnalysis.js';
 import BloodSugarGraph from './BloodSugarGraph.js';
 import SproutSVG from '../assets/SproutSVG.js';
-import { Data2, Data3, Data4, updateData } from './Data.js';
-
+import { AceData, GulData, FoodData } from './Data.js';
 
 export default () => {
   // useFocusEffect(
@@ -29,9 +28,9 @@ export default () => {
   })
 
   const mainElements = [
-    { title: "day", graph: <BloodSugarGraph width={vw * .6} data={Data2} title={"Today"} /> },
-    { title: "week", graph: <BloodSugarGraph width={vw * .6} data={Data3} title="Past Week" /> },
-    { title: "month", graph: <BloodSugarGraph width={vw * .6} data={Data4} title="Past Month" /> },
+    { title: "day", graph: <BloodSugarGraph width={vw * .6} data={AceData} title={"Today"} /> },
+    { title: "week", graph: <BloodSugarGraph width={vw * .6} data={GulData} title="Past Week" /> },
+    { title: "month", graph: <BloodSugarGraph width={vw * .6} data={FoodData} title="Past Month" /> },
   ];
 
   const [mainActive, setMainActive] = useState(0);

@@ -13,7 +13,7 @@ import BloodSugarAnalysis from './BloodSugarAnalysis.js';
 import BloodPressureGraph from './BloodPressureGraph.js';
 import LogEvent from './LogEvent.js';
 
-import { Data } from './Data.js';
+import { AceData } from './Data.js';
 
 import { authen } from '../Firebase.js';
 
@@ -24,24 +24,6 @@ import DarkTreeSVG from '../assets/DarkTreeSVG.js';
 export default () => {
 
   const vw = Dimensions.get("window").width;
-
-  // const shift = useRef(new Animated.Value(0)).current;
-  // useEffect(() => {
-  //   Animated.timing(shift, {
-  //     toValue: 100,
-  //     duration: 1000,
-  //     useNativeDriver: true,
-  //   }).start();
-  // }, []);
-
-  // <Animated.Text style={[home.title, {
-  //   color: shift.interpolate({
-  //     inputRange: [0, 100],
-  //     outputRange: ['#000', '#fff'],
-  //   }),
-  // }]}>
-  //   {Greeting()}
-  // </Animated.Text>
 
   const [sliderElementActive, setSliderElementActive] = useState(0);
 
@@ -76,7 +58,7 @@ export default () => {
           <View style={home.summary}>
             <Text style={home.heading}>Summary</Text>
             <View style={home.graphContainer}>
-              <BloodSugarGraph width={vw * .65} data={Data} title={"Acetone Levels"} />
+              <BloodSugarGraph width={vw * .65} data={AceData} title={"Acetone Levels"} />
             </View>
           </View>
           <View style={home.slider}>

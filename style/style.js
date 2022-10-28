@@ -633,16 +633,23 @@ const logEvent = StyleSheet.create({
     },
 
     data: {
+        width: vw(100),
+        height: "auto",
+        marginTop: vw(4),
+        marginBottom: vw(4),
+    },
+
+    dataContainer: {
+        marginLeft: "auto",
+        marginRight: "auto",
         width: vw(80),
         height: vw(80),
         backgroundColor: "#ffffff",
-        margin: vw(4),
         borderRadius: vw(4),
         shadowColor: "#000000",
         shadowOffset: { width: vw(1), height: vw(1) },
         shadowOpacity: .2,
         shadowRadius: vw(2),
-        marginLeft: vw(10),
     },
 
     leader: {
@@ -730,6 +737,12 @@ const logEvent = StyleSheet.create({
 
     spacer: {
         height: vw(40),
+    },
+
+    dropbarContainer: {
+        width: vw(80),
+        marginLeft: "auto",
+        marginRight: "auto",
     },
 });
 

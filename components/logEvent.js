@@ -1,10 +1,16 @@
-import { Text, View, ScrollView, Dimensions, Image, SafeAreaView } from 'react-native';
+import React, { useState } from 'react'
+import { Text, View, ScrollView, Fragment, Dimensions } from 'react-native';
 import { logEvent } from '../style/style.js';
 import AddSVG from '../assets/AddSVG.js';
 import EditSVG from '../assets/EditSVG.js';
-import { Data, Data2, Data3, Data4 } from './Data.js';
+import { AceData, GulData, FoodData } from './Data.js';
+import InputData from './InputData.js';
+import SelectList from 'react-native-dropdown-select-list'
+
 
 export default () => {
+  const vw = Dimensions.get("window").width;
+
   const formatData = (d) => {
     let formatedData = [];
     const sortData = d.sort(
@@ -38,20 +44,28 @@ export default () => {
       return d;
     }
   }
-  // let x = new Date(i.date).toLocaleString('en-US', { month: "short" }) + " " + new Date(i.date).getDate()
+
+  const [sliderElementActive, setSliderElementActive] = useState(0);
+  const [ref, setref] = useState(null);
+
+  onchange = (nativeEvent) => {
+    if (nativeEvent) {
+      const slide = Math.ceil(nativeEvent.contentOffset.x / vw);
+      if (slide != sliderElementActive) {
+        setSliderElementActive(slide)
+      }
+    }
+  }
+
+  const stringifyDate = (i) => {
+    return (i.toLocaleString("en-US", { month: "short" }) + " " + i.getDate());
+  }
 
   const dataSet = (d, index, title) => {
     let key = title + index;
     let date = new Date(d[0].date);
     return (
-      <View
-        key={key}
-      >
-        <Text
-          style={logEvent.dateLabel}
-          key={"label" + index}
-        >{date.toLocaleString("en-US", { month: "short" }) + " " + date.getDate()}
-        </Text>
+      <View key={key}>
         <ScrollView
           style={logEvent.data}
           vertical={true}
@@ -60,35 +74,90 @@ export default () => {
           decelerationRate="fast"
           pagingEnabled
         >
-          <View style={[logEvent.dataElement, logEvent.leader]}>
-            <Text style={logEvent.leaderText}>time</Text>
-            <Text style={logEvent.leaderText}>data</Text>
-            <Text style={logEvent.leaderText}>edit</Text>
-          </View>
-          {
-            d.map((i, index) =>
-              <View style={
-                [logEvent.dataElement, logEvent.first]}
-                key={"d" + index}
-              >
-                <Text style={logEvent.dataText}>
-                  {padDate(new Date(i.date).getHours()) + ":" + padDate(new Date(i.date).getMinutes())}
-                </Text>
-                <Text style={logEvent.dataText}>{i.value}</Text>
-                <View style={logEvent.iconContainer}>
-                  <EditSVG />
+          <View style={logEvent.dataContainer}>
+            <View style={[logEvent.dataElement, logEvent.leader]}>
+              <Text style={logEvent.leaderText}>time</Text>
+              <Text style={logEvent.leaderText}>data</Text>
+              <Text style={logEvent.leaderText}>edit</Text>
+            </View>
+            {
+              d.map((i, index) =>
+                <View style={
+                  [logEvent.dataElement, logEvent.first]}
+                  key={"d" + index}
+                >
+                  <Text style={logEvent.dataText}>
+                    {padDate(new Date(i.date).getHours()) + ":" + padDate(new Date(i.date).getMinutes())}
+                  </Text>
+                  <Text style={logEvent.dataText}>{i.value}</Text>
+                  <View style={logEvent.iconContainer}>
+                    <EditSVG />
+                  </View>
                 </View>
-              </View>
-            )
-          }
-          <View style={logEvent.add}>
-            <AddSVG style={logEvent.icon} />
+              )
+            }
+            <View style={logEvent.add}>
+              <AddSVG style={logEvent.icon} />
+            </View>
+            <View style={logEvent.filler} />
           </View>
-          <View style={logEvent.filler} />
         </ScrollView>
       </View>
-
     );
+  }
+
+  const [selected, setSelected] = React.useState("");
+
+  const Select = (d) => {
+    let dateString = [];
+    d.forEach((i) => {
+      let date = new Date(i.date);
+      let dateStringify = stringifyDate(date);
+      if (dateString.indexOf(dateStringify) === -1) {
+        dateString.push(dateStringify)
+      }
+    });
+    return (
+      <View style={logEvent.dropbarContainer}>
+        <SelectList
+          onSelect={() => { dateSelected(dateString.indexOf(selected)) }}
+          setSelected={setSelected}
+          data={dateString}
+          defaultOption={{ key: sliderElementActive, value: dateString[sliderElementActive] }}
+          search={true}
+          inputStyles={{
+            color: "#000",
+            fontFamily: "BalooTamma2-Medium",
+            fontSize: vw * .04,
+          }}
+          boxStyles={{
+            borderRadius: vw * .03,
+            border: "none",
+            backgroundColor: "#fff",
+          }}
+          dropdownStyles={{
+            backgroundColor: "#fff"
+          }}
+          dropdownItemStyles={{
+            margin: vw * .02
+          }}
+          dropdownTextStyles={{
+            fontFamily: "BalooTamma2-Medium",
+            fontSize: vw * .04,
+            color: "#000",
+          }}
+          maxHeight={vw * .5}
+        />
+      </View>
+    );
+  }
+
+  const dateSelected = (i) => {
+    ref.scrollTo({
+      x: vw * i,
+      y: 0,
+      animated: true
+    })
   }
 
   return (
@@ -99,55 +168,9 @@ export default () => {
         <Text style={logEvent.title}>Your Current Data</Text>
       </View>
       <ScrollView style={logEvent.content}>
-        <View style={logEvent.heading}>
-          <Text style={logEvent.headingText}>Breathanalyzer Data</Text>
-        </View>
-        <ScrollView
-          horizontal
-          showsHorizontalScrollIndicator={false}
-          scrollEventThrottle={200}
-          decelerationRate="fast"
-          pagingEnabled
-        >
-          {
-            formatData(Data).map((i, index) =>
-              dataSet(i, index, "acetone")
-            )
-          }
-        </ScrollView>
-        <View style={logEvent.heading}>
-          <Text style={logEvent.headingText}>Glucometer Data</Text>
-        </View>
-        <ScrollView
-          horizontal
-          showsHorizontalScrollIndicator={false}
-          scrollEventThrottle={200}
-          decelerationRate="fast"
-          pagingEnabled
-        >
-          {
-            formatData(Data2).map((i, index) =>
-              dataSet(i, index, "gluco")
-            )
-          }
-        </ScrollView>
-        <View style={logEvent.heading}>
-          <Text style={logEvent.headingText}>Sugar Intaked</Text>
-        </View>
-        <ScrollView
-          horizontal
-          showsHorizontalScrollIndicator={false}
-          scrollEventThrottle={200}
-          decelerationRate="fast"
-          pagingEnabled
-        >
-          {
-            formatData(Data3).map((i, index) =>
-              dataSet(i, index, "sugar")
-            )
-          }
-        </ScrollView>
-        <View style={logEvent.spacer} />
+        <InputData data={AceData} title="Breathanalyzer " />
+        <InputData data={GulData} title="Glucometer " />
+        <InputData data={FoodData} title="Sugar Intaked " />
       </ScrollView>
     </View>
   );

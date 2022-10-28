@@ -14,17 +14,17 @@ export function updateData(){
   updateDataFire();
 }
 
-export const Data = [
+export const AceData = [
   { date: '2022-02-02T05:00:00.000Z', value: Math.floor(Math.random() * 1000) },
   { date: '2022-02-02T05:01:00.000Z', value: Math.floor(Math.random() * 1000) },
+  { date: '2022-02-04T05:00:00.000Z', value: Math.floor(Math.random() * 1000) },
   { date: '2022-02-05T05:00:00.000Z', value: Math.floor(Math.random() * 1000) },
   { date: '2022-02-06T05:00:00.000Z', value: Math.floor(Math.random() * 1000) },
   { date: '2022-02-07T05:00:00.000Z', value: Math.floor(Math.random() * 1000) },
   { date: '2022-02-08T05:00:00.000Z', value: Math.floor(Math.random() * 1000) },
-  { date: '2022-02-04T05:00:00.000Z', value: Math.floor(Math.random() * 1000) },
 ];
 
-export const Data2 = [
+export const GulData = [
   { date: '2022-02-01T05:00:00.000Z', value: Math.floor(Math.random() * 1000) },
   { date: '2022-02-02T05:00:00.000Z', value: Math.floor(Math.random() * 1000) },
   { date: '2022-02-03T05:00:00.000Z', value: Math.floor(Math.random() * 1000) },
@@ -34,17 +34,7 @@ export const Data2 = [
   { date: '2022-02-07T05:00:00.000Z', value: Math.floor(Math.random() * 1000) },
 ];
 
-export const Data3 = [
-  { date: '2022-02-01T05:00:00.000Z', value: Math.floor(Math.random() * 1000) },
-  { date: '2022-02-02T05:00:00.000Z', value: Math.floor(Math.random() * 1000) },
-  { date: '2022-02-03T05:00:00.000Z', value: Math.floor(Math.random() * 1000) },
-  { date: '2022-02-04T05:00:00.000Z', value: Math.floor(Math.random() * 1000) },
-  { date: '2022-02-05T05:00:00.000Z', value: Math.floor(Math.random() * 1000) },
-  { date: '2022-02-06T05:00:00.000Z', value: Math.floor(Math.random() * 1000) },
-  { date: '2022-02-07T05:00:00.000Z', value: Math.floor(Math.random() * 1000) },
-];
-
-export const Data4 = [
+export const FoodData = [
   { date: '2022-02-01T05:00:00.000Z', value: Math.floor(Math.random() * 1000) },
   { date: '2022-02-02T05:00:00.000Z', value: Math.floor(Math.random() * 1000) },
   { date: '2022-02-03T05:00:00.000Z', value: Math.floor(Math.random() * 1000) },
