@@ -47,8 +47,6 @@ function updateSettings(userID, isNof, isAnimation, isDarkMode){
     })
 }
 
-export function updateDataFire(){
-    
-}
+
 
 export { authen, database, createUserData, pairDevice, unPair, updateSettings}

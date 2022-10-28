@@ -5,6 +5,7 @@ import BloodSugarAnalysis from './BloodSugarAnalysis.js';
 import BloodSugarGraph from './BloodSugarGraph.js';
 import SproutSVG from '../assets/SproutSVG.js';
 import { AceData, GulData, FoodData } from './Data.js';
+import { updateData } from './Data.js';
 
 export default () => {
   // useFocusEffect(
