@@ -1,5 +1,5 @@
-import React, { useState, useRef, useFocusEffect} from 'react';
-import { Text, View, ScrollView, Dimensions, Animated } from 'react-native';
+import React, { useState, useRef, useFocusEffect } from 'react';
+import { Text, View, ScrollView, Dimensions, Animated, TouchableOpacity } from 'react-native';
 import { pastData } from '../style/style.js';
 import BloodSugarAnalysis from './BloodSugarAnalysis.js';
 import BloodSugarGraph from './BloodSugarGraph.js';
@@ -34,6 +34,7 @@ export default () => {
   ];
 
   const [mainActive, setMainActive] = useState(0);
+  const [ref, setref] = useState(null);
 
   onchange = (nativeEvent) => {
     if (nativeEvent) {
@@ -42,6 +43,15 @@ export default () => {
         setMainActive(slide)
       }
     }
+  }
+
+  const selectGraph = (i) => {
+    setMainActive(i);
+    ref.scrollTo({
+      x: vw * i,
+      y: 0,
+      animated: true
+    })
   }
 
   return (
@@ -64,19 +74,23 @@ export default () => {
         <View style={pastData.labelContainer}>
           {
             mainElements.map((i, index) =>
-              <View
+              <TouchableOpacity
                 style={[mainActive == index ? pastData.labelActive : pastData.label, pastData.labelStyle]}
                 key={"label" + index}
+                onPress={() => selectGraph(index)}
               >
                 <Text style={pastData.labelText}>
                   {i.title}
                 </Text>
-              </View>
+              </TouchableOpacity>
             )
           }
         </View>
         <View style={pastData.mainContainer}>
           <ScrollView
+            ref={(ref) => {
+              setref(ref);
+            }}
             style={pastData.main}
             onScroll={({ nativeEvent }) => onchange(nativeEvent)}
             horizontal

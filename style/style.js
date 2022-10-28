@@ -521,9 +521,6 @@ const pastData = StyleSheet.create({
         justifyContent: "center",
         alignItems: "center",
         margin: vw(2),
-    },
-
-    labelText: {
         color: "#000",
         fontSize: vw(4),
         fontFamily: "BalooTamma2-Medium"
