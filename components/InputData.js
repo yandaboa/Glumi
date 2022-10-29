@@ -356,10 +356,6 @@ export default (props) => {
         return (hour + ":" + minute);
     }
 
-    const editData = (i, index, type) => {
-
-    }
-
     const submitEditData = () => {
 
     }
@@ -382,6 +378,42 @@ export default (props) => {
             setSubmittingTime("");
             setSubmittingValue("");
             writeHealthData(dataType, healthKey, healthVal);
+        }
+    }
+
+    let firstDateChange = true;
+    let firstTimeChange = true;
+    let firstValueChange = true;
+    let previousDate;
+    let previousTime;
+    let previousValue;
+
+
+
+    const [editedDate, setEditedDate] = useState("");
+    const [editedTime, setEditedVTime] = useState("");
+    const [editedValue, setEditedValue] = useState(0);
+
+    const editField = (changedTo, prev, index, type, dataType) => {
+        if(type==="date"){
+            if(firstDateChange){
+                previousDate = prev.date; // TODO: get the previous date, store so that you can access the firebase later. Depending on if key is changed, delete the original entry and add a new one.
+                //If key not changed, just edit the value. Previous key/value needs to be passed to the firebase.js function so that they can be preserved. Curr issue: get the key and value somehow from the textEntry
+            } else {
+
+            }
+        } else if (type=== "time"){
+            if(firstTimeChange) {
+
+            } else {
+
+            }
+        } else {
+            if(firstValueChange){
+             
+            } else {
+
+            }
         }
     }
 
@@ -437,19 +469,19 @@ export default (props) => {
                                                     <View style={style.input}>
                                                         <TextInput style={style.dataText}
                                                             placeholder={getStringDate(i.date)}
-                                                            onChangeText={(i) => editData(i, index, "date")}
+                                                            onChangeText={(a) => editData(a, i, index, "date", a.title)}
                                                         />
                                                     </View>
                                                     <View style={style.input}>
                                                         <TextInput style={style.dataText}
                                                             placeholder={getStringTime(i.date)}
-                                                            onChangeText={(i) => editData(i, index, "time")}
+                                                            onChangeText={(a) => editData(a, i, index, "time", a.title)}
                                                         />
                                                     </View>
                                                     <View style={style.input}>
                                                         <TextInput style={style.dataText}
                                                             placeholder={i.value}
-                                                            onChangeText={(i) => editData(i, index, "value")}
+                                                            onChangeText={(a) => editData(a, i, index, "value", a.title)}
                                                         />
                                                     </View>
                                                 </View>

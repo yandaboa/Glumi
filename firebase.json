@@ -1,0 +1,47 @@
+{
+    "0": {
+      "data": ""
+    },
+    "8N3taPoCHsWUA2d4NYfaToJGx3Y2": {
+      "data": {
+        "2022-02-03T05": 300,
+        "Breathanalyzer": {
+            "2022-02-02T05:00": 69,
+            "2022-02-02T05:01": 374,
+            "2022-02-04T05:00": 409,
+            "2022-02-05T05:00": 216,
+            "2022-02-06T05:00": 877,
+            "2022-02-07T05:00": 900,
+            "2022-02-08T05:00": 793
+        },
+        "Glucometer": {
+          "11-01-2022T5:00": "13"
+        }
+      },
+      "email": "yandabaodav@gmail.com",
+      "name": "Yanda Bao",
+      "settings": {
+        "isAnimation": false,
+        "isDarkMode": false,
+        "isNof": false
+      }
+    },
+    "HWDvwNi1edMOBERG4INgsByzw6G3": {
+      "email": "gabthebabe@gmail.com",
+      "name": "Gabriel Chen"
+    },
+    "OZnhKy7lrUZMfPggmEtsgtUXCKI3": {
+      "email": "davidbao@gmail.com",
+      "name": "David Bao"
+    },
+    "YRuP68feo1dINoWcc2vRlQRyUF63": {
+      "email": "janedoe@gmail.com",
+      "name": "jane doe",
+      "settings": {
+        "isAnimation": false,
+        "isDarkMode": false,
+        "isNof": false
+      }
+    }
+  }
+  

@@ -14,28 +14,29 @@ import { onAuthStateChanged } from "firebase/auth";
 
 let userID = 0;
 
-let dataRef = ref(database, 'users/' + userID + '/data/');
-onChildAdded(dataRef, (data) => {+
-  console.log("Child added");
-  console.log(data.key, data.val());
-});
+let dataBreathRef = ref(database, 'users/' + userID + '/data/Breathanalyzer/');
+function wrapListener(){
+
+  onChildAdded(dataBreathRef, (data) => {+
+    console.log("Child added");
+    AceData.push({date: data.key, value: data.val()});
+    console.log(AceData);
+    console.log("break");
+  });
+}
 
 onAuthStateChanged(authen, (user) => {
   if(user != null) {
     userID = user.uid;
   }
   console.log(userID);
-  dataRef = ref(database, "/users/" + userID + "/data/");
+  dataBreathRef = ref(database, "/users/" + userID + "/data/Breathanalyzer/");
+  wrapListener();
 });
+
 
 export const AceData = [
   { date: "2022-02-02T05:00:00.000Z", value: 69 },
-  { date: "2022-02-02T05:01:00.000Z", value: Math.floor(Math.random() * 1000) },
-  { date: "2022-02-04T05:00:00.000Z", value: Math.floor(Math.random() * 1000) },
-  { date: "2022-02-05T05:00:00.000Z", value: Math.floor(Math.random() * 1000) },
-  { date: "2022-02-06T05:00:00.000Z", value: Math.floor(Math.random() * 1000) },
-  { date: "2022-02-07T05:00:00.000Z", value: Math.floor(Math.random() * 1000) },
-  { date: "2022-02-08T05:00:00.000Z", value: Math.floor(Math.random() * 1000) },
 ];
 
 export const GulData = [

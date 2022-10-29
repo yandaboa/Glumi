@@ -54,6 +54,25 @@ function writeHealthData(dataType, key, val){
     set(dataListRef, val);
 }
 
+function editKey(dataType, key, value){
+
+}
+
+function editValue(dataType, key, value){
+
+}
+
+const getStringDate = (d) => {
+    let date = new Date(d);
+    let month = date.getMonth() + 1;
+    let day = date.getDate();
+    let year = date.getFullYear();
+    return (month + "/" + day + "/" + year);
+}
+
+let test = getStringDate("02-01-1997T11:08");
+console.log(test);
+
 
 export { authen, database, writeHealthData,
-createUserData, pairDevice, unPair, updateSettings}
+createUserData, pairDevice, unPair, updateSettings, editKey, editValue};
