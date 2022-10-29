@@ -268,7 +268,27 @@ export default (props) => {
         spacer: {
             width: "auto",
             height: vw * .1,
-        }
+        },
+
+        submitContainer: {
+            width: vw * .8,
+            height: vw * .1,
+            margin: vw * .02,
+            marginLeft: "auto",
+            marginRight: "auto",
+            borderRadius: vw * .02,
+            flexDirection: "row",
+            justifyContent: "center",
+            backgroundColor: "#38B346",
+            alignItems: "center",
+        },
+
+        submit: {
+            fontFamily: "BalooTamma2-Regular",
+            fontSize: vw * .04,
+            color: "#fff",
+            textAlign: "center",
+        },
     });
 
     const allData = [
@@ -294,6 +314,10 @@ export default (props) => {
 
     const editData = (i, index) => {
         console.log(i);
+    }
+
+    const submitData = () => {
+
     }
 
     return (
@@ -372,6 +396,14 @@ export default (props) => {
                             }
                             <View style={style.filler} />
                         </ScrollView>
+                        <TouchableOpacity
+                            onPress={() => submitData()}
+                            style={style.submitContainer}
+                        >
+                            <Text style={style.submit}>
+                                submit
+                            </Text>
+                        </TouchableOpacity>
                     </View>
                 </View>
             </Modal>
