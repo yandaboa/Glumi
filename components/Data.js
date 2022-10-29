@@ -15,7 +15,7 @@ import { onAuthStateChanged } from "firebase/auth";
 let userID = 0;
 
 let dataRef = ref(database, 'users/' + userID + '/data/');
-onChildAdded(dataRef, (data) => {
+onChildAdded(dataRef, (data) => {+
   console.log("Child added");
   console.log(data.key, data.val());
 });

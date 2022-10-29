@@ -1,12 +1,11 @@
 import * as React from "react";
 import Svg, {
-    Defs,
     Path,
 } from "react-native-svg";
 import { StyleSheet, Dimensions } from "react-native";
 
-
 const EditSVG = (props) => {
+
     const vw = Dimensions.get("window").width;
 
     const style = StyleSheet.create({

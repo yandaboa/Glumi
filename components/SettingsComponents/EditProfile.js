@@ -1,7 +1,6 @@
-import { StyleSheet, Text, View } from 'react-native'
+import { StyleSheet, Text, View, Modal } from 'react-native'
 import React from 'react'
 import { settingStyles } from './settingsStyles'
-import { Modal } from 'react-native-web'
 
 let showingEditProfile = false;
 

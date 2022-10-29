@@ -19,13 +19,13 @@ const Tab = createBottomTabNavigator();
 const HomePage = () => {
   const sidebarStyle = home.sidebar;
 
-  const config = {
-    animation: "slide",
-    config: {
-      duration: 200,
-      easing: Easing.linear,
-    }
-  }
+  // const config = {
+  //   animation: "slide",
+  //   config: {
+  //     duration: 200,
+  //     easing: Easing.linear,
+  //   }
+  // }
 
   return (
     <Tab.Navigator
@@ -33,13 +33,7 @@ const HomePage = () => {
       screenOptions={{
         headerShown: false,
         tabBarStyle: sidebarStyle,
-        gesture: true,
-        gestureDirecion: "horizontal",
-        transitionSpec: {
-          open: config,
-          close: config,
-        },
-        cardStyleInterpolator: CardStyleInterpolators.forHorizontalIOS,
+
       }}>
       <Tab.Screen name="  " component={DeepHomePage}
         options={{
@@ -49,7 +43,14 @@ const HomePage = () => {
                 state={focused.toString()}
               />
             )
-          }
+          },
+          // gesture: true,
+          // gestureDirecion: "horizontal",
+          // transitionSpec: {
+          //   open: config,
+          //   close: config,
+          // },
+          // cardStyleInterpolator: CardStyleInterpolators.forHorizontalIOS,
         }} />
       <Tab.Screen name=" " component={PastData}
         options={{

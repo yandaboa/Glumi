@@ -20,13 +20,13 @@ export default () => {
 
   const [showProfileModal, setProfileModal] = useState(false);
 
-  const toggleProfileModal= () => {
+  const toggleProfileModal = () => {
     setProfileModal(!showProfileModal);
     showProfile(showProfileModal);
   }
   const [showEditProfileModal, setEditProfileModal] = useState(false);
 
-  const toggleEditProfileModal= () => {
+  const toggleEditProfileModal = () => {
     setEditProfileModal(!showEditProfileModal);
     showEditProfile(showEditProfileModal);
   }
@@ -43,7 +43,6 @@ export default () => {
   const toggleDarkSwitch = () => {
     setIsDarkEnabled(previousState => !previousState)
     updateSets();
-
   };
 
   const startPairing = () => {
@@ -77,11 +76,11 @@ export default () => {
         <View style={setting.section}>
           <TouchableOpacity style={setting.selection} onPress={toggleProfileModal}>
             <Text style={setting.selectionText}>profile</Text>
-            <Profile></Profile>
+            <Profile/>
           </TouchableOpacity>
           <TouchableOpacity style={setting.selection} onPress={toggleEditProfileModal}>
             <Text style={setting.selectionText}>edit profile</Text>
-            <EditProfile></EditProfile>
+            <EditProfile/>
           </TouchableOpacity>
           <View style={setting.selection}>
             <Text style={setting.selectionText}>password</Text>

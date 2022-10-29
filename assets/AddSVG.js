@@ -9,7 +9,7 @@ import { StyleSheet } from "react-native";
 const AddSVG = (props) => {
     const style = StyleSheet.create({
         cls1: {
-            fill: "#fff",
+            fill: props.fill,
         },
     });
 

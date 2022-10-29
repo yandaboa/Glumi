@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Text, View, ScrollView, Dimensions } from 'react-native';
+import { Text, View, ScrollView, Dimensions, TouchableOpacity, Modal, StyleSheet } from 'react-native';
 import { logEvent } from '../style/style.js';
 import AddSVG from '../assets/AddSVG.js';
 import EditSVG from '../assets/EditSVG.js';
@@ -8,6 +8,7 @@ import SelectList from 'react-native-dropdown-select-list'
 
 export default (props) => {
     const vw = Dimensions.get("window").width;
+    const vh = Dimensions.get("window").height;
 
     const formatData = (d) => {
         let formatedData = [];
@@ -46,6 +47,7 @@ export default (props) => {
     const [sliderElementActive, setSliderElementActive] = useState(0);
     const [ref, setref] = useState(null);
     const [selected, setSelected] = React.useState("");
+    const [modalActive, setModalActive] = useState(0);
 
     onchange = (nativeEvent) => {
         if (nativeEvent) {
@@ -90,13 +92,20 @@ export default (props) => {
                                     </Text>
                                     <Text style={logEvent.dataText}>{i.value}</Text>
                                     <View style={logEvent.iconContainer}>
-                                        <EditSVG />
+                                        <TouchableOpacity
+                                            onPress={() => { setModalActive(true) }}
+                                        >
+                                            <EditSVG />
+                                        </TouchableOpacity>
+
                                     </View>
                                 </View>
                             )
                         }
                         <View style={logEvent.add}>
-                            <AddSVG style={logEvent.icon} />
+                            <AddSVG style={logEvent.icon}
+                                fill="#fff"
+                            />
                         </View>
                         <View style={logEvent.filler} />
                     </View>
@@ -165,12 +174,72 @@ export default (props) => {
             })
         }, 500)
     }
+    const style = StyleSheet.create({
+        container: {
+            width: vw,
+            height: vh,
+            backgroundColor: "#000000aa",
+            justifyContent: "center",
+            alignItems: "center",
+        },
+
+        content: {
+            height: vw * .9,
+            width: vw * .9,
+            backgroundColor: "#fff",
+            borderRadius: vw * .04,
+            padding: vw * .04,
+        },
+
+        headingContainer: {
+            flexDirection: "row",
+        },
+
+        heading: {
+            fontSize: vw * .05,
+            fontFamily: "BalooTamma2-Medium",
+        },
+
+        iconContainer: {
+            marginLeft: "auto",
+
+        },
+
+        icon: {
+            width: vw * .05,
+            height: vw * .05,
+        },
+    });
 
     return (
         <>
             <View style={logEvent.heading}>
                 <Text style={logEvent.headingText}>{props.title} Data</Text>
             </View>
+            <Modal
+                transparent={true}
+                visible={modalActive}
+            >
+                <View style={style.container}>
+                    <View style={style.content}>
+                        <View style={style.headingContainer}>
+                            <Text style={style.heading}>Input Data Modal</Text>
+                            <TouchableOpacity
+                                onPress={() => setModalActive(false)}
+                                style={style.iconContainer}
+                            >
+                                <AddSVG
+                                    fill="#000"
+                                    style={[style.icon,
+                                    {
+                                        transform: [{ rotate: '45deg' }]
+                                    }]}
+                                />
+                            </TouchableOpacity>
+                        </View>
+                    </View>
+                </View>
+            </Modal>
             {Select(props.data)}
             <ScrollView
                 onScroll={({ nativeEvent }) => {
