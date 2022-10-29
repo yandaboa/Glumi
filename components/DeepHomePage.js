@@ -33,7 +33,7 @@ export default () => {
     <BloodSugarAnalysis />,
   ]
 
-  onchange = (nativeEvent) => {
+  const scrolled = (nativeEvent) => {
     if (nativeEvent) {
       const slide = Math.ceil(nativeEvent.contentOffset.x / nativeEvent.layoutMeasurement.width);
       if (slide != sliderElementActive) {
@@ -64,7 +64,7 @@ export default () => {
           <View style={home.slider}>
             <Text style={[home.heading, home.sliderHeading]}>Discover More!</Text>
             <ScrollView
-              onScroll={({ nativeEvent }) => onchange(nativeEvent)}
+              onScroll={({ nativeEvent }) => scrolled(nativeEvent)}
               horizontal
               showsHorizontalScrollIndicator={false}
               pagingEnabled

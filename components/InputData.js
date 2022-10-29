@@ -1,10 +1,10 @@
 import React, { useState } from 'react'
-import { Text, View, ScrollView, Dimensions, TouchableOpacity, Modal, StyleSheet } from 'react-native';
+import { Text, View, ScrollView, Dimensions, TouchableOpacity, Modal, StyleSheet, TextInput } from 'react-native';
 import { logEvent } from '../style/style.js';
 import AddSVG from '../assets/AddSVG.js';
 import EditSVG from '../assets/EditSVG.js';
 import SelectList from 'react-native-dropdown-select-list'
-
+import { AceData, GulData, FoodData } from './Data.js';
 
 export default (props) => {
     const vw = Dimensions.get("window").width;
@@ -49,7 +49,7 @@ export default (props) => {
     const [selected, setSelected] = React.useState("");
     const [modalActive, setModalActive] = useState(0);
 
-    onchange = (nativeEvent) => {
+    const scrolled = (nativeEvent) => {
         if (nativeEvent) {
             const slide = Math.ceil(nativeEvent.contentOffset.x / vw);
             if (slide != sliderElementActive) {
@@ -184,7 +184,7 @@ export default (props) => {
         },
 
         content: {
-            height: vw * .9,
+            height: vw * 1.5,
             width: vw * .9,
             backgroundColor: "#fff",
             borderRadius: vw * .04,
@@ -197,7 +197,8 @@ export default (props) => {
 
         heading: {
             fontSize: vw * .05,
-            fontFamily: "BalooTamma2-Medium",
+            fontFamily: "BalooTamma2-Bold",
+            textAlign: "center",
         },
 
         iconContainer: {
@@ -209,7 +210,91 @@ export default (props) => {
             width: vw * .05,
             height: vw * .05,
         },
+
+        leader: {
+            backgroundColor: "none",
+            margin: 0,
+            flexDirection: "row",
+            justifyContent: "space-evenly",
+            alignItems: "center",
+        },
+
+        leaderText: {
+            flex: 1,
+            fontFamily: "BalooTamma2-SemiBold",
+            textAlign: "center",
+            fontSize: vw * .04,
+        },
+
+        first: {
+            marginTop: 0,
+        },
+
+        dataElement: {
+            width: vw * .8,
+            height: vw * .1,
+            margin: vw * .02,
+            marginLeft: "auto",
+            marginRight: "auto",
+            backgroundColor: "#efefef",
+            borderRadius: vw * .02,
+            flexDirection: "row",
+            justifyContent: "center",
+            alignItems: "center",
+        },
+
+        dataText: {
+            fontFamily: "Comfortaa-Regular",
+            fontSize: vw * .035,
+            textAlign: "center",
+        },
+
+        input: {
+            flex: 1,
+        },
+
+        dateLabel: {
+            fontFamily: "BalooTamma2-Medium",
+            fontSize: vw * .04,
+            color: "#fff",
+        },
+
+        title: {
+            fontFamily: "BalooTamma2-Medium",
+            fontSize: vw * .045,
+            color: "#000",
+            marginTop: vw * .05,
+        },
+        spacer: {
+            width: "auto",
+            height: vw * .1,
+        }
     });
+
+    const allData = [
+        { title: "Breathanalyzer Data", data: AceData },
+        { title: "Glucometer Data", data: GulData },
+        { title: "Sugar Intaked", data: FoodData }
+    ];
+
+    const getStringDate = (d) => {
+        let date = new Date(d);
+        let month = date.getMonth() + 1;
+        let day = date.getDate();
+        let year = date.getFullYear();
+        return (month + "/" + day + "/" + year);
+    }
+
+    const getStringTime = (d) => {
+        let date = new Date(d);
+        let hour = date.getHours();
+        let minute = date.getMinutes();
+        return (hour + ":" + minute);
+    }
+
+    const editData = (i, index) => {
+        console.log(i);
+    }
 
     return (
         <>
@@ -223,7 +308,7 @@ export default (props) => {
                 <View style={style.container}>
                     <View style={style.content}>
                         <View style={style.headingContainer}>
-                            <Text style={style.heading}>Input Data Modal</Text>
+                            <Text style={style.heading}>Edit Data</Text>
                             <TouchableOpacity
                                 onPress={() => setModalActive(false)}
                                 style={style.iconContainer}
@@ -237,14 +322,65 @@ export default (props) => {
                                 />
                             </TouchableOpacity>
                         </View>
+                        <ScrollView
+                            style={style.data}
+                            vertical={true}
+                            showsHorizontalScrollIndicator={false}
+                            scrollEventThrottle={200}
+                            decelerationRate="fast"
+                            pagingEnabled
+                        >
+                            {
+                                allData.map((a, b) =>
+                                    <View key={"allData" + b} style={style.dataContainer}>
+                                        <Text style={style.title}>{a.title}</Text>
+                                        <View style={[style.dataElement, style.leader]}>
+                                            <Text style={style.leaderText}>date</Text>
+                                            <Text style={style.leaderText}>time</Text>
+                                            <Text style={style.leaderText}>data</Text>
+                                        </View>
+                                        {
+                                            a.data.map((i, index) =>
+                                                <View style={
+                                                    [style.dataElement, style.first]}
+                                                    key={"d" + index}
+                                                >
+                                                    <View style={style.input}>
+                                                        <TextInput style={style.dataText}
+                                                            placeholder={getStringDate(i.date)}
+                                                            onChangeText={(i) => editData(i, index)}
+                                                        />
+                                                    </View>
+                                                    <View style={style.input}>
+                                                        <TextInput style={style.dataText}
+                                                            placeholder={getStringTime(i.date)}
+                                                            onChangeText={(i) => editData(i, index)}
+                                                        />
+                                                    </View>
+                                                    <View style={style.input}>
+                                                        <TextInput style={style.dataText}
+                                                            placeholder={i.value}
+                                                            onChangeText={(i) => editData(i, index)}
+                                                        />
+                                                    </View>
+                                                </View>
+                                            )
+                                        }
+                                        <View style={style.spacer} />
+                                    </View>
+                                )
+                            }
+                            <View style={style.filler} />
+                        </ScrollView>
                     </View>
                 </View>
             </Modal>
             {Select(props.data)}
             <ScrollView
                 onScroll={({ nativeEvent }) => {
-                    onchange(nativeEvent);
-                }}
+                    scrolled(nativeEvent);
+                }
+                }
                 horizontal
                 showsHorizontalScrollIndicator={false}
                 scrollEventThrottle={200}
@@ -256,7 +392,7 @@ export default (props) => {
             >
                 {
                     formatData(props.data).map((i, index) =>
-                        dataSet(i, index, "acetone")
+                        dataSet(i, index, props.title)
                     )
                 }
             </ScrollView>
