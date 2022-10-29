@@ -5,6 +5,7 @@ import AddSVG from '../assets/AddSVG.js';
 import EditSVG from '../assets/EditSVG.js';
 import SelectList from 'react-native-dropdown-select-list'
 import { AceData, GulData, FoodData } from './Data.js';
+import { writeHealthData } from '../Firebase.js';
 
 export default (props) => {
     const vw = Dimensions.get("window").width;
@@ -339,6 +340,7 @@ export default (props) => {
         { title: "Sugar Intaked", data: FoodData }
     ];
 
+
     const getStringDate = (d) => {
         let date = new Date(d);
         let month = date.getMonth() + 1;
@@ -358,16 +360,29 @@ export default (props) => {
 
     }
 
-    const submitData = () => {
+    const submitEditData = () => {
 
     }
 
-    const addData = (i, type) => {
+    const [submittingDate, setSubmittingDate] = useState("");
+    const [submittingTime, setSubmittingTime] = useState("");
+    const [submittingValue, setSubmittingValue] = useState(0);
 
-    }
-
-    const submitAddData = () => {
-
+    const [submitMessage, setSubmitMessage] = useState("Submit");
+    const submitAddData = (dataType) => {
+        if(submittingDate === "" || submittingTime === ""){
+            setSubmitMessage("Please enter all fields");
+        } else {
+            setSubmitMessage("Submit");
+            let healthKey = submittingDate;
+            let healthVal = submittingValue;
+            const dataArr = healthKey.split("/");
+            healthKey = dataArr[0] + "-" + dataArr[1] + "-" + dataArr[2] + "T" + submittingTime;
+            setSubmittingDate("");
+            setSubmittingTime("");
+            setSubmittingValue("");
+            writeHealthData(dataType, healthKey, healthVal);
+        }
     }
 
     return (
@@ -447,7 +462,7 @@ export default (props) => {
                             <View style={style.filler} />
                         </ScrollView>
                         <TouchableOpacity
-                            onPress={() => submitData()}
+                            onPress={() => submitEditData()}
                             style={style.submitContainer}
                         >
                             <Text style={style.submit}>
@@ -481,28 +496,31 @@ export default (props) => {
                         <View style={style.addContentContent}>
                             <Text style={style.addTitle}>date:</Text>
                             <TextInput
+                                value={submittingDate}
                                 style={style.addInput}
                                 placeholder='mm/dd/yyyy'
-                                onChange={(i) => { addData(i, "date") }}
+                                onChangeText={(i) => { setSubmittingDate(i) }}
                             />
                             <Text style={style.addTitle}>time:</Text>
                             <TextInput
+                                value={submittingTime}
                                 style={style.addInput}
                                 placeholder='hh:mm'
-                                onChange={(i) => { addData(i, "time") }}
+                                onChangeText={(i) => { setSubmittingTime(i) }}
                             />
                             <Text style={style.addTitle}>value:</Text>
                             <TextInput
+                                value={submittingValue}
                                 style={style.addInput}
                                 placeholder='000'
-                                onChange={(i) => { addData(i, "value") }}
+                                onChangeText={(i) => { setSubmittingValue(i) }}
                             />
                             <TouchableOpacity
-                                onPress={() => submitData()}
+                                onPress={() => submitAddData(selectAdd)}
                                 style={[style.submitContainer, style.addSubmit]}
                             >
                                 <Text style={style.submit}>
-                                    submit
+                                    {submitMessage}
                                 </Text>
                             </TouchableOpacity>
                         </View>

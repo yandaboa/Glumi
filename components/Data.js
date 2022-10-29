@@ -21,13 +21,15 @@ onChildAdded(dataRef, (data) => {+
 });
 
 onAuthStateChanged(authen, (user) => {
-  userID = user.uid;
+  if(user != null) {
+    userID = user.uid;
+  }
   console.log(userID);
   dataRef = ref(database, "/users/" + userID + "/data/");
 });
 
 export const AceData = [
-  { date: "2022-02-02T05:00:00.000Z", value: Math.floor(Math.random() * 1000) },
+  { date: "2022-02-02T05:00:00.000Z", value: 69 },
   { date: "2022-02-02T05:01:00.000Z", value: Math.floor(Math.random() * 1000) },
   { date: "2022-02-04T05:00:00.000Z", value: Math.floor(Math.random() * 1000) },
   { date: "2022-02-05T05:00:00.000Z", value: Math.floor(Math.random() * 1000) },

@@ -1,6 +1,6 @@
 import { initializeApp } from 'firebase/app';
 import { getAuth } from "firebase/auth";
-import { getDatabase, ref, set, update } from "firebase/database";
+import { getDatabase, push, ref, set, update } from "firebase/database";
 
 const firebaseConfig = {
     apiKey: "AIzaSyCWk2EKd0342I82gVHHpDNQYCzdGTjo5Ew",
@@ -47,6 +47,13 @@ function updateSettings(userID, isNof, isAnimation, isDarkMode){
     })
 }
 
+function writeHealthData(dataType, key, val){
+
+    const dataListRef = ref(database, 'users/' + authen.currentUser.uid + '/data/' + dataType + '/' + key);
+
+    set(dataListRef, val);
+}
 
 
-export { authen, database, createUserData, pairDevice, unPair, updateSettings}
+export { authen, database, writeHealthData,
+createUserData, pairDevice, unPair, updateSettings}
