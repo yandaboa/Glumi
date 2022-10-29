@@ -29,11 +29,11 @@ function createUserData(userId, name, email){
 }
 
 function pairDevice(userID){
-    set(ref(database, 'currPairingUID/'), userID);
+    set(ref(database, 'users/currPairingUID/'), userID);
 }
 
 function unPair(userID){
-    update(ref(database, "/"), {
+    update(ref(database, "/users/"), {
         currPairingUID: null
     })
 }
