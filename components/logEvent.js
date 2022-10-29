@@ -12,9 +12,9 @@ export default () => {
         <Text style={logEvent.title}>Your Current Data</Text>
       </View>
       <ScrollView style={logEvent.content}>
-        <InputData data={AceData} title="Breathanalyzer " />
-        <InputData data={GulData} title="Glucometer " />
-        <InputData data={FoodData} title="Sugar Intaked " />
+        <InputData data={AceData} title="Breathanalyzer" />
+        <InputData data={GulData} title="Glucometer" />
+        <InputData data={FoodData} title="Sugar Intaked" />
       </ScrollView>
     </View>
   );

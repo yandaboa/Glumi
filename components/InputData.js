@@ -48,6 +48,9 @@ export default (props) => {
     const [ref, setref] = useState(null);
     const [selected, setSelected] = React.useState("");
     const [modalActive, setModalActive] = useState(0);
+    const [addModalActive, setAddModalActive] = useState(0);
+    const [selectAdd, setSelectAdd] = useState("");
+
 
     const scrolled = (nativeEvent) => {
         if (nativeEvent) {
@@ -97,15 +100,21 @@ export default (props) => {
                                         >
                                             <EditSVG />
                                         </TouchableOpacity>
-
                                     </View>
                                 </View>
                             )
                         }
                         <View style={logEvent.add}>
-                            <AddSVG style={logEvent.icon}
-                                fill="#fff"
-                            />
+                            <TouchableOpacity
+                                onPress={() => {
+                                    setAddModalActive(true)
+                                    setSelectAdd(title)
+                                }}
+                            >
+                                <AddSVG style={logEvent.icon}
+                                    fill="#fff"
+                                />
+                            </TouchableOpacity>
                         </View>
                         <View style={logEvent.filler} />
                     </View>
@@ -289,6 +298,39 @@ export default (props) => {
             color: "#fff",
             textAlign: "center",
         },
+
+        addContent: {
+            width: vw * .9,
+            height: "auto",
+            backgroundColor: "#fff",
+            borderRadius: vw * .03,
+            padding: vw * .04,
+        },
+
+        addTitle: {
+            fontFamily: "BalooTamma2-Medium",
+            fontSize: vw * .045,
+            color: "#000",
+        },
+
+        addInput: {
+            margin: vw * .02,
+            marginRight: vw * .04,
+            marginLeft: vw * .04,
+            backgroundColor: "#efefef",
+            borderRadius: vw * .02,
+            fontFamily: "Comfortaa-Regular",
+            fontSize: vw * .04,
+            padding: vw * .02,
+        },
+
+        addSubmit: {
+            marginTop: vw * .04,
+        },
+
+        addHeading: {
+            marginBottom: vw * .04,
+        },
     });
 
     const allData = [
@@ -312,11 +354,19 @@ export default (props) => {
         return (hour + ":" + minute);
     }
 
-    const editData = (i, index) => {
-        console.log(i);
+    const editData = (i, index, type) => {
+
     }
 
     const submitData = () => {
+
+    }
+
+    const addData = (i, type) => {
+
+    }
+
+    const submitAddData = () => {
 
     }
 
@@ -372,19 +422,19 @@ export default (props) => {
                                                     <View style={style.input}>
                                                         <TextInput style={style.dataText}
                                                             placeholder={getStringDate(i.date)}
-                                                            onChangeText={(i) => editData(i, index)}
+                                                            onChangeText={(i) => editData(i, index, "date")}
                                                         />
                                                     </View>
                                                     <View style={style.input}>
                                                         <TextInput style={style.dataText}
                                                             placeholder={getStringTime(i.date)}
-                                                            onChangeText={(i) => editData(i, index)}
+                                                            onChangeText={(i) => editData(i, index, "time")}
                                                         />
                                                     </View>
                                                     <View style={style.input}>
                                                         <TextInput style={style.dataText}
                                                             placeholder={i.value}
-                                                            onChangeText={(i) => editData(i, index)}
+                                                            onChangeText={(i) => editData(i, index, "value")}
                                                         />
                                                     </View>
                                                 </View>
@@ -404,6 +454,58 @@ export default (props) => {
                                 submit
                             </Text>
                         </TouchableOpacity>
+                    </View>
+                </View>
+            </Modal>
+            <Modal
+                transparent={true}
+                visible={addModalActive}
+            >
+                <View style={style.container}>
+                    <View style={style.addContent}>
+                        <View style={[style.headingContainer, style.addHeading]}>
+                            <Text style={style.heading}>Add {selectAdd} Data</Text>
+                            <TouchableOpacity
+                                onPress={() => setAddModalActive(false)}
+                                style={style.iconContainer}
+                            >
+                                <AddSVG
+                                    fill="#000"
+                                    style={[style.icon,
+                                    {
+                                        transform: [{ rotate: '45deg' }]
+                                    }]}
+                                />
+                            </TouchableOpacity>
+                        </View>
+                        <View style={style.addContentContent}>
+                            <Text style={style.addTitle}>date:</Text>
+                            <TextInput
+                                style={style.addInput}
+                                placeholder='mm/dd/yyyy'
+                                onChange={(i) => { addData(i, "date") }}
+                            />
+                            <Text style={style.addTitle}>time:</Text>
+                            <TextInput
+                                style={style.addInput}
+                                placeholder='hh:mm'
+                                onChange={(i) => { addData(i, "time") }}
+                            />
+                            <Text style={style.addTitle}>value:</Text>
+                            <TextInput
+                                style={style.addInput}
+                                placeholder='000'
+                                onChange={(i) => { addData(i, "value") }}
+                            />
+                            <TouchableOpacity
+                                onPress={() => submitData()}
+                                style={[style.submitContainer, style.addSubmit]}
+                            >
+                                <Text style={style.submit}>
+                                    submit
+                                </Text>
+                            </TouchableOpacity>
+                        </View>
                     </View>
                 </View>
             </Modal>
