@@ -1,6 +1,12 @@
 import { Dimensions, View, Text, StyleSheet } from 'react-native';
 import Svg, { Path } from 'react-native-svg';
 import * as d3 from 'd3';
+import { Data } from './Data.js';
+import { database, authen } from '../Firebase';
+import { onChildAdded, ref } from 'firebase/database';
+// import { dataBreathRef } from './Data.js';
+import { useState } from 'react';
+import { onAuthStateChanged } from 'firebase/auth';
 
 export default (props) => {
   const vw = Dimensions.get("window").width;

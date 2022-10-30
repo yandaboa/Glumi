@@ -1,6 +1,7 @@
 import { authen, database, updateDataFire } from "../Firebase";
 import { getDatabase, ref, onValue, onChildAdded } from "firebase/database";
 import { onAuthStateChanged } from "firebase/auth";
+import {reloadData} from "./DeepHomePage";
 
 // export const Data = [
 //   { date: '2022-02-01T05:00:00.000Z', value: 250 },
@@ -15,11 +16,13 @@ import { onAuthStateChanged } from "firebase/auth";
 let userID = 0;
 
 let dataBreathRef = ref(database, 'users/' + userID + '/data/Breathanalyzer/');
+export {dataBreathRef};
 function wrapListener(){
 
   onChildAdded(dataBreathRef, (data) => {+
     console.log("Child added");
-    AceData.push({date: data.key, value: data.val()});
+    let temp = data.key + ":00.000Z";
+    AceData.push({date: temp, value: data.val()});
     console.log(AceData);
     console.log("break");
   });
@@ -33,7 +36,6 @@ onAuthStateChanged(authen, (user) => {
   dataBreathRef = ref(database, "/users/" + userID + "/data/Breathanalyzer/");
   wrapListener();
 });
-
 
 export const AceData = [
   { date: "2022-02-02T05:00:00.000Z", value: 69 },
