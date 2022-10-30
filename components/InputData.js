@@ -388,8 +388,6 @@ export default (props) => {
     let previousTime;
     let previousValue;
 
-
-
     const [editedDate, setEditedDate] = useState("");
     const [editedTime, setEditedVTime] = useState("");
     const [editedValue, setEditedValue] = useState(0);

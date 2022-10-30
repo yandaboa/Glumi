@@ -51,7 +51,7 @@ export default (props) => {
     },
 
     scaleSpacer: {
-      width: vw * .05,
+      width: vw * .07,
     },
 
     arrowContainer: {
@@ -62,13 +62,12 @@ export default (props) => {
     },
 
     scale: {
+      marginLeft: vw * .02,
       width: vw * .04,
       height: vw * .4,
       borderRadius: vw * .04,
     },
   });
-
-  console.log(vw);
 
   return (
     <View style={style.container}>

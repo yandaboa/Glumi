@@ -111,7 +111,7 @@ export default () => {
         </View>
         <View style={pastData.wrapper}>
           <View style={pastData.content1}>
-            <Text>Graph 1</Text>
+            <BloodSugarGraph width={vw * .4} data={GulData} title={"Glucometer"} />
           </View>
           <View style={pastData.content2}>
             <BloodPressureGraph width={vw} data={{ systolic: 120, diastolic: 80 }} />
@@ -119,7 +119,7 @@ export default () => {
         </View>
         <View style={pastData.wrapper}>
           <View style={pastData.content3}>
-            <Text>Graph 4</Text>
+            <BloodSugarGraph width={vw * .65} data={FoodData} title={"Sugar Intaked"} />
           </View>
         </View>
         <View style={pastData.spacer} />

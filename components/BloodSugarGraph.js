@@ -1,8 +1,6 @@
 import { Dimensions, View, Text, StyleSheet } from 'react-native';
-import { bloodSugarGraph } from '../style/style';
 import Svg, { Path } from 'react-native-svg';
 import * as d3 from 'd3';
-import { Data } from './Data.js';
 
 export default (props) => {
   const vw = Dimensions.get("window").width;
@@ -70,9 +68,27 @@ export default (props) => {
       marginLeft: width * .01,
     },
 
+    spacer: {
+      width: vw * .02,
+    },
   });
 
+  let ticks = 9;
+  let label = "ppm";
+  let side = true;
+
+  if (props.title == "Glucometer") {
+    label = "mmol/L";
+    side = false;
+    ticks = 5;
+  }
+
   const makeLine = (givenData) => {
+
+    if (props.title == "Sugar Intaked") {
+      label = "grams"
+    }
+
     const xScale = d3.scaleTime()
       .domain([new Date(givenData[0].date), new Date(givenData[givenData.length - 1].date)])
       .range([margin.left, width - margin.right]);
@@ -91,22 +107,34 @@ export default (props) => {
     let graph = line(scaledData);
 
     let html = [];
-    yScale.ticks(9).reverse().forEach((i) => {
+    yScale.ticks(ticks).reverse().forEach((i) => {
       html.push(<Text key={i} style={style.yLabel}>{i}</Text>)
     });
     return [graph, html];
   }
 
-  return (
-    <View style={style.container}>
-      <View style={style.content}>
+  const renderSide = (i) => {
+    if (i) {
+      return (
         <View style={style.unitContainer}>
           <Text style={[style.unit,
           {
             transform: [{ rotate: '270deg' }]
           }]}>
-            ppm</Text>
+            {label}</Text>
         </View>
+      );
+    } else {
+      return (
+        <View style={style.spacer} />
+      )
+    }
+  }
+
+  return (
+    <View style={style.container}>
+      <View style={style.content}>
+        {renderSide(side)}
         <View style={style.labelContainer}>
           {makeLine(props.data)[1]}
         </View>
@@ -118,7 +146,7 @@ export default (props) => {
           <Path
             fill="none"
             stroke="#ff9933"
-            strokeWidth={vw * .015}
+            strokeWidth={width * .015}
             strokeLinecap="round"
             strokeLinejoin="round"
             d={makeLine(props.data)[0]}
