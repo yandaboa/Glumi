@@ -6,7 +6,7 @@ import {
   ScrollView,
   Dimensions
 } from 'react-native';
-import { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { home } from './../style/style.js';
 import BloodSugarGraph from './BloodSugarGraph.js';
 import BloodSugarAnalysis from './BloodSugarAnalysis.js';
@@ -15,13 +15,15 @@ import LogEvent from './LogEvent.js';
 
 import { AceData } from './Data.js';
 
-import { authen } from '../Firebase.js';
+import { authen, database } from '../Firebase.js';
 
 import TreeSVG from '../assets/TreeSVG.js';
 import DarkTreeSVG from '../assets/DarkTreeSVG.js';
+import { onAuthStateChanged } from 'firebase/auth';
+import { onChildAdded, ref } from 'firebase/database';
+import { useFocusEffect } from '@react-navigation/native';
 
-
-export default () => {
+export default (props) => {
 
   const vw = Dimensions.get("window").width;
 
@@ -41,6 +43,31 @@ export default () => {
     }
   }
 
+  
+  // onAuthStateChanged(authen, (user) => {
+  //   if(user != null) {
+  //     userID = user.uid;
+  //   }
+  //   console.log(userID);
+  //   dataBreathRef = ref(database, "/users/" + userID + "/data/Breathanalyzer/");
+  //   wrapListener();
+  // });
+
+    const [aceGraph, setAceGraph] = useState(<BloodSugarGraph width={vw * .65} data={AceData} title={"Acetone Levels"} />);
+
+  useFocusEffect(
+    React.useCallback(() => {
+      console.log(AceData);
+      const unsubscribe = () => {setAceGraph(<BloodSugarGraph width={vw * .65} data={AceData} title={"Acetone Levels"} />);}
+      return () => unsubscribe();
+      },
+    ))
+
+  onAuthStateChanged(authen, (user) => {
+    const unsub = () => {setAceGraph(<BloodSugarGraph width={vw * .65} data={AceData} title={"Acetone Levels"} />)};
+    return () => unsub();
+  });
+
   return (
     <View style={home.container}>
       <View style={home.backgroundContainer}>
@@ -57,7 +84,7 @@ export default () => {
           <View style={home.summary}>
             <Text style={home.heading}>Summary</Text>
             <View style={home.graphContainer}>
-              <BloodSugarGraph width={vw * .65} data={AceData} title={"Acetone Levels"} />
+              {aceGraph}
             </View>
           </View>
           <View style={home.slider}>
