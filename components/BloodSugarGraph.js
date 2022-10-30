@@ -84,7 +84,7 @@ export default (props) => {
   let side = true;
 
   if (props.title == "Glucometer") {
-    label = "mmol/L";
+    label = "mg/dL";
     side = false;
     ticks = 5;
   }
