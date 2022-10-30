@@ -15,7 +15,7 @@ export default () => {
     useEffect(() => {
         const unsubscribe = onAuthStateChanged(authen, user => {
             if (user) {
-                navigation.navigate("HomePage");
+                navigation.navigate("Loading");
             }
         })
         return unsubscribe;
@@ -30,7 +30,7 @@ export default () => {
             .catch(error => alert(error.message));
         onAuthStateChanged(authen, user => {
             if (user) {
-                navigation.navigate("HomePage");
+                navigation.navigate("Loading");
             } else {
                 console.log("Didn't work");
             }

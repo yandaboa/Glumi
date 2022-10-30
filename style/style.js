@@ -234,6 +234,19 @@ const createAccount = StyleSheet.create({
 
 const home = StyleSheet.create({
 
+    loading: {
+        backgroundColor: "#99CCFF",
+        justifyContent: "center",
+        alignItems: "center",
+        width: vw(100),
+        height: vh(100),
+    },
+    loadingText: {
+        color: '#000000',
+        fontSize: vw(3.5),
+        fontFamily: "Comfortaa-Regular",
+    },
+
     container: {
         height: vh(100),
         width: vw(100),

@@ -4,6 +4,7 @@ import Login from './components/Login.js';
 import CreateAccount from './components/CreateAccount.js';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import Load from './components/Load';
 
 const Stack = createNativeStackNavigator();
 
@@ -30,6 +31,7 @@ export default () => {
   return (
     <NavigationContainer>
       <Stack.Navigator initialRouteName='Login'>
+        <Stack.Screen options={{ headerShown: false }} name="Loading" component={Load} />
         <Stack.Screen options={{ headerShown: false }} name="Login" component={Login} />
         <Stack.Screen options={{ headerShown: false }} name="CreateAccount" component={CreateAccount} />
         <Stack.Screen options={{ headerShown: false }} name="HomePage" component={HomePage} />
