@@ -1,6 +1,5 @@
-import { Text } from 'react-native';
-import { Switch } from 'react-native-web';
-import { general, bloodSugarGraph, home } from '../style/style.js';
+import { View, Text } from 'react-native';
+import { bloodSugarGraph, home } from '../style/style.js';
 
 export default function BloodSugarAnalysis() {
   let standardBloodSugarMinimum = 100;
@@ -36,12 +35,17 @@ export default function BloodSugarAnalysis() {
   }
 
   return (
-    <Text style={home.text}>
-      <Text>Your blood sugar level is currently </Text>
-      <Text style={bloodSugarAnalysisClass}>{bloodSugarAnalysis}</Text>
-      <Text>. This weeks levels are </Text>
-      <Text style={bloodSugarAverageAnalysisClass}>{bloodSugarAverageAnalysis}</Text>
-      <Text>than levels last week.</Text>
-    </Text>
+    <View style={home.analysisWrapper}>
+      <Text style={home.gulcoseTitle}>Gulcose Levels</Text>
+      <View style={home.analysisContainer}>
+        <Text style={home.text}>
+          <Text>Your blood sugar level is currently </Text>
+          <Text style={bloodSugarAnalysisClass}>{bloodSugarAnalysis}</Text>
+          <Text>. This weeks levels are </Text>
+          <Text style={bloodSugarAverageAnalysisClass}>{bloodSugarAverageAnalysis}</Text>
+          <Text>than levels last week.</Text>
+        </Text>
+      </View>
+    </View>
   );
 }

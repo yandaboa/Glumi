@@ -334,7 +334,7 @@ const home = StyleSheet.create({
 
     sliderContent: {
         width: vw(80),
-        flex: 1,
+        height: vw(35),
         padding: vw(4),
         backgroundColor: "rgba(255, 255, 255, .9)",
         shadowColor: "#000000",
@@ -344,6 +344,7 @@ const home = StyleSheet.create({
         borderRadius: vw(2),
         flexWrap: "wrap",
         flexDirection: "row",
+        paddingTop: 0,
     },
 
     sidebar: {
@@ -394,6 +395,25 @@ const home = StyleSheet.create({
         backgroundColor: "#ff9933",
         margin: vw(2),
     },
+
+    analysisWrapper: {
+        flexWrap: "wrap",
+        flex: 1,
+    },
+
+    analysisContainer: {
+        justifyContent: "center",
+        alignItems: "center",
+        flexWrap: "wrap",
+        flex: 1,
+    },
+
+    gulcoseTitle: {
+        fontFamily: "BalooTamma2-SemiBold",
+        fontSize: vw(4),
+        color: "#000",
+        marginTop: vw(1),   
+    }
 });
 
 const bloodSugarGraph = StyleSheet.create({
@@ -459,15 +479,15 @@ const pastData = StyleSheet.create({
 
     mainContainer: {
         backgroundColor: "#fff",
-        width: vw(76),
+        width: vw(80),
         borderRadius: vw(4),
         shadowColor: "#000000",
         shadowOffset: { width: vw(1), height: vw(1) },
         shadowOpacity: .2,
         shadowRadius: vw(2),
         paddingBottom: vw(2),
-        marginLeft: "auto",
-        marginRight: "auto",
+        marginLeft: 0,
+        marginRight: 0,
     },
 
     main: {
@@ -476,11 +496,10 @@ const pastData = StyleSheet.create({
 
     mainContent: {
         height: "auto",
-        width: vw(72),
+        width: vw(80),
         justifyContent: "center",
         alignItems: "center",
         padding: vw(2),
-        margin: vw(1),
     },
 
     divisor: {
@@ -527,16 +546,16 @@ const pastData = StyleSheet.create({
     },
 
     wrapper: {
-        height: vw(50),
+        height: "auto",
         width: vw(80),
         flexDirection: "row",
-        marginTop: vw(2),
+        marginTop: vw(4),
     },
 
     content1: {
-        flex: 1,
         backgroundColor: "#fff",
-        margin: vw(2),
+        width: vw(45),
+        height: vw(60),
         borderRadius: vw(4),
         justifyContent: "center",
         alignItems: "center",
@@ -547,12 +566,12 @@ const pastData = StyleSheet.create({
     },
 
     content2: {
-        flex: 2,
+        padding: vw(2),
+        marginLeft: vw(4),
+        flex: 1,
         backgroundColor: "#fff",
-        margin: vw(2),
+        margin: 0,
         borderRadius: vw(4),
-        justifyContent: "center",
-        alignItems: "center",
         shadowColor: "#000000",
         shadowOffset: { width: vw(1), height: vw(1) },
         shadowOpacity: .2,
@@ -560,11 +579,12 @@ const pastData = StyleSheet.create({
     },
 
     content3: {
-        flex: 3,
-        margin: vw(2),
+        width: vw(80),
+        height: vw(80),
         borderRadius: vw(4),
         justifyContent: "center",
         alignItems: "center",
+        backgroundColor: "#fff",
         shadowColor: "#000000",
         shadowOffset: { width: vw(1), height: vw(1) },
         shadowOpacity: .2,

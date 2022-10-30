@@ -3,6 +3,7 @@ import { Text, View, ScrollView, Dimensions, Animated, TouchableOpacity } from '
 import { pastData } from '../style/style.js';
 import BloodSugarAnalysis from './BloodSugarAnalysis.js';
 import BloodSugarGraph from './BloodSugarGraph.js';
+import BloodPressureGraph from './BloodPressureGraph.js';
 import SproutSVG from '../assets/SproutSVG.js';
 import { AceData, GulData, FoodData } from './Data.js';
 import { updateData } from './Data.js';
@@ -113,14 +114,11 @@ export default () => {
             <Text>Graph 1</Text>
           </View>
           <View style={pastData.content2}>
-            <Text>Graph 2</Text>
+            <BloodPressureGraph width={vw} data={{ systolic: 120, diastolic: 80 }} />
           </View>
         </View>
         <View style={pastData.wrapper}>
-          <View style={pastData.content2}>
-            <Text>Graph 3</Text>
-          </View>
-          <View style={pastData.content2}>
+          <View style={pastData.content3}>
             <Text>Graph 4</Text>
           </View>
         </View>

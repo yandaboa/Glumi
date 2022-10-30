@@ -10,7 +10,7 @@ import { useEffect, useRef, useState } from 'react';
 import { home } from './../style/style.js';
 import BloodSugarGraph from './BloodSugarGraph.js';
 import BloodSugarAnalysis from './BloodSugarAnalysis.js';
-import BloodPressureGraph from './BloodPressureGraph.js';
+import ExtendedBloodPressureGraph from './ExtendedBloodPressureGraph.js';
 import LogEvent from './LogEvent.js';
 
 import { AceData } from './Data.js';
@@ -29,8 +29,7 @@ export default () => {
 
   const sliderElements = [
     <BloodSugarAnalysis />,
-    <BloodSugarAnalysis />,
-    <BloodSugarAnalysis />,
+    <ExtendedBloodPressureGraph width={vw * .8} data={{ systolic: 120, diastolic: 80 }} />,
   ]
 
   const scrolled = (nativeEvent) => {

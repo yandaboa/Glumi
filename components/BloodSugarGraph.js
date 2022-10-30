@@ -73,7 +73,6 @@ export default (props) => {
   });
 
   const makeLine = (givenData) => {
-
     const xScale = d3.scaleTime()
       .domain([new Date(givenData[0].date), new Date(givenData[givenData.length - 1].date)])
       .range([margin.left, width - margin.right]);
