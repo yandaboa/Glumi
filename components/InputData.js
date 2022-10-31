@@ -357,9 +357,7 @@ export default (props) => {
         return (hour + ":" + minute);
     }
 
-    const submitEditData = () => {
 
-    }
 
     const [submittingDate, setSubmittingDate] = useState("");
     const [submittingTime, setSubmittingTime] = useState("");
@@ -374,7 +372,7 @@ export default (props) => {
             let healthKey = submittingDate;
             let healthVal = submittingValue;
             const dataArr = healthKey.split("/");
-            healthKey = dataArr[0] + "-" + dataArr[1] + "-" + dataArr[2] + "T" + submittingTime;
+            healthKey = dataArr[2] + "-" + dataArr[1] + "-" + dataArr[0] + "T" + submittingTime;
             setSubmittingDate("");
             setSubmittingTime("");
             setSubmittingValue("");
@@ -394,26 +392,18 @@ export default (props) => {
     const [editedValue, setEditedValue] = useState(0);
 
     const editField = (changedTo, prev, index, type, dataType) => {
+        let dateArr = prev.split(/[-T:]+/);
+        previousDate = dateArr[0] + "-" + dateArr[1] + "-" + dateArr[2];
+        previousTime = dateArr[3] + ":" + dateArr[4];
+        previousValue = prev.value;
         if (type === "date") {
-            if (firstDateChange) {
-                previousDate = prev.date; // TODO: get the previous date, store so that you can access the firebase later. Depending on if key is changed, delete the original entry and add a new one.
-                //If key not changed, just edit the value. Previous key/value needs to be passed to the firebase.js function so that they can be preserved. Curr issue: get the key and value somehow from the textEntry
-            } else {
-
-            }
+            // editedDate[]
         } else if (type === "time") {
-            if (firstTimeChange) {
-
-            } else {
-
-            }
         } else {
-            if (firstValueChange) {
-
-            } else {
-
-            }
         }
+    }
+    const submitEditData = () => {
+
     }
 
     return (
