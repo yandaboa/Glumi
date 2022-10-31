@@ -188,10 +188,10 @@ export default (props) => {
     const dark = false;
 
     let base = '#fff';
-    let base1 = '#fefefe';
+    let base1 = '#ddd';
     if (dark) {
-        base = '#567AB4';
-        base1 = '#acc6e2';
+        base = '#acc6e2';
+        base1 = '#567AB4';
     }
 
     const style = StyleSheet.create({
@@ -313,7 +313,7 @@ export default (props) => {
         addContent: {
             width: vw * .9,
             height: "auto",
-            backgroundColor: base,
+            backgroundColor: base1,
             borderRadius: vw * .03,
             padding: vw * .04,
         },
@@ -328,7 +328,7 @@ export default (props) => {
             margin: vw * .02,
             marginRight: vw * .04,
             marginLeft: vw * .04,
-            backgroundColor: base1,
+            backgroundColor: base,
             borderRadius: vw * .02,
             fontFamily: "Comfortaa-Regular",
             fontSize: vw * .04,
@@ -466,19 +466,19 @@ export default (props) => {
                                                 >
                                                     <View style={style.input}>
                                                         <TextInput style={style.dataText}
-                                                            placeholder={getStringDate(i.date)}
+                                                            placeHolder={getStringDate(i.date)}
                                                             onChangeText={(a) => editData(a, i, index, "date", a.title)}
                                                         />
                                                     </View>
                                                     <View style={style.input}>
                                                         <TextInput style={style.dataText}
-                                                            placeholder={getStringTime(i.date)}
+                                                            placeHolder={getStringTime(i.date)}
                                                             onChangeText={(a) => editData(a, i, index, "time", a.title)}
                                                         />
                                                     </View>
                                                     <View style={style.input}>
                                                         <TextInput style={style.dataText}
-                                                            placeholder={i.value}
+                                                            placeHolder={i.value}
                                                             onChangeText={(a) => editData(a, i, index, "value", a.title)}
                                                         />
                                                     </View>
@@ -528,21 +528,22 @@ export default (props) => {
                             <TextInput
                                 value={submittingDate}
                                 style={style.addInput}
-                                placeholder='mm/dd/yyyy'
+                                placeHolder='mm/dd/yyyy'
+                                placeHolderTextColor={'#000'}
                                 onChangeText={(i) => { setSubmittingDate(i) }}
                             />
                             <Text style={style.addTitle}>time:</Text>
                             <TextInput
                                 value={submittingTime}
                                 style={style.addInput}
-                                placeholder='hh:mm'
+                                placeHolder='hh:mm'
                                 onChangeText={(i) => { setSubmittingTime(i) }}
                             />
                             <Text style={style.addTitle}>value:</Text>
                             <TextInput
                                 value={submittingValue}
                                 style={style.addInput}
-                                placeholder='000'
+                                placeHolder='000'
                                 onChangeText={(i) => { setSubmittingValue(i) }}
                             />
                             <TouchableOpacity

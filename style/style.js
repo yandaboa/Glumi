@@ -249,7 +249,7 @@ const dark = false;
 
 let base = '#fff';
 let base1 = '#fff';
-let base2 = '#fefefe';
+let base2 = '#ddd';
 let base3 = '#517920';
 let base4 = "#709c34";
 let base5 = '#303c14';
