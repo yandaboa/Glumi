@@ -19,7 +19,7 @@ export default () => {
             }
         })
         return unsubscribe;
-    }, [])
+    }, []);
 
     const handleLogin = () => {
         signInWithEmailAndPassword(authen, email, password)

@@ -9,6 +9,7 @@ import { pairDevice, unPair } from "../Firebase.js";
 import Profile from "./SettingsComponents/Profile.js";
 import { showProfile } from "./SettingsComponents/Profile.js";
 import EditProfile, { showEditProfile } from "./SettingsComponents/EditProfile.js";
+import { clearData } from "./Data.js";
 
 export default () => {
   const navigation = useNavigation()
@@ -60,6 +61,7 @@ export default () => {
 
   const handleLogout = () => {
     signOut(authen).then(() => {
+      clearData();
       navigation.replace("Login")
     })
       .catch(error => console.log(error.message))

@@ -17,13 +17,14 @@ let userID = 0;
 
 let dataBreathRef = ref(database, 'users/' + userID + '/data/Breathanalyzer/');
 export {dataBreathRef};
-function wrapListener(){
 
-  onChildAdded(dataBreathRef, (data) => {+
+function wrapListenerAce(){
+  dataBreathRef = ref(database, "/users/" + userID + "/data/Breathanalyzer/");
+
+  onChildAdded(dataBreathRef, (data) => {
     console.log("Child added");
     let temp = data.key + ":00.000Z";
     AceData.push({date: temp, value: data.val()});
-    console.log(AceData);
     console.log("break");
   });
 }
@@ -33,15 +34,48 @@ onAuthStateChanged(authen, (user) => {
     userID = user.uid;
   }
   console.log(userID);
-  dataBreathRef = ref(database, "/users/" + userID + "/data/Breathanalyzer/");
-  wrapListener();
+  dataBreathRef = ref(database, "/users/" + userID + "/data/");
+  wrapListenerAce();
 });
 
-export const AceData = [
-  { date: "2022-02-02T05:00:00.000Z", value: 69 },
+function wrapListenerGlu(){
+  dataBreathRef = ref(database, "/users/" + userID + "/data/Glucometer/");
+  onChildAdded(dataBreathRef, (data) => {
+    console.log("Child added");
+    let temp = data.key + ":00.000Z";
+    GulData.push({date: temp, value: data.val()});
+    console.log("break");
+  });
+}
+function wrapListenerFood(){
+  dataBreathRef = ref(database, "/users/" + userID + "/data/Food/");
+  onChildAdded(dataBreathRef, (data) => {
+    console.log("Child added");
+    let temp = data.key + ":00.000Z";
+    FoodData.push({date: temp, value: data.val()});
+    console.log("break");
+  });
+}
+
+
+export function clearData(){
+  while(AceData.length > 0) {
+    AceData.pop();
+  }
+
+  while(GulData.length > 0) {
+    GulData.pop();
+  }
+
+  while(FoodData.length > 0) {
+    FoodData.pop();
+  }
+}
+
+export let AceData = [
 ];
 
-export const GulData = [
+export let GulData = [
   { date: "2022-02-01T05:00:00.000Z", value: Math.floor(Math.random() * 1000) },
   { date: "2022-02-02T05:00:00.000Z", value: Math.floor(Math.random() * 1000) },
   { date: "2022-02-03T05:00:00.000Z", value: Math.floor(Math.random() * 1000) },
@@ -51,7 +85,7 @@ export const GulData = [
   { date: "2022-02-07T05:00:00.000Z", value: Math.floor(Math.random() * 1000) },
 ];
 
-export const FoodData = [
+export let FoodData = [
   { date: "2022-02-01T05:00:00.000Z", value: Math.floor(Math.random() * 1000) },
   { date: "2022-02-02T05:00:00.000Z", value: Math.floor(Math.random() * 1000) },
   { date: "2022-02-03T05:00:00.000Z", value: Math.floor(Math.random() * 1000) },

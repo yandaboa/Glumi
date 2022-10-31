@@ -2,13 +2,21 @@ import { View, Text } from 'react-native'
 import React from 'react'
 import { home } from '../style/style';
 import { useNavigation } from '@react-navigation/native';
+import { useFocusEffect } from '@react-navigation/native';
 
 export default function Load(){
     const navigation = useNavigation();
 
-    setTimeout(() => {
+    const goToNext = () => {setTimeout(() => {
         navigation.navigate("HomePage");
-    }, 400); //keep this at at least 400
+    }, 400)}; //keep this at at least 400}
+
+    useFocusEffect(
+      React.useCallback(() => {
+        goToNext();
+      },
+    ))
+
 
 
     return (
