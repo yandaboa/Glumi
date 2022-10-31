@@ -21,12 +21,14 @@ import { authen, database } from '../Firebase.js';
 import TreeSVG from '../assets/TreeSVG.js';
 import DarkTreeSVG from '../assets/DarkTreeSVG.js';
 import { onAuthStateChanged } from 'firebase/auth';
-import { onChildAdded, ref } from 'firebase/database';
+import { onChildAdded, ref, onValue } from 'firebase/database';
 import { useFocusEffect } from '@react-navigation/native';
 
-const dark = false; //!edit this
+// const dark = false; //!edit this
 
 export default (props) => {
+
+  const [dark, setDark] = useState(false);
 
   const vw = Dimensions.get("window").width;
 
@@ -59,7 +61,17 @@ export default (props) => {
 
   useFocusEffect(
     React.useCallback(() => {
-      const unsubscribe = () => { setAceGraph(<BloodSugarGraph width={vw * .65} data={convertedAceData} title={"Gulcose Levels (breathanalyzer)"} unit="mg/dL" label={true}/>); }
+      const unsubscribe = () => { 
+        console.log("homepage focused");
+        setAceGraph(<BloodSugarGraph width={vw * .65} data={convertedAceData} title={"Gulcose Levels (breathanalyzer)"} unit="mg/dL" label={true}/>); 
+        const darkModeRef = ref(database, 'users/' + authen.currentUser.uid);
+        onValue(darkModeRef, (snapshot) => {
+          const data = snapshot.val();
+          if(data.settings != null){
+            setDark(data.settings.isDarkMode);
+          }
+        })
+      }
       return () => unsubscribe();
     },
     ))
@@ -78,7 +90,7 @@ export default (props) => {
   }
 
   return (
-    <View style={home.container}>
+    <View dark={dark} style={home.container}>
       <View style={home.backgroundContainer}>
         {background()}
       </View>

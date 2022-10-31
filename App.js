@@ -1,4 +1,5 @@
 import { useFonts } from 'expo-font';
+import { home } from './style/style.js';
 import HomePage from './components/HomePage.js';
 import Login from './components/Login.js';
 import CreateAccount from './components/CreateAccount.js';

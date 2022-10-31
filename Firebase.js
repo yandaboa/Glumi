@@ -38,11 +38,9 @@ function unPair(userID){
     })
 }
 
-function updateSettings(userID, isNof, isAnimation, isDarkMode){
+function updateSettings(userID, isDarkMode){
     console.log(userID);
     set(ref(database, 'users/' + userID + '/settings'), {
-        isNof: isNof,
-        isAnimation: isAnimation,
         isDarkMode: isDarkMode
     })
 }

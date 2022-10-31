@@ -1,10 +1,11 @@
-import React, { useState, useRef, useFocusEffect } from 'react';
+import React, { useState, useRef } from 'react';
 import { Text, View, ScrollView, Dimensions, Animated, TouchableOpacity } from 'react-native';
 import { pastData } from '../style/style.js';
 import BloodSugarGraph from './BloodSugarGraph.js';
 import BloodPressureGraph from './BloodPressureGraph.js';
 import SproutSVG from '../assets/SproutSVG.js';
 import { AceData, GulData, FoodData, BloodData } from './Data.js';
+import { useFocusEffect } from '@react-navigation/native';
 
 export default () => {
 
@@ -22,6 +23,17 @@ export default () => {
     outputRange: [maxHeaderHeight, minHeaderHeight],
     extrapolate: "clamp",
   })
+
+  const [reload, setReload] = useState(false);
+
+  useFocusEffect(
+    React.useCallback(() => {
+      const unsub = () => {
+        setReload(!reload);
+      }
+      return () => unsub();
+    },)
+  )
 
   const mainElements = [
     { title: "day", graph: <BloodSugarGraph width={vw * .6} data={AceData} title="Today" unit="ppm" label={true} /> },
@@ -50,7 +62,7 @@ export default () => {
   }
 
   return (
-    <View style={pastData.container}>
+    <View rel={reload} style={pastData.container}>
       <Animated.View
         style={[pastData.profile,
         { height: animatedHeaderHeight }

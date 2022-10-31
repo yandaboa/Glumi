@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import { Text, View, Switch, SafeAreaView } from 'react-native';
 import { TouchableOpacity } from "react-native";
 import { useNavigation } from "@react-navigation/native";
-import { setting } from '../style/style.js';
+import { changeColorMode, setting } from '../style/style.js';
 import { authen, updateSettings } from "../Firebase.js";
 import { pairDevice, unPair } from "../Firebase.js";
 import Profile from "./SettingsComponents/Profile.js";
@@ -12,7 +12,7 @@ import EditProfile, { showEditProfile } from "./SettingsComponents/EditProfile.j
 import { clearData } from "./Data.js";
 
 export default () => {
-  const navigation = useNavigation()
+  const navigation = useNavigation();
   const [isNofEnabled, setIsNofEnabled] = useState(false);
   const [isAnimationsEnabled, setIsAnimationsEnabled] = useState(false);
   const [isDarkEnabled, setIsDarkEnabled] = useState(false);
@@ -32,8 +32,8 @@ export default () => {
     showEditProfile(showEditProfileModal);
   }
 
-  function toggleNofSwitch(value) {
-    setIsNofEnabled(value);
+  function toggleNofSwitch() {
+    setIsNofEnabled();
     updateSets();
   };
   const toggleAnimationsSwitch = () => {
@@ -42,8 +42,10 @@ export default () => {
   };
 
   const toggleDarkSwitch = () => {
-    setIsDarkEnabled(previousState => !previousState)
+    setIsDarkEnabled(!isDarkEnabled);
     updateSets();
+    // setTimeout(() => {navigation.navigate("Loading");}, 500);
+
   };
 
   const startPairing = () => {
@@ -52,8 +54,11 @@ export default () => {
   }
 
   function updateSets() {
-    updateSettings(UID, isNofEnabled, isAnimationsEnabled, isDarkEnabled);
+    changeColorMode(isDarkEnabled);
+    updateSettings(UID, isDarkEnabled);
   }
+
+  updateSets();
 
   const stopPairing = () => {
     unPair();
@@ -95,11 +100,11 @@ export default () => {
               <Text style={setting.selectionText}>dark mode</Text>
               <Switch style={[setting.switchTheme, setting.switch]}
                 trackColor={{ false: "#ddd", true: "#333" }}
-                thumbColor={isDarkEnabled ? "#ddd" : "#333"}
+              thumbColor={isDarkEnabled ? "#ddd" : "#333"}
                 activeThumbColor={"#ddd"}
                 onValueChange={toggleDarkSwitch}
-                value={isDarkEnabled}
-              />
+              value={isDarkEnabled}
+              />{/*isDarkEnabled ? "#ddd" : "#333"value={isDarkEnabled}*/}
             </View>
           </View>
           <View style={setting.spacer} />
