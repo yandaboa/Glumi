@@ -6,6 +6,7 @@ import EditSVG from '../assets/EditSVG.js';
 import SelectList from 'react-native-dropdown-select-list'
 import { AceData, GulData, FoodData } from './Data.js';
 import { writeHealthData } from '../Firebase.js';
+import TrashSVG from '../assets/TrashSVG.js';
 
 export default (props) => {
     const vw = Dimensions.get("window").width;
@@ -366,7 +367,7 @@ export default (props) => {
 
     const [submitMessage, setSubmitMessage] = useState("Submit");
     const submitAddData = (dataType) => {
-        if(submittingDate === "" || submittingTime === ""){
+        if (submittingDate === "" || submittingTime === "") {
             setSubmitMessage("Please enter all fields");
         } else {
             setSubmitMessage("Submit");
@@ -393,22 +394,22 @@ export default (props) => {
     const [editedValue, setEditedValue] = useState(0);
 
     const editField = (changedTo, prev, index, type, dataType) => {
-        if(type==="date"){
-            if(firstDateChange){
+        if (type === "date") {
+            if (firstDateChange) {
                 previousDate = prev.date; // TODO: get the previous date, store so that you can access the firebase later. Depending on if key is changed, delete the original entry and add a new one.
                 //If key not changed, just edit the value. Previous key/value needs to be passed to the firebase.js function so that they can be preserved. Curr issue: get the key and value somehow from the textEntry
             } else {
 
             }
-        } else if (type=== "time"){
-            if(firstTimeChange) {
+        } else if (type === "time") {
+            if (firstTimeChange) {
 
             } else {
 
             }
         } else {
-            if(firstValueChange){
-             
+            if (firstValueChange) {
+
             } else {
 
             }

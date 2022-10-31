@@ -1,19 +1,37 @@
-import { View, Text } from 'react-native'
+import { View, Text, StyleSheet, Dimensions } from 'react-native'
 import React from 'react'
-import { home } from '../style/style';
 import { useNavigation } from '@react-navigation/native';
+import { TrashSVG } from '../assets/TrashSVG.js';
 
-export default function Load(){
+export default function Load() {
     const navigation = useNavigation();
+    const vw = Dimensions.get("window").width;
+    const time = 500;
 
     setTimeout(() => {
         navigation.navigate("HomePage");
-    }, 400); //keep this at at least 400
+    }, time);
 
+    const style = StyleSheet.create({
+        container: {
+            flex: 1,
+            backgroundColor: "#eee",
+            justifyContent: "center",
+            alignItems: "center",
+        },
+
+        text: {
+            fontFamily: "Comfortaa-Bold",
+            fontSize: vw * .06,
+
+        },
+    })
 
     return (
-        <View style={home.loading}>
-            <Text style={home.loadingText}>loading...</Text>
+        <View style={style.container}>
+            <View style={style.content}>
+            </View>
+            <Text style={style.text}>loading...</Text>
         </View>
     );
 }

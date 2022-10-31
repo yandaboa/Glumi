@@ -1,7 +1,7 @@
 import { authen, database, updateDataFire } from "../Firebase";
 import { getDatabase, ref, onValue, onChildAdded } from "firebase/database";
 import { onAuthStateChanged } from "firebase/auth";
-import {reloadData} from "./DeepHomePage";
+import { reloadData } from "./DeepHomePage";
 
 // export const Data = [
 //   { date: '2022-02-01T05:00:00.000Z', value: 250 },
@@ -16,20 +16,17 @@ import {reloadData} from "./DeepHomePage";
 let userID = 0;
 
 let dataBreathRef = ref(database, 'users/' + userID + '/data/Breathanalyzer/');
-export {dataBreathRef};
-function wrapListener(){
+export { dataBreathRef };
 
-  onChildAdded(dataBreathRef, (data) => {+
-    console.log("Child added");
+function wrapListener() {
+  onChildAdded(dataBreathRef, (data) => {
     let temp = data.key + ":00.000Z";
-    AceData.push({date: temp, value: data.val()});
-    console.log(AceData);
-    console.log("break");
+    AceData.push({ date: temp, value: data.val() });
   });
 }
 
 onAuthStateChanged(authen, (user) => {
-  if(user != null) {
+  if (user != null) {
     userID = user.uid;
   }
   console.log(userID);
@@ -37,26 +34,32 @@ onAuthStateChanged(authen, (user) => {
   wrapListener();
 });
 
-export const AceData = [
-  { date: "2022-02-02T05:00:00.000Z", value: 69 },
+export let AceData = [
+  { date: "2022-02-01T05:00:00.000Z", value: Math.floor(Math.random() * 100) },
+  { date: "2022-02-02T05:00:00.000Z", value: Math.floor(Math.random() * 100) },
+  { date: "2022-02-03T05:00:00.000Z", value: Math.floor(Math.random() * 100) },
+  { date: "2022-02-04T05:00:00.000Z", value: Math.floor(Math.random() * 100) },
+  { date: "2022-02-05T05:00:00.000Z", value: Math.floor(Math.random() * 100) },
+  { date: "2022-02-06T05:00:00.000Z", value: Math.floor(Math.random() * 100) },
+  { date: "2022-02-07T05:00:00.000Z", value: Math.floor(Math.random() * 100) },
 ];
 
-export const GulData = [
-  { date: "2022-02-01T05:00:00.000Z", value: Math.floor(Math.random() * 1000) },
-  { date: "2022-02-02T05:00:00.000Z", value: Math.floor(Math.random() * 1000) },
-  { date: "2022-02-03T05:00:00.000Z", value: Math.floor(Math.random() * 1000) },
-  { date: "2022-02-04T05:00:00.000Z", value: Math.floor(Math.random() * 1000) },
-  { date: "2022-02-05T05:00:00.000Z", value: Math.floor(Math.random() * 1000) },
-  { date: "2022-02-06T05:00:00.000Z", value: Math.floor(Math.random() * 1000) },
-  { date: "2022-02-07T05:00:00.000Z", value: Math.floor(Math.random() * 1000) },
+export let GulData = [
+  { date: "2022-02-01T05:00:00.000Z", value: Math.floor(Math.random() * 100 + 80) },
+  { date: "2022-02-02T05:00:00.000Z", value: Math.floor(Math.random() * 100 + 80) },
+  { date: "2022-02-03T05:00:00.000Z", value: Math.floor(Math.random() * 100 + 80) },
+  { date: "2022-02-04T05:00:00.000Z", value: Math.floor(Math.random() * 100 + 80) },
+  { date: "2022-02-05T05:00:00.000Z", value: Math.floor(Math.random() * 100 + 80) },
+  { date: "2022-02-06T05:00:00.000Z", value: Math.floor(Math.random() * 100 + 80) },
+  { date: "2022-02-07T05:00:00.000Z", value: Math.floor(Math.random() * 100 + 80) },
 ];
 
-export const FoodData = [
-  { date: "2022-02-01T05:00:00.000Z", value: Math.floor(Math.random() * 1000) },
-  { date: "2022-02-02T05:00:00.000Z", value: Math.floor(Math.random() * 1000) },
-  { date: "2022-02-03T05:00:00.000Z", value: Math.floor(Math.random() * 1000) },
-  { date: "2022-02-04T05:00:00.000Z", value: Math.floor(Math.random() * 1000) },
-  { date: "2022-02-05T05:00:00.000Z", value: Math.floor(Math.random() * 1000) },
-  { date: "2022-02-06T05:00:00.000Z", value: Math.floor(Math.random() * 1000) },
-  { date: "2022-02-07T05:00:00.000Z", value: Math.floor(Math.random() * 1000) },
+export let FoodData = [
+  { date: "2022-02-01T05:00:00.000Z", value: Math.floor(Math.random() * 30) },
+  { date: "2022-02-02T05:00:00.000Z", value: Math.floor(Math.random() * 30) },
+  { date: "2022-02-03T05:00:00.000Z", value: Math.floor(Math.random() * 30) },
+  { date: "2022-02-04T05:00:00.000Z", value: Math.floor(Math.random() * 30) },
+  { date: "2022-02-05T05:00:00.000Z", value: Math.floor(Math.random() * 30) },
+  { date: "2022-02-06T05:00:00.000Z", value: Math.floor(Math.random() * 30) },
+  { date: "2022-02-07T05:00:00.000Z", value: Math.floor(Math.random() * 30) },
 ];
