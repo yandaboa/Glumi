@@ -372,7 +372,7 @@ export default (props) => {
             let healthKey = submittingDate;
             let healthVal = submittingValue;
             const dataArr = healthKey.split("/");
-            healthKey = dataArr[2] + "-" + dataArr[1] + "-" + dataArr[0] + "T" + submittingTime;
+            healthKey = dataArr[2] + "-" + dataArr[0] + "-" + dataArr[1] + "T" + submittingTime;
             setSubmittingDate("");
             setSubmittingTime("");
             setSubmittingValue("");
