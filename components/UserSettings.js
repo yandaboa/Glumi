@@ -1,4 +1,4 @@
-let dark = false;
+let dark = true;
 let notifications = true;
 let animations = true;
 

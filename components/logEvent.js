@@ -15,6 +15,7 @@ export default () => {
         <InputData data={AceData} title="Breathanalyzer" />
         <InputData data={GulData} title="Glucometer" />
         <InputData data={FoodData} title="Sugar Intaked" />
+        <View style={logEvent.spacer} />
       </ScrollView>
     </View>
   );

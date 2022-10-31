@@ -137,10 +137,9 @@ const logout = StyleSheet.create({
     },
 });
 
-
 const createAccount = StyleSheet.create({
     container: {
-        backgroundColor: "#fff",
+        backgroundColor: "#eee",
         justifyContent: "center",
         alignItems: "center",
         flex: 1,
@@ -245,36 +244,11 @@ const createAccount = StyleSheet.create({
     },
 });
 
-const dark = true;
+//536C7C
 
-let base = '#fff';
-let base1 = '#fff';
-let base2 = '#fefefe';
-let base3 = '#517920';
-let base4 = "#709c34";
-let base5 = '#303c14';
-let base6 = '#66cc99';
-let base1o = "rgba(255, 255,255, .9)";
-
-let bk = "#99ccff"
-
-if (dark) {
-    base = '#202c44';
-    base1 = '#acc6e2';
-    base2 = '#567AB4';
-    base3 = '#101c34';
-    base4 = '#304454';
-    base5 = '#101424'
-    base6 = "#101424";
-    base1o = "rgba(172, 198, 226, 0.9)"
-
-    bk = "#536C7C"
-}
-
-const home = StyleSheet.create({
-
+const darkhome = StyleSheet.create({
     loading: {
-        backgroundColor: "#fff",
+        backgroundColor: "#99CCFF",
         justifyContent: "center",
         alignItems: "center",
         width: vw(100),
@@ -289,7 +263,7 @@ const home = StyleSheet.create({
     container: {
         height: vh(100),
         width: vw(100),
-        backgroundColor: bk,
+        backgroundColor: "#536C7C",
         position: "absolute",
     },
 
@@ -344,7 +318,10 @@ const home = StyleSheet.create({
     graphContainer: {
         width: vw(80),
         height: vw(80),
-        backgroundColor: base1o,
+        // backgroundColor: "rgba(255, 255, 255, .9)",
+
+        //acc6e2 
+        backgroundColor: "rgba(172, 198, 226, 0.9)",
         justifyContent: "center",
         alignItems: "center",
         borderRadius: vw(4),
@@ -386,9 +363,10 @@ const home = StyleSheet.create({
 
     sliderContent: {
         width: vw(80),
-        height: vw(30),
+        height: vw(35),
         padding: vw(4),
-        backgroundColor: base1o,
+        // backgroundColor: "rgba(255, 255, 255, .9)",
+        backgroundColor: "rgba(172, 198, 226, 0.9)",
         shadowColor: "#000000",
         shadowOffset: { width: vw(1), height: vw(1) },
         shadowOpacity: .2,
@@ -400,7 +378,7 @@ const home = StyleSheet.create({
     },
 
     sidebar: {
-        backgroundColor: base,
+        backgroundColor: "#acc6e2",
         position: "absolute",
         height: vw(24),
         border: "none",
@@ -492,10 +470,6 @@ const bloodSugarGraph = StyleSheet.create({
 });
 
 const pastData = StyleSheet.create({
-    container: {
-        backgroundColor: "red",
-    },
-
     profile: {
         height: vw(40),
         justifyContent: "center",
@@ -519,7 +493,6 @@ const pastData = StyleSheet.create({
 
     container: {
         flex: 1,
-        backgroundColor: base1,
     },
 
     content: {
@@ -530,12 +503,12 @@ const pastData = StyleSheet.create({
         padding: vw(4),
         paddingLeft: vw(10),
         paddingRight: vw(10),
-        backgroundColor: base3,
+        backgroundColor: "#517920",
         paddingTop: vw(8),
     },
 
     mainContainer: {
-        backgroundColor: base1,
+        backgroundColor: "#fff",
         width: vw(80),
         borderRadius: vw(4),
         shadowColor: "#000000",
@@ -577,7 +550,7 @@ const pastData = StyleSheet.create({
         marginTop: vw(4),
         justifyContent: "space-evenly",
         alignItems: "center",
-        backgroundColor: base2,
+        backgroundColor: "#ddd",
         borderRadius: vw(4),
         margin: vw(4)
     },
@@ -587,7 +560,7 @@ const pastData = StyleSheet.create({
     },
 
     labelActive: {
-        backgroundColor: base1,
+        backgroundColor: "#fff",
     },
 
     labelStyle: {
@@ -610,7 +583,7 @@ const pastData = StyleSheet.create({
     },
 
     content1: {
-        backgroundColor: base1,
+        backgroundColor: "#fff",
         width: vw(45),
         height: vw(60),
         borderRadius: vw(4),
@@ -626,7 +599,7 @@ const pastData = StyleSheet.create({
         padding: vw(2),
         marginLeft: vw(4),
         flex: 1,
-        backgroundColor: base1,
+        backgroundColor: "#fff",
         margin: 0,
         borderRadius: vw(4),
         shadowColor: "#000000",
@@ -641,7 +614,7 @@ const pastData = StyleSheet.create({
         borderRadius: vw(4),
         justifyContent: "center",
         alignItems: "center",
-        backgroundColor: base1,
+        backgroundColor: "#fff",
         shadowColor: "#000000",
         shadowOffset: { width: vw(1), height: vw(1) },
         shadowOpacity: .2,
@@ -657,7 +630,7 @@ const pastData = StyleSheet.create({
 const logEvent = StyleSheet.create({
     backgroundElement1: {
         borderBottomRightRadius: "100%",
-        backgroundColor: base3,
+        backgroundColor: "#587c24",
         height: vw(100),
         width: vw(100),
         position: "absolute",
@@ -667,7 +640,7 @@ const logEvent = StyleSheet.create({
 
     backgroundElement2: {
         borderTopLeftRadius: "100%",
-        backgroundColor: base4,
+        backgroundColor: "#709c34",
         height: vw(70),
         width: vw(70),
         position: "absolute",
@@ -678,7 +651,7 @@ const logEvent = StyleSheet.create({
     container: {
         flex: 1,
         flexDirection: "column",
-        backgroundColor: base5,
+        backgroundColor: "#303c14",
     },
 
     header: {
@@ -718,7 +691,7 @@ const logEvent = StyleSheet.create({
         marginRight: "auto",
         width: vw(80),
         height: vw(80),
-        backgroundColor: base2,
+        backgroundColor: "#ffffff",
         borderRadius: vw(4),
         shadowColor: "#000000",
         shadowOffset: { width: vw(1), height: vw(1) },
@@ -751,7 +724,7 @@ const logEvent = StyleSheet.create({
         margin: vw(2.5),
         marginLeft: "auto",
         marginRight: "auto",
-        backgroundColor: base1,
+        backgroundColor: "#efefef",
         borderRadius: vw(2),
         flexDirection: "row",
         justifyContent: "center",
@@ -826,13 +799,13 @@ const setting = StyleSheet.create({
         justifyContent: "center",
         alignItems: "center",
         flexDirection: "column",
-        backgroundColor: base2,
+        backgroundColor: "#eee",
     },
 
     header: {
         width: vw(100),
         justifyContent: "center",
-        backgroundColor: base6,
+        backgroundColor: "#6c9",
         paddingBottom: vw(8),
         borderRadius: vw(4),
         borderTopLeftRadius: 0,
@@ -868,7 +841,7 @@ const setting = StyleSheet.create({
 
     selection: {
         width: vw(80),
-        backgroundColor: base1,
+        backgroundColor: "#fff",
         margin: vw(2),
         marginLeft: vw(8),
         padding: vw(2),
@@ -920,7 +893,7 @@ export {
     login,
     logout,
     createAccount,
-    home,
+    darkhome,
     bloodSugarGraph,
     pastData,
     logEvent,

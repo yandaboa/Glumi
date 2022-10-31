@@ -78,7 +78,6 @@ export default (props) => {
                     showsHorizontalScrollIndicator={false}
                     scrollEventThrottle={200}
                     decelerationRate="fast"
-                    pagingEnabled
                 >
                     <View style={logEvent.dataContainer}>
                         <View style={[logEvent.dataElement, logEvent.leader]}>
@@ -156,10 +155,10 @@ export default (props) => {
                     boxStyles={{
                         borderRadius: vw * .03,
                         border: "none",
-                        backgroundColor: "#fff",
+                        backgroundColor: base,
                     }}
                     dropdownStyles={{
-                        backgroundColor: "#fff"
+                        backgroundColor: base,
                     }}
                     dropdownItemStyles={{
                         margin: vw * .02
@@ -185,6 +184,17 @@ export default (props) => {
             })
         }, 500)
     }
+
+
+    const dark = true;
+
+    let base = '#fff';
+    let base1 = '#fefefe';
+    if (dark) {
+        base = '#567AB4';
+        base1 = '#acc6e2';
+    }
+
     const style = StyleSheet.create({
         container: {
             width: vw,
@@ -197,7 +207,7 @@ export default (props) => {
         content: {
             height: vw * 1.5,
             width: vw * .9,
-            backgroundColor: "#fff",
+            backgroundColor: base,
             borderRadius: vw * .04,
             padding: vw * .04,
         },
@@ -247,7 +257,7 @@ export default (props) => {
             margin: vw * .02,
             marginLeft: "auto",
             marginRight: "auto",
-            backgroundColor: "#efefef",
+            backgroundColor: base1,
             borderRadius: vw * .02,
             flexDirection: "row",
             justifyContent: "center",
@@ -304,7 +314,7 @@ export default (props) => {
         addContent: {
             width: vw * .9,
             height: "auto",
-            backgroundColor: "#fff",
+            backgroundColor: base,
             borderRadius: vw * .03,
             padding: vw * .04,
         },
@@ -319,7 +329,7 @@ export default (props) => {
             margin: vw * .02,
             marginRight: vw * .04,
             marginLeft: vw * .04,
-            backgroundColor: "#efefef",
+            backgroundColor: base1,
             borderRadius: vw * .02,
             fontFamily: "Comfortaa-Regular",
             fontSize: vw * .04,

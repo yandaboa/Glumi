@@ -16,15 +16,15 @@ import { reloadData } from "./DeepHomePage";
 let userID = 0;
 
 let dataBreathRef = ref(database, 'users/' + userID + '/data/Breathanalyzer/');
-export {dataBreathRef};
+export { dataBreathRef };
 
-function wrapListenerAce(){
+function wrapListenerAce() {
   dataBreathRef = ref(database, "/users/" + userID + "/data/Breathanalyzer/");
 
   onChildAdded(dataBreathRef, (data) => {
     console.log("Child added");
     let temp = data.key + ":00.000Z";
-    AceData.push({date: temp, value: data.val()});
+    AceData.push({ date: temp, value: data.val() });
     console.log("break");
   });
 }
@@ -38,51 +38,58 @@ onAuthStateChanged(authen, (user) => {
   wrapListenerAce();
 });
 
-function wrapListenerGlu(){
+function wrapListenerGlu() {
   dataBreathRef = ref(database, "/users/" + userID + "/data/Glucometer/");
   onChildAdded(dataBreathRef, (data) => {
     console.log("Child added");
     let temp = data.key + ":00.000Z";
-    GulData.push({date: temp, value: data.val()});
+    GulData.push({ date: temp, value: data.val() });
     console.log("break");
   });
 }
-function wrapListenerFood(){
+function wrapListenerFood() {
   dataBreathRef = ref(database, "/users/" + userID + "/data/Food/");
   onChildAdded(dataBreathRef, (data) => {
     console.log("Child added");
     let temp = data.key + ":00.000Z";
-    FoodData.push({date: temp, value: data.val()});
+    FoodData.push({ date: temp, value: data.val() });
     console.log("break");
   });
 }
 
 
-export function clearData(){
-  while(AceData.length > 0) {
+export function clearData() {
+  while (AceData.length > 0) {
     AceData.pop();
   }
 
-  while(GulData.length > 0) {
+  while (GulData.length > 0) {
     GulData.pop();
   }
 
-  while(FoodData.length > 0) {
+  while (FoodData.length > 0) {
     FoodData.pop();
   }
 }
 
 export let AceData = [
+  { date: "2022-02-01T05:00:00.000Z", value: Math.floor(Math.random() * 4) },
+  { date: "2022-02-02T05:00:00.000Z", value: Math.floor(Math.random() * 4) },
+  { date: "2022-02-03T05:00:00.000Z", value: Math.floor(Math.random() * 4) },
+  { date: "2022-02-04T05:00:00.000Z", value: Math.floor(Math.random() * 4) },
+  { date: "2022-02-05T05:00:00.000Z", value: Math.floor(Math.random() * 4) },
+  { date: "2022-02-06T05:00:00.000Z", value: Math.floor(Math.random() * 4) },
+  { date: "2022-02-07T05:00:00.000Z", value: Math.floor(Math.random() * 4) },
 ];
 
 export let GulData = [
-  { date: "2022-02-01T05:00:00.000Z", value: Math.floor(Math.random() * 1000) },
-  { date: "2022-02-02T05:00:00.000Z", value: Math.floor(Math.random() * 1000) },
-  { date: "2022-02-03T05:00:00.000Z", value: Math.floor(Math.random() * 1000) },
-  { date: "2022-02-04T05:00:00.000Z", value: Math.floor(Math.random() * 1000) },
-  { date: "2022-02-05T05:00:00.000Z", value: Math.floor(Math.random() * 1000) },
-  { date: "2022-02-06T05:00:00.000Z", value: Math.floor(Math.random() * 1000) },
-  { date: "2022-02-07T05:00:00.000Z", value: Math.floor(Math.random() * 1000) },
+  { date: "2022-02-01T05:00:00.000Z", value: Math.floor(Math.random() * 100) },
+  { date: "2022-02-02T05:00:00.000Z", value: Math.floor(Math.random() * 100) },
+  { date: "2022-02-03T05:00:00.000Z", value: Math.floor(Math.random() * 100) },
+  { date: "2022-02-04T05:00:00.000Z", value: Math.floor(Math.random() * 100) },
+  { date: "2022-02-05T05:00:00.000Z", value: Math.floor(Math.random() * 100) },
+  { date: "2022-02-06T05:00:00.000Z", value: Math.floor(Math.random() * 100) },
+  { date: "2022-02-07T05:00:00.000Z", value: Math.floor(Math.random() * 100) },
 ];
 
 export let FoodData = [

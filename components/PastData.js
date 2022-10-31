@@ -38,7 +38,7 @@ export default () => {
   const [mainActive, setMainActive] = useState(0);
   const [ref, setref] = useState(null);
 
-  onchange = (nativeEvent) => {
+  const onchange = (nativeEvent) => {
     if (nativeEvent) {
       const slide = Math.ceil(nativeEvent.contentOffset.x / nativeEvent.layoutMeasurement.width);
       if (slide != mainActive) {

@@ -89,11 +89,11 @@ export default (props) => {
     ticks = 5;
   }
 
-  const makeLine = (givenData) => {
+  if (props.title == "Sugar Intaked") {
+    label = "grams"
+  }
 
-    if (props.title == "Sugar Intaked") {
-      label = "grams"
-    }
+  const makeLine = (givenData) => {
 
     const xScale = d3.scaleTime()
       .domain([new Date(givenData[0].date), new Date(givenData[givenData.length - 1].date)])

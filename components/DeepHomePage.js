@@ -7,10 +7,11 @@ import {
   Dimensions
 } from 'react-native';
 import React, { useEffect, useRef, useState } from 'react';
-import { home } from './../style/style.js';
 import BloodSugarGraph from './BloodSugarGraph.js';
 import BloodSugarAnalysis from './BloodSugarAnalysis.js';
 import ExtendedBloodPressureGraph from './ExtendedBloodPressureGraph.js';
+import { home } from './../style/style.js';
+
 import LogEvent from './LogEvent.js';
 
 import { AceData } from './Data.js';
@@ -22,6 +23,8 @@ import DarkTreeSVG from '../assets/DarkTreeSVG.js';
 import { onAuthStateChanged } from 'firebase/auth';
 import { onChildAdded, ref } from 'firebase/database';
 import { useFocusEffect } from '@react-navigation/native';
+
+const dark = true; //!edit this
 
 export default (props) => {
 
@@ -43,35 +46,33 @@ export default (props) => {
     }
   }
 
-  
-  // onAuthStateChanged(authen, (user) => {
-  //   if(user != null) {
-  //     userID = user.uid;
-  //   }
-  //   console.log(userID);
-  //   dataBreathRef = ref(database, "/users/" + userID + "/data/Breathanalyzer/");
-  //   wrapListener();
-  // });
-
-    const [aceGraph, setAceGraph] = useState(<BloodSugarGraph width={vw * .65} data={AceData} title={"Acetone Levels"} />);
+  const [aceGraph, setAceGraph] = useState(<BloodSugarGraph width={vw * .65} data={AceData} title={"Acetone Levels"} />);
 
   useFocusEffect(
     React.useCallback(() => {
       console.log(AceData);
-      const unsubscribe = () => {setAceGraph(<BloodSugarGraph width={vw * .65} data={AceData} title={"Acetone Levels"} />);}
+      const unsubscribe = () => { setAceGraph(<BloodSugarGraph width={vw * .65} data={AceData} title={"Acetone Levels"} />); }
       return () => unsubscribe();
-      },
+    },
     ))
 
   onAuthStateChanged(authen, (user) => {
-    const unsub = () => {setAceGraph(<BloodSugarGraph width={vw * .65} data={AceData} title={"Acetone Levels"} />)};
+    const unsub = () => { setAceGraph(<BloodSugarGraph width={vw * .65} data={AceData} title={"Acetone Levels"} />) };
     return () => unsub();
   });
+
+  const background = () => {
+    if (dark) {
+      return (<DarkTreeSVG />);
+    } else {
+      return (<TreeSVG />);
+    }
+  }
 
   return (
     <View style={home.container}>
       <View style={home.backgroundContainer}>
-        <TreeSVG />
+        {background()}
       </View>
       <SafeAreaView style={home.wrapper}>
         <Text style={home.title}>
