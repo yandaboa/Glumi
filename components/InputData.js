@@ -185,8 +185,7 @@ export default (props) => {
         }, 500)
     }
 
-
-    const dark = true;
+    const dark = false;
 
     let base = '#fff';
     let base1 = '#fefefe';

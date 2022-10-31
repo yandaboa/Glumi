@@ -14,7 +14,7 @@ import { home } from './../style/style.js';
 
 import LogEvent from './LogEvent.js';
 
-import { AceData } from './Data.js';
+import { AceData, BloodData } from './Data.js';
 
 import { authen, database } from '../Firebase.js';
 
@@ -24,7 +24,7 @@ import { onAuthStateChanged } from 'firebase/auth';
 import { onChildAdded, ref } from 'firebase/database';
 import { useFocusEffect } from '@react-navigation/native';
 
-const dark = true; //!edit this
+const dark = false; //!edit this
 
 export default (props) => {
 
@@ -32,10 +32,19 @@ export default (props) => {
 
   const [sliderElementActive, setSliderElementActive] = useState(0);
 
+  const convertedAceData = [];
+  const BloodPressureData = BloodData[0];
+
+  let conversion = 107;
+  AceData.forEach((i) => {
+    convertedAceData.push({ date: i.date, value: i.value * conversion })
+  });
+
   const sliderElements = [
     <BloodSugarAnalysis />,
-    <ExtendedBloodPressureGraph width={vw * .8} data={{ systolic: 120, diastolic: 80 }} />,
-  ]
+    <ExtendedBloodPressureGraph width={vw * .8} data={{ systolic: BloodPressureData.systolic, diastolic: BloodPressureData.diastolic }} />,
+  ];
+
 
   const scrolled = (nativeEvent) => {
     if (nativeEvent) {
@@ -46,18 +55,17 @@ export default (props) => {
     }
   }
 
-  const [aceGraph, setAceGraph] = useState(<BloodSugarGraph width={vw * .65} data={AceData} title={"Acetone Levels"} />);
+  const [aceGraph, setAceGraph] = useState(<BloodSugarGraph width={vw * .65} data={convertedAceData} title={"Gulcose Levels (breathanalyzer)"} unit="mg/dL" label={true}/>);
 
   useFocusEffect(
     React.useCallback(() => {
-      console.log(AceData);
-      const unsubscribe = () => { setAceGraph(<BloodSugarGraph width={vw * .65} data={AceData} title={"Acetone Levels"} />); }
+      const unsubscribe = () => { setAceGraph(<BloodSugarGraph width={vw * .65} data={convertedAceData} title={"Gulcose Levels (breathanalyzer)"} unit="mg/dL" label={true}/>); }
       return () => unsubscribe();
     },
     ))
 
   onAuthStateChanged(authen, (user) => {
-    const unsub = () => { setAceGraph(<BloodSugarGraph width={vw * .65} data={AceData} title={"Acetone Levels"} />) };
+    const unsub = () => { setAceGraph(<BloodSugarGraph width={vw * .65} data={convertedAceData} title={"Gulcose Levels (breathanalyzer)"} unit="mg/dL" label={true}/>) };
     return () => unsub();
   });
 

@@ -1,20 +1,12 @@
 import React, { useState, useRef, useFocusEffect } from 'react';
 import { Text, View, ScrollView, Dimensions, Animated, TouchableOpacity } from 'react-native';
 import { pastData } from '../style/style.js';
-import BloodSugarAnalysis from './BloodSugarAnalysis.js';
 import BloodSugarGraph from './BloodSugarGraph.js';
 import BloodPressureGraph from './BloodPressureGraph.js';
 import SproutSVG from '../assets/SproutSVG.js';
-import { AceData, GulData, FoodData } from './Data.js';
-import { updateData } from './Data.js';
+import { AceData, GulData, FoodData, BloodData } from './Data.js';
 
 export default () => {
-  // useFocusEffect(
-  //   React.useCallback(() => {
-  //     const unsubscribe = () => {updateData()};
-  //     return () => unsubscribe();
-  //   })
-  //   );
 
   const vw = Dimensions.get("window").width;
 
@@ -23,6 +15,8 @@ export default () => {
   const minHeaderHeight = vw * .15;
   const scrollDistance = maxHeaderHeight - minHeaderHeight;
 
+  const BloodPressureData = BloodData[0];
+
   const animatedHeaderHeight = scrollOffsetY.interpolate({
     inputRange: [0, scrollDistance],
     outputRange: [maxHeaderHeight, minHeaderHeight],
@@ -30,9 +24,8 @@ export default () => {
   })
 
   const mainElements = [
-    { title: "day", graph: <BloodSugarGraph width={vw * .6} data={AceData} title={"Today"} /> },
-    { title: "week", graph: <BloodSugarGraph width={vw * .6} data={GulData} title="Past Week" /> },
-    { title: "month", graph: <BloodSugarGraph width={vw * .6} data={FoodData} title="Past Month" /> },
+    { title: "day", graph: <BloodSugarGraph width={vw * .6} data={AceData} title="Today" unit="ppm" label={true} /> },
+    { title: "week", graph: <BloodSugarGraph width={vw * .6} data={GulData} title="Past Week" unit="ppm" label={true} /> },
   ];
 
   const [mainActive, setMainActive] = useState(0);
@@ -111,15 +104,15 @@ export default () => {
         </View>
         <View style={pastData.wrapper}>
           <View style={pastData.content1}>
-            <BloodSugarGraph width={vw * .4} data={GulData} title={"Glucometer"} />
+            <BloodSugarGraph width={vw * .4} data={GulData} title={"Glucometer"} label={false} />
           </View>
           <View style={pastData.content2}>
-            <BloodPressureGraph width={vw} data={{ systolic: 120, diastolic: 80 }} />
+            <BloodPressureGraph width={vw} data={{ systolic: BloodPressureData.systolic, diastolic: BloodPressureData.diastolic }} />
           </View>
         </View>
         <View style={pastData.wrapper}>
           <View style={pastData.content3}>
-            <BloodSugarGraph width={vw * .65} data={FoodData} title={"Sugar Intaked"} />
+            <BloodSugarGraph width={vw * .65} data={FoodData} title={"Sugar Intaked"} unit="grams" label={true} />
           </View>
         </View>
         <View style={pastData.spacer} />

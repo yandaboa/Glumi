@@ -57,7 +57,6 @@ function wrapListenerFood() {
   });
 }
 
-
 export function clearData() {
   while (AceData.length > 0) {
     AceData.pop();
@@ -73,31 +72,41 @@ export function clearData() {
 }
 
 export let AceData = [
-  { date: "2022-02-01T05:00:00.000Z", value: Math.floor(Math.random() * 4) },
-  { date: "2022-02-02T05:00:00.000Z", value: Math.floor(Math.random() * 4) },
-  { date: "2022-02-03T05:00:00.000Z", value: Math.floor(Math.random() * 4) },
-  { date: "2022-02-04T05:00:00.000Z", value: Math.floor(Math.random() * 4) },
-  { date: "2022-02-05T05:00:00.000Z", value: Math.floor(Math.random() * 4) },
-  { date: "2022-02-06T05:00:00.000Z", value: Math.floor(Math.random() * 4) },
-  { date: "2022-02-07T05:00:00.000Z", value: Math.floor(Math.random() * 4) },
+  { date: "2022-02-01T05:00:00.000Z", value: Math.floor(Math.random() * 100) / 100 + .5 },
+  { date: "2022-02-02T05:00:00.000Z", value: Math.floor(Math.random() * 100) / 100 + .5 },
+  { date: "2022-02-03T05:00:00.000Z", value: Math.floor(Math.random() * 100) / 100 + .5 },
+  { date: "2022-02-04T05:00:00.000Z", value: Math.floor(Math.random() * 100) / 100 + .5 },
+  { date: "2022-02-05T05:00:00.000Z", value: Math.floor(Math.random() * 100) / 100 + .5 },
+  { date: "2022-02-06T05:00:00.000Z", value: Math.floor(Math.random() * 100) / 100 + .5 },
+  { date: "2022-02-07T05:00:00.000Z", value: Math.floor(Math.random() * 100) / 100 + .5 },
 ];
 
 export let GulData = [
-  { date: "2022-02-01T05:00:00.000Z", value: Math.floor(Math.random() * 100) },
-  { date: "2022-02-02T05:00:00.000Z", value: Math.floor(Math.random() * 100) },
-  { date: "2022-02-03T05:00:00.000Z", value: Math.floor(Math.random() * 100) },
-  { date: "2022-02-04T05:00:00.000Z", value: Math.floor(Math.random() * 100) },
-  { date: "2022-02-05T05:00:00.000Z", value: Math.floor(Math.random() * 100) },
-  { date: "2022-02-06T05:00:00.000Z", value: Math.floor(Math.random() * 100) },
-  { date: "2022-02-07T05:00:00.000Z", value: Math.floor(Math.random() * 100) },
+  { date: "2022-02-01T05:00:00.000Z", value: Math.floor(Math.random() * 100) + 25 },
+  { date: "2022-02-02T05:00:00.000Z", value: Math.floor(Math.random() * 100) + 25 },
+  { date: "2022-02-03T05:00:00.000Z", value: Math.floor(Math.random() * 100) + 25 },
+  { date: "2022-02-04T05:00:00.000Z", value: Math.floor(Math.random() * 100) + 25 },
+  { date: "2022-02-05T05:00:00.000Z", value: Math.floor(Math.random() * 100) + 25 },
+  { date: "2022-02-06T05:00:00.000Z", value: Math.floor(Math.random() * 100) + 25 },
+  { date: "2022-02-07T05:00:00.000Z", value: Math.floor(Math.random() * 100) + 25 },
 ];
 
 export let FoodData = [
-  { date: "2022-02-01T05:00:00.000Z", value: Math.floor(Math.random() * 1000) },
-  { date: "2022-02-02T05:00:00.000Z", value: Math.floor(Math.random() * 1000) },
-  { date: "2022-02-03T05:00:00.000Z", value: Math.floor(Math.random() * 1000) },
-  { date: "2022-02-04T05:00:00.000Z", value: Math.floor(Math.random() * 1000) },
-  { date: "2022-02-05T05:00:00.000Z", value: Math.floor(Math.random() * 1000) },
-  { date: "2022-02-06T05:00:00.000Z", value: Math.floor(Math.random() * 1000) },
-  { date: "2022-02-07T05:00:00.000Z", value: Math.floor(Math.random() * 1000) },
+  { date: "2022-02-01T05:00:00.000Z", value: Math.floor(Math.random() * 30) },
+  { date: "2022-02-02T05:00:00.000Z", value: Math.floor(Math.random() * 30) },
+  { date: "2022-02-03T05:00:00.000Z", value: Math.floor(Math.random() * 30) },
+  { date: "2022-02-04T05:00:00.000Z", value: Math.floor(Math.random() * 30) },
+  { date: "2022-02-05T05:00:00.000Z", value: Math.floor(Math.random() * 30) },
+  { date: "2022-02-06T05:00:00.000Z", value: Math.floor(Math.random() * 30) },
+  { date: "2022-02-07T05:00:00.000Z", value: Math.floor(Math.random() * 30) },
+];
+
+export let BloodData = [
+  { date: "2022-02-01T05:00:00.000Z", systolic: Math.floor(Math.random() * 80) + 60, diastolic: Math.floor(Math.random() * 30) + 60 },
+  { date: "2022-02-02T05:00:00.000Z", systolic: Math.floor(Math.random() * 80) + 60, diastolic: Math.floor(Math.random() * 30) + 60 },
+  { date: "2022-02-03T05:00:00.000Z", systolic: Math.floor(Math.random() * 80) + 60, diastolic: Math.floor(Math.random() * 30) + 60 },
+  { date: "2022-02-04T05:00:00.000Z", systolic: Math.floor(Math.random() * 80) + 60, diastolic: Math.floor(Math.random() * 30) + 60 },
+  { date: "2022-02-05T05:00:00.000Z", systolic: Math.floor(Math.random() * 80) + 60, diastolic: Math.floor(Math.random() * 30) + 60 },
+  { date: "2022-02-06T05:00:00.000Z", systolic: Math.floor(Math.random() * 80) + 60, diastolic: Math.floor(Math.random() * 30) + 60 },
+  { date: "2022-02-07T05:00:00.000Z", systolic: Math.floor(Math.random() * 80) + 60, diastolic: Math.floor(Math.random() * 30) + 60 },
 ];

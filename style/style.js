@@ -245,7 +245,7 @@ const createAccount = StyleSheet.create({
     },
 });
 
-const dark = true;
+const dark = false;
 
 let base = '#fff';
 let base1 = '#fff';
@@ -254,6 +254,7 @@ let base3 = '#517920';
 let base4 = "#709c34";
 let base5 = '#303c14';
 let base6 = '#66cc99';
+let base7 = '#fff';
 let base1o = "rgba(255, 255,255, .9)";
 
 let bk = "#99ccff"
@@ -266,6 +267,7 @@ if (dark) {
     base4 = '#304454';
     base5 = '#101424'
     base6 = "#101424";
+    base7 = '#536C7C';
     base1o = "rgba(172, 198, 226, 0.9)"
 
     bk = "#536C7C"
@@ -519,7 +521,7 @@ const pastData = StyleSheet.create({
 
     container: {
         flex: 1,
-        backgroundColor: base1,
+        backgroundColor: base7,
     },
 
     content: {
@@ -571,14 +573,14 @@ const pastData = StyleSheet.create({
     labelContainer: {
         flexDirection: "row",
         height: vw(8),
-        width: vw(76),
+        width: vw(66),
         marginLeft: "auto",
         marginRight: "auto",
         marginTop: vw(4),
         justifyContent: "space-evenly",
         alignItems: "center",
         backgroundColor: base2,
-        borderRadius: vw(4),
+        borderRadius: vw(2),
         margin: vw(4)
     },
 
@@ -591,9 +593,9 @@ const pastData = StyleSheet.create({
     },
 
     labelStyle: {
-        width: vw(22),
+        width: vw(30),
         height: vw(6),
-        borderRadius: vw(3),
+        borderRadius: vw(2),
         justifyContent: "center",
         alignItems: "center",
         margin: vw(2),

@@ -43,6 +43,7 @@ export default (props) => {
       fontSize: width * .07,
       width: width,
       marginLeft: "auto",
+      marginRight: vw * .04,
       fontFamily: "BalooTamma2-Bold",
       color: "#000",
       textAlign: "center",
@@ -80,17 +81,9 @@ export default (props) => {
   });
 
   let ticks = 9;
-  let label = "ppm";
-  let side = true;
 
   if (props.title == "Glucometer") {
-    label = "mg/dL";
-    side = false;
     ticks = 5;
-  }
-
-  if (props.title == "Sugar Intaked") {
-    label = "grams"
   }
 
   const makeLine = (givenData) => {
@@ -119,15 +112,15 @@ export default (props) => {
     return [graph, html];
   }
 
-  const renderSide = (i) => {
-    if (i) {
+  const renderSide = () => {
+    if (props.label) {
       return (
         <View style={style.unitContainer}>
           <Text style={[style.unit,
           {
             transform: [{ rotate: '270deg' }]
           }]}>
-            {label}</Text>
+            {props.unit}</Text>
         </View>
       );
     } else {
@@ -140,7 +133,7 @@ export default (props) => {
   return (
     <View style={style.container}>
       <View style={style.content}>
-        {renderSide(side)}
+        {renderSide()}
         <View style={style.labelContainer}>
           {makeLine(props.data)[1]}
         </View>
