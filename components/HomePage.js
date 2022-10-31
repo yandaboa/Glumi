@@ -9,6 +9,7 @@ import HomeSVG from '../assets/HomeSVG.js';
 import DataSVG from '../assets/DataSVG.js';
 import InputSVG from '../assets/InputSVG.js';
 import SettingSVG from '../assets/SettingSVG.js';
+import InputDataWrap from './InputDataWrap.js';
 
 // import Tree from '../assets/Tree.js';
 
@@ -43,7 +44,7 @@ const HomePage = () => {
             />)
           }
         }} />
-      <Tab.Screen name="   " component={LogEvent}
+      <Tab.Screen name="   " component={InputDataWrap}
         options={{
           tabBarIcon: ({ focused }) => {
             return (<InputSVG
