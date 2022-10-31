@@ -47,14 +47,14 @@ export default () => {
                     <TextInput
                         style={login.input}
                         placeholder="email"
-                        placeholderTextColor={"rgba(0,0,0,.3)"}
+                        placeholderTextColor={"rgba(0,0,0,.5)"}
                         onChangeText={text => setEmail(text)}
                     ></TextInput>
                     <TextInput
                         secureTextEntry={true}
                         style={login.input}
                         placeholder="password"
-                        placeholderTextColor={"rgba(0,0,0,.3)"}
+                        placeholderTextColor={"rgba(0,0,0,.5)"}
                         onChangeText={text => setPassword(text)}
                     ></TextInput>
                     <View style={login.submit}>

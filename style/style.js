@@ -10,7 +10,7 @@ const login = StyleSheet.create({
     },
 
     background: {
-        backgroundColor: "#ffffff",
+        backgroundColor: "#eee",
         height: "100%",
         width: "100%",
         position: "absolute",
@@ -30,11 +30,15 @@ const login = StyleSheet.create({
     },
 
     input: {
-        backgroundColor: "#A6E5FF",
+        backgroundColor: "#fff",
+        shadowColor: "#000000",
+        shadowOffset: { width: vw(1), height: vw(1) },
+        shadowOpacity: .2,
+        shadowRadius: vw(2),
         height: vw(12),
         width: vw(80),
         margin: vw(2),
-        borderRadius: vh(12),
+        borderRadius: vw(4),
         fontFamily: "Comfortaa-Regular",
         letterSpacing: vw(1),
         fontSize: vw(5),
@@ -46,7 +50,7 @@ const login = StyleSheet.create({
         height: vw(10),
         width: vw(50),
         backgroundColor: "#38B346",
-        borderRadius: vh(12),
+        borderRadius: vw(4),
         justifyContent: "center",
         alignItems: "center",
         letterSpacing: vw(.75),
@@ -135,7 +139,7 @@ const logout = StyleSheet.create({
 
 const createAccount = StyleSheet.create({
     container: {
-        backgroundColor: "#ffffff",
+        backgroundColor: "#eee",
         justifyContent: "center",
         alignItems: "center",
         flex: 1,
@@ -165,7 +169,11 @@ const createAccount = StyleSheet.create({
 
     inputName: {
         width: vw(38),
-        backgroundColor: "#A6E5FF",
+        backgroundColor: "#fff",
+        shadowColor: "#000000",
+        shadowOffset: { width: vw(1), height: vw(1) },
+        shadowOpacity: .2,
+        shadowRadius: vw(2),
         height: vw(12),
         borderRadius: vh(12),
         fontFamily: "Comfortaa-Regular",
@@ -180,11 +188,15 @@ const createAccount = StyleSheet.create({
     },
 
     input: {
-        backgroundColor: "#A6E5FF",
+        backgroundColor: "#fff",
+        shadowColor: "#000000",
+        shadowOffset: { width: vw(1), height: vw(1) },
+        shadowOpacity: .2,
+        shadowRadius: vw(2),
         width: vw(80),
         height: vw(12),
         margin: vw(2),
-        borderRadius: vh(12),
+        borderRadius: vw(4),
         fontFamily: "Comfortaa-Regular",
         letterSpacing: vw(1),
         fontSize: vw(4),

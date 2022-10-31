@@ -8,7 +8,6 @@ import Login from './Login.js';
 import { useNavigation } from '@react-navigation/native';
 
 const CreateAccount = () => {
-    // const [signedIn, setSignedIn] = useState(false); dont think we need this, firebase has func
     const navigation = useNavigation();
 
     const [first, setFirst] = useState('');
@@ -16,13 +15,10 @@ const CreateAccount = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
 
-    // const reference = firebase.app().database().ref('/uers/123');
 
     const register = () => {
         createUserWithEmailAndPassword(authen, email, password)
             .then((e) => {
-                // const user = e.user;
-                // e.user.displayName = first + " " + last; doesn't really work, doesn't write to firebase
                 createUserData(e.user.uid, first + " " + last, email);
                 navigation.navigate("Login");
                 console.log("Registered with " + e.email);
@@ -33,17 +29,17 @@ const CreateAccount = () => {
 
     const handleLogin = () => {
         signInWithEmailAndPassword(authen, email, password)
-        .then((e) => {
-            // const user = e.user;
-            console.log("Logged in with" + e.email);
-        }).catch((e) => {
-            console.log(e);
-        })
+            .then((e) => {
+                // const user = e.user;
+                console.log("Logged in with" + e.email);
+            }).catch((e) => {
+                console.log(e);
+            })
     }
 
     return (
         <KeyboardAvoidingView style={createAccount.container}>
-            <Text style={createAccount.heading}>Welcome!</Text>
+            <Text style={createAccount.heading}>Hello There!</Text>
             <Text style={createAccount.title}>Name</Text>
             <View style={createAccount.name}>
                 <TextInput
@@ -84,7 +80,7 @@ const CreateAccount = () => {
             </View>
             <View style={createAccount.login}>
                 <Text style={createAccount.loginText} numberOfLines={1}>
-                    have an account? <Text onPress={() => {navigation.navigate("Login")}} style={createAccount.loginButton} >login</Text>
+                    have an account? <Text onPress={() => { navigation.navigate("Login") }} style={createAccount.loginButton} >login</Text>
                 </Text>
             </View>
         </KeyboardAvoidingView>

@@ -1,7 +1,7 @@
 import { authen, database, updateDataFire } from "../Firebase";
 import { getDatabase, ref, onValue, onChildAdded } from "firebase/database";
 import { onAuthStateChanged } from "firebase/auth";
-import {reloadData} from "./DeepHomePage";
+import { reloadData } from "./DeepHomePage";
 
 // export const Data = [
 //   { date: '2022-02-01T05:00:00.000Z', value: 250 },
@@ -30,7 +30,7 @@ function wrapListenerAce(){
 }
 
 onAuthStateChanged(authen, (user) => {
-  if(user != null) {
+  if (user != null) {
     userID = user.uid;
   }
   console.log(userID);
