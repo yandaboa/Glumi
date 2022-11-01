@@ -100,7 +100,6 @@ export default (props) => {
 
     const dataSet = (d, index, title) => {
         let key = title + index;
-        let date = new Date(d[0].date);
         return (
             <View key={key}>
                 <ScrollView
