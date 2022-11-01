@@ -35,18 +35,22 @@ export default (props) => {
   const [sliderElementActive, setSliderElementActive] = useState(0);
 
   const convertedAceData = [];
-  const BloodPressureData = BloodData[0];
+
+  const sliderElements = [
+    <BloodSugarAnalysis />,
+  ];
+
+  if (BloodData.length < 1) {
+    sliderElements.push(<Text> no data</Text>)
+  } else {
+    const BloodPressureData = BloodData[0];
+    sliderElements.push(<ExtendedBloodPressureGraph width={vw * .8} data={{ systolic: BloodPressureData.systolic, diastolic: BloodPressureData.diastolic }} />);
+  }
 
   let conversion = 107;
   AceData.forEach((i) => {
     convertedAceData.push({ date: i.date, value: i.value * conversion })
   });
-
-  const sliderElements = [
-    <BloodSugarAnalysis />,
-    <ExtendedBloodPressureGraph width={vw * .8} data={{ systolic: BloodPressureData.systolic, diastolic: BloodPressureData.diastolic }} />,
-  ];
-
 
   const scrolled = (nativeEvent) => {
     if (nativeEvent) {
@@ -57,17 +61,17 @@ export default (props) => {
     }
   }
 
-  const [aceGraph, setAceGraph] = useState(<BloodSugarGraph width={vw * .65} data={convertedAceData} title={"Gulcose Levels (breathanalyzer)"} unit="mg/dL" label={true}/>);
+  const [aceGraph, setAceGraph] = useState(<BloodSugarGraph width={vw * .65} data={convertedAceData} title={"Gulcose Levels (breathanalyzer)"} unit="mg/dL" label={true} />);
 
   useFocusEffect(
     React.useCallback(() => {
-      const unsubscribe = () => { 
+      const unsubscribe = () => {
         console.log("homepage focused");
-        setAceGraph(<BloodSugarGraph width={vw * .65} data={convertedAceData} title={"Gulcose Levels (breathanalyzer)"} unit="mg/dL" label={true}/>); 
+        setAceGraph(<BloodSugarGraph width={vw * .65} data={convertedAceData} title={"Gulcose Levels (breathanalyzer)"} unit="mg/dL" label={true} />);
         const darkModeRef = ref(database, 'users/' + authen.currentUser.uid);
         onValue(darkModeRef, (snapshot) => {
           const data = snapshot.val();
-          if(data.settings != null){
+          if (data.settings != null) {
             setDark(data.settings.isDarkMode);
           }
         })
@@ -77,7 +81,7 @@ export default (props) => {
     ))
 
   onAuthStateChanged(authen, (user) => {
-    const unsub = () => { setAceGraph(<BloodSugarGraph width={vw * .65} data={convertedAceData} title={"Gulcose Levels (breathanalyzer)"} unit="mg/dL" label={true}/>) };
+    const unsub = () => { setAceGraph(<BloodSugarGraph width={vw * .65} data={convertedAceData} title={"Gulcose Levels (breathanalyzer)"} unit="mg/dL" label={true} />) };
     return () => unsub();
   });
 

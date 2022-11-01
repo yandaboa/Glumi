@@ -9,6 +9,12 @@ import { useState } from 'react';
 import { onAuthStateChanged } from 'firebase/auth';
 
 export default (props) => {
+  if (props.data.length < 1) {
+    return (
+      <Text>no data</Text>
+    )
+  }
+
   const vw = Dimensions.get("window").width;
 
   const width = props.width;

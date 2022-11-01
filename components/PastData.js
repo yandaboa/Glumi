@@ -17,8 +17,36 @@ export default () => {
   const minHeaderHeight = vw * .15;
   const scrollDistance = maxHeaderHeight - minHeaderHeight;
 
-  const BloodPressureData = BloodData[0];
+  const renderBloodPressureGraph = () => {
+    if (BloodData.length < 1) {
+      return (
+        <Text>no data</Text>
+      )
+    } else {
+      const BloodPressureData = BloodData[0];
+      return (
+        <BloodPressureGraph width={vw} data={{ systolic: BloodPressureData.systolic, diastolic: BloodPressureData.diastolic }} />
+      )
+    }
+  }
 
+  const differenceInDays = 1000 * 24 * 60 * 60;
+
+  const pastDayData = [];
+  const pastWeekData = [];
+
+  if (AceData.length > 0) {
+    let startDate = new Date(AceData[0].date).getTime();
+    AceData.forEach((i) => {
+      let iDate = new Date(i.date).getTime();
+      if (Math.abs(startDate - iDate) / differenceInDays < 7) {
+        pastWeekData.push(i);
+        if (Math.abs(startDate - iDate) / differenceInDays < 1) {
+          pastDayData.push(i);
+        }
+      }
+    })
+  }
   const animatedHeaderHeight = scrollOffsetY.interpolate({
     inputRange: [0, scrollDistance],
     outputRange: [maxHeaderHeight, minHeaderHeight],
@@ -37,8 +65,8 @@ export default () => {
   )
 
   const mainElements = [
-    { title: "day", graph: <BloodSugarGraph width={vw * .6} data={AceData} title="Past Day (Acetone)" unit="ppm" label={true} /> },
-    { title: "week", graph: <BloodSugarGraph width={vw * .6} data={AceData} title="Past Week (Acetone)" unit="ppm" label={true} /> },
+    { title: "day", graph: <BloodSugarGraph width={vw * .6} data={pastDayData} title="Past Day (Acetone)" unit="ppm" label={true} /> },
+    { title: "week", graph: <BloodSugarGraph width={vw * .6} data={pastWeekData} title="Past Week (Acetone)" unit="ppm" label={true} /> },
   ];
 
   const [mainActive, setMainActive] = useState(0);
@@ -120,7 +148,7 @@ export default () => {
             <BloodSugarGraph width={vw * .4} data={GulData} title={"Glucometer"} label={false} />
           </View>
           <View style={pastData.content2}>
-            <BloodPressureGraph width={vw} data={{ systolic: BloodPressureData.systolic, diastolic: BloodPressureData.diastolic }} />
+            {renderBloodPressureGraph()}
           </View>
         </View>
         <View style={pastData.wrapper}>

@@ -114,7 +114,7 @@ export default (props) => {
                         <View style={[logEvent.dataElement, logEvent.leader]}>
                             <Text style={logEvent.leaderText}>time</Text>
                             <Text style={logEvent.leaderText}>data</Text>
-                            <Text style={logEvent.leaderText}>edit</Text>
+                            <Text style={logEvent.leaderText}>delete</Text>
                         </View>
                         {
                             d.map((i, index) =>
@@ -130,7 +130,7 @@ export default (props) => {
                                         <TouchableOpacity
                                             onPress={() => { setModalActive(true) }}
                                         >
-                                            <EditSVG />
+                                            <TrashSVG />
                                         </TouchableOpacity>
                                     </View>
                                 </View>
@@ -477,88 +477,6 @@ export default (props) => {
             <View style={logEvent.heading}>
                 <Text style={logEvent.headingText}>{props.title} Data</Text>
             </View>
-            <Modal
-                transparent={true}
-                visible={modalActive}
-            >
-                <View style={style.container}>
-                    <View style={style.content}>
-                        <View style={style.headingContainer}>
-                            <Text style={style.heading}>Edit Data</Text>
-                            <TouchableOpacity
-                                onPress={() => setModalActive(false)}
-                                style={style.iconContainer}
-                            >
-                                <AddSVG
-                                    fill="#000"
-                                    style={[style.icon,
-                                    {
-                                        transform: [{ rotate: '45deg' }]
-                                    }]}
-                                />
-                            </TouchableOpacity>
-                        </View>
-                        <ScrollView
-                            style={style.data}
-                            vertical={true}
-                            showsHorizontalScrollIndicator={false}
-                            scrollEventThrottle={200}
-                            decelerationRate="fast"
-                            pagingEnabled
-                        >
-                            {
-                                allData.map((a, b) =>
-                                    <View key={"allData" + b} style={style.dataContainer}>
-                                        <Text style={style.title}>{a.title}</Text>
-                                        <View style={[style.dataElement, style.leader]}>
-                                            <Text style={style.leaderText}>date</Text>
-                                            <Text style={style.leaderText}>time</Text>
-                                            <Text style={style.leaderText}>data</Text>
-                                        </View>
-                                        {
-                                            a.data.map((i, index) =>
-                                                <View style={
-                                                    [style.dataElement, style.first]}
-                                                    key={"d" + index}
-                                                >
-                                                    <View style={style.input}>
-                                                        <TextInput style={style.dataText}
-                                                            placeHolder={getStringDate(i.date)}
-                                                            onChangeText={(changed) => editField(changed, i, index, "date", a.title)}
-                                                        />
-                                                    </View>
-                                                    <View style={style.input}>
-                                                        <TextInput style={style.dataText}
-                                                            placeHolder={getStringTime(i.date)}
-                                                            onChangeText={(changed) => editField(changed, i, index, "time", a.title)}
-                                                        />
-                                                    </View>
-                                                    <View style={style.input}>
-                                                        <TextInput style={style.dataText}
-                                                            placeHolder={i.value}
-                                                            onChangeText={(changed) => editField(changed, i, index, "value", a.title)}
-                                                        />
-                                                    </View>
-                                                </View>
-                                            )
-                                        }
-                                        <View style={style.spacer} />
-                                    </View>
-                                )
-                            }
-                            <View style={style.filler} />
-                        </ScrollView>
-                        <TouchableOpacity
-                            onPress={() => submitEditData()}
-                            style={style.submitContainer}
-                        >
-                            <Text style={style.submit}>
-                                submit
-                            </Text>
-                        </TouchableOpacity>
-                    </View>
-                </View>
-            </Modal>
             <Modal
                 transparent={true}
                 visible={addModalActive}

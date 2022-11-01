@@ -4,6 +4,8 @@ import ArrowSVG from '../assets/ArrowSVG.js';
 import * as d3 from 'd3';
 
 export default (props) => {
+  
+
     const vw = Dimensions.get("window").width;
 
     const systolicScale = d3.scaleLinear()
