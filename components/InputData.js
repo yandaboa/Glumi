@@ -223,7 +223,6 @@ export default (props) => {
 
         iconContainer: {
             marginLeft: "auto",
-
         },
 
         icon: {
