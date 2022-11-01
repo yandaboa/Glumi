@@ -6,6 +6,7 @@ import BloodPressureGraph from './BloodPressureGraph.js';
 import SproutSVG from '../assets/SproutSVG.js';
 import { AceData, GulData, FoodData, BloodData } from './Data.js';
 import { useFocusEffect } from '@react-navigation/native';
+import { currUserName } from './Login.js';
 
 export default () => {
 
@@ -68,7 +69,7 @@ export default () => {
         { height: animatedHeaderHeight }
         ]}>
         <SproutSVG />
-        <Text style={pastData.name}>Bob Smith</Text>
+        <Text style={pastData.name}>{currUserName}</Text>
       </Animated.View>
       <ScrollView
         style={pastData.content}
