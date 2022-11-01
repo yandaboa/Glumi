@@ -4,7 +4,7 @@ import { logEvent } from '../style/style.js';
 import AddSVG from '../assets/AddSVG.js';
 import EditSVG from '../assets/EditSVG.js';
 import SelectList from 'react-native-dropdown-select-list'
-import { AceData, GulData, FoodData } from './Data.js';
+import { AceData, GulData, FoodData, clearSpecificData } from './Data.js';
 import { writeHealthData } from '../Firebase.js';
 import TrashSVG from '../assets/TrashSVG.js';
 
@@ -15,7 +15,6 @@ export function updateAce() {
     QedChanges[0].push("");
     QedChanges[1].push("");
     QedChanges[2].push(-1);
-
 }
 
 export function updateGlu() {
@@ -98,6 +97,10 @@ export default (props) => {
         return (i.toLocaleString("en-US", { month: "short" }) + " " + i.getDate());
     }
 
+    function deleteData(type){
+        clearSpecificData(type);
+    }
+
     const dataSet = (d, index, title) => {
         let key = title + index;
         return (
@@ -127,7 +130,7 @@ export default (props) => {
                                     <Text style={logEvent.dataText}>{i.value}</Text>
                                     <View style={logEvent.iconContainer}>
                                         <TouchableOpacity
-                                            onPress={() => { setModalActive(true) }}
+                                            onPress={() => {deleteData(title) }}
                                         >
                                             <TrashSVG />
                                         </TouchableOpacity>
@@ -414,6 +417,7 @@ export default (props) => {
             setSubmittingDate("");
             setSubmittingTime("");
             setSubmittingValue("");
+            setAddModalActive(false);
             writeHealthData(dataType, healthKey, healthVal);
         }
     }
@@ -498,27 +502,24 @@ export default (props) => {
                             </TouchableOpacity>
                         </View>
                         <View style={style.addContentContent}>
-                            <Text style={style.addTitle}>date:</Text>
+                            <Text style={style.addTitle}>date: mm/dd/yyyy</Text>
                             <TextInput
                                 value={submittingDate}
                                 style={style.addInput}
-                                value={textd}
-                                onChangeText={setTextd}
+                                onChangeText={(i) => { setSubmittingDate(i) }}
 
                             // onChangeText={(i) => { setSubmittingDate(i) }}
                             />
-                            <Text style={style.addTitle}>time:</Text>
+                            <Text style={style.addTitle}>time: hh:mm</Text>
                             <TextInput
                                 value={submittingTime}
                                 style={style.addInput}
-                                value='hh:mm'
                                 onChangeText={(i) => { setSubmittingTime(i) }}
                             />
                             <Text style={style.addTitle}>value:</Text>
                             <TextInput
                                 value={submittingValue}
                                 style={style.addInput}
-                                value='000'
                                 onChangeText={(i) => { setSubmittingValue(i) }}
                             />
                             <TouchableOpacity

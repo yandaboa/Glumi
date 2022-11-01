@@ -48,8 +48,8 @@ function updateSettings(userID, isDarkMode){
 function writeHealthData(dataType, key, val){
 
     const dataListRef = ref(database, 'users/' + authen.currentUser.uid + '/data/' + dataType + '/' + key);
-
-    set(dataListRef, val);
+    let temp = parseFloat(val);
+    set(dataListRef, temp);
 }
 
 function editKey(dataType, key, value){
@@ -66,6 +66,11 @@ const getStringDate = (d) => {
     let day = date.getDate();
     let year = date.getFullYear();
     return (month + "/" + day + "/" + year);
+}
+
+export function clearSpecData(type){
+    set(ref(database, 'users/' + authen.currentUser.uid + '/data/' + type), {
+    })
 }
 
 let test = getStringDate("02-01-1997T11:08");

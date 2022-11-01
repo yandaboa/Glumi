@@ -1,4 +1,4 @@
-import { authen, database, updateDataFire } from "../Firebase";
+import { authen, clearSpecData, database, updateDataFire } from "../Firebase";
 import { getDatabase, ref, onValue, onChildAdded } from "firebase/database";
 import { onAuthStateChanged } from "firebase/auth";
 import { reloadData } from "./DeepHomePage";
@@ -40,6 +40,7 @@ onAuthStateChanged(authen, (user) => {
   wrapListenerAce();
   wrapListenerGlu();
   wrapListenerFood();
+  wrapListenerBloodPress();
 });
 
 function wrapListenerGlu() {
@@ -47,7 +48,7 @@ function wrapListenerGlu() {
   onChildAdded(dataGluRef, (data) => {
     let temp = data.key + ":00.000Z";
     GulData.push({ date: temp, value: data.val() });
-    updateGlu();
+    // updateGlu();
   });
 }
 function wrapListenerFood() {
@@ -55,8 +56,42 @@ function wrapListenerFood() {
   onChildAdded(dataFoodRef, (data) => {
     let temp = data.key + ":00.000Z";
     FoodData.push({ date: temp, value: data.val() });
-    updateFood();
+    // updateFood();
   });
+}
+
+function wrapListenerBloodPress() {
+  dataFoodRef = ref(database, "/users/" + userID + "/data/BloodPress/");
+  onChildAdded(dataFoodRef, (data) => {
+    let temp = data.key + ":00.000Z";
+    let stringVal = data.val();
+    console.log(stringVal);
+    let temp2 = stringVal.split(" ");
+    let systolic = temp2[0];
+    let diastolic = temp2[1];
+    BloodData.push({ date: temp, systolic: systolic, diastolic: diastolic });
+    // updateFood();
+  });
+}
+
+export function clearSpecificData(type){
+  if(type==="Breathanalyzer"){
+    while (AceData.length > 0) {
+      AceData.pop();
+    }
+    clearSpecData("Breathanalyzer");
+  } else if(type === "Glucometer"){
+    while (GulData.length > 0) {
+      GulData.pop();
+    }
+    clearSpecData("Glucometer");
+  } else {
+    while (FoodData.length > 0) {
+      FoodData.pop();
+    }
+    clearSpecData("Food");
+
+  }
 }
 
 export function clearData() {
