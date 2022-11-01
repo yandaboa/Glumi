@@ -895,8 +895,6 @@ export function createStyleSheets(){
     
 
 }
-
-
 let dark = false;
 let base = "#fff";
 let base1 = "#fff";
