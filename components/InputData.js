@@ -8,6 +8,37 @@ import { AceData, GulData, FoodData } from './Data.js';
 import { writeHealthData } from '../Firebase.js';
 import TrashSVG from '../assets/TrashSVG.js';
 
+let QedChanges = [[], [], [], [], [], [], [], [], []];
+// ace, glu, food
+
+export function updateAce(){
+    QedChanges[0].push("");
+    QedChanges[1].push("");
+    QedChanges[2].push(-1);
+    
+}
+
+export function updateGlu() {
+    console.log("Glu updated");
+    QedChanges[3].push("");
+    QedChanges[4].push("");
+    QedChanges[5].push(-1);
+}
+
+export function updateFood() {
+    QedChanges[6].push("");
+    QedChanges[7].push("");
+    QedChanges[8].push(-1);
+}
+
+export function clearQedChanges() {
+    QedChanges.map((dataRow) => {
+        while(dataRow.length > 0){
+            dataRow.pop();
+        }
+    })
+}
+
 export default (props) => {
     const vw = Dimensions.get("window").width;
     const vh = Dimensions.get("window").height;
@@ -401,18 +432,43 @@ export default (props) => {
     const [editedValue, setEditedValue] = useState(0);
 
     const editField = (changedTo, prev, index, type, dataType) => {
-        let dateArr = prev.split(/[-T:]+/);
-        previousDate = dateArr[0] + "-" + dateArr[1] + "-" + dateArr[2];
-        previousTime = dateArr[3] + ":" + dateArr[4];
-        previousValue = prev.value;
-        if (type === "date") {
-            // editedDate[]
-        } else if (type === "time") {
-        } else {
-        }
-    }
-    const submitEditData = () => {
+        const dataTypes = new Map([
+            ["Breathanalyzer Data", 0],
+            ["Glucometer Data", 3],
+            ["Sugar Intaked", 6]
+        ])
+        let dataTypeIndex = dataTypes.get(dataType);
 
+        // let dateArr = prev.split(/[-T:]+/);
+        // previousDate = dateArr[0] + "-" + dateArr[1] + "-" + dateArr[2];
+        // previousTime = dateArr[3] + ":" + dateArr[4];
+        // previousValue = prev.value;
+        if (type === "date") {
+            QedChanges[dataTypeIndex][index] = changedTo;
+        } else if (type === "time") {
+            QedChanges[dataTypeIndex + 1][index] = changedTo;
+        } else {
+            QedChanges[dataTypeIndex + 2][index] = changedTo;
+        }
+        console.log(QedChanges);
+    }
+
+    const submitEditData = () => {
+        QedChanges.map((dataRow, index1) => {
+            dataRow.map((value, index2) => {
+                if(value != "" || value != -1){
+                    if(index1 < 3){
+                        if(index1 === 1 || index1 === 0){
+                            let temp = AceData[index2].split(/[-T]+/);
+                            if(index1 === 1) {
+                                temp[2];
+                            }
+                        }
+                    }
+
+                }
+            })
+        })
     }
 
     return (
@@ -467,19 +523,19 @@ export default (props) => {
                                                     <View style={style.input}>
                                                         <TextInput style={style.dataText}
                                                             placeHolder={getStringDate(i.date)}
-                                                            onChangeText={(a) => editData(a, i, index, "date", a.title)}
+                                                            onChangeText={(changed) => editField(changed, i, index, "date", a.title)}
                                                         />
                                                     </View>
                                                     <View style={style.input}>
                                                         <TextInput style={style.dataText}
                                                             placeHolder={getStringTime(i.date)}
-                                                            onChangeText={(a) => editData(a, i, index, "time", a.title)}
+                                                            onChangeText={(changed) => editField(changed, i, index, "time", a.title)}
                                                         />
                                                     </View>
                                                     <View style={style.input}>
                                                         <TextInput style={style.dataText}
                                                             placeHolder={i.value}
-                                                            onChangeText={(a) => editData(a, i, index, "value", a.title)}
+                                                            onChangeText={(changed) => editField(changed, i, index, "value", a.title)}
                                                         />
                                                     </View>
                                                 </View>
