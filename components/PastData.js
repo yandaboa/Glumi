@@ -37,8 +37,8 @@ export default () => {
   )
 
   const mainElements = [
-    { title: "day", graph: <BloodSugarGraph width={vw * .6} data={AceData} title="Today" unit="ppm" label={true} /> },
-    { title: "week", graph: <BloodSugarGraph width={vw * .6} data={GulData} title="Past Week" unit="ppm" label={true} /> },
+    { title: "day", graph: <BloodSugarGraph width={vw * .6} data={AceData} title="Past Day (Acetone)" unit="ppm" label={true} /> },
+    { title: "week", graph: <BloodSugarGraph width={vw * .6} data={AceData} title="Past Week (Acetone)" unit="ppm" label={true} /> },
   ];
 
   const [mainActive, setMainActive] = useState(0);

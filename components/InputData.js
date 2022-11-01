@@ -11,11 +11,11 @@ import TrashSVG from '../assets/TrashSVG.js';
 let QedChanges = [[], [], [], [], [], [], [], [], []];
 // ace, glu, food
 
-export function updateAce(){
+export function updateAce() {
     QedChanges[0].push("");
     QedChanges[1].push("");
     QedChanges[2].push(-1);
-    
+
 }
 
 export function updateGlu() {
@@ -33,7 +33,7 @@ export function updateFood() {
 
 export function clearQedChanges() {
     QedChanges.map((dataRow) => {
-        while(dataRow.length > 0){
+        while (dataRow.length > 0) {
             dataRow.pop();
         }
     })
@@ -218,8 +218,8 @@ export default (props) => {
 
     const dark = false;
 
-    let base = '#fff';
-    let base1 = '#ddd';
+    let base1 = '#fff';
+    let base = '#ddd';
     if (dark) {
         base = '#acc6e2';
         base1 = '#567AB4';
@@ -455,11 +455,11 @@ export default (props) => {
     const submitEditData = () => {
         QedChanges.map((dataRow, index1) => {
             dataRow.map((value, index2) => {
-                if(value != "" || value != -1){
-                    if(index1 < 3){
-                        if(index1 === 1 || index1 === 0){
+                if (value != "" || value != -1) {
+                    if (index1 < 3) {
+                        if (index1 === 1 || index1 === 0) {
                             let temp = AceData[index2].split(/[-T]+/);
-                            if(index1 === 1) {
+                            if (index1 === 1) {
                                 temp[2];
                             }
                         }
@@ -469,6 +469,8 @@ export default (props) => {
             })
         })
     }
+
+    const [textd, setTextd] = useState("mm/dd/yyyy");
 
     return (
         <>
@@ -583,22 +585,23 @@ export default (props) => {
                             <TextInput
                                 value={submittingDate}
                                 style={style.addInput}
-                                placeHolder='mm/dd/yyyy'
-                                placeHolderTextColor={'#000'}
-                                onChangeText={(i) => { setSubmittingDate(i) }}
+                                value={textd}
+                                onChangeText={setTextd}
+
+                            // onChangeText={(i) => { setSubmittingDate(i) }}
                             />
                             <Text style={style.addTitle}>time:</Text>
                             <TextInput
                                 value={submittingTime}
                                 style={style.addInput}
-                                placeHolder='hh:mm'
+                                value='hh:mm'
                                 onChangeText={(i) => { setSubmittingTime(i) }}
                             />
                             <Text style={style.addTitle}>value:</Text>
                             <TextInput
                                 value={submittingValue}
                                 style={style.addInput}
-                                placeHolder='000'
+                                value='000'
                                 onChangeText={(i) => { setSubmittingValue(i) }}
                             />
                             <TouchableOpacity

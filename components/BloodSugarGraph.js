@@ -82,6 +82,10 @@ export default (props) => {
 
   let ticks = 9;
 
+  if (props.title == "Sugar Intaked") {
+    ticks = 7;
+  }
+
   if (props.title == "Glucometer") {
     ticks = 5;
   }
