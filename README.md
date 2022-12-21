@@ -1,5 +1,5 @@
 # Glumi
-Diabetes management app
+Diabetes management app // winner of the 2022 Congressional App Challenge WA08
 
 Glumi is a more convenient, non-invasive blood glucose measuring and tracking system for diabetics. Based on multiple clinical studies’ findings of a strong correlation between breath acetone and blood glucose, our smart IoT device – the Breathanalyzer – allows users to breathe into its mouthpiece, where a sensor records breath acetone levels. By holding the pair device button on the app’s settings page, the user can pair their  Breathanalyzer with their app, allowing the Breathanalyzer to push acetone readings to the app, where they will be tracked
 
